@@ -71,34 +71,10 @@ const CAMPING = {
     mapsUrl: "https://www.google.com/maps"
   },
 
+  // La rubrique AUJOURD'HUI est maintenant remplie automatiquement
+  // à partir de "planning" ci-dessous. Tu n'as rien à modifier ici.
   today: {
-    title: textStyle("Les infos du jour", { color: "green-dark", bold: true }),
-    items: [
-      {
-        icon: "🏊",
-        title: textStyle("Espace Aquatique", { color: "blue", bold: true }),
-        time: textStyle("10H-20H", { color: "green-dark", bold: true }),
-        note: textStyle("Ouverte ✔️", { color: "green", bold: true })
-      },
-      {
-        icon: "🎉",
-        title: textStyle("Animation", { color: "orange", bold: true }),
-        time: textStyle("À compléter", { color: "gray" }),
-        note: textStyle("Programme", { color: "orange" })
-      },
-      {
-        icon: "🍽️",
-        title: textStyle("Restaurant", { color: "orange", bold: true }),
-        time: textStyle("À compléter", { color: "gray" }),
-        note: textStyle("Sur place", { color: "green" })
-      },
-      {
-        icon: "🛒",
-        title: textStyle("Épicerie", { color: "green", bold: true }),
-        time: textStyle("À compléter", { color: "gray" }),
-        note: textStyle("Services", { color: "blue" })
-      }
-    ]
+    title: textStyle("AUJOURD'HUI", { color: "green-dark", bold: true })
   },
 
   region: {
@@ -120,28 +96,58 @@ const CAMPING = {
   ],
 
   planning: [
-    { day: textStyle("Lundi", { color: "green-dark", bold: true }), events: [
-      { text: "10h00 • Aquagym", color: "blue", bold: true },
-      { text: "21h00 • Soirée", color: "pink", bold: true, size: "large" }
-    ]},
-    { day: textStyle("Mardi", { color: "green-dark", bold: true }), events: [
-      { text: "À compléter", color: "gray" }
-    ]},
-    { day: textStyle("Mercredi", { color: "green-dark", bold: true }), events: [
-      { text: "À compléter", color: "orange" }
-    ]},
-    { day: textStyle("Jeudi", { color: "green-dark", bold: true }), events: [
-      { text: "À compléter", color: "purple" }
-    ]},
-    { day: textStyle("Vendredi", { color: "green-dark", bold: true }), events: [
-      { text: "À compléter", color: "pink" }
-    ]},
-    { day: textStyle("Samedi", { color: "green-dark", bold: true }), events: [
-      { text: "À compléter", color: "teal" }
-    ]},
-    { day: textStyle("Dimanche", { color: "green-dark", bold: true }), events: [
-      { text: "20h00 • Pot d'accueil (juillet & août)", color: "green", bold: true }
-    ]}
+    {
+      day: "Lundi",
+      events: [
+        { text: "10h00 • Aquagym", color: "blue", bold: true, icon: "🏊" },
+        { text: "15h00 • Tournoi de pétanque", color: "green", icon: "🎯" },
+        { text: "21h00 • Soirée mousse", color: "pink", bold: true, size: "large", icon: "🎉" }
+      ]
+    },
+    {
+      day: "Mardi",
+      events: [
+        { text: "10h30 • Réveil musculaire", color: "orange", icon: "💪" },
+        { text: "17h00 • Jeux apéro", color: "green", icon: "🎲" },
+        { text: "21h00 • Soirée dansante", color: "purple", bold: true, icon: "💃" }
+      ]
+    },
+    {
+      day: "Mercredi",
+      events: [
+        { text: "10h00 • Aquagym", color: "blue", bold: true, icon: "🏊" },
+        { text: "15h00 • Activité enfants", color: "orange", icon: "🧒" },
+        { text: "21h00 • Cabaret", color: "purple", bold: true, size: "large", icon: "🎭" }
+      ]
+    },
+    {
+      day: "Jeudi",
+      events: [
+        { text: "10h30 • Tournoi sportif", color: "green", icon: "🏆" },
+        { text: "21h00 • Animation du soir", color: "pink", bold: true, icon: "🎉" }
+      ]
+    },
+    {
+      day: "Vendredi",
+      events: [
+        { text: "10h00 • Aquagym", color: "blue", bold: true, icon: "🏊" },
+        { text: "15h00 • Pétanque", color: "green", icon: "🎯" },
+        { text: "21h00 • Grande soirée", color: "red", bold: true, size: "large", icon: "🔥" }
+      ]
+    },
+    {
+      day: "Samedi",
+      events: [
+        { text: "11h00 • Animation piscine", color: "blue", icon: "🌊" },
+        { text: "21h00 • Soirée", color: "purple", bold: true, icon: "🎉" }
+      ]
+    },
+    {
+      day: "Dimanche",
+      events: [
+        { text: "20h00 • Pot d'accueil (juillet & août)", color: "green", bold: true, icon: "🥂" }
+      ]
+    }
   ],
 
   sections: {

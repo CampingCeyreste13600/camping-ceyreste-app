@@ -45,3 +45,33 @@ main{max-width:780px;margin:auto;padding:0 16px}.welcome-card{position:relative;
 .photo-viewer img{max-width:95vw;max-height:88vh;object-fit:contain;border-radius:10px}
 .photo-close{position:absolute;right:16px;top:16px;width:44px;height:44px;border:0;border-radius:50%;background:white;color:#173a36;font-size:30px;line-height:1}
 @media(min-width:680px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ===== PROGRAMME AUTOMATIQUE "AUJOURD'HUI" ===== */
+.today-program-item{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  padding:12px 8px;
+  border-top:1px solid #eadfcb;
+}
+.today-program-icon{
+  font-size:23px;
+  line-height:1.1;
+  min-width:27px;
+}
+.today-program-text{
+  flex:1;
+  font-size:12px;
+  line-height:1.45;
+}
+.today-empty{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:18px 8px;
+  color:var(--muted);
+}
+.today-empty>span{font-size:30px}
+.today-empty b,.today-empty small{display:block}
+.today-empty b{font-size:13px;color:var(--ink)}
+.today-empty small{font-size:11px;margin-top:3px;line-height:1.4}

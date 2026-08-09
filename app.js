@@ -129,12 +129,59 @@ function renderTiles(){
 }
 renderTiles();
 
+function getFrenchDayName(date = new Date()){
+  return new Intl.DateTimeFormat("fr-FR", { weekday: "long" }).format(date);
+}
+
+function getTodayPlanning(){
+  const todayName = getFrenchDayName().toLowerCase();
+  const days = Array.isArray(CAMPING.planning) ? CAMPING.planning : [];
+  return days.find(day => plainText(day.day).toLowerCase() === todayName) || null;
+}
+
 function renderToday(){
-  document.querySelector("#todayItems").innerHTML=CAMPING.today.items.map(i=>`
-    <div class="today-item">
-      <span class="today-icon">${i.icon}</span>
-      <div><b>${renderText(i.title)}</b><strong>${renderText(i.time)}</strong><small>${renderText(i.note)}</small></div>
-    </div>`).join("");
+  const today = getTodayPlanning();
+  const titleEl = document.querySelector("#todayTitle");
+  const itemsEl = document.querySelector("#todayItems");
+
+  const dateText = new Intl.DateTimeFormat("fr-FR", {
+    weekday:"long", day:"numeric", month:"long"
+  }).format(new Date());
+
+  if(titleEl){
+    titleEl.innerHTML = `
+      ${renderText("AUJOURD'HUI", "txt-green-dark txt-bold")}
+      <span class="today-date">• ${escapeHtml(dateText)}</span>
+    `;
+  }
+
+  if(!itemsEl) return;
+
+  if(!today || !today.events || today.events.length === 0){
+    itemsEl.innerHTML = `
+      <div class="today-empty">
+        <span>😴</span>
+        <div>
+          <b>Aucune animation prévue aujourd'hui</b>
+          <small>Profitez pleinement de votre journée au Camping de Ceyreste !</small>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  itemsEl.innerHTML = today.events.map(event => {
+    const e = typeof event === "string" ? { text: event } : event || {};
+    const text = e.text ?? "";
+    return `
+      <div class="today-program-item">
+        <span class="today-program-icon">${e.icon || "🎉"}</span>
+        <div class="today-program-text">
+          ${renderText(text)}
+        </div>
+      </div>
+    `;
+  }).join("");
 }
 renderToday();
 
@@ -202,8 +249,6 @@ document.querySelector("#drawer").addEventListener("click",e=>{
   if(e.target===document.querySelector("#drawer"))document.querySelector("#drawer").classList.add("hidden");
 });
 
-const date=new Intl.DateTimeFormat("fr-FR",{weekday:"long",day:"numeric",month:"long"}).format(new Date());
-document.querySelector("#todayTitle").innerHTML=`${renderText(CAMPING.today.title)} <span class="today-date">• ${escapeHtml(date)}</span>`;
 
 let deferredPrompt;
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredPrompt=e;document.querySelector("#installBtn").hidden=false;});
