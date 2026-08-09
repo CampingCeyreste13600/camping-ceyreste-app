@@ -252,6 +252,7 @@ function openSection(id){
   if(!section)return;
   document.querySelector("#modalContent").innerHTML=`
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
+    ${section.image ? `<img class="section-image" src="${escapeHtml(section.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
     <h2 class="modal-title">${renderText(section.title)}</h2>
     <p class="modal-intro">${renderText(section.intro)}</p>
     ${section.blocks.map(b=>`<article class="info-block"><h3>${renderText(b[0])}</h3><p>${renderText(b[1])}</p></article>`).join("")}
