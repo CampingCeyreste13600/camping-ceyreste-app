@@ -118,7 +118,7 @@ const CAMPING = {
           color: "orange",
           bold: true
         }),
-        time: "",
+        time: "8h30-00h",
         note: textStyle("Ouvert ✔️", {
           color: "green",
           bold: true
