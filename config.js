@@ -25,7 +25,7 @@
 */
 
 const CAMPING = {
-  name: "Camping de Ceyreste",
+  name: "Camp de Ceyreste",
   location: textStyle("Ceyreste • La Ciotat • Provence", { color: "white" }),
   welcome: textStyle("Bienvenue chez nous !", { color: "white", italic: true, bold: true }),
   headline: textStyle("Profitez pleinement de votre séjour", { color: "green-dark", bold: true }),
