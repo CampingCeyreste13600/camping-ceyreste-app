@@ -18,9 +18,12 @@
       <button class="icon-btn" id="installBtn" hidden aria-label="Installer">＋</button>
     </div>
     <div class="brand">
-      <div class="brand-mark">☀</div>
-      <div class="brand-name">CAMPING DE<br><strong>Ceyreste</strong></div>
-      <div class="stars">★ ★ ★</div>
+      <img id="campingLogo" class="camping-logo hidden" alt="Logo Camping de Ceyreste">
+      <div id="brandFallback">
+        <div class="brand-mark">☀</div>
+        <div class="brand-name">CAMPING DE<br><strong>Ceyreste</strong></div>
+        <div class="stars">★ ★ ★</div>
+      </div>
     </div>
     <div class="welcome" id="welcomeText"></div>
   </header>
@@ -55,6 +58,12 @@
         <p id="regionText"></p>
         <button class="light-btn" data-open="region">Explorer →</button>
       </div>
+    </section>
+
+    <section class="gallery-card" id="galleryCard" hidden>
+      <div class="eyebrow dark">PHOTOS DU CAMPING</div>
+      <h2>Découvrez le camping</h2>
+      <div id="galleryGrid" class="gallery-grid"></div>
     </section>
 
     <section class="help-card">

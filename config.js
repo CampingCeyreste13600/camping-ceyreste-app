@@ -45,6 +45,19 @@ function textStyle(text, options = {}) {
 */
 
 const CAMPING = {
+  // ==================== PHOTOS ====================
+  // Mets les images dans le dossier "images" du dépôt GitHub.
+  // Puis indique ici leur nom.
+  images: {
+    logo: "",       // ex: "images/logo.png"
+    accueil: "",   // ex: "images/accueil.jpg"
+    region: "",    // ex: "images/calanques.jpg"
+    gallery: [
+      // "images/photo1.jpg",
+      // "images/photo2.jpg"
+    ]
+  },
+
   name: "Camping de Ceyreste",
   location: textStyle("Ceyreste • La Ciotat • Provence", { color: "white" }),
   welcome: textStyle("Bienvenue chez nous !", { color: "white", italic: true, bold: true }),

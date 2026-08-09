@@ -45,10 +45,69 @@ function plainText(value){
   return value && typeof value==="object" && value.__styledText ? value.text : String(value ?? "");
 }
 
+
+function setupImages(){
+  const images=CAMPING.images || {};
+  const logo=document.querySelector("#campingLogo");
+  const fallback=document.querySelector("#brandFallback");
+
+  if(logo && images.logo){
+    logo.src=images.logo;
+    logo.classList.remove("hidden");
+    fallback?.classList.add("hidden");
+    logo.onerror=()=>{ logo.classList.add("hidden"); fallback?.classList.remove("hidden"); };
+  }
+
+  const hero=document.querySelector(".hero");
+  if(hero && images.accueil){
+    hero.style.setProperty("--hero-image", `url("${images.accueil}")`);
+    hero.classList.add("has-hero-image");
+  }
+
+  const region=document.querySelector("#regionCard");
+  if(region && images.region){
+    region.style.setProperty("--region-image", `url("${images.region}")`);
+    region.classList.add("has-region-image");
+  }
+
+  const photos=Array.isArray(images.gallery) ? images.gallery.filter(Boolean) : [];
+  const card=document.querySelector("#galleryCard");
+  const grid=document.querySelector("#galleryGrid");
+  if(card && grid && photos.length){
+    card.hidden=false;
+    grid.innerHTML=photos.map((src,i)=>`
+      <button class="gallery-item" type="button">
+        <img src="${escapeHtml(src)}" alt="Photo du camping ${i+1}" loading="lazy"
+             onerror="this.closest('.gallery-item').style.display='none'">
+      </button>
+    `).join("");
+    grid.querySelectorAll(".gallery-item").forEach((btn,i)=>{
+      btn.onclick=()=>openPhoto(photos[i]);
+    });
+  }
+}
+
+function openPhoto(src){
+  let viewer=document.querySelector("#photoViewer");
+  if(!viewer){
+    viewer=document.createElement("div");
+    viewer.id="photoViewer";
+    viewer.className="photo-viewer";
+    viewer.innerHTML=`<button class="photo-close" aria-label="Fermer">×</button><img alt="Photo du camping">`;
+    document.body.appendChild(viewer);
+    viewer.querySelector(".photo-close").onclick=()=>viewer.classList.remove("show");
+    viewer.onclick=e=>{if(e.target===viewer)viewer.classList.remove("show")};
+  }
+  viewer.querySelector("img").src=src;
+  viewer.classList.add("show");
+}
+
 function setText(id,value){
   const el=document.querySelector(id);
   if(el) el.innerHTML=renderText(value);
 }
+
+setupImages();
 
 setText("#welcomeText", CAMPING.welcome);
 setText("#headline", CAMPING.headline);

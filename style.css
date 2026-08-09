@@ -28,3 +28,20 @@ main{max-width:780px;margin:auto;padding:0 16px}.welcome-card{position:relative;
 /* ===== TEXTES PERSONNALISABLES DEPUIS config.js ===== */
 .styled-text{color:var(--txt-color,var(--ink));background:var(--txt-bg,transparent);display:inline}.txt-green{--txt-color:#5d8b2d}.txt-green-dark{--txt-color:#0d5e58}.txt-blue{--txt-color:#1475b8}.txt-orange{--txt-color:#e07913}.txt-red{--txt-color:#cf4139}.txt-purple{--txt-color:#7659bd}.txt-pink{--txt-color:#d84f91}.txt-teal{--txt-color:#218d92}.txt-yellow{--txt-color:#b48a16}.txt-gray{--txt-color:#6b7773}.txt-dark{--txt-color:#173a36}.txt-white{--txt-color:#fff}.txt-bold{font-weight:800}.txt-italic{font-style:italic}.txt-small{font-size:.78em}.txt-normal{font-size:1em}.txt-large{font-size:1.18em}.txt-xl{font-size:1.45em}.txt-align-left{text-align:left}.txt-align-center{text-align:center}.txt-align-right{text-align:right}.today-date{font-size:.8em;color:var(--muted);font-weight:500}
 @media(min-width:680px){.tiles{grid-template-columns:repeat(3,1fr)}.today-items{grid-template-columns:repeat(4,1fr)}.today-item{border-right:1px solid #eadfcb;border-top:0}.today-item:last-child{border-right:0}}
+
+
+/* ===== PHOTOS / LOGO ===== */
+.camping-logo{max-width:190px;max-height:105px;object-fit:contain;display:block;margin:0 auto 8px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.18))}
+.hero.has-hero-image{background-image:linear-gradient(180deg,rgba(20,70,95,.35),rgba(10,55,50,.35)),var(--hero-image);background-size:cover;background-position:center}
+.region-card.has-region-image{background-image:linear-gradient(135deg,rgba(23,110,120,.72),rgba(28,155,177,.55)),var(--region-image);background-size:cover;background-position:center}
+.gallery-card{background:white;border:1px solid var(--line);border-radius:23px;margin:16px 0;padding:18px;box-shadow:0 5px 18px rgba(80,60,30,.05)}
+.gallery-card h2{margin:5px 0 14px;font-size:20px}
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.gallery-item{border:0;padding:0;background:none;border-radius:15px;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .2s}
+.gallery-item:active img{transform:scale(.97)}
+.photo-viewer{position:fixed;z-index:100;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:20px}
+.photo-viewer.show{display:flex}
+.photo-viewer img{max-width:95vw;max-height:88vh;object-fit:contain;border-radius:10px}
+.photo-close{position:absolute;right:16px;top:16px;width:44px;height:44px;border:0;border-radius:50%;background:white;color:#173a36;font-size:30px;line-height:1}
+@media(min-width:680px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
