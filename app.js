@@ -55,12 +55,31 @@ function openSection(id){
 }
 
 function openPlanning(){
+  const safeColor = (value) => {
+    if(!value) return "";
+    const named = ["green","blue","orange","red","purple","pink","teal","yellow"];
+    if(named.includes(String(value).toLowerCase())) return String(value).toLowerCase();
+    if(/^#[0-9a-fA-F]{3,8}$/.test(String(value))) return String(value);
+    if(/^rgb(a)?\([0-9\s,./%]+\)$/.test(String(value))) return String(value);
+    return "";
+  };
+
+  const eventHtml = (event) => {
+    // Compatibilité avec l'ancien format : ["10h00 • Aquagym"]
+    const e = typeof event === "string" ? {text:event} : event;
+    const text = e?.text ?? "";
+    const color = safeColor(e?.color);
+    const style = color && color.startsWith("#") ? `style="--event-color:${color}"` : "";
+    const cls = `event ${color && !color.startsWith("#") ? `event-${color}` : ""} ${e?.bold ? "event-bold" : ""} ${e?.size==="small" ? "event-small" : ""} ${e?.size==="large" ? "event-large" : ""}`;
+    return `<div class="${cls}" ${style}>${text}</div>`;
+  };
+
   $("#modalContent").innerHTML = `
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
     <h2 class="modal-title">📅 Programme de la semaine</h2>
-    <p class="modal-intro">Le planning peut être modifié chaque semaine dans <b>config.js</b>.</p>
+    <p class="modal-intro">Le planning peut être modifié dans <b>config.js</b>. Tu peux aussi choisir la couleur et le gras de chaque animation.</p>
     <div class="planning">${CAMPING.planning.map(d=>`
-      <div class="planning-day"><b>${d.day}</b><div>${d.events.map(e=>`<div class="event">${e}</div>`).join("")}</div></div>
+      <div class="planning-day"><b>${d.day}</b><div>${d.events.map(eventHtml).join("")}</div></div>
     `).join("")}</div>
   `;
   $("#modal").classList.remove("hidden");

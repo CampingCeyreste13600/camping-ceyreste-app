@@ -1,9 +1,10 @@
 /*
-  ============================================================
-  FICHIER À MODIFIER FACILEMENT
-  ============================================================
-  Tu pourras changer les informations de l'application ici,
-  sans toucher au reste du site.
+  CONFIGURATION DE L'APPLICATION
+  Tu peux modifier les textes ici.
+  Pour les animations, tu peux maintenant choisir la couleur, le gras et la taille.
+
+  Couleurs acceptées : "green", "blue", "orange", "red", "purple", "pink", "teal", "yellow"
+  ou une couleur HTML comme "#ff4b8b".
 */
 
 const CAMPING = {
@@ -33,7 +34,7 @@ const CAMPING = {
   region: {
     title: "La Ciotat, Cassis & les Calanques",
     text: "Plages, ports, calanques, balades et activités : découvrez notre région.",
-    image: "", // Tu pourras mettre ici une URL d'image plus tard.
+    image: ""
   },
 
   menu: [
@@ -48,14 +49,36 @@ const CAMPING = {
     { id: "emergency", icon: "🚨", title: "Urgences", desc: "Numéros importants" }
   ],
 
+  /*
+    EXEMPLE DE COULEURS :
+    { text: "10h00 • Aquagym", color: "blue" }
+    { text: "21h00 • Soirée mousse", color: "pink", bold: true }
+    { text: "⚠️ Réservation obligatoire", color: "red", bold: true, size: "small" }
+
+    Tu peux utiliser une couleur nommée ou un code comme "#ff69b4".
+  */
   planning: [
-    { day: "Lundi", events: ["À compléter"] },
-    { day: "Mardi", events: ["À compléter"] },
-    { day: "Mercredi", events: ["À compléter"] },
-    { day: "Jeudi", events: ["À compléter"] },
-    { day: "Vendredi", events: ["À compléter"] },
-    { day: "Samedi", events: ["À compléter"] },
-    { day: "Dimanche", events: ["20h00 • Pot d'accueil (juillet & août)"] }
+    { day: "Lundi", events: [
+      { text: "À compléter", color: "green" }
+    ]},
+    { day: "Mardi", events: [
+      { text: "À compléter", color: "blue" }
+    ]},
+    { day: "Mercredi", events: [
+      { text: "À compléter", color: "orange" }
+    ]},
+    { day: "Jeudi", events: [
+      { text: "À compléter", color: "purple" }
+    ]},
+    { day: "Vendredi", events: [
+      { text: "À compléter", color: "pink" }
+    ]},
+    { day: "Samedi", events: [
+      { text: "À compléter", color: "teal" }
+    ]},
+    { day: "Dimanche", events: [
+      { text: "20h00 • Pot d'accueil (juillet & août)", color: "green", bold: true }
+    ]}
   ],
 
   sections: {
