@@ -159,7 +159,7 @@ const CAMPING = {
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "14h00 • Tournoi de Pétanque (inscription)", color: "green", icon: "🏆" },
         { text: "17h00 • Trampoline + Accrobranche", color: "green", icon: "🌲" },
-        { text: "21h00 • Election MISS et MISTER Camping", color: "pink", bold: true, icon: "👑" }
+        { text: "21h00 • Election MISS et MISTER Camping", color: "pink", bold: true, size: "large", icon: "👑" }
       ]
     },
     {
@@ -181,7 +181,7 @@ const CAMPING = {
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "16h00 • Aqua-Boom", color: "pink", icon: "🧒" },
         { text: "17h00 • Trampoline + Accrobranche", color: "green", icon: "🌲" },
-        { text: "21h00 • Loto", color: "purple", bold: true, icon: "🎉" }
+        { text: "21h00 • Loto", color: "purple", bold: true, size: "large", icon: "🎉" }
       ]
     },
     {
@@ -218,8 +218,8 @@ const CAMPING = {
   menu: [
     { id: "planning", icon: "📅", title: textStyle("Programme", { color: "green-dark", bold: true }), desc: textStyle("Animations & planning", { color: "gray" }) },
     { id: "pool", icon: "🏊", title: textStyle("Espace aquatique", { color: "blue", bold: true }), desc: textStyle("Piscines, toboggans & horaires", { color: "gray" }) },
-    { id: "restaurant", icon: "🍽️", title: textStyle("Restaurant", { color: "orange", bold: true }), desc: textStyle("Carte, horaires & réservation", { color: "gray" }) },
-    { id: "shop", icon: "🛒", title: textStyle("Épicerie", { color: "green", bold: true }), desc: textStyle("Pain, produits & horaires", { color: "gray" }) },
+    { id: "restaurant", icon: "🍽️", title: textStyle("Restaurant", { color: "orange", bold: true }), desc: textStyle("Carte, horaires", { color: "gray" }) },
+    { id: "shop", icon: "📝", title: textStyle("CheckIn / CheckOut", { color: "green", bold: true }), desc: textStyle("Toutes vos procédures de votre arrivée à votre départ", { color: "gray" }) },
     { id: "rules", icon: "📖", title: textStyle("Règlement", { color: "purple", bold: true }), desc: textStyle("Les règles du camping", { color: "gray" }) },
     { id: "map", icon: "🗺️", title: textStyle("Plan du camping", { color: "teal", bold: true }), desc: textStyle("Découvrir le camping", { color: "gray" }) },
     { id: "region", icon: "📍", title: textStyle("À découvrir", { color: "teal", bold: true }), desc: textStyle("Activités & lieux incontournables", { color: "gray" }) },
@@ -241,22 +241,21 @@ const CAMPING = {
 
   sections: {
     pool: {
-      title: textStyle("🏊 Espace aquatique", { color: "blue", bold: true, size: "large" }),
-      image: "",
-      intro: textStyle("Retrouvez les horaires, les consignes et les informations utiles.", { color: "gray" }),
+      title: textStyle("🏊 ESPACE AQUATIQUE", { color: "blue", bold: true, size: "large" }),
+      image: "piscine.jpg",
+      intro: textStyle("Découvrez nos piscines et nos toboggans, pour le bonheur des petits et des plus grands.", { color: "gray" }),
       blocks: [
         [textStyle("Horaires", { color: "blue", bold: true }), textStyle("À compléter selon la période.", { color: "gray" })],
-        [textStyle("Règles essentielles", { color: "red", bold: true }), textStyle("Les shorts de bain ne sont pas autorisés. Respectez les consignes affichées et surveillez les enfants.", { color: "dark" })],
-        [textStyle("Toboggans", { color: "orange", bold: true }), textStyle("Profitez des toboggans en respectant les consignes de sécurité.", { color: "dark" })]
+        [textStyle("Règles essentielles", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "dark" })]
       ]
     },
     restaurant: {
       title: textStyle("🍽️ Restaurant", { color: "orange", bold: true, size: "large" }),
-      image: "",
-      intro: textStyle("Le restaurant du camping vous accueille pendant la saison.", { color: "gray" }),
+      image: "resto.jpg",
+      intro: textStyle("Nathalie et toute son équipe vous accueillent pendant la saison.", { color: "gray" }),
       blocks: [
-        [textStyle("Horaires", { color: "orange", bold: true }), textStyle("À compléter.", { color: "gray" })],
-        [textStyle("Carte", { color: "orange", bold: true }), textStyle("Ajoutez ici votre carte, votre menu ou un lien vers votre carte en ligne.", { color: "dark" })],
+        [textStyle("Horaires", { color: "orange", bold: true }), textStyle("Toute la journée en haute saison (juillet-aôut) et à partir de 17h le reste de l'année", { color: "gray" })],
+        [textStyle("Carte", { color: "purple", bold: true }), textStyle("Ajoutez ici votre carte, votre menu ou un lien vers votre carte en ligne.", { color: "dark" })],
         [textStyle("Réservation", { color: "green", bold: true }), textStyle("Ajoutez ici les modalités de réservation.", { color: "dark" })]
       ]
     },
