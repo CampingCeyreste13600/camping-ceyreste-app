@@ -170,3 +170,25 @@ main{max-width:780px;margin:auto;padding:0 16px}.welcome-card{position:relative;
   margin:0 0 18px;
   box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
+
+
+/* Bouton carte du restaurant */
+.menu-pdf-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin:4px 0 22px;
+  padding:12px 18px;
+  border-radius:999px;
+  background:#39BFC7;
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(0,0,0,.12);
+  transition:transform .15s ease, filter .15s ease;
+}
+.menu-pdf-button:hover{
+  filter:brightness(.95);
+  transform:translateY(-1px);
+}
