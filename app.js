@@ -138,21 +138,13 @@ function resolveImageUrl(src){
 }
 
 function renderTiles(){
-  document.querySelector("#tiles").innerHTML=CAMPING.menu.map(item=>{
-    const imageUrl=resolveImageUrl(item.image);
-    const imageHtml=imageUrl
-      ? `<img class="tile-image" src="${escapeHtml(imageUrl)}" alt="" loading="lazy" onerror="this.remove()">`
-      : "";
-    return `
-      <button class="tile ${imageUrl ? "tile-with-image" : ""}" data-open="${item.id}">
-        ${imageHtml}
-        <span class="tile-content">
-          <span class="tile-icon">${item.icon}</span>
-          <strong>${renderText(item.title)}</strong>
-          <small>${renderText(item.desc)}</small>
-        </span>
-      </button>`;
-  }).join("");
+  document.querySelector("#tiles").innerHTML=CAMPING.menu.map(item=>`
+    <button class="tile ${item.image ? "has-tile-image" : ""}" data-open="${item.id}">
+      ${item.image ? `<img class="tile-image" src="${escapeHtml(item.image)}" alt="" loading="lazy" onerror="this.remove();this.parentElement.classList.remove('has-tile-image')">` : ""}
+      <span class="tile-icon">${item.icon}</span>
+      <strong>${renderText(item.title)}</strong>
+      <small>${renderText(item.desc)}</small>
+    </button>`).join("");
 }
 renderTiles();
 
