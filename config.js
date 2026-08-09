@@ -216,8 +216,8 @@ const CAMPING = {
   },
 
   menu: [
-    { id: "planning", icon: "📅", title: textStyle("Programme", { color: "green-dark", bold: true }), desc: textStyle("Animations & planning", { color: "gray" }) },
-    { id: "pool", icon: "🏊", title: textStyle("Espace aquatique", { color: "blue", bold: true }), desc: textStyle("Piscines, toboggans & horaires", { color: "gray" }) },
+    { id: "planning", icon: "📅", title: textStyle("Programme d'animations", { color: "green-dark", bold: true }), desc: textStyle("Animations & planning", { color: "gray" }) },
+    { id: "pool", icon: "🏊", title: textStyle("ESPACE AQUATIQUE", { color: "blue", bold: true }), desc: textStyle("Piscines, toboggans & horaires", { color: "gray" }) },
     { id: "restaurant", icon: "🍽️", title: textStyle("Restaurant", { color: "orange", bold: true }), desc: textStyle("Carte, horaires", { color: "gray" }) },
     { id: "shop", icon: "📝", title: textStyle("CheckIn / CheckOut", { color: "green", bold: true }), desc: textStyle("Toutes vos procédures de votre arrivée à votre départ", { color: "gray" }) },
     { id: "rules", icon: "📖", title: textStyle("Règlement", { color: "purple", bold: true }), desc: textStyle("Les règles du camping", { color: "gray" }) },
