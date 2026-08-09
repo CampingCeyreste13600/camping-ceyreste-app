@@ -9,16 +9,18 @@ function escapeHtml(value){
     .replace(/"/g,"&quot;").replace(/'/g,"&#039;");
 }
 
-function textStyle(text, options={}){
-  return {
-    __styledText: true,
-    text: String(text ?? ""),
-    color: options.color || "",
-    bold: !!options.bold,
-    italic: !!options.italic,
-    size: options.size || "normal",
-    background: options.background || "",
-    align: options.align || ""
+if (typeof textStyle !== "function") {
+  window.textStyle = function(text, options = {}) {
+    return {
+      __styledText: true,
+      text: String(text ?? ""),
+      color: options.color || "",
+      bold: !!options.bold,
+      italic: !!options.italic,
+      size: options.size || "normal",
+      background: options.background || "",
+      align: options.align || ""
+    };
   };
 }
 

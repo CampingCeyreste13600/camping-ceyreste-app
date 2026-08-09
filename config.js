@@ -1,5 +1,25 @@
 /*
   ============================================================
+  OUTIL DE MISE EN FORME
+  ============================================================
+  IMPORTANT : cette fonction est définie ici AVANT CAMPING,
+  car config.js est chargé avant app.js.
+*/
+function textStyle(text, options = {}) {
+  return {
+    __styledText: true,
+    text: String(text ?? ""),
+    color: options.color || "",
+    bold: !!options.bold,
+    italic: !!options.italic,
+    size: options.size || "normal",
+    background: options.background || "",
+    align: options.align || ""
+  };
+}
+
+/*
+  ============================================================
   CONFIGURATION — CAMPING DE CEYRESTE
   ============================================================
   Ici tu peux modifier les textes de l'application.
@@ -27,7 +47,7 @@
 const CAMPING = {
   name: "Camping de Ceyreste",
   location: textStyle("Ceyreste • La Ciotat • Provence", { color: "white" }),
-  welcome: textStyle("Bienvenue au Camping !", { color: "white", italic: true, bold: true }),
+  welcome: textStyle("Bienvenue chez nous !", { color: "white", italic: true, bold: true }),
   headline: textStyle("Profitez pleinement de votre séjour", { color: "green-dark", bold: true }),
   subheadline: textStyle("Toutes les infos du camping dans votre poche.", { color: "gray" }),
 
