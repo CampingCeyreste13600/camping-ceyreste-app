@@ -198,7 +198,7 @@ function dynamicStatus(item){
   const schedule = getReceptionOpeningSchedule(item);
   const open = isWithinOpeningHours(schedule);
   if(open === null) return item.note;
-  return textStyle(open ? "Ouvert ✔️" : "Fermé ✖️", {
+  return textStyle(open ? "OUVERT ✔️" : "FERME ❌", {
     color: open ? "green" : "red",
     bold: true
   });
@@ -206,7 +206,7 @@ function dynamicStatus(item){
 function dynamicStatus(item){
   const open = isWithinOpeningHours(item.openingHours);
   if(open === null) return item.note;
-  return textStyle(open ? "Ouvert ✔️" : "Fermé ✖️", {
+  return textStyle(open ? "OUVERT ✔️" : "FERME ❌", {
     color: open ? "green" : "red",
     bold: true
   });
