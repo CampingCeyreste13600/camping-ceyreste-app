@@ -1,4 +1,4 @@
-const CACHE="ceyreste-v1";
+const CACHE="ceyreste-v2";
 const FILES=["./","./index.html","./style.css","./config.js","./app.js","./manifest.webmanifest","./icon.svg"];
 self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES))));
 self.addEventListener("activate",e=>e.waitUntil(self.clients.claim()));
