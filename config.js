@@ -347,11 +347,11 @@ const CAMPING = {
     stay: {
       title: textStyle("🏕️ MON SEJOUR", { color: "green-dark", bold: true, size: "large" }),
       image: "",
-      intro: textStyle("Une future rubrique pour aider chaque vacancier pendant son séjour.", { color: "gray" }),
+      intro: textStyle("Des problèmes durant votre séjour ?", { color: "gray" }),
       blocks: [
-        [textStyle("Arrivée", { color: "green", bold: true }), textStyle("Ajoutez ici les informations d'arrivée et les horaires de réception.", { color: "dark" })],
-        [textStyle("Départ", { color: "orange", bold: true }), textStyle("Ajoutez ici les informations de départ.", { color: "dark" })],
-        [textStyle("Services", { color: "blue", bold: true }), textStyle("Retrouvez les informations utiles pendant votre séjour.", { color: "dark" })]
+        [textStyle("FORMALITES DE DEPART", { color: "orange", bold: true }), textStyle("Les départs se font entre 8h et 10h chaque jours. Une fois le ménage de prêt, appellez-nous !", { color: "dark" })],
+        [textStyle("SUPPLEMENTS", { color: "blue", bold: true }), textStyle("A la réception, location de Draps, Serviettes, KitBébé, Barbecue,...", { color: "dark" })],
+        [textStyle("PROBLEMES", { color: "red", bold: true }), textStyle("En cas d'incident durant votre séjour, n'hesitez pas !! Composez le 04.42.83.07.68, MEME DE NUIT !", { color: "dark" })]
       ]
     }
   }
