@@ -258,7 +258,7 @@ const CAMPING = {
       image: "images/piscine.jpg",
       intro: textStyle("Découvrez nos piscines et nos toboggans, pour le bonheur des petits et des plus grands.", { color: "gray" }),
       blocks: [
-        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("À compléter selon la période.", { color: "gray" })],
+        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("10h-20h Tous les jours ! ", { color: "gray" })],
         [textStyle("Règles essentielles", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "dark" })]
       ]
     },
@@ -306,6 +306,7 @@ const CAMPING = {
     },
     region: {
       title: textStyle("📍 A DECOUVRIR", { color: "teal", bold: true, size: "large" }),
+      image: "images/calanques.jpg",
       intro: textStyle("Découvrez les incontournables autour de Ceyreste et de La Ciotat.", { color: "gray" }),
       blocks: [
         [textStyle("🌊 La Ciotat", { color: "blue", bold: true }), textStyle("Vieux-Port, plages, calanques et Parc du Mugel.", { color: "dark" })],
@@ -319,9 +320,20 @@ const CAMPING = {
       image: "",
       intro: textStyle("Retrouvez ici les activités partenaires recommandées par le camping.", { color: "gray" }),
       blocks: [
-        [textStyle("🚲 Location de vélos", { color: "green", bold: true }), textStyle("Ajoutez ici votre partenaire vélo et son lien.", { color: "dark" })],
-        [textStyle("🤿 Plongée", { color: "blue", bold: true }), textStyle("Ajoutez ici votre partenaire plongée et son lien.", { color: "dark" })],
-        [textStyle("⛵ Catamaran", { color: "teal", bold: true }), textStyle("Ajoutez ici votre partenaire nautique et son lien.", { color: "dark" })]
+        [textStyle("🛵 Scooter", { color: "green", bold: true }), textStyle("TOP LOC SERVICES, Location de scooters 50 et 125m3, 06.24.09.72.25", { color: "dark" })],
+        [textStyle("🚗 Voiture", { color: "black", bold: true }), textStyle("OLYMPIC LOCATIONS", { color: "dark" })],
+        [textStyle("🛸 Quad", { color: "grey", bold: true }), textStyle("RENT A QUAD 13, Location de quad au départ de La Ciotat, 07.83.05.99.33", { color: "dark" })],
+        [textStyle("🛶 Kayak", { color: "teal", bold: true }), textStyle("KAYAK AVENTURE, 06.34.69.83.49", { color: "dark" })],
+        [textStyle("🧗‍♂️ Escalade", { color: "teal", bold: true }), textStyle("Salle d'Escalade 06.07.61.60.05", { color: "dark" })],
+        [textStyle("⛵ Catamaran", { color: "orange", bold: true }), textStyle("CAT EXPLORER, Sortie en Catamaran au départ du Brusc, 07.87.23.24.71", { color: "dark" })],
+        [textStyle("🚤 Parapente", { color: "yellow", bold: true }), textStyle("MARSEILLE PARAPENTE, Baptemes et Formations en Parapente, 06.51.84.46.71", { color: "dark" })],
+        [textStyle("🎈 Parachute Ascensionnel", { color: "blue", bold: true }), textStyle("SAINT-CYR PARACHUTE, envolez-vous au départ de Cuges-les-pins, 06.11.57.85.46", { color: "dark" })],
+        [textStyle("🌊 Visite des Calanques", { color: "purple", bold: true }), textStyle("VISITES DES CALANQUES, Randonnée, Escalade et Via Cordata, 06.61.50.38.48", { color: "dark" })],
+        [textStyle("🌅 Plongée", { color: "blue", bold: true }), textStyle("ANAYA PLONGEE, 07.45.12.31.65", { color: "dark" })],
+        [textStyle("⛵ Calanques en Bateau", { color: "teal", bold: true }), textStyle("LES AMIS DES CALANQUES, Visitez les calanques en bateau ! 06.09.35.25.68", { color: "dark" })],
+        [textStyle("🏎️ Karting", { color: "red", bold: true }), textStyle("KARTING INDOOR PROVENCE, Karting Indoor, Karaoké, LaserGame, QuizRoom", { color: "dark" })],
+        [textStyle("💆🏽 Shiatsu", { color: "green", bold: true }), textStyle("SABINE PUGLIESI, Séance de Shiatsu et de Do-in 06.15.75.06.72", { color: "dark" })],
+        [textStyle("🧘‍♀️ Reflexologie", { color: "brown", bold: true }), textStyle("PIERRE GALAND, Reflexologie 06.59.22.84.73", { color: "dark" })]
       ]
     },
     emergency: {
