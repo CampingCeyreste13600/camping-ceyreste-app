@@ -198,7 +198,7 @@ function dynamicStatus(item){
   const schedule = getReceptionOpeningSchedule(item);
   const open = isWithinOpeningHours(schedule);
   if(open === null) return item.note;
-  return textStyle(open ? "OUVERT ✔️" : "FERME ❌", {
+  return textStyle(open ? "Ouvert ✔️" : "Fermé ✖️", {
     color: open ? "green" : "red",
     bold: true
   });
@@ -206,7 +206,7 @@ function dynamicStatus(item){
 function dynamicStatus(item){
   const open = isWithinOpeningHours(item.openingHours);
   if(open === null) return item.note;
-  return textStyle(open ? "OUVERT ✔️" : "FERME ❌", {
+  return textStyle(open ? "Ouvert ✔️" : "Fermé ✖️", {
     color: open ? "green" : "red",
     bold: true
   });
@@ -308,7 +308,7 @@ function openSection(id){
     <p class="modal-intro">${renderText(section.intro)}</p>
     ${section.menuPdf ? `<a class="menu-pdf-button" href="${escapeHtml(section.menuPdf)}" target="_blank" rel="noopener">📖 Voir la carte du restaurant</a>` : ""}
     ${section.blocks.map(b=>`<article class="info-block"><h3>${renderText(b[0])}</h3><p>${renderText(b[1])}</p></article>`).join("")}
-    ${id==="map"?`<div class="map-placeholder">🗺️<br><b>Votre plan sera placé ici</b><br><small>Vous pourrez remplacer cet emplacement par votre image.</small></div>`:""}
+
     ${id==="region"?`<a class="big-link" href="${CAMPING.contact.mapsUrl}" target="_blank" rel="noopener">📍 Ouvrir Google Maps</a>`:""}
   `;
   document.querySelector("#modal").classList.remove("hidden");
