@@ -52,7 +52,7 @@ const CAMPING = {
   // Puis indique ici leur nom.
   images: {
     logo: "images/logo.png",       // ex: "images/logo.png"
-    accueil: "images/fond-camping.png",   // ex: "images/accueil.jpg"
+    accueil: "images/fond-camping.jpg",   // ex: "images/accueil.jpg"
     region: "",    // ex: "images/calanques.jpg"
     gallery: [
       // "images/photo1.jpg",
