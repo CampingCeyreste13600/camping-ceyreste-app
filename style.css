@@ -9,7 +9,7 @@ body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans
 button,a{font:inherit}
 .hero{min-height:390px;background:linear-gradient(180deg,#2d82bd 0%,#7bb8c9 45%,#e9d6a8 100%);position:relative;color:white;overflow:hidden;padding:18px 18px 38px}
 .hero:before{content:"";position:absolute;inset:auto -10% -100px;height:220px;background:radial-gradient(ellipse at center,#1e7994 0%,transparent 68%);opacity:.7}
-.hero:after{content:"";position:absolute;left:-8%;right:-8%;bottom:-55px;height:160px;background:#5c8857;border-radius:50% 50% 0 0/100% 100% 0 0;opacity:.75}
+.hero:after{content:"";position:absolute;left:-8%;right:-8%;bottom:-55px;height:160px;background:#39BFC7;border-radius:50% 50% 0 0/100% 100% 0 0;opacity:.75}
 .hero-top{display:flex;justify-content:space-between;position:relative;z-index:2}.icon-btn{width:44px;height:44px;border:0;border-radius:14px;background:rgba(255,255,255,.18);color:white;font-size:25px;backdrop-filter:blur(8px)}
 .brand{position:relative;z-index:2;text-align:center;margin-top:28px;text-shadow:0 2px 10px rgba(0,0,0,.15)}.brand-mark{font-size:46px;line-height:.8}.brand-name{font-size:17px;line-height:1.05;letter-spacing:.06em}.brand-name strong{font-size:48px;letter-spacing:-.04em;font-style:italic;font-weight:800}.stars{color:#f5c945;font-size:17px;margin-top:4px;letter-spacing:3px}.welcome{position:relative;z-index:2;text-align:center;font-size:27px;font-weight:700;font-style:italic;margin-top:30px}
 main{max-width:780px;margin:auto;padding:0 16px}.welcome-card{position:relative;z-index:3;margin:-30px 0 15px;background:white;border-radius:24px;padding:17px 18px;display:flex;gap:13px;align-items:center;box-shadow:var(--shadow)}
@@ -32,7 +32,7 @@ main{max-width:780px;margin:auto;padding:0 16px}.welcome-card{position:relative;
 
 /* ===== PHOTOS / LOGO ===== */
 .camping-logo{max-width:190px;max-height:105px;object-fit:contain;display:block;margin:0 auto 8px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.18))}
-.hero.has-hero-image{background-image:linear-gradient(180deg,rgba(0,100,200,.35),rgba(0,80,160,.35),var(--hero-image);background-size:cover;background-position:center;background-repeat:no-repeat}
+.hero.has-hero-image{background-image:linear-gradient(180deg,rgba(0,150,180,.25),rgba(40,190,200,.35)),var(--hero-image);background-size:cover;background-position:center;background-repeat:no-repeat}
 .region-card.has-region-image{background-image:linear-gradient(135deg,rgba(23,110,120,.72),rgba(28,155,177,.55)),var(--region-image);background-size:cover;background-position:center}
 .gallery-card{background:white;border:1px solid var(--line);border-radius:23px;margin:16px 0;padding:18px;box-shadow:0 5px 18px rgba(80,60,30,.05)}
 .gallery-card h2{margin:5px 0 14px;font-size:20px}
