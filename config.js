@@ -329,7 +329,7 @@ const CAMPING = {
       image: "",
       intro: textStyle("En cas d'urgence, contactez immédiatement le service compétent.", { color: "red", bold: true }),
       blocks: [
-        [textStyle("📞 Camping", { color: "green", bold: true }), textStyle("Réception : +33 4 42 01 83 44", { color: "dark" })],
+        [textStyle("📞 Camping", { color: "green", bold: true }), textStyle("Réception : +33 4 42 83 07 68", { color: "dark" })],
         [textStyle("🚑 112", { color: "red", bold: true }), textStyle("Numéro d'urgence européen.", { color: "dark" })],
         [textStyle("🚑 15", { color: "red", bold: true }), textStyle("SAMU.", { color: "dark" })],
         [textStyle("🚒 18", { color: "red", bold: true }), textStyle("Pompiers.", { color: "dark" })],
