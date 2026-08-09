@@ -219,7 +219,7 @@ const CAMPING = {
     { id: "planning", icon: "📅", title: textStyle("Programme d'animations", { color: "green-dark", bold: true }), desc: textStyle("Animations & planning", { color: "gray" }) },
     { id: "pool", icon: "🏊", title: textStyle("ESPACE AQUATIQUE", { color: "blue", bold: true }), desc: textStyle("Piscines, toboggans & horaires", { color: "gray" }) },
     { id: "restaurant", icon: "🍽️", title: textStyle("Restaurant", { color: "orange", bold: true }), desc: textStyle("Carte, horaires", { color: "gray" }) },
-    { id: "shop", icon: "📝", title: textStyle("CheckIn / CheckOut", { color: "green", bold: true }), desc: textStyle("Toutes vos procédures de votre arrivée à votre départ", { color: "gray" }) },
+    { id: "shop", icon: "📝", title: textStyle("RECEPTION", { color: "green", bold: true }), desc: textStyle("Toutes vos informations concernant votre séjour", { color: "gray" }) },
     { id: "rules", icon: "📖", title: textStyle("Règlement", { color: "purple", bold: true }), desc: textStyle("Les règles du camping", { color: "gray" }) },
     { id: "map", icon: "🗺️", title: textStyle("Plan du camping", { color: "teal", bold: true }), desc: textStyle("Découvrir le camping", { color: "gray" }) },
     { id: "region", icon: "📍", title: textStyle("À découvrir", { color: "teal", bold: true }), desc: textStyle("Activités & lieux incontournables", { color: "gray" }) },
@@ -256,18 +256,17 @@ const CAMPING = {
       intro: textStyle("Nathalie et toute son équipe vous accueillent pendant la saison.", { color: "gray" }),
       blocks: [
         [textStyle("Horaires", { color: "orange", bold: true }), textStyle("Toute la journée en haute saison (juillet-aôut) et à partir de 17h le reste de l'année", { color: "gray" })],
-        [textStyle("Carte", { color: "purple", bold: true }), textStyle("Ajoutez ici votre carte, votre menu ou un lien vers votre carte en ligne.", { color: "dark" })],
-        [textStyle("Réservation", { color: "green", bold: true }), textStyle("Ajoutez ici les modalités de réservation.", { color: "dark" })]
+        [textStyle("Réservation", { color: "green", bold: true }), textStyle("Il est plus que préférable de réserver. Pensez y et allez voir directement le personnel du restaurant.", { color: "dark" })]
       ]
     },
     shop: {
-      title: textStyle("🛒 Épicerie", { color: "green", bold: true, size: "large" }),
+      title: textStyle("📝 RECEPTION", { color: "green", bold: true, size: "large" }),
       image: "",
       intro: textStyle("Les services pratiques du camping.", { color: "gray" }),
       blocks: [
-        [textStyle("Horaires", { color: "green", bold: true }), textStyle("À compléter.", { color: "gray" })],
-        [textStyle("🥖 Pain", { color: "orange", bold: true }), textStyle("Ajoutez ici les horaires et modalités de commande.", { color: "dark" })],
-        [textStyle("Services", { color: "blue", bold: true }), textStyle("Ajoutez les services proposés : laverie, location de matériel, barbecue, etc.", { color: "dark" })]
+        [textStyle("Horaires", { color: "green", bold: true }), textStyle("Basse Saison (8h30-12h/14h-19h), Juillet-Aôut (8h-20h),Octobre (9-12/14-18), Novembre-Décembre-Janvier (9-12/15-18)", { color: "gray" })],
+        [textStyle("🥖 Pain", { color: "orange", bold: true }), textStyle("Dépôt de Pain, TOUS LES JOURS, sur Réservation Obligatoirement à la réception ", { color: "dark" })],
+        [textStyle("Services", { color: "blue", bold: true }), textStyle("Ajoutez les services proposés : laverie, location de draps et KitBébé, barbecue, etc.", { color: "dark" })]
       ]
     },
     rules: {
@@ -275,21 +274,20 @@ const CAMPING = {
       image: "",
       intro: textStyle("Merci de respecter ces règles afin que chacun profite de vacances agréables.", { color: "gray" }),
       blocks: [
-        [textStyle("🌙 Calme", { color: "purple", bold: true }), textStyle("Camping familial et calme. Merci de respecter le calme après 23h.", { color: "dark" })],
-        [textStyle("🚗 Véhicules", { color: "blue", bold: true }), textStyle("1 véhicule par mobil-home. Les véhicules supplémentaires doivent respecter les consignes de stationnement.", { color: "dark" })],
-        [textStyle("👨‍👩‍👧‍👦 Capacité", { color: "orange", bold: true }), textStyle("Maximum 6 personnes par emplacement.", { color: "dark" })],
+        [textStyle("🌙 Calme", { color: "purple", bold: true }), textStyle("Camping familial et calme. Merci de respecter le calme APRES 23h.", { color: "dark" })],
+        [textStyle("🚗 Véhicules", { color: "blue", bold: true }), textStyle("1 véhicule par mobil-home. Les véhicules supplémentaires doivent etre stationnés sur le parking situé à l'extérieur.", { color: "dark" })],
+        [textStyle("👨‍👩‍👧‍👦 Capacité", { color: "orange", bold: true }), textStyle("Merci de respecter les capacités maximum de votre location (2, 4 ou 6personnes)", { color: "dark" })],
         [textStyle("🧒 Mineurs", { color: "red", bold: true }), textStyle("Un adulte est obligatoire dans chaque mobil-home. Les mineurs ne doivent pas être laissés sans surveillance.", { color: "dark" })],
-        [textStyle("🏠 Départ", { color: "green", bold: true }), textStyle("Les mobil-homes doivent être rendus propres avant l'heure de départ indiquée sur votre réservation.", { color: "dark" })],
+        [textStyle("🏠 Départ", { color: "green", bold: true }), textStyle("Les mobil-homes doivent être rendus propres avant 10h. Un état des lieux de sortie sera à réaliser. Appelez-nous quand vous êtes prêts !", { color: "dark" })],
         [textStyle("🐶 Animaux", { color: "teal", bold: true }), textStyle("Les animaux doivent être tenus sous contrôle et respecter les règles du camping.", { color: "dark" })],
         [textStyle("♻️ Propreté", { color: "green", bold: true }), textStyle("Merci de respecter les espaces communs, sanitaires et zones de tri.", { color: "dark" })]
       ]
     },
     map: {
       title: textStyle("🗺️ Plan du camping", { color: "teal", bold: true, size: "large" }),
-      image: "",
+      image: "plan.jpg",
       intro: textStyle("Repérez facilement les principaux services et équipements.", { color: "gray" }),
       blocks: [
-        [textStyle("Plan", { color: "teal", bold: true }), textStyle("Ajoutez ici le plan du camping en image ou en PDF.", { color: "gray" })],
         [textStyle("📍 Points importants", { color: "teal", bold: true }), textStyle("Réception • Piscine • Restaurant • Épicerie • Sanitaires • Aires de jeux • Parking", { color: "dark" })]
       ]
     },
