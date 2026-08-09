@@ -285,7 +285,7 @@ const CAMPING = {
     },
     map: {
       title: textStyle("🗺️ PLAN DU CAMPING", { color: "teal", bold: true, size: "large" }),
-      image: "images/plan.pdf",
+      image: "images/plan.jpg",
       intro: textStyle("Repérez facilement les principaux services et équipements.", { color: "gray" }),
       blocks: [
         [textStyle("📍 Points importants", { color: "teal", bold: true }), textStyle("Réception • Piscine • Restaurant • Épicerie • Sanitaires • Aires de jeux • Parking", { color: "dark" })]
