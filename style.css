@@ -75,3 +75,35 @@ main{max-width:780px;margin:auto;padding:0 16px}.welcome-card{position:relative;
 .today-empty b,.today-empty small{display:block}
 .today-empty b{font-size:13px;color:var(--ink)}
 .today-empty small{font-size:11px;margin-top:3px;line-height:1.4}
+
+/* ===== V8 : INFOS FIXES + PROGRAMME DU JOUR ===== */
+.today-info-item{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  padding:12px 8px;
+  border-top:1px solid #eadfcb;
+}
+.today-info-content{flex:1;min-width:0}
+.today-info-title{font-size:13px;line-height:1.3}
+.today-info-bottom{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-top:4px;
+}
+.today-info-time{font-size:11px;color:var(--muted)}
+.today-info-note{font-size:11px}
+.today-program-heading{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:12px 0 2px;
+  padding:13px 8px 8px;
+  border-top:2px solid #eadfcb;
+  font-size:12px;
+  color:var(--ink);
+}
+.today-program-heading span{font-size:20px}
+.today-program-list{margin-top:0}

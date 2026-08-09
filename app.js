@@ -150,15 +150,41 @@ function renderToday(){
 
   if(titleEl){
     titleEl.innerHTML = `
-      ${renderText("AUJOURD'HUI", "txt-green-dark txt-bold")}
+      ${renderText(CAMPING.today.title)}
       <span class="today-date">• ${escapeHtml(dateText)}</span>
     `;
   }
 
   if(!itemsEl) return;
 
-  if(!today || !today.events || today.events.length === 0){
-    itemsEl.innerHTML = `
+  // 1) Infos fixes du camping : piscine, restaurant, épicerie, etc.
+  const fixedItems = Array.isArray(CAMPING.today.items) ? CAMPING.today.items : [];
+  const fixedHtml = fixedItems.map(item => `
+    <div class="today-info-item">
+      <span class="today-program-icon">${item.icon || "ℹ️"}</span>
+      <div class="today-info-content">
+        <div class="today-info-title">${renderText(item.title)}</div>
+        <div class="today-info-bottom">
+          <span class="today-info-time">${renderText(item.time || "")}</span>
+          <span class="today-info-note">${renderText(item.note || "")}</span>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  // 2) Animations : récupérées automatiquement selon le jour actuel.
+  const events = today && Array.isArray(today.events) ? today.events : [];
+  const eventsHtml = events.length
+    ? events.map(event => {
+        const e = typeof event === "string" ? { text: event } : event || {};
+        return `
+          <div class="today-program-item">
+            <span class="today-program-icon">${e.icon || "🎉"}</span>
+            <div class="today-program-text">${renderText(e.text ?? "")}</div>
+          </div>
+        `;
+      }).join("")
+    : `
       <div class="today-empty">
         <span>😴</span>
         <div>
@@ -167,21 +193,19 @@ function renderToday(){
         </div>
       </div>
     `;
-    return;
-  }
 
-  itemsEl.innerHTML = today.events.map(event => {
-    const e = typeof event === "string" ? { text: event } : event || {};
-    const text = e.text ?? "";
-    return `
-      <div class="today-program-item">
-        <span class="today-program-icon">${e.icon || "🎉"}</span>
-        <div class="today-program-text">
-          ${renderText(text)}
-        </div>
-      </div>
-    `;
-  }).join("");
+  itemsEl.innerHTML = `
+    ${fixedHtml}
+
+    <div class="today-program-heading">
+      <span>🎉</span>
+      <strong>PROGRAMME D'ANIMATION DU JOUR</strong>
+    </div>
+
+    <div class="today-program-list">
+      ${eventsHtml}
+    </div>
+  `;
 }
 renderToday();
 

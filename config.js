@@ -71,10 +71,58 @@ const CAMPING = {
     mapsUrl: "https://www.google.com/maps"
   },
 
-  // La rubrique AUJOURD'HUI est maintenant remplie automatiquement
-  // à partir de "planning" ci-dessous. Tu n'as rien à modifier ici.
+  // ============================================================
+  // AUJOURD'HUI AU CAMPING
+  // Ces informations restent affichées tous les jours.
+  // Le PROGRAMME D'ANIMATION du jour est récupéré automatiquement
+  // dans "planning" plus bas selon le jour actuel.
+  // ============================================================
   today: {
-    title: textStyle("AUJOURD'HUI", { color: "green-dark", bold: true })
+    title: textStyle("AUJOURD'HUI AU CAMPING", {
+      color: "green-dark",
+      bold: true
+    }),
+
+    items: [
+      {
+        icon: "🏊",
+        title: textStyle("Espace Aquatique", {
+          color: "blue",
+          bold: true
+        }),
+        time: "10H-20H",
+        note: textStyle("Ouverte ✔️", {
+          color: "green",
+          bold: true
+        })
+      },
+
+      {
+        icon: "🍽️",
+        title: textStyle("Restaurant", {
+          color: "orange",
+          bold: true
+        }),
+        time: "19H-22H",
+        note: textStyle("Ouvert ✔️", {
+          color: "green",
+          bold: true
+        })
+      },
+
+      {
+        icon: "🛒",
+        title: textStyle("Épicerie", {
+          color: "green",
+          bold: true
+        }),
+        time: "08H-20H",
+        note: textStyle("Ouverte ✔️", {
+          color: "green",
+          bold: true
+        })
+      }
+    ]
   },
 
   region: {

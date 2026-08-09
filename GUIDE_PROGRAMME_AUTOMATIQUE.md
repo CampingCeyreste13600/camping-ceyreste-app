@@ -1,27 +1,32 @@
-# 📅 Programme automatique — AUJOURD'HUI
+# V8 — AUJOURD'HUI + programme automatique
 
-La case **AUJOURD'HUI** lit automatiquement le jour actuel du téléphone et récupère les animations correspondantes dans `planning`.
+La carte **AUJOURD'HUI AU CAMPING** affiche deux choses :
+
+1. Les informations fixes du camping (`today.items`) :
+   piscine, restaurant, épicerie, etc.
+2. Le **programme d'animation du jour**, choisi automatiquement dans `planning`.
 
 ## Ce que tu modifies
 
-Tu modifies uniquement la partie `planning` dans `config.js`.
+Tu modifies uniquement `config.js`.
 
-Exemple :
+### Informations fixes
+
+Dans `today.items` :
 
 ```js
 {
-  day: "Lundi",
-  events: [
-    { text: "10h00 • Aquagym", color: "blue", bold: true, icon: "🏊" },
-    { text: "21h00 • Soirée mousse", color: "pink", bold: true, icon: "🎉" }
-  ]
-},
+  icon: "🏊",
+  title: textStyle("Espace Aquatique", { color: "blue", bold: true }),
+  time: "10H-20H",
+  note: textStyle("Ouverte ✔️", { color: "green", bold: true })
+}
 ```
 
-Si aujourd'hui est lundi, ces événements apparaissent automatiquement dans **AUJOURD'HUI**.
+### Programme de la semaine
 
-Demain, l'application passe automatiquement au mardi.
+Dans `planning`, renseigne Lundi à Dimanche.
 
-Si aucun événement n'est prévu pour le jour actuel, elle affiche un message indiquant qu'il n'y a pas d'animation prévue.
+L'application regarde automatiquement le jour actuel du téléphone et affiche les événements correspondants dans **PROGRAMME D'ANIMATION DU JOUR**.
 
-Tu n'as donc pas besoin de modifier la rubrique `today`.
+La rubrique **Programme** de l'application continue d'afficher la semaine entière.
