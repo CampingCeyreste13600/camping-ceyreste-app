@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#16766d">
+  <meta name="description" content="Application officielle du Camping de Ceyreste">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <title>Camping de Ceyreste</title>
+</head>
+<body>
+<div id="app">
+  <header class="hero">
+    <div class="hero-top">
+      <button class="icon-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <button class="icon-btn" id="installBtn" hidden aria-label="Installer">＋</button>
+    </div>
+    <div class="brand">
+      <div class="brand-mark">☀</div>
+      <div class="brand-name">CAMPING DE<br><strong>Ceyreste</strong></div>
+      <div class="stars">★ ★ ★</div>
+    </div>
+    <div class="welcome" id="welcomeText"></div>
+  </header>
+
+  <main>
+    <section class="welcome-card">
+      <div class="mini-sun">☀️</div>
+      <div>
+        <div class="eyebrow dark">BIENVENUE</div>
+        <h1 id="headline"></h1>
+        <p id="subheadline"></p>
+      </div>
+    </section>
+
+    <section class="tiles" id="tiles"></section>
+
+    <section class="today-card">
+      <div class="today-head">
+        <div>
+          <div class="eyebrow dark">AUJOURD'HUI AU CAMPING</div>
+          <h2 id="todayTitle"></h2>
+        </div>
+        <span class="pill">☀️ À ne pas manquer</span>
+      </div>
+      <div class="today-items" id="todayItems"></div>
+    </section>
+
+    <section class="region-card">
+      <div>
+        <div class="eyebrow">À DÉCOUVRIR</div>
+        <h2 id="regionTitle"></h2>
+        <p id="regionText"></p>
+        <button class="light-btn" data-open="region">Explorer →</button>
+      </div>
+    </section>
+
+    <section class="help-card">
+      <h2>Besoin d'aide ?</h2>
+      <p id="helpText"></p>
+      <div class="actions">
+        <a id="callLink" class="action" href="#">📞 Appeler</a>
+        <a id="mailLink" class="action secondary" href="#">✉️ E-mail</a>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="active" data-home><span>⌂</span>Accueil</button>
+    <button data-open="planning"><span>▣</span>Programme</button>
+    <button data-open="notifications"><span>♢</span>Infos</button>
+    <button data-open="stay"><span>♙</span>Mon séjour</button>
+  </nav>
+</div>
+
+<div id="drawer" class="drawer hidden">
+  <div class="drawer-panel">
+    <button id="closeDrawer" class="close">×</button>
+    <div class="drawer-brand">🏕️ <b>Camping de Ceyreste</b></div>
+    <div id="drawerLinks"></div>
+  </div>
+</div>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-panel">
+    <button id="closeModal" class="close">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect width="512" height="512" rx="110" fill="#16766d"/>
+<circle cx="385" cy="118" r="56" fill="#f5c945"/>
+<path d="M62 390 215 178l90 118 48-72 97 166H62Z" fill="#fff"/>
+<path d="M62 390h388v58H62z" fill="#dbeee7"/>
+<text x="256" y="475" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#fff">CEYRESTE</text>
+</svg>
