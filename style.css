@@ -107,3 +107,18 @@ main{max-width:780px;margin:auto;padding:0 16px}.welcome-card{position:relative;
 }
 .today-program-heading span{font-size:20px}
 .today-program-list{margin-top:0}
+
+/* ===== V9 : animations visibles dans la même carte AUJOURD'HUI ===== */
+.today-program-heading{
+  grid-column:1 / -1;
+  width:100%;
+}
+.today-program-list{
+  grid-column:1 / -1;
+  width:100%;
+}
+@media(max-width:679px){
+  .today-items{grid-template-columns:1fr;}
+  .today-info-item{border-top:1px solid #eadfcb;}
+  .today-program-heading,.today-program-list{grid-column:1;}
+}
