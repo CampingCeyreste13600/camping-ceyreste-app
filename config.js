@@ -51,8 +51,8 @@ const CAMPING = {
   // Mets les images dans le dossier "images" du dépôt GitHub.
   // Puis indique ici leur nom.
   images: {
-    logo: "",       // ex: "images/logo.png"
-    accueil: "",   // ex: "images/accueil.jpg"
+    logo: "images/logo.png",       // ex: "images/logo.png"
+    accueil: "images/fond-camping.png",   // ex: "images/accueil.jpg"
     region: "",    // ex: "images/calanques.jpg"
     gallery: [
       // "images/photo1.jpg",
