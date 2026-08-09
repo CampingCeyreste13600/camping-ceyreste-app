@@ -169,6 +169,57 @@ function getTodayPlanning(){
   ) || null;
 }
 
+
+function getReceptionOpeningSchedule(item, now = new Date()){
+  if(!item || !item.openingSchedule) return item?.openingHours || null;
+
+  const month = now.getMonth() + 1;
+  if(month === 7 || month === 8) return item.openingSchedule.juilletAout;
+  if(month === 10) return item.openingSchedule.octobre;
+  if(month === 11 || month === 12 || month === 1) return item.openingSchedule.novJan;
+  return item.openingSchedule.basseSaison;
+}
+
+function isWithinOpeningHours(openingHours, now = new Date()){
+  if(!Array.isArray(openingHours) || !openingHours.length) return null;
+  const minutes = now.getHours()*60 + now.getMinutes();
+  return openingHours.some(period => {
+    const [sh,sm] = String(period.start).split(":").map(Number);
+    const [eh,em] = String(period.end).split(":").map(Number);
+    if([sh,sm,eh,em].some(Number.isNaN)) return false;
+    const start=sh*60+sm, end=eh*60+em;
+    return start <= end
+      ? minutes >= start && minutes < end
+      : minutes >= start || minutes < end;
+  });
+}
+
+function dynamicStatus(item){
+  const schedule = getReceptionOpeningSchedule(item);
+  const open = isWithinOpeningHours(schedule);
+  if(open === null) return item.note;
+  return textStyle(open ? "Ouvert ✔️" : "Fermé ✖️", {
+    color: open ? "green" : "red",
+    bold: true
+  });
+}
+function dynamicStatus(item){
+  const open = isWithinOpeningHours(item.openingHours);
+  if(open === null) return item.note;
+  return textStyle(open ? "Ouvert ✔️" : "Fermé ✖️", {
+    color: open ? "green" : "red",
+    bold: true
+  });
+}
+
+function refreshTodayStatuses(){
+  document.querySelectorAll("[data-today-index]").forEach(el => {
+    const index = Number(el.dataset.todayIndex);
+    const item = CAMPING.today.items[index];
+    if(item) el.innerHTML = renderText(dynamicStatus(item));
+  });
+}
+
 function renderToday(){
   const today = getTodayPlanning();
   const titleEl = document.querySelector("#todayTitle");
@@ -330,3 +381,6 @@ document.querySelector("#installBtn").onclick=async()=>{
   deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;document.querySelector("#installBtn").hidden=true;
 };
 if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js"));
+
+setInterval(refreshTodayStatuses, 60000);
+refreshTodayStatuses();

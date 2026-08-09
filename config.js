@@ -87,6 +87,19 @@ const CAMPING = {
 
     items: [
       {
+        icon: "🛎️",
+        title: textStyle("Réception", { color: "green", bold: true }),
+        time: "Horaires selon la période",
+        openingSchedule: {
+          basseSaison: [{ start: "08:30", end: "12:00" }, { start: "14:00", end: "19:00" }],
+          juilletAout: [{ start: "08:00", end: "20:00" }],
+          octobre: [{ start: "09:00", end: "12:00" }, { start: "14:00", end: "18:00" }],
+          novJan: [{ start: "09:00", end: "12:00" }, { start: "15:00", end: "18:00" }]
+        },
+        note: textStyle("Ouverte ✔️", { color: "green", bold: true })
+      },
+
+      {
         icon: "🏊",
         title: textStyle("Espace Aquatique", {
           color: "blue",
