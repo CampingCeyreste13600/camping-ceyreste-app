@@ -242,7 +242,7 @@ const CAMPING = {
   sections: {
     pool: {
       title: textStyle("🏊 ESPACE AQUATIQUE", { color: "blue", bold: true, size: "large" }),
-      image: "piscine.jpg",
+      image: "images/piscine.jpg",
       intro: textStyle("Découvrez nos piscines et nos toboggans, pour le bonheur des petits et des plus grands.", { color: "gray" }),
       blocks: [
         [textStyle("Horaires", { color: "blue", bold: true }), textStyle("À compléter selon la période.", { color: "gray" })],
@@ -251,7 +251,7 @@ const CAMPING = {
     },
     restaurant: {
       title: textStyle("🍽️ RESTAURANT", { color: "orange", bold: true, size: "large" }),
-      image: "resto.jpg",
+      image: "images/resto.jpg",
       menuPdf: "",
       intro: textStyle("Nathalie et toute son équipe vous accueillent pendant la saison.", { color: "gray" }),
       blocks: [
@@ -285,7 +285,7 @@ const CAMPING = {
     },
     map: {
       title: textStyle("🗺️ PLAN DU CAMPING", { color: "teal", bold: true, size: "large" }),
-      image: "plan.pdf",
+      image: "images/plan.pdf",
       intro: textStyle("Repérez facilement les principaux services et équipements.", { color: "gray" }),
       blocks: [
         [textStyle("📍 Points importants", { color: "teal", bold: true }), textStyle("Réception • Piscine • Restaurant • Épicerie • Sanitaires • Aires de jeux • Parking", { color: "dark" })]
