@@ -60,14 +60,14 @@ const CAMPING = {
 
   name: "Camping de Ceyreste",
   location: textStyle("Ceyreste • La Ciotat • Provence", { color: "white" }),
-  welcome: textStyle("Bienvenue chez nous !", { color: "white", italic: true, bold: true }),
+  welcome: textStyle("Que les vacances commençent !", { color: "white", italic: true, bold: true }),
   headline: textStyle("Profitez pleinement de votre séjour", { color: "green-dark", bold: true }),
-  subheadline: textStyle("Toutes les infos du camping dans votre poche.", { color: "gray" }),
+  subheadline: textStyle("Toutes les infos du camping directement à portée de main.", { color: "gray" }),
 
   contact: {
-    phone: "+33442018344",
+    phone: "+33.4.42.83.07.68",
     email: "campingceyreste@gmail.com",
-    address: textStyle("À compléter", { color: "orange" }),
+    address: textStyle("Avenue Eugène Julien, 13600 Ceyreste, FRANCE", { color: "orange" }),
     mapsUrl: "https://www.google.com/maps"
   },
 
@@ -91,7 +91,7 @@ const CAMPING = {
           bold: true
         }),
         time: "10H-20H",
-        note: textStyle("Ouverte ✔️", {
+        note: textStyle("Ouvert ✔️", {
           color: "green",
           bold: true
         })
@@ -103,7 +103,7 @@ const CAMPING = {
           color: "orange",
           bold: true
         }),
-        time: "19H-22H",
+        time: "",
         note: textStyle("Ouvert ✔️", {
           color: "green",
           bold: true
@@ -116,7 +116,7 @@ const CAMPING = {
           color: "green",
           bold: true
         }),
-        time: "08H-20H",
+        time: "08H-20H (dans la réception)",
         note: textStyle("Ouverte ✔️", {
           color: "green",
           bold: true
@@ -142,53 +142,66 @@ const CAMPING = {
     {
       day: "Lundi",
       events: [
-        { text: "10h00 • Aquagym", color: "blue", bold: true, icon: "🏊" },
-        { text: "15h00 • Tournoi de pétanque", color: "green", icon: "🎯" },
-        { text: "21h00 • Soirée mousse", color: "pink", bold: true, size: "large", icon: "🎉" }
+        { text: "10h00 • Atelier créatif", color: "pink", bold: true, icon: "🎨" },
+        { text: "12h00 • Aquabike (sur inscription)", color: "blue", bold: true, icon: "🏊" },
+        { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
+        { text: "16h00 • Aqua-Volley", color: "green", icon: "🏐" },
+        { text: "21h00 • Soirée CABAREVE", color: "red", bold: true, size: "large", icon: "💃" }
       ]
     },
     {
       day: "Mardi",
       events: [
-        { text: "10h30 • Réveil musculaire", color: "orange", icon: "💪" },
-        { text: "17h00 • Jeux apéro", color: "green", icon: "🎲" },
-        { text: "21h00 • Soirée dansante", color: "purple", bold: true, icon: "💃" }
+        { text: "10h00 • Jeux Géant en bois", color: "brown", icon: "🍄" },
+        { text: "12h00 • Aqua-fun", color: "blue", icon: "🏊" },
+        { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
+        { text: "14h00 • Tournoi de Pétanque (inscription)", color: "green", icon: "🏆" },
+        { text: "17h00 • Trampoline + Accrobranche", color: "green", icon: "🌲" },
+        { text: "21h00 • Election MISS et MISTER Camping", color: "pink", bold: true, icon: "👑" }
       ]
     },
     {
       day: "Mercredi",
       events: [
-        { text: "10h00 • Aquagym", color: "blue", bold: true, icon: "🏊" },
-        { text: "15h00 • Activité enfants", color: "orange", icon: "🧒" },
-        { text: "21h00 • Cabaret", color: "purple", bold: true, size: "large", icon: "🎭" }
+        { text: "10h00 • Bien être", color: "marron", bold: true, icon: "🧘🏻" },
+        { text: "11h00 • Jeux de société", color: "grey", icon: "🎲" },
+        { text: "12h00 • Aquabike (sur inscription)", color: "blue", icon: "🏊" },
+        { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
+        { text: "16h00 • Jeux Aquatiques", color: "yellow", icon: "🧒" },
+        { text: "21h30 • POOL PARTY", color: "purple", bold: true, size: "large", icon: "🎉" }
       ]
     },
     {
       day: "Jeudi",
       events: [
-        { text: "10h30 • Tournoi sportif", color: "green", icon: "🏆" },
-        { text: "21h00 • Animation du soir", color: "pink", bold: true, icon: "🎉" }
+        { text: "10h00 • Tournoi PingPong", color: "green", icon: "🏓" },
+        { text: "12h00 • Aqua-fun", color: "blue", icon: "🏊" },
+        { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
+        { text: "16h00 • Aqua-Boom", color: "pink", icon: "🧒" },
+        { text: "17h00 • Trampoline + Accrobranche", color: "green", icon: "🌲" },
+        { text: "21h00 • Loto", color: "purple", bold: true, icon: "🎉" }
       ]
     },
     {
       day: "Vendredi",
       events: [
-        { text: "10h00 • Aquagym", color: "blue", bold: true, icon: "🏊" },
-        { text: "15h00 • Pétanque", color: "green", icon: "🎯" },
-        { text: "21h00 • Grande soirée", color: "red", bold: true, size: "large", icon: "🔥" }
+        { text: "10h00 • Atelier créatif", color: "pink", bold: true, icon: "🎨" },
+        { text: "12h00 • Aquabike (sur inscription)", color: "blue", icon: "🏊" },
+        { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
+        { text: "16h00 • Aqua-Volley", color: "green", icon: "🏐" },
+        { text: "21h00 • Karaoké", color: "red", bold: true, size: "large", icon: "🎶" }
       ]
     },
     {
       day: "Samedi",
       events: [
-        { text: "11h00 • Animation piscine", color: "blue", icon: "🌊" },
-        { text: "21h00 • Soirée", color: "purple", bold: true, icon: "🎉" }
+        { text: "Aucune animation prévue aujourd'hui", color: "black", icon: "😴" },
       ]
     },
     {
       day: "Dimanche",
       events: [
-        { text: "20h00 • Pot d'accueil (juillet & août)", color: "green", bold: true, icon: "🥂" }
+        { text: "20h00 • Pot d'accueil (restaurant)", color: "green", bold: true, icon: "🥂" }
       ]
     }
   ]
