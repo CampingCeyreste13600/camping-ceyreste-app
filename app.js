@@ -129,14 +129,25 @@ function renderTiles(){
 }
 renderTiles();
 
-function getFrenchDayName(date = new Date()){
-  return new Intl.DateTimeFormat("fr-FR", { weekday: "long" }).format(date);
-}
-
 function getTodayPlanning(){
-  const todayName = getFrenchDayName().toLowerCase();
-  const days = Array.isArray(CAMPING.planning) ? CAMPING.planning : [];
-  return days.find(day => plainText(day.day).toLowerCase() === todayName) || null;
+  const dayNames = [
+    "Dimanche",
+    "Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi"
+  ];
+
+  const todayName = dayNames[new Date().getDay()];
+  const days = Array.isArray(CAMPING.today?.animation?.days)
+    ? CAMPING.today.animation.days
+    : [];
+
+  return days.find(day =>
+    plainText(day?.day).trim().toLowerCase() === todayName.toLowerCase()
+  ) || null;
 }
 
 function renderToday(){
@@ -232,6 +243,9 @@ function openSection(id){
 }
 
 function openPlanning(){
+  const animation = CAMPING.today?.animation;
+  const days = animation && Array.isArray(animation.days) ? animation.days : [];
+
   const safeColor=(value)=>{
     if(!value)return "";
     const named=["green","green-dark","blue","orange","red","purple","pink","teal","yellow","gray","dark","white"];
@@ -239,6 +253,7 @@ function openPlanning(){
     if(/^#[0-9a-fA-F]{3,8}$/.test(String(value)))return String(value);
     return "";
   };
+
   const eventHtml=(event)=>{
     const e=typeof event==="string"?{text:event}:event||{text:""};
     const color=safeColor(e.color);
@@ -246,14 +261,27 @@ function openPlanning(){
     const cls=`event ${color && !color.startsWith("#")?`event-${color}`:""} ${e.bold?"event-bold":""} ${e.italic?"event-italic":""} ${e.size==="small"?"event-small":""} ${e.size==="large"?"event-large":""}`;
     return `<div class="${cls}" ${custom}>${renderText(e.text)}</div>`;
   };
-  document.querySelector("#modalContent").innerHTML=`
+
+  const weeklyHtml = days.length
+    ? days.map(d=>`
+        <div class="planning-day">
+          <b>${renderText(d.day)}</b>
+          <div>${Array.isArray(d.events) ? d.events.map(eventHtml).join("") : ""}</div>
+        </div>
+      `).join("")
+    : `<p>Aucun programme d'animation n'est renseigné pour le moment.</p>`;
+
+  const modal=document.querySelector("#modal");
+  const content=document.querySelector("#modalContent");
+  if(!modal || !content) return;
+
+  content.innerHTML=`
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
     <h2 class="modal-title">📅 Programme de la semaine</h2>
-    <p class="modal-intro">Tu peux modifier la couleur et la mise en forme directement dans <b>config.js</b>.</p>
-    <div class="planning">${CAMPING.planning.map(d=>`
-      <div class="planning-day"><b>${renderText(d.day)}</b><div>${d.events.map(eventHtml).join("")}</div></div>`).join("")}</div>
+    <p class="modal-intro">Retrouvez toutes les animations de la semaine.</p>
+    <div class="planning">${weeklyHtml}</div>
   `;
-  document.querySelector("#modal").classList.remove("hidden");
+  modal.classList.remove("hidden");
 }
 
 function open(id){ if(id==="planning")return openPlanning(); openSection(id); }
