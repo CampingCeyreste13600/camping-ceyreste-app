@@ -265,7 +265,7 @@ const CAMPING = {
     restaurant: {
       title: textStyle("🍽️ RESTAURANT", { color: "orange", bold: true, size: "large" }),
       image: "images/resto.jpg",
-      menuPdf: "carte.pdf",
+      menuPdf: "images/carte.pdf",
       intro: textStyle("Nathalie et toute son équipe vous accueillent pendant la saison.", { color: "gray" }),
       blocks: [
         [textStyle("Horaires", { color: "orange", bold: true }), textStyle("Toute la journée en haute saison (juillet-aôut) et à partir de 17h le reste de l'année", { color: "gray" })],
