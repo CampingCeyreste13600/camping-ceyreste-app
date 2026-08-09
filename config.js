@@ -361,8 +361,8 @@ const CAMPING = {
       image: "",
       intro: textStyle("Des problèmes durant votre séjour ?", { color: "gray" }),
       blocks: [
-        [textStyle("FORMALITES DE DEPART", { color: "orange", bold: true }), textStyle("Les départs se font entre 8h et 10h chaque jours. Une fois le ménage de prêt, appellez-nous !", { color: "dark" })],
-        [textStyle("SUPPLEMENTS", { color: "blue", bold: true }), textStyle("A la réception, location de Draps, Serviettes, KitBébé, Barbecue,...", { color: "dark" })],
+        [textStyle("FORMALITES DE DEPART", { color: "orange", bold: true }), textStyle("Les départs se font entre 8h et 10h chaque jour. Une fois le ménage fait, appelez-nous ! ", { color: "dark" })],
+        [textStyle("SUPPLEMENTS", { color: "blue", bold: true }), textStyle("A la réception, location de Draps, Serviettes, KitBébé, Barbecue, Forfait ménage,...", { color: "dark" })],
         [textStyle("PROBLEMES", { color: "red", bold: true }), textStyle("En cas d'incident durant votre séjour, n'hesitez pas !! Composez le 04.42.83.07.68, MEME DE NUIT !", { color: "dark" })]
       ]
     }
