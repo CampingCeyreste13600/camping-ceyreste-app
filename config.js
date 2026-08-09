@@ -123,27 +123,22 @@ const CAMPING = {
         })
       }
     ]
-  },
+  
 
-  region: {
-    title: textStyle("La Ciotat, Cassis & les Calanques", { color: "white", bold: true, size: "large" }),
-    text: textStyle("Plages, ports, calanques, balades et activités : découvrez notre région.", { color: "white" }),
-    image: ""
-  },
+    // ============================================================
+    // 🎉 PROGRAMME D'ANIMATION
+    // ============================================================
+    // TOUTES les animations de la semaine sont ici.
+    // L'application prend automatiquement le bon jour et
+    // l'affiche dans cette même partie "AUJOURD'HUI AU CAMPING".
+    // ============================================================
+    animation: {
+      title: textStyle("PROGRAMME D'ANIMATION DU JOUR", {
+        color: "green-dark",
+        bold: true
+      }),
 
-  menu: [
-    { id: "planning", icon: "📅", title: textStyle("Programme", { color: "green-dark", bold: true }), desc: textStyle("Animations & planning", { color: "gray" }) },
-    { id: "pool", icon: "🏊", title: textStyle("Espace aquatique", { color: "blue", bold: true }), desc: textStyle("Piscines, toboggans & horaires", { color: "gray" }) },
-    { id: "restaurant", icon: "🍽️", title: textStyle("Restaurant", { color: "orange", bold: true }), desc: textStyle("Carte, horaires & réservation", { color: "gray" }) },
-    { id: "shop", icon: "🛒", title: textStyle("Épicerie", { color: "green", bold: true }), desc: textStyle("Pain, produits & horaires", { color: "gray" }) },
-    { id: "rules", icon: "📖", title: textStyle("Règlement", { color: "purple", bold: true }), desc: textStyle("Les règles du camping", { color: "gray" }) },
-    { id: "map", icon: "🗺️", title: textStyle("Plan du camping", { color: "teal", bold: true }), desc: textStyle("Découvrir le camping", { color: "gray" }) },
-    { id: "region", icon: "📍", title: textStyle("À découvrir", { color: "teal", bold: true }), desc: textStyle("Activités & lieux incontournables", { color: "gray" }) },
-    { id: "partners", icon: "🚲", title: textStyle("Nos partenaires", { color: "orange", bold: true }), desc: textStyle("Activités locales", { color: "gray" }) },
-    { id: "emergency", icon: "🚨", title: textStyle("Urgences", { color: "red", bold: true }), desc: textStyle("Numéros importants", { color: "gray" }) }
-  ],
-
-  planning: [
+      days: [
     {
       day: "Lundi",
       events: [
@@ -196,7 +191,38 @@ const CAMPING = {
         { text: "20h00 • Pot d'accueil (juillet & août)", color: "green", bold: true, icon: "🥂" }
       ]
     }
+  ]
+    }},
+
+  region: {
+    title: textStyle("La Ciotat, Cassis & les Calanques", { color: "white", bold: true, size: "large" }),
+    text: textStyle("Plages, ports, calanques, balades et activités : découvrez notre région.", { color: "white" }),
+    image: ""
+  },
+
+  menu: [
+    { id: "planning", icon: "📅", title: textStyle("Programme", { color: "green-dark", bold: true }), desc: textStyle("Animations & planning", { color: "gray" }) },
+    { id: "pool", icon: "🏊", title: textStyle("Espace aquatique", { color: "blue", bold: true }), desc: textStyle("Piscines, toboggans & horaires", { color: "gray" }) },
+    { id: "restaurant", icon: "🍽️", title: textStyle("Restaurant", { color: "orange", bold: true }), desc: textStyle("Carte, horaires & réservation", { color: "gray" }) },
+    { id: "shop", icon: "🛒", title: textStyle("Épicerie", { color: "green", bold: true }), desc: textStyle("Pain, produits & horaires", { color: "gray" }) },
+    { id: "rules", icon: "📖", title: textStyle("Règlement", { color: "purple", bold: true }), desc: textStyle("Les règles du camping", { color: "gray" }) },
+    { id: "map", icon: "🗺️", title: textStyle("Plan du camping", { color: "teal", bold: true }), desc: textStyle("Découvrir le camping", { color: "gray" }) },
+    { id: "region", icon: "📍", title: textStyle("À découvrir", { color: "teal", bold: true }), desc: textStyle("Activités & lieux incontournables", { color: "gray" }) },
+    { id: "partners", icon: "🚲", title: textStyle("Nos partenaires", { color: "orange", bold: true }), desc: textStyle("Activités locales", { color: "gray" }) },
+    { id: "emergency", icon: "🚨", title: textStyle("Urgences", { color: "red", bold: true }), desc: textStyle("Numéros importants", { color: "gray" }) }
   ],
+
+  // ============================================================
+  // 📅 PROGRAMME D'ANIMATION DE LA SEMAINE
+  // ============================================================
+  // C'est CETTE partie que tu modifies pour les animations.
+  // L'application prend automatiquement le jour actuel.
+  // Tu peux ajouter autant d'animations que nécessaire.
+  //
+  // Exemple :
+  // { text: "10H00 — Aquagym", color: "blue", icon: "🏊" }
+  // ============================================================
+
 
   sections: {
     pool: {
