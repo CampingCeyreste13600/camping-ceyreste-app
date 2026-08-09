@@ -60,8 +60,20 @@ function setupImages(){
 
   const hero=document.querySelector(".hero");
   if(hero && images.accueil){
-    hero.style.setProperty("--hero-image", `url("${images.accueil}")`);
-    hero.classList.add("has-hero-image");
+    // Résout correctement le chemin, y compris sur GitHub Pages
+    const heroUrl = new URL(String(images.accueil).trim(), document.baseURI).href;
+    const testImage = new Image();
+    testImage.onload = () => {
+      hero.style.setProperty("--hero-image", `url("${heroUrl}")`);
+      hero.classList.add("has-hero-image");
+      hero.style.backgroundImage = `linear-gradient(180deg,rgba(20,70,95,.35),rgba(10,55,50,.35)),url("${heroUrl}")`;
+      hero.style.backgroundSize = "cover";
+      hero.style.backgroundPosition = "center";
+    };
+    testImage.onerror = () => {
+      console.warn("Impossible de charger l'image d'accueil :", heroUrl);
+    };
+    testImage.src = heroUrl;
   }
 
   const region=document.querySelector("#regionCard");

@@ -1,4 +1,4 @@
-const CACHE="ceyreste-v13";
+const CACHE="ceyreste-v14";
 const STATIC_FILES=[
   "./",
   "./index.html",

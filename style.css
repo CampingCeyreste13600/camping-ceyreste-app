@@ -32,7 +32,7 @@ main{max-width:780px;margin:auto;padding:0 16px}.welcome-card{position:relative;
 
 /* ===== PHOTOS / LOGO ===== */
 .camping-logo{max-width:190px;max-height:105px;object-fit:contain;display:block;margin:0 auto 8px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.18))}
-.hero.has-hero-image{background-image:linear-gradient(180deg,rgba(20,70,95,.35),rgba(10,55,50,.35)),var(--hero-image);background-size:cover;background-position:center}
+.hero.has-hero-image{background-image:linear-gradient(180deg,rgba(20,70,95,.35),rgba(10,55,50,.35)),var(--hero-image);background-size:cover;background-position:center;background-repeat:no-repeat}
 .region-card.has-region-image{background-image:linear-gradient(135deg,rgba(23,110,120,.72),rgba(28,155,177,.55)),var(--region-image);background-size:cover;background-position:center}
 .gallery-card{background:white;border:1px solid var(--line);border-radius:23px;margin:16px 0;padding:18px;box-shadow:0 5px 18px rgba(80,60,30,.05)}
 .gallery-card h2{margin:5px 0 14px;font-size:20px}
