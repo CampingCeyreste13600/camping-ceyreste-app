@@ -216,15 +216,15 @@ const CAMPING = {
   },
 
   menu: [
-    { id: "planning", icon: "📅", title: textStyle("Programme d'animations", { color: "green-dark", bold: true }), desc: textStyle("Animations & planning", { color: "gray" }) },
+    { id: "planning", icon: "📅", title: textStyle("ANIMATIONS", { color: "green-dark", bold: true }), desc: textStyle("Animations & planning", { color: "gray" }) },
     { id: "pool", icon: "🏊", title: textStyle("ESPACE AQUATIQUE", { color: "blue", bold: true }), desc: textStyle("Piscines, toboggans & horaires", { color: "gray" }) },
-    { id: "restaurant", icon: "🍽️", title: textStyle("Restaurant", { color: "orange", bold: true }), desc: textStyle("Carte, horaires", { color: "gray" }) },
+    { id: "restaurant", icon: "🍽️", title: textStyle("RESTAURANT", { color: "orange", bold: true }), desc: textStyle("Carte, horaires", { color: "gray" }) },
     { id: "shop", icon: "📝", title: textStyle("RECEPTION", { color: "green", bold: true }), desc: textStyle("Toutes vos informations concernant votre séjour", { color: "gray" }) },
-    { id: "rules", icon: "📖", title: textStyle("Règlement", { color: "purple", bold: true }), desc: textStyle("Les règles du camping", { color: "gray" }) },
-    { id: "map", icon: "🗺️", title: textStyle("Plan du camping", { color: "teal", bold: true }), desc: textStyle("Découvrir le camping", { color: "gray" }) },
-    { id: "region", icon: "📍", title: textStyle("À découvrir", { color: "teal", bold: true }), desc: textStyle("Activités & lieux incontournables", { color: "gray" }) },
-    { id: "partners", icon: "🚲", title: textStyle("Nos partenaires", { color: "orange", bold: true }), desc: textStyle("Activités locales", { color: "gray" }) },
-    { id: "emergency", icon: "🚨", title: textStyle("Urgences", { color: "red", bold: true }), desc: textStyle("Numéros importants", { color: "gray" }) }
+    { id: "rules", icon: "📖", title: textStyle("REGLEMENT", { color: "purple", bold: true }), desc: textStyle("Les règles du camping", { color: "gray" }) },
+    { id: "map", icon: "🗺️", title: textStyle("PLAN DU CAMPING", { color: "teal", bold: true }), desc: textStyle("Découvrir le camping", { color: "gray" }) },
+    { id: "region", icon: "📍", title: textStyle("A DECOUVRIR", { color: "teal", bold: true }), desc: textStyle("Activités & lieux incontournables", { color: "gray" }) },
+    { id: "partners", icon: "🚲", title: textStyle("NOS PARTENAIRES", { color: "orange", bold: true }), desc: textStyle("Activités locales", { color: "gray" }) },
+    { id: "emergency", icon: "🚨", title: textStyle("URGENCES", { color: "red", bold: true }), desc: textStyle("Numéros importants", { color: "gray" }) }
   ],
 
   // ============================================================
@@ -250,7 +250,7 @@ const CAMPING = {
       ]
     },
     restaurant: {
-      title: textStyle("🍽️ Restaurant", { color: "orange", bold: true, size: "large" }),
+      title: textStyle("🍽️ RESTAURANT", { color: "orange", bold: true, size: "large" }),
       image: "resto.jpg",
       menuPdf: "",
       intro: textStyle("Nathalie et toute son équipe vous accueillent pendant la saison.", { color: "gray" }),
@@ -270,7 +270,7 @@ const CAMPING = {
       ]
     },
     rules: {
-      title: textStyle("📖 Règlement du camping", { color: "purple", bold: true, size: "large" }),
+      title: textStyle("📖 REGLEMENT DU CAMPING", { color: "purple", bold: true, size: "large" }),
       image: "",
       intro: textStyle("Merci de respecter ces règles afin que chacun profite de vacances agréables.", { color: "gray" }),
       blocks: [
@@ -284,15 +284,15 @@ const CAMPING = {
       ]
     },
     map: {
-      title: textStyle("🗺️ Plan du camping", { color: "teal", bold: true, size: "large" }),
-      image: "plan.jpg",
+      title: textStyle("🗺️ PLAN DU CAMPING", { color: "teal", bold: true, size: "large" }),
+      image: "plan.pdf",
       intro: textStyle("Repérez facilement les principaux services et équipements.", { color: "gray" }),
       blocks: [
         [textStyle("📍 Points importants", { color: "teal", bold: true }), textStyle("Réception • Piscine • Restaurant • Épicerie • Sanitaires • Aires de jeux • Parking", { color: "dark" })]
       ]
     },
     region: {
-      title: textStyle("📍 À découvrir", { color: "teal", bold: true, size: "large" }),
+      title: textStyle("📍 A DECOUVRIR", { color: "teal", bold: true, size: "large" }),
       intro: textStyle("Découvrez les incontournables autour de Ceyreste et de La Ciotat.", { color: "gray" }),
       blocks: [
         [textStyle("🌊 La Ciotat", { color: "blue", bold: true }), textStyle("Vieux-Port, plages, calanques et Parc du Mugel.", { color: "dark" })],
@@ -302,7 +302,7 @@ const CAMPING = {
       ]
     },
     partners: {
-      title: textStyle("🚲 Nos partenaires", { color: "orange", bold: true, size: "large" }),
+      title: textStyle("🚲 NOS PARTENAIRES", { color: "orange", bold: true, size: "large" }),
       image: "",
       intro: textStyle("Retrouvez ici les activités partenaires recommandées par le camping.", { color: "gray" }),
       blocks: [
@@ -312,7 +312,7 @@ const CAMPING = {
       ]
     },
     emergency: {
-      title: textStyle("🚨 Urgences", { color: "red", bold: true, size: "large" }),
+      title: textStyle("🚨 URGENCES", { color: "red", bold: true, size: "large" }),
       image: "",
       intro: textStyle("En cas d'urgence, contactez immédiatement le service compétent.", { color: "red", bold: true }),
       blocks: [
@@ -332,7 +332,7 @@ const CAMPING = {
       ]
     },
     stay: {
-      title: textStyle("🏕️ Mon séjour", { color: "green-dark", bold: true, size: "large" }),
+      title: textStyle("🏕️ MON SEJOUR", { color: "green-dark", bold: true, size: "large" }),
       image: "",
       intro: textStyle("Une future rubrique pour aider chaque vacancier pendant son séjour.", { color: "gray" }),
       blocks: [
