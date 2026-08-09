@@ -131,13 +131,28 @@ document.querySelector("#helpText").textContent="La réception est à votre disp
 document.querySelector("#callLink").href=`tel:${CAMPING.contact.phone}`;
 document.querySelector("#mailLink").href=`mailto:${CAMPING.contact.email}`;
 
+function resolveImageUrl(src){
+  if(!src) return "";
+  try { return new URL(String(src).trim(), document.baseURI).href; }
+  catch(e) { return String(src).trim(); }
+}
+
 function renderTiles(){
-  document.querySelector("#tiles").innerHTML=CAMPING.menu.map(item=>`
-    <button class="tile" data-open="${item.id}">
-      <span class="tile-icon">${item.icon}</span>
-      <strong>${renderText(item.title)}</strong>
-      <small>${renderText(item.desc)}</small>
-    </button>`).join("");
+  document.querySelector("#tiles").innerHTML=CAMPING.menu.map(item=>{
+    const imageUrl=resolveImageUrl(item.image);
+    const imageHtml=imageUrl
+      ? `<img class="tile-image" src="${escapeHtml(imageUrl)}" alt="" loading="lazy" onerror="this.remove()">`
+      : "";
+    return `
+      <button class="tile ${imageUrl ? "tile-with-image" : ""}" data-open="${item.id}">
+        ${imageHtml}
+        <span class="tile-content">
+          <span class="tile-icon">${item.icon}</span>
+          <strong>${renderText(item.title)}</strong>
+          <small>${renderText(item.desc)}</small>
+        </span>
+      </button>`;
+  }).join("");
 }
 renderTiles();
 

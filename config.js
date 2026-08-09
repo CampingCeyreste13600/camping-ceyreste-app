@@ -49,8 +49,8 @@ const CAMPING = {
   // Mets les images dans le dossier "images" du dépôt GitHub.
   // Puis indique ici leur nom.
   images: {
-    logo: "images/logo.png",       // ex: "images/logo.png"
-    accueil: "images/fond-camping.jpg",   // ex: "images/accueil.jpg"
+    logo: "",       // ex: "images/logo.png"
+    accueil: "",   // ex: "images/accueil.jpg"
     region: "",    // ex: "images/calanques.jpg"
     gallery: [
       // "images/photo1.jpg",
@@ -123,6 +123,7 @@ const CAMPING = {
         })
       }
     ],
+  
 
     // ============================================================
     // 🎉 PROGRAMME D'ANIMATION
@@ -213,15 +214,15 @@ const CAMPING = {
   },
 
   menu: [
-    { id: "planning", icon: "📅", title: textStyle("Programme", { color: "green-dark", bold: true }), desc: textStyle("Animations & planning", { color: "gray" }) },
-    { id: "pool", icon: "🏊", title: textStyle("Espace aquatique", { color: "blue", bold: true }), desc: textStyle("Piscines, toboggans & horaires", { color: "gray" }) },
-    { id: "restaurant", icon: "🍽️", title: textStyle("Restaurant", { color: "orange", bold: true }), desc: textStyle("Carte, horaires & réservation", { color: "gray" }) },
-    { id: "shop", icon: "🛒", title: textStyle("Épicerie", { color: "green", bold: true }), desc: textStyle("Pain, produits & horaires", { color: "gray" }) },
-    { id: "rules", icon: "📖", title: textStyle("Règlement", { color: "purple", bold: true }), desc: textStyle("Les règles du camping", { color: "gray" }) },
-    { id: "map", icon: "🗺️", title: textStyle("Plan du camping", { color: "teal", bold: true }), desc: textStyle("Découvrir le camping", { color: "gray" }) },
-    { id: "region", icon: "📍", title: textStyle("À découvrir", { color: "teal", bold: true }), desc: textStyle("Activités & lieux incontournables", { color: "gray" }) },
-    { id: "partners", icon: "🚲", title: textStyle("Nos partenaires", { color: "orange", bold: true }), desc: textStyle("Activités locales", { color: "gray" }) },
-    { id: "emergency", icon: "🚨", title: textStyle("Urgences", { color: "red", bold: true }), desc: textStyle("Numéros importants", { color: "gray" }) }
+    { id: "planning", icon: "📅", title: textStyle("Programme", { color: "green-dark", bold: true }), desc: textStyle("Animations & planning", { color: "gray" }), image: "" },
+    { id: "pool", icon: "🏊", title: textStyle("Espace aquatique", { color: "blue", bold: true }), desc: textStyle("Piscines, toboggans & horaires", { color: "gray" }), image: "" },
+    { id: "restaurant", icon: "🍽️", title: textStyle("Restaurant", { color: "orange", bold: true }), desc: textStyle("Carte, horaires & réservation", { color: "gray" }), image: "" },
+    { id: "shop", icon: "🛒", title: textStyle("Épicerie", { color: "green", bold: true }), desc: textStyle("Pain, produits & horaires", { color: "gray" }), image: "" },
+    { id: "rules", icon: "📖", title: textStyle("Règlement", { color: "purple", bold: true }), desc: textStyle("Les règles du camping", { color: "gray" }), image: "" },
+    { id: "map", icon: "🗺️", title: textStyle("Plan du camping", { color: "teal", bold: true }), desc: textStyle("Découvrir le camping", { color: "gray" }), image: "" },
+    { id: "region", icon: "📍", title: textStyle("À découvrir", { color: "teal", bold: true }), desc: textStyle("Activités & lieux incontournables", { color: "gray" }), image: "" },
+    { id: "partners", icon: "🚲", title: textStyle("Nos partenaires", { color: "orange", bold: true }), desc: textStyle("Activités locales", { color: "gray" }), image: "" },
+    { id: "emergency", icon: "🚨", title: textStyle("Urgences", { color: "red", bold: true }), desc: textStyle("Numéros importants", { color: "gray" }), image: "" }
   ],
 
   // ============================================================
