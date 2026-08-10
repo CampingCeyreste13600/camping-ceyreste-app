@@ -265,7 +265,7 @@ const CAMPING = {
     restaurant: {
       title: textStyle("🍽️ RESTAURANT", { color: "orange", bold: true, size: "large" }),
       image: "images/resto.jpg",
-      menuPdf: "",
+      menuPdf: "images/carte.pdf",
       intro: textStyle("Nathalie et toute son équipe vous accueillent pendant la saison.", { color: "gray" }),
       blocks: [
         [textStyle("Horaires", { color: "orange", bold: true }), textStyle("Toute la journée en haute saison (juillet-aôut) et à partir de 17h le reste de l'année", { color: "gray" })],
@@ -311,7 +311,8 @@ const CAMPING = {
         [textStyle("🌊 La Ciotat", { color: "blue", bold: true }), textStyle("Vieux-Port, plages, calanques et Parc du Mugel.", { color: "dark" })],
         [textStyle("🏞️ Calanques", { color: "teal", bold: true }), textStyle("Figuerolles, Mugel et paysages de la côte méditerranéenne.", { color: "dark" })],
         [textStyle("⛰️ Cassis", { color: "green", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" })],
-        [textStyle("☀️ Bandol & Sanary", { color: "orange", bold: true }), textStyle("Ports, marchés, plages et balades en bord de mer.", { color: "dark" })]
+        [textStyle("☀️ Bandol & Sanary", { color: "orange", bold: true }), textStyle("Ports, marchés, plages et balades en bord de mer.", { color: "dark" })],
+        [textStyle("🛍️ Marchés Locaux", { color: "purple", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" })]
       ]
     },
     partners: {
@@ -319,9 +320,19 @@ const CAMPING = {
       image: "",
       intro: textStyle("Retrouvez ici les activités partenaires recommandées par le camping.", { color: "gray" }),
       blocks: [
-        [textStyle("🚲 Location de vélos", { color: "green", bold: true }), textStyle("Ajoutez ici votre partenaire vélo et son lien.", { color: "dark" })],
-        [textStyle("🤿 Plongée", { color: "blue", bold: true }), textStyle("Ajoutez ici votre partenaire plongée et son lien.", { color: "dark" })],
-        [textStyle("⛵ Catamaran", { color: "teal", bold: true }), textStyle("Ajoutez ici votre partenaire nautique et son lien.", { color: "dark" })]
+        [textStyle("🚲 Location de vélos", { color: "pink", bold: true }), textStyle("TROLIB CASSIS, Location de vélos électriques et promenade, 06.72.50.47.26 ", { color: "dark" })],
+        [textStyle("🛵 Location de scooters", { color: "orange", bold: true }), textStyle("TOP LOC SERVICES à Roquefort-la-Bédoule, 06.24.09.72.25", { color: "dark" })],
+        [textStyle("🛤️ Location de quad", { color: "grey", bold: true }), textStyle("RENT A QUAD 13, au départ de La Ciotat, 07.83.05.99.33 ", { color: "dark" })],
+        [textStyle("🛶 Location Kayak", { color: "yellow", bold: true }), textStyle("KAYAK RAIDS à La Ciotat, 06.34.69.83.49", { color: "dark" })],
+        [textStyle("⛵ Catamaran", { color: "blue", bold: true }), textStyle("CAT EXPLORER, Sortie en Catamaran, 07.87.23.24.71", { color: "dark" })],
+        [textStyle("🧗‍♂️ Salles d'escalade", { color: "teal", bold: true }), textStyle("BLOC SESSION à La Ciotat, 04.42.72.05.18", { color: "dark" })],
+        [textStyle("🚗 Location Voiture", { color: "red", bold: true }), textStyle("OLYMPIC LOCATION, voir avec la Réception", { color: "dark" })],
+        [textStyle("🎈 Parapente", { color: "pink", bold: true }), textStyle("MARSEILLE PARAPENTE, Baptemes et Formations, 06.51.84.46.71", { color: "dark" })],
+        [textStyle("🌅 Visites des Calanques", { color: "blue", bold: true }), textStyle("GUIDES CASSIS CALANQUES CANAILLES, Visites en bateau, Randonnée, Escalade, Via Cordata, 06.61.50.38.48", { color: "dark" })],
+        [textStyle("🥽 Plongée", { color: "green", bold: true }), textStyle("ANAYA PLONGEE, 07.45.12.31.65", { color: "dark" })],
+        [textStyle("⛵ Visites des Calanques en Bateau", { color: "orange", bold: true }), textStyle("LES AMIS DES CALANQUES, 06.09.35.25.68", { color: "dark" })],
+        [textStyle("💆🏻 Shiatsu e Do In (Bien être)", { color: "brown", bold: true }), textStyle("ENTRE MAINS ET MAUX, Sabine PUGLIESI, 06.15.75.06.72", { color: "dark" })],
+        [textStyle("🧘‍♀️ Reflexologie", { color: "grey", bold: true }), textStyle("PIERRE GALAND, 06.59.22.84.73", { color: "dark" })]
       ]
     },
     emergency: {
