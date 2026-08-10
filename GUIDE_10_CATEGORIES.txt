@@ -1,0 +1,13 @@
+1. Dans config.js > MOBILE_HOMES :
+   associe les numéros aux catégories.
+   Exemple : "90": "CATEGORIE_1",
+
+2. Dans config.js > MOBILE_HOME_CATEGORIES :
+   remplis chaque catégorie UNE SEULE FOIS :
+   title, category, capacity, bedrooms, image, arrival, departure, info.
+
+3. Pour une photo :
+   mets-la dans images/ puis indique, par exemple :
+   image: "images/la-ciotat.jpg"
+
+4. Tu n'as pas besoin de modifier app.js.

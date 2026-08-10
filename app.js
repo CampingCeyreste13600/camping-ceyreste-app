@@ -9,24 +9,8 @@ function escapeHtml(value){
     .replace(/"/g,"&quot;").replace(/'/g,"&#039;");
 }
 
-if (typeof textStyle !== "function") {
-  window.textStyle = function(text, options = {}) {
-    return {
-      __styledText: true,
-      text: String(text ?? ""),
-      color: options.color || "",
-      bold: !!options.bold,
-      italic: !!options.italic,
-      size: options.size || "normal",
-      background: options.background || "",
-      align: options.align || ""
-    };
-  };
-}
-
-
 /* ============================================================
-   🏠 PERSONNALISATION MOBIL-HOME
+   🏕️ PERSONNALISATION — MA LOCATION
    ============================================================ */
 const CEYRESTE_MOBILE_HOME_KEY = "ceyreste_mobile_home_number";
 
@@ -41,62 +25,71 @@ function setSelectedMobileHomeNumber(number){
 }
 
 function getSelectedMobileHome(){
-  const number = getSelectedMobileHomeNumber();
-  if(!number || typeof MOBILE_HOMES === "undefined") return null;
-  return MOBILE_HOMES[number] ? { number, ...MOBILE_HOMES[number] } : null;
+  const number=getSelectedMobileHomeNumber();
+  if(!number || typeof MOBILE_HOMES==="undefined") return null;
+  const entry=MOBILE_HOMES[number];
+  if(!entry) return null;
+
+  if(typeof entry==="string" &&
+     typeof MOBILE_HOME_CATEGORIES!=="undefined" &&
+     MOBILE_HOME_CATEGORIES[entry]){
+    return { number, ...MOBILE_HOME_CATEGORIES[entry], categoryKey: entry };
+  }
+
+  if(typeof entry==="object") return {number, ...entry};
+  return null;
 }
 
 function askMobileHomeNumber(){
-  const current = getSelectedMobileHomeNumber();
-  const value = window.prompt(
+  const current=getSelectedMobileHomeNumber();
+  const value=window.prompt(
     current
-      ? "Votre numéro de mobil-home actuel est le " + current + ".\n\nEntrez un nouveau numéro si nécessaire :"
-      : "Bienvenue !\n\nIndiquez le numéro de votre mobil-home :",
+      ? "Votre numéro de location actuel est le " + current + ".\n\nEntrez le nouveau numéro :"
+      : "Bienvenue !\n\nIndiquez le numéro de votre location :",
     current
   );
-  if(value === null) return;
-  const number = String(value).trim();
+  if(value===null) return;
+  const number=String(value).trim();
   if(!number) return;
   setSelectedMobileHomeNumber(number);
-  renderApp();
+  renderTiles();
+  renderToday();
+  const modal=document.querySelector("#modal");
+  if(modal && !modal.classList.contains("hidden")) openSection("stay");
 }
 
 function mobileHomeTodaySummary(){
-  const mh = getSelectedMobileHome();
-  if(!mh){
-    return {
-      title: textStyle("Mon mobil-home", { color:"teal", bold:true }),
-      note: textStyle("Renseignez votre numéro dans MON SÉJOUR", { color:"gray", bold:true })
-    };
-  }
+  const mh=getSelectedMobileHome();
+  if(!mh) return {
+    title:textStyle("Ma location",{color:"teal",bold:true}),
+    note:textStyle("Indiquez votre numéro dans MA LOCATION",{color:"gray",bold:true})
+  };
   return {
-    title: textStyle("N° " + mh.number, { color:"teal", bold:true }),
-    note: textStyle(mh.category || "Mobil-home", { color:"teal", bold:true })
+    title:textStyle("N° "+mh.number,{color:"teal",bold:true}),
+    note:textStyle(mh.category || "Location",{color:"teal",bold:true})
   };
 }
 
 function renderMobileHomePersonalization(){
-  const mh = getSelectedMobileHome();
-  if(!mh){
-    return `
-      <div class="mh-personal-card">
-        <div class="mh-personal-icon">🏠</div>
-        <h3>MA LOCATION</h3>
-        <p>Indiquez votre numéro de mobil-home pour personnaliser cette rubrique.</p>
-        <button class="mh-select-button" onclick="askMobileHomeNumber()">Indiquer mon numéro</button>
-      </div>
-    `;
-  }
+  const mh=getSelectedMobileHome();
+  if(!mh) return `
+    <div class="mh-personal-card">
+      <div class="mh-personal-icon">🏕️</div>
+      <h3>MA LOCATION</h3>
+      <p>Indiquez votre numéro de location pour personnaliser cette rubrique.</p>
+      <button class="mh-select-button" onclick="askMobileHomeNumber()">Indiquer mon numéro</button>
+    </div>
+  `;
 
-  const info = Array.isArray(mh.info) ? mh.info : [];
+  const info=Array.isArray(mh.info)?mh.info:[];
   return `
     <div class="mh-personal-card">
       ${mh.image ? `<img class="mh-personal-image" src="${escapeHtml(mh.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
       <div class="mh-personal-head">
-        <div class="mh-personal-icon">🏠</div>
+        <div class="mh-personal-icon">🏕️</div>
         <div>
           <div class="mh-personal-number">N° ${escapeHtml(mh.number)}</div>
-          <div class="mh-personal-category">${escapeHtml(mh.category || "Mobil-home")}</div>
+          <div class="mh-personal-category">${escapeHtml(mh.category || "Location")}</div>
         </div>
       </div>
       <div class="mh-personal-grid">
@@ -109,6 +102,22 @@ function renderMobileHomePersonalization(){
       <button class="mh-change-button" onclick="askMobileHomeNumber()">Modifier mon numéro</button>
     </div>
   `;
+}
+
+
+if (typeof textStyle !== "function") {
+  window.textStyle = function(text, options = {}) {
+    return {
+      __styledText: true,
+      text: String(text ?? ""),
+      color: options.color || "",
+      bold: !!options.bold,
+      italic: !!options.italic,
+      size: options.size || "normal",
+      background: options.background || "",
+      align: options.align || ""
+    };
+  };
 }
 
 function renderText(value, fallbackClass=""){
@@ -293,7 +302,7 @@ function refreshTodayStatuses(){
   document.querySelectorAll("[data-today-index]").forEach(el => {
     const index = Number(el.dataset.todayIndex);
     const item = CAMPING.today.items[index];
-    if(item) el.innerHTML = renderText(dynamicStatus(item));
+    if(item) el.querySelector(".today-info-note").innerHTML = renderText(item.mobileHomeSummary ? mobileHomeTodaySummary().note : dynamicStatus(item));
   });
 }
 
@@ -383,7 +392,7 @@ function refreshTodayStatuses(){
     const index = Number(el.dataset.todayIndex);
     const items = CAMPING.today && CAMPING.today.items;
     const item = items && items[index];
-    if(item) el.innerHTML = renderText(dynamicStatus(item));
+    if(item) el.querySelector(".today-info-note").innerHTML = renderText(item.mobileHomeSummary ? mobileHomeTodaySummary().note : dynamicStatus(item));
   });
 }
 
@@ -407,14 +416,14 @@ function renderToday(){
 
   // 1) Infos fixes du camping : piscine, restaurant, épicerie, etc.
   const fixedItems = Array.isArray(CAMPING.today.items) ? CAMPING.today.items : [];
-  const fixedHtml = fixedItems.map(item => `
-    <div class="today-info-item">
+  const fixedHtml = fixedItems.map((item,index) => `
+    <div class="today-info-item" data-today-index="${index}">
       <span class="today-program-icon">${item.icon || "ℹ️"}</span>
       <div class="today-info-content">
-        <div class="today-info-title">${renderText(item.title)}</div>
+        <div class="today-info-title">${item.mobileHomeSummary ? renderText(mobileHomeTodaySummary().title) : renderText(item.title)}</div>
         <div class="today-info-bottom">
           <span class="today-info-time">${renderText(item.time || "")}</span>
-          <span class="today-info-note">${renderText(item.note || "")}</span>
+          <span class="today-info-note">${item.mobileHomeSummary ? renderText(mobileHomeTodaySummary().note) : renderText(dynamicStatus(item))}</span>
         </div>
       </div>
     </div>
@@ -472,10 +481,9 @@ function openSection(id){
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
     ${section.image ? `<img class="section-image" src="${escapeHtml(section.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
     <h2 class="modal-title">${renderText(section.title)}</h2>
-    <p class="modal-intro">${renderText(section.intro)}</p>${section.personalizedMobileHome ? renderMobileHomePersonalization() : ""}
-    ${section.menuPdf ? `<a class="menu-pdf-button" href="${escapeHtml(section.menuPdf)}" target="_blank" rel="noopener">📖 Voir la carte du restaurant</a>` : ""}
+    <p class="modal-intro">${renderText(section.intro)}</p>
+    ${section.menuPdf ? `<a class="menu-pdf-button" href="${escapeHtml(section.menuPdf)}" target="_blank" rel="noopener">📖 Voir la carte du restaurant</a>` : ""}${section.personalizedMobileHome ? renderMobileHomePersonalization() : ""}
     ${section.blocks.map(b=>`<article class="info-block"><h3>${renderText(b[0])}</h3><p>${renderText(b[1])}</p></article>`).join("")}
-    ${id==="map"?`<div class="map-placeholder">🗺️<br><b>Votre plan sera placé ici</b><br><small>Vous pourrez remplacer cet emplacement par votre image.</small></div>`:""}
     ${id==="region"?`<a class="big-link" href="${CAMPING.contact.mapsUrl}" target="_blank" rel="noopener">📍 Ouvrir Google Maps</a>`:""}
   `;
   document.querySelector("#modal").classList.remove("hidden");

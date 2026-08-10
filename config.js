@@ -44,27 +44,153 @@ function textStyle(text, options = {}) {
   tu peux simplement utiliser textStyle() à la place du texte.
 */
 
-
 const MOBILE_HOMES = {
-  // ============================================================
-  // 🏠 MOBIL-HOMES
-  // Le client indique son numéro dans l'application.
-  // Ajoute ici les informations de chaque mobil-home.
-  //
-  // Exemple :
-  // "90": {
-  //   category: "La Ciotat",
-  //   capacity: "4 personnes",
-  //   bedrooms: "2 chambres",
-  //   image: "images/mh90.jpg",
-  //   arrival: "À partir de 16h00",
-  //   departure: "Avant 10h00",
-  //   info: [
-  //     "1 véhicule autorisé",
-  //     "Calme après 23h00"
-  //   ]
-  // }
-  // ============================================================
+  // NUMÉROS DES LOCATIONS : "NUMERO": "CATEGORIE"
+  // Exemple : "90": "CATEGORIE_1",
+  // Exemple : "91": "CATEGORIE_1",
+  // Exemple : "120": "CATEGORIE_2"
+
+  // CATÉGORIE 1
+  // "90": "CATEGORIE_1",
+
+  // CATÉGORIE 2
+  // "91": "CATEGORIE_2",
+
+  // CATÉGORIE 3
+  // "92": "CATEGORIE_3",
+
+  // CATÉGORIE 4
+  // "93": "CATEGORIE_4",
+
+  // CATÉGORIE 5
+  // "94": "CATEGORIE_5",
+
+  // CATÉGORIE 6
+  // "95": "CATEGORIE_6",
+
+  // CATÉGORIE 7
+  // "96": "CATEGORIE_7",
+
+  // CATÉGORIE 8
+  // "97": "CATEGORIE_8",
+
+  // CATÉGORIE 9
+  // "98": "CATEGORIE_9",
+
+  // CATÉGORIE 10
+  // "99": "CATEGORIE_10"
+};
+
+const MOBILE_HOME_CATEGORIES = {
+  "CATEGORIE_1": {
+    title: textStyle("Nom catégorie 1", { color: "teal", bold: true }),
+    category: "Nom catégorie 1",
+    capacity: "",
+    bedrooms: "",
+    image: "",
+    arrival: "À partir de 16h00",
+    departure: "Avant 10h00",
+    info: []
+  },
+
+  "CATEGORIE_2": {
+    title: textStyle("Nom catégorie 2", { color: "blue", bold: true }),
+    category: "Nom catégorie 2",
+    capacity: "",
+    bedrooms: "",
+    image: "",
+    arrival: "À partir de 16h00",
+    departure: "Avant 10h00",
+    info: []
+  },
+
+  "CATEGORIE_3": {
+    title: textStyle("Nom catégorie 3", { color: "green", bold: true }),
+    category: "Nom catégorie 3",
+    capacity: "",
+    bedrooms: "",
+    image: "",
+    arrival: "À partir de 16h00",
+    departure: "Avant 10h00",
+    info: []
+  },
+
+  "CATEGORIE_4": {
+    title: textStyle("Nom catégorie 4", { color: "orange", bold: true }),
+    category: "Nom catégorie 4",
+    capacity: "",
+    bedrooms: "",
+    image: "",
+    arrival: "À partir de 16h00",
+    departure: "Avant 10h00",
+    info: []
+  },
+
+  "CATEGORIE_5": {
+    title: textStyle("Nom catégorie 5", { color: "purple", bold: true }),
+    category: "Nom catégorie 5",
+    capacity: "",
+    bedrooms: "",
+    image: "",
+    arrival: "À partir de 16h00",
+    departure: "Avant 10h00",
+    info: []
+  },
+
+  "CATEGORIE_6": {
+    title: textStyle("Nom catégorie 6", { color: "pink", bold: true }),
+    category: "Nom catégorie 6",
+    capacity: "",
+    bedrooms: "",
+    image: "",
+    arrival: "À partir de 16h00",
+    departure: "Avant 10h00",
+    info: []
+  },
+
+  "CATEGORIE_7": {
+    title: textStyle("Nom catégorie 7", { color: "yellow", bold: true }),
+    category: "Nom catégorie 7",
+    capacity: "",
+    bedrooms: "",
+    image: "",
+    arrival: "À partir de 16h00",
+    departure: "Avant 10h00",
+    info: []
+  },
+
+  "CATEGORIE_8": {
+    title: textStyle("Nom catégorie 8", { color: "teal", bold: true }),
+    category: "Nom catégorie 8",
+    capacity: "",
+    bedrooms: "",
+    image: "",
+    arrival: "À partir de 16h00",
+    departure: "Avant 10h00",
+    info: []
+  },
+
+  "CATEGORIE_9": {
+    title: textStyle("Nom catégorie 9", { color: "blue", bold: true }),
+    category: "Nom catégorie 9",
+    capacity: "",
+    bedrooms: "",
+    image: "",
+    arrival: "À partir de 16h00",
+    departure: "Avant 10h00",
+    info: []
+  },
+
+  "CATEGORIE_10": {
+    title: textStyle("Nom catégorie 10", { color: "green-dark", bold: true }),
+    category: "Nom catégorie 10",
+    capacity: "",
+    bedrooms: "",
+    image: "",
+    arrival: "À partir de 16h00",
+    departure: "Avant 10h00",
+    info: []
+  }
 };
 
 const CAMPING = {
@@ -109,15 +235,13 @@ const CAMPING = {
     }),
 
     items: [
-
       {
-        icon: "🏠",
-        title: textStyle("Mon mobil-home", { color: "teal", bold: true }),
+        icon: "🏕️",
+        title: textStyle("Ma location", { color: "teal", bold: true }),
         time: "",
         mobileHomeSummary: true,
-        note: textStyle("Renseignez votre numéro dans MON SÉJOUR", { color: "gray", bold: true })
+        note: textStyle("Indiquez votre numéro dans MA LOCATION", { color: "gray", bold: true })
       },
-
       {
         icon: "🛎️",
         title: textStyle("Réception", { color: "green", bold: true }),
@@ -388,37 +512,14 @@ const CAMPING = {
       ]
     },
     stay: {
-      title: textStyle("🏕️ MON SÉJOUR", { color: "green-dark", bold: true, size: "large" }),
-      image: "",
-      intro: textStyle("Tout ce qu'il faut savoir pour profiter pleinement de vos vacances.", { color: "gray" }),
       personalizedMobileHome: true,
+      title: textStyle("🏕️ MON SEJOUR", { color: "green-dark", bold: true, size: "large" }),
+      image: "",
+      intro: textStyle("Une future rubrique pour aider chaque vacancier pendant son séjour.", { color: "gray" }),
       blocks: [
-
-        [
-          textStyle("🏠 MA LOCATION", { color: "teal", bold: true }),
-          textStyle("Indiquez votre numéro de mobil-home pour retrouver ici toutes les informations de votre hébergement.", { color: "dark" })
-        ],
-
-        [
-          textStyle("🛎️ MON ARRIVÉE", { color: "green", bold: true }),
-          textStyle("Présentez-vous à la réception à votre arrivée. Retrouvez ici les informations utiles : horaires de réception, remise des clés et informations pratiques.", { color: "dark" })
-        ],
-        [
-          textStyle("☀️ PENDANT MON SÉJOUR", { color: "blue", bold: true }),
-          textStyle("Retrouvez les services et informations utiles pendant vos vacances : piscine, restaurant, épicerie, laverie, pain, barbecue, recharge électrique et autres services du camping.", { color: "dark" })
-        ],
-        [
-          textStyle("🧳 MON DÉPART", { color: "orange", bold: true }),
-          textStyle("Avant votre départ, pensez à nettoyer et ranger votre mobil-home, sortir les poubelles, vérifier que vous n'avez rien oublié et quitter le logement avant 10h. Prévenez la réception lorsque vous êtes prêts pour l'état des lieux.", { color: "dark" })
-        ],
-        [
-          textStyle("🆘 BESOIN D'AIDE ?", { color: "red", bold: true }),
-          textStyle("Un problème dans votre logement ou besoin d'une information ? Contactez rapidement la réception afin que notre équipe puisse vous aider.", { color: "dark" })
-        ],
-        [
-          textStyle("📞 CONTACTER LA RÉCEPTION", { color: "teal", bold: true }),
-          textStyle("Réception : +33 4 42 01 83 44", { color: "dark" })
-        ]
+        [textStyle("Arrivée", { color: "green", bold: true }), textStyle("Ajoutez ici les informations d'arrivée et les horaires de réception.", { color: "dark" })],
+        [textStyle("Départ", { color: "orange", bold: true }), textStyle("Ajoutez ici les informations de départ.", { color: "dark" })],
+        [textStyle("Services", { color: "blue", bold: true }), textStyle("Retrouvez les informations utiles pendant votre séjour.", { color: "dark" })]
       ]
     }
   }
