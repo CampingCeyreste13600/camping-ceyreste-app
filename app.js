@@ -101,7 +101,7 @@ function mobileHomeTodaySummary(){
   };
   return {
     title:textStyle("N° "+mh.number,{color:"teal",bold:true}),
-    note:mh.title ? renderText(mh.title) : textStyle(mh.category || "Location",{color:"teal",bold:true})
+    note:mh.title || textStyle(mh.category || "Location",{color:"teal",bold:true})
   };
 }
 
@@ -124,7 +124,7 @@ function renderMobileHomePersonalization(){
         <div class="mh-personal-icon">🏕️</div>
         <div>
           <div class="mh-personal-number">N° ${escapeHtml(mh.number)}</div>
-          <div class="mh-personal-category">${mh.title ? mh.title : escapeHtml(mh.category || "Location")}</div>
+          <div class="mh-personal-category">${mh.title ? renderAny(mh.title) : escapeHtml(mh.category || "Location")}</div>
         </div>
       </div>
       <div class="mh-personal-grid">
@@ -175,6 +175,17 @@ function renderText(value, fallbackClass=""){
   }
   return escapeHtml(value);
 }
+
+function renderAny(value, fallbackClass=""){
+  if(value && typeof value === "object" && value.__styledText){
+    return renderText(value, fallbackClass);
+  }
+  if(typeof value === "string" && /<span\b[^>]*class=["'][^"']*styled-text/.test(value)){
+    return value;
+  }
+  return renderText(value, fallbackClass);
+}
+
 
 function plainText(value){
   return value && typeof value==="object" && value.__styledText ? value.text : String(value ?? "");
@@ -277,7 +288,7 @@ function renderTiles(){
     <button class="tile ${item.image ? "has-tile-image" : ""}" data-open="${item.id}">
       ${item.image ? `<img class="tile-image" src="${escapeHtml(item.image)}" alt="" loading="lazy" onerror="this.remove();this.parentElement.classList.remove('has-tile-image')">` : ""}
       <span class="tile-icon">${item.icon}</span>
-      <strong>${item.mobileHomeSummary ? renderText(mobileHomeTodaySummary().title) : renderText(item.title)}</strong>
+      <strong>${item.mobileHomeSummary ? renderText(mobileHomeTodaySummary().title) : renderAny(item.title)}</strong>
       <small>${renderText(item.desc)}</small>
     </button>`).join("");
 }
@@ -455,18 +466,28 @@ function renderToday(){
 
   // 1) Infos fixes du camping : piscine, restaurant, épicerie, etc.
   const fixedItems = Array.isArray(CAMPING.today.items) ? CAMPING.today.items : [];
-  const fixedHtml = fixedItems.map((item,index) => `
+  const fixedHtml = fixedItems.map((item,index) => {
+    const mhSummary = item.mobileHomeSummary ? mobileHomeTodaySummary() : null;
+    const titleHtml = item.mobileHomeSummary
+      ? renderAny(mhSummary.title)
+      : renderAny(item.title);
+    const noteHtml = item.mobileHomeSummary
+      ? renderAny(mhSummary.note)
+      : renderText(dynamicStatus(item));
+
+    return `
     <div class="today-info-item${item.mobileHomeSummary ? " today-mobile-home" : ""}" data-today-index="${index}"${item.mobileHomeSummary ? ' data-open="stay" role="button" tabindex="0"' : ""}>
       <span class="today-program-icon">${item.icon || "ℹ️"}</span>
       <div class="today-info-content">
-        <div class="today-info-title">${item.mobileHomeSummary ? renderStyledValue(mobileHomeTodaySummary().title) : renderText(item.title)}</div>
+        <div class="today-info-title">${titleHtml}</div>
         <div class="today-info-bottom">
-          <span class="today-info-time">${renderText(item.time || "")}</span>
-          <span class="today-info-note">${item.mobileHomeSummary ? renderStyledValue(mobileHomeTodaySummary().note) : renderText(dynamicStatus(item))}</span>
+          <span class="today-info-time">${renderAny(item.time || "")}</span>
+          <span class="today-info-note">${noteHtml}</span>
         </div>
       </div>
     </div>
-  `).join("");
+    `;
+  }).join("");
 
   // 2) Animations : récupérées automatiquement selon le jour actuel.
   const events = today && Array.isArray(today.events) ? today.events : [];
@@ -508,7 +529,7 @@ renderToday();
 function renderDrawer(){
   document.querySelector("#drawerLinks").innerHTML=CAMPING.menu.map(item=>`
     <button class="drawer-link" data-open="${item.id}">
-      <span>${item.icon}</span><b>${renderText(item.title)}</b><small>${renderText(item.desc)}</small>
+      <span>${item.icon}</span><b>${renderAny(item.title)}</b><small>${renderText(item.desc)}</small>
     </button>`).join("");
 }
 renderDrawer();
