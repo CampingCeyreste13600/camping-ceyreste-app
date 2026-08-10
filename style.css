@@ -192,3 +192,78 @@ main{max-width:780px;margin:auto;padding:0 16px}.welcome-card{position:relative;
   filter:brightness(.95);
   transform:translateY(-1px);
 }
+
+/* ===== Personnalisation MON MOBIL-HOME ===== */
+.mh-personal-card{
+  margin:18px 0;
+  padding:20px;
+  border-radius:22px;
+  background:#FFFDF8;
+  border:1px solid rgba(8,126,139,.14);
+  box-shadow:0 12px 30px rgba(22,70,83,.10);
+}
+.mh-personal-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:18px;
+}
+.mh-personal-icon{font-size:34px;}
+.mh-personal-number{
+  font-size:1.35rem;
+  font-weight:800;
+  color:#087E8B;
+}
+.mh-personal-category{
+  font-weight:700;
+  color:#164653;
+  margin-top:3px;
+}
+.mh-personal-image{
+  width:100%;
+  max-height:230px;
+  object-fit:cover;
+  border-radius:17px;
+  margin-bottom:16px;
+}
+.mh-personal-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.mh-personal-grid>div{
+  padding:12px;
+  border-radius:14px;
+  background:#DDF6F7;
+}
+.mh-personal-grid b,.mh-personal-grid span{
+  display:block;
+}
+.mh-personal-grid span{
+  margin-top:4px;
+  color:#164653;
+}
+.mh-personal-info{
+  margin-top:14px;
+  padding:13px;
+  border-radius:14px;
+  background:#F5EBD7;
+  line-height:1.55;
+}
+.mh-select-button,.mh-change-button{
+  margin-top:16px;
+  width:100%;
+  border:0;
+  border-radius:14px;
+  padding:13px 16px;
+  font-weight:800;
+  cursor:pointer;
+  background:#20B8C4;
+  color:#fff;
+}
+.mh-change-button{
+  background:#087E8B;
+}
+@media(max-width:600px){
+  .mh-personal-grid{grid-template-columns:1fr;}
+}

@@ -24,6 +24,93 @@ if (typeof textStyle !== "function") {
   };
 }
 
+
+/* ============================================================
+   🏠 PERSONNALISATION MOBIL-HOME
+   ============================================================ */
+const CEYRESTE_MOBILE_HOME_KEY = "ceyreste_mobile_home_number";
+
+function getSelectedMobileHomeNumber(){
+  try { return localStorage.getItem(CEYRESTE_MOBILE_HOME_KEY) || ""; }
+  catch(e){ return ""; }
+}
+
+function setSelectedMobileHomeNumber(number){
+  try { localStorage.setItem(CEYRESTE_MOBILE_HOME_KEY, String(number).trim()); }
+  catch(e){}
+}
+
+function getSelectedMobileHome(){
+  const number = getSelectedMobileHomeNumber();
+  if(!number || typeof MOBILE_HOMES === "undefined") return null;
+  return MOBILE_HOMES[number] ? { number, ...MOBILE_HOMES[number] } : null;
+}
+
+function askMobileHomeNumber(){
+  const current = getSelectedMobileHomeNumber();
+  const value = window.prompt(
+    current
+      ? "Votre numéro de mobil-home actuel est le " + current + ".\n\nEntrez un nouveau numéro si nécessaire :"
+      : "Bienvenue !\n\nIndiquez le numéro de votre mobil-home :",
+    current
+  );
+  if(value === null) return;
+  const number = String(value).trim();
+  if(!number) return;
+  setSelectedMobileHomeNumber(number);
+  renderApp();
+}
+
+function mobileHomeTodaySummary(){
+  const mh = getSelectedMobileHome();
+  if(!mh){
+    return {
+      title: textStyle("Mon mobil-home", { color:"teal", bold:true }),
+      note: textStyle("Renseignez votre numéro dans MON SÉJOUR", { color:"gray", bold:true })
+    };
+  }
+  return {
+    title: textStyle("N° " + mh.number, { color:"teal", bold:true }),
+    note: textStyle(mh.category || "Mobil-home", { color:"teal", bold:true })
+  };
+}
+
+function renderMobileHomePersonalization(){
+  const mh = getSelectedMobileHome();
+  if(!mh){
+    return `
+      <div class="mh-personal-card">
+        <div class="mh-personal-icon">🏠</div>
+        <h3>MA LOCATION</h3>
+        <p>Indiquez votre numéro de mobil-home pour personnaliser cette rubrique.</p>
+        <button class="mh-select-button" onclick="askMobileHomeNumber()">Indiquer mon numéro</button>
+      </div>
+    `;
+  }
+
+  const info = Array.isArray(mh.info) ? mh.info : [];
+  return `
+    <div class="mh-personal-card">
+      ${mh.image ? `<img class="mh-personal-image" src="${escapeHtml(mh.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
+      <div class="mh-personal-head">
+        <div class="mh-personal-icon">🏠</div>
+        <div>
+          <div class="mh-personal-number">N° ${escapeHtml(mh.number)}</div>
+          <div class="mh-personal-category">${escapeHtml(mh.category || "Mobil-home")}</div>
+        </div>
+      </div>
+      <div class="mh-personal-grid">
+        ${mh.capacity ? `<div><b>👥 Capacité</b><span>${escapeHtml(mh.capacity)}</span></div>` : ""}
+        ${mh.bedrooms ? `<div><b>🛏️ Chambres</b><span>${escapeHtml(mh.bedrooms)}</span></div>` : ""}
+        ${mh.arrival ? `<div><b>🛎️ Arrivée</b><span>${escapeHtml(mh.arrival)}</span></div>` : ""}
+        ${mh.departure ? `<div><b>🧳 Départ</b><span>${escapeHtml(mh.departure)}</span></div>` : ""}
+      </div>
+      ${info.length ? `<div class="mh-personal-info"><b>ℹ️ À savoir</b>${info.map(x=>`<div>• ${escapeHtml(x)}</div>`).join("")}</div>` : ""}
+      <button class="mh-change-button" onclick="askMobileHomeNumber()">Modifier mon numéro</button>
+    </div>
+  `;
+}
+
 function renderText(value, fallbackClass=""){
   if(value && typeof value === "object" && value.__styledText){
     const colors=["green","green-dark","blue","orange","red","purple","pink","teal","yellow","gray","dark","white"];
@@ -142,7 +229,7 @@ function renderTiles(){
     <button class="tile ${item.image ? "has-tile-image" : ""}" data-open="${item.id}">
       ${item.image ? `<img class="tile-image" src="${escapeHtml(item.image)}" alt="" loading="lazy" onerror="this.remove();this.parentElement.classList.remove('has-tile-image')">` : ""}
       <span class="tile-icon">${item.icon}</span>
-      <strong>${renderText(item.title)}</strong>
+      <strong>${item.mobileHomeSummary ? renderText(mobileHomeTodaySummary().title) : renderText(item.title)}</strong>
       <small>${renderText(item.desc)}</small>
     </button>`).join("");
 }
@@ -385,7 +472,7 @@ function openSection(id){
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
     ${section.image ? `<img class="section-image" src="${escapeHtml(section.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
     <h2 class="modal-title">${renderText(section.title)}</h2>
-    <p class="modal-intro">${renderText(section.intro)}</p>
+    <p class="modal-intro">${renderText(section.intro)}</p>${section.blocks?.some(b=>b?.mobileHomePersonalized) ? renderMobileHomePersonalization() : ""}
     ${section.menuPdf ? `<a class="menu-pdf-button" href="${escapeHtml(section.menuPdf)}" target="_blank" rel="noopener">📖 Voir la carte du restaurant</a>` : ""}
     ${section.blocks.map(b=>`<article class="info-block"><h3>${renderText(b[0])}</h3><p>${renderText(b[1])}</p></article>`).join("")}
     ${id==="map"?`<div class="map-placeholder">🗺️<br><b>Votre plan sera placé ici</b><br><small>Vous pourrez remplacer cet emplacement par votre image.</small></div>`:""}

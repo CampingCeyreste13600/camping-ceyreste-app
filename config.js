@@ -44,6 +44,29 @@ function textStyle(text, options = {}) {
   tu peux simplement utiliser textStyle() à la place du texte.
 */
 
+
+const MOBILE_HOMES = {
+  // ============================================================
+  // 🏠 MOBIL-HOMES
+  // Le client indique son numéro dans l'application.
+  // Ajoute ici les informations de chaque mobil-home.
+  //
+  // Exemple :
+  // "90": {
+  //   category: "La Ciotat",
+  //   capacity: "4 personnes",
+  //   bedrooms: "2 chambres",
+  //   image: "images/mh90.jpg",
+  //   arrival: "À partir de 16h00",
+  //   departure: "Avant 10h00",
+  //   info: [
+  //     "1 véhicule autorisé",
+  //     "Calme après 23h00"
+  //   ]
+  // }
+  // ============================================================
+};
+
 const CAMPING = {
   // ==================== PHOTOS ====================
   // Les photos des sections se règlent dans chaque section avec image: "".
@@ -86,6 +109,15 @@ const CAMPING = {
     }),
 
     items: [
+
+      {
+        icon: "🏠",
+        title: textStyle("Mon mobil-home", { color: "teal", bold: true }),
+        time: "",
+        mobileHomeSummary: true,
+        note: textStyle("Renseignez votre numéro dans MON SÉJOUR", { color: "gray", bold: true })
+      },
+
       {
         icon: "🛎️",
         title: textStyle("Réception", { color: "green", bold: true }),
@@ -356,13 +388,37 @@ const CAMPING = {
       ]
     },
     stay: {
-      title: textStyle("🏕️ MON SEJOUR", { color: "green-dark", bold: true, size: "large" }),
+      title: textStyle("🏕️ MON SÉJOUR", { color: "green-dark", bold: true, size: "large" }),
       image: "",
-      intro: textStyle("Une future rubrique pour aider chaque vacancier pendant son séjour.", { color: "gray" }),
+      intro: textStyle("Tout ce qu'il faut savoir pour profiter pleinement de vos vacances.", { color: "gray" }),
       blocks: [
-        [textStyle("Arrivée", { color: "green", bold: true }), textStyle("Ajoutez ici les informations d'arrivée et les horaires de réception.", { color: "dark" })],
-        [textStyle("Départ", { color: "orange", bold: true }), textStyle("Ajoutez ici les informations de départ.", { color: "dark" })],
-        [textStyle("Services", { color: "blue", bold: true }), textStyle("Retrouvez les informations utiles pendant votre séjour.", { color: "dark" })]
+
+        [
+          textStyle("🏠 MA LOCATION", { color: "teal", bold: true }),
+          textStyle("Indiquez votre numéro de mobil-home pour retrouver ici toutes les informations de votre hébergement.", { color: "dark" }),
+          mobileHomePersonalized: true
+        ],
+
+        [
+          textStyle("🛎️ MON ARRIVÉE", { color: "green", bold: true }),
+          textStyle("Présentez-vous à la réception à votre arrivée. Retrouvez ici les informations utiles : horaires de réception, remise des clés et informations pratiques.", { color: "dark" })
+        ],
+        [
+          textStyle("☀️ PENDANT MON SÉJOUR", { color: "blue", bold: true }),
+          textStyle("Retrouvez les services et informations utiles pendant vos vacances : piscine, restaurant, épicerie, laverie, pain, barbecue, recharge électrique et autres services du camping.", { color: "dark" })
+        ],
+        [
+          textStyle("🧳 MON DÉPART", { color: "orange", bold: true }),
+          textStyle("Avant votre départ, pensez à nettoyer et ranger votre mobil-home, sortir les poubelles, vérifier que vous n'avez rien oublié et quitter le logement avant 10h. Prévenez la réception lorsque vous êtes prêts pour l'état des lieux.", { color: "dark" })
+        ],
+        [
+          textStyle("🆘 BESOIN D'AIDE ?", { color: "red", bold: true }),
+          textStyle("Un problème dans votre logement ou besoin d'une information ? Contactez rapidement la réception afin que notre équipe puisse vous aider.", { color: "dark" })
+        ],
+        [
+          textStyle("📞 CONTACTER LA RÉCEPTION", { color: "teal", bold: true }),
+          textStyle("Réception : +33 4 42 01 83 44", { color: "dark" })
+        ]
       ]
     }
   }
