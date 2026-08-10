@@ -598,7 +598,6 @@ const CAMPING = {
     { id: "planning", icon: "📅", title: textStyle("ANIMATIONS", { color: "green-dark", bold: true }), desc: textStyle("Animations & planning", { color: "gray" }) },
     { id: "pool", icon: "🏊", title: textStyle("ESPACE AQUATIQUE", { color: "blue", bold: true }), desc: textStyle("Piscines, toboggans & horaires", { color: "gray" }) },
     { id: "restaurant", icon: "🍽️", title: textStyle("RESTAURANT", { color: "orange", bold: true }), desc: textStyle("Carte, horaires", { color: "gray" }) },
-    { id: "stay", icon: "🏕️", title: textStyle("MA LOCATION", { color: "teal", bold: true }), desc: textStyle("Votre numéro et les informations de votre location", { color: "gray" }) },
     { id: "shop", icon: "📝", title: textStyle("RECEPTION", { color: "green", bold: true }), desc: textStyle("Toutes vos informations concernant votre séjour", { color: "gray" }) },
     { id: "rules", icon: "📖", title: textStyle("REGLEMENT", { color: "purple", bold: true }), desc: textStyle("Les règles du camping", { color: "gray" }) },
     { id: "map", icon: "🗺️", title: textStyle("PLAN DU CAMPING", { color: "teal", bold: true }), desc: textStyle("Découvrir le camping", { color: "gray" }) },

@@ -1,53 +1,61 @@
-const CACHE="ceyreste-v14";
-const STATIC_FILES=[
+/* Camping de Ceyreste - cache réseau robuste */
+const CACHE_VERSION = "ceyreste-v2026-08-10-01";
+const CORE = [
   "./",
   "./index.html",
   "./style.css",
+  "./config.js",
   "./app.js",
   "./manifest.webmanifest",
-  "./icon.svg"
+  "./icon-192.png",
+  "./icon-512.png"
 ];
 
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE).then(cache => cache.addAll(STATIC_FILES))
+    caches.open(CACHE_VERSION)
+      .then(cache => cache.addAll(CORE))
+      .then(() => self.skipWaiting())
   );
-  self.skipWaiting();
 });
 
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.filter(key => key !== CACHE).map(key => caches.delete(key))
-      )
-    )
+    caches.keys()
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE_VERSION).map(k => caches.delete(k))))
+      .then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
 self.addEventListener("fetch", event => {
-  const request = event.request;
-  const url = new URL(request.url);
+  const req = event.request;
+  if (req.method !== "GET") return;
+  const url = new URL(req.url);
+  if (url.origin !== self.location.origin) return;
 
-  // config.js doit toujours essayer la version en ligne.
-  if (url.pathname.endsWith("/config.js")) {
+  // HTML + code/config : réseau d'abord => les clients récupèrent les mises à jour.
+  const isCore = /\/(?:index\.html|app\.js|config\.js|style\.css|manifest\.webmanifest)$/.test(url.pathname) || req.mode === "navigate";
+  if (isCore) {
     event.respondWith(
-      fetch(new Request(request, { cache: "no-store" }))
-        .then(response => {
-          if (response.ok) {
-            const copy = response.clone();
-            caches.open(CACHE).then(cache => cache.put(request, copy));
-          }
-          return response;
+      fetch(req, {cache:"no-store"})
+        .then(res => {
+          const copy = res.clone();
+          caches.open(CACHE_VERSION).then(cache => cache.put(req, copy));
+          return res;
         })
-        .catch(() => caches.match(request))
+        .catch(() => caches.match(req).then(cached => cached || caches.match("./index.html")))
     );
     return;
   }
 
-  // Fichiers de l'application : cache puis réseau.
+  // Images, PDF, icônes : cache d'abord puis réseau si absent.
   event.respondWith(
-    caches.match(request).then(cached => cached || fetch(request))
+    caches.match(req).then(cached => cached || fetch(req).then(res => {
+      if (res.ok) {
+        const copy = res.clone();
+        caches.open(CACHE_VERSION).then(cache => cache.put(req, copy));
+      }
+      return res;
+    }))
   );
 });

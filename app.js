@@ -44,27 +44,53 @@ function getSelectedMobileHome(){
 }
 
 function askMobileHomeNumber(){
-  const current=getSelectedMobileHomeNumber();
-  const value=window.prompt(
-    current
-      ? "Votre numéro de location actuel est le " + current + ".\n\nEntrez le nouveau numéro :"
-      : "Bienvenue !\n\nIndiquez le numéro de votre location :",
-    current
-  );
-  if(value===null) return;
-  const number=String(value).trim();
-  if(!number) return;
-
-  if(typeof MOBILE_HOMES==="undefined" || !MOBILE_HOMES[number]){
-    alert("Ce numéro de location n'est pas encore configuré dans l'application. Vérifiez le numéro ou ajoutez-le dans config.js.");
-    return;
-  }
-
-  setSelectedMobileHomeNumber(number);
-  renderToday();
-
   const modal=document.querySelector("#modal");
-  if(modal && !modal.classList.contains("hidden")) openSection("stay");
+  if(!modal) return;
+
+  const current=getSelectedMobileHomeNumber();
+  const options=typeof MOBILE_HOMES!=="undefined" ? MOBILE_HOMES : {};
+  const hasCurrent=!!(current && options[current]);
+
+  const content=document.querySelector("#modalContent");
+  if(!content) return;
+
+  content.innerHTML=`
+    <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
+    <h2 class="modal-title">🏕️ MA LOCATION</h2>
+    <p class="modal-intro">Indiquez le numéro de votre location pour afficher automatiquement les informations correspondantes.</p>
+    <form id="mobileHomeForm" class="location-form">
+      <label for="mobileHomeNumber">Numéro de location</label>
+      <input id="mobileHomeNumber" name="mobileHomeNumber" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" value="${escapeHtml(current)}" placeholder="Ex. 90, 69B, T16…" required>
+      <p id="mobileHomeError" class="location-error" role="alert" hidden></p>
+      <button class="mh-select-button" type="submit">${hasCurrent ? "Enregistrer le numéro" : "Valider ma location"}</button>
+    </form>
+  `;
+
+  modal.classList.remove("hidden");
+  const form=document.querySelector("#mobileHomeForm");
+  const input=document.querySelector("#mobileHomeNumber");
+  const error=document.querySelector("#mobileHomeError");
+  input?.focus();
+
+  form?.addEventListener("submit", e=>{
+    e.preventDefault();
+    const number=String(input?.value || "").trim().toUpperCase();
+    if(!number) return;
+
+    const exists=Object.prototype.hasOwnProperty.call(options, number);
+    if(!exists){
+      if(error){
+        error.textContent="Ce numéro n'est pas configuré. Vérifiez le numéro indiqué par la réception.";
+        error.hidden=false;
+      }
+      input?.focus();
+      return;
+    }
+
+    setSelectedMobileHomeNumber(number);
+    renderToday();
+    openSection("stay");
+  });
 }
 
 function mobileHomeTodaySummary(){
@@ -75,7 +101,7 @@ function mobileHomeTodaySummary(){
   };
   return {
     title:textStyle("N° "+mh.number,{color:"teal",bold:true}),
-    note:textStyle(mh.category || "Location",{color:"teal",bold:true})
+    note:mh.title ? renderText(mh.title) : textStyle(mh.category || "Location",{color:"teal",bold:true})
   };
 }
 
@@ -98,7 +124,7 @@ function renderMobileHomePersonalization(){
         <div class="mh-personal-icon">🏕️</div>
         <div>
           <div class="mh-personal-number">N° ${escapeHtml(mh.number)}</div>
-          <div class="mh-personal-category">${escapeHtml(mh.category || "Location")}</div>
+          <div class="mh-personal-category">${mh.title ? renderText(mh.title) : escapeHtml(mh.category || "Location")}</div>
         </div>
       </div>
       <div class="mh-personal-grid">
