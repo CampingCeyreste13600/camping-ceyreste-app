@@ -170,16 +170,6 @@ function getTodayPlanning(){
 }
 
 
-function getReceptionOpeningSchedule(item, now = new Date()){
-  if(!item || !item.openingSchedule) return item?.openingHours || null;
-
-  const month = now.getMonth() + 1;
-  if(month === 7 || month === 8) return item.openingSchedule.juilletAout;
-  if(month === 10) return item.openingSchedule.octobre;
-  if(month === 11 || month === 12 || month === 1) return item.openingSchedule.novJan;
-  return item.openingSchedule.basseSaison;
-}
-
 function isWithinOpeningHours(openingHours, now = new Date()){
   if(!Array.isArray(openingHours) || !openingHours.length) return null;
   const minutes = now.getHours()*60 + now.getMinutes();
@@ -216,6 +206,96 @@ function refreshTodayStatuses(){
   document.querySelectorAll("[data-today-index]").forEach(el => {
     const index = Number(el.dataset.todayIndex);
     const item = CAMPING.today.items[index];
+    if(item) el.innerHTML = renderText(dynamicStatus(item));
+  });
+}
+
+
+function isWithinOpeningHours(openingHours, now = new Date()){
+  if(!Array.isArray(openingHours) || openingHours.length === 0) return null;
+
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  return openingHours.some(period => {
+    const [sh, sm] = String(period.start).split(":").map(Number);
+    const [eh, em] = String(period.end).split(":").map(Number);
+    if([sh, sm, eh, em].some(Number.isNaN)) return false;
+
+    const start = sh * 60 + sm;
+    const end = eh * 60 + em;
+
+    // Opening interval is [start, end): at exactly 20:00, it is CLOSED.
+    if(start === end) return false;
+    if(start < end) return currentMinutes >= start && currentMinutes < end;
+    return currentMinutes >= start || currentMinutes < end;
+  });
+}
+
+function dynamicStatus(item){
+  const schedule = getReceptionOpeningSchedule(item);
+  const open = isWithinOpeningHours(schedule);
+
+  if(open === null) return item.note;
+
+  return textStyle(open ? "OUVERTE ✔️" : "FERMÉE ✖️", {
+    color: open ? "green" : "red",
+    bold: true
+  });
+}
+
+
+function getOpeningSchedule(item, now = new Date()){
+  if(!item) return null;
+
+  if(item.openingSchedule){
+    const month = now.getMonth() + 1;
+    if(month === 7 || month === 8) return item.openingSchedule.juilletAout || [];
+    if(month === 10) return item.openingSchedule.octobre || [];
+    if(month === 11 || month === 12 || month === 1) return item.openingSchedule.novJan || [];
+    return item.openingSchedule.basseSaison || [];
+  }
+
+  return item.openingHours || null;
+}
+
+function isWithinOpeningHours(openingHours, now = new Date()){
+  if(!Array.isArray(openingHours) || openingHours.length === 0) return null;
+
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  return openingHours.some(period => {
+    const [sh, sm] = String(period.start).split(":").map(Number);
+    const [eh, em] = String(period.end).split(":").map(Number);
+    if([sh, sm, eh, em].some(Number.isNaN)) return false;
+
+    const start = sh * 60 + sm;
+    const end = eh * 60 + em;
+
+    // L'heure de fermeture est exclusive :
+    // 20:00 => FERMÉE pour un horaire 08:00-20:00.
+    if(start === end) return false;
+    if(start < end) return currentMinutes >= start && currentMinutes < end;
+    return currentMinutes >= start || currentMinutes < end;
+  });
+}
+
+function dynamicStatus(item){
+  const schedule = getOpeningSchedule(item);
+  const open = isWithinOpeningHours(schedule);
+
+  if(open === null) return item.note;
+
+  return textStyle(open ? "OUVERTE ✔️" : "FERMÉE ✖️", {
+    color: open ? "green" : "red",
+    bold: true
+  });
+}
+
+function refreshTodayStatuses(){
+  document.querySelectorAll("[data-today-index]").forEach(el => {
+    const index = Number(el.dataset.todayIndex);
+    const items = CAMPING.today && CAMPING.today.items;
+    const item = items && items[index];
     if(item) el.innerHTML = renderText(dynamicStatus(item));
   });
 }
@@ -308,7 +388,7 @@ function openSection(id){
     <p class="modal-intro">${renderText(section.intro)}</p>
     ${section.menuPdf ? `<a class="menu-pdf-button" href="${escapeHtml(section.menuPdf)}" target="_blank" rel="noopener">📖 Voir la carte du restaurant</a>` : ""}
     ${section.blocks.map(b=>`<article class="info-block"><h3>${renderText(b[0])}</h3><p>${renderText(b[1])}</p></article>`).join("")}
-
+    ${id==="map"?`<div class="map-placeholder">🗺️<br><b>Votre plan sera placé ici</b><br><small>Vous pourrez remplacer cet emplacement par votre image.</small></div>`:""}
     ${id==="region"?`<a class="big-link" href="${CAMPING.contact.mapsUrl}" target="_blank" rel="noopener">📍 Ouvrir Google Maps</a>`:""}
   `;
   document.querySelector("#modal").classList.remove("hidden");
