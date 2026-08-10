@@ -391,12 +391,12 @@ const CAMPING = {
       title: textStyle("🏕️ MON SÉJOUR", { color: "green-dark", bold: true, size: "large" }),
       image: "",
       intro: textStyle("Tout ce qu'il faut savoir pour profiter pleinement de vos vacances.", { color: "gray" }),
+      personalizedMobileHome: true,
       blocks: [
 
         [
           textStyle("🏠 MA LOCATION", { color: "teal", bold: true }),
-          textStyle("Indiquez votre numéro de mobil-home pour retrouver ici toutes les informations de votre hébergement.", { color: "dark" }),
-          mobileHomePersonalized: true
+          textStyle("Indiquez votre numéro de mobil-home pour retrouver ici toutes les informations de votre hébergement.", { color: "dark" })
         ],
 
         [

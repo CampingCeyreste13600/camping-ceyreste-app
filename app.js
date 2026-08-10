@@ -472,7 +472,7 @@ function openSection(id){
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
     ${section.image ? `<img class="section-image" src="${escapeHtml(section.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
     <h2 class="modal-title">${renderText(section.title)}</h2>
-    <p class="modal-intro">${renderText(section.intro)}</p>${section.blocks?.some(b=>b?.mobileHomePersonalized) ? renderMobileHomePersonalization() : ""}
+    <p class="modal-intro">${renderText(section.intro)}</p>${section.personalizedMobileHome ? renderMobileHomePersonalization() : ""}
     ${section.menuPdf ? `<a class="menu-pdf-button" href="${escapeHtml(section.menuPdf)}" target="_blank" rel="noopener">📖 Voir la carte du restaurant</a>` : ""}
     ${section.blocks.map(b=>`<article class="info-block"><h3>${renderText(b[0])}</h3><p>${renderText(b[1])}</p></article>`).join("")}
     ${id==="map"?`<div class="map-placeholder">🗺️<br><b>Votre plan sera placé ici</b><br><small>Vous pourrez remplacer cet emplacement par votre image.</small></div>`:""}
