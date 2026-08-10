@@ -45,6 +45,171 @@ function textStyle(text, options = {}) {
 */
 
 const MOBILE_HOMES = {
+  "1": "PORT_PIN",
+  "2": "PORT_PIN",
+  "3": "PORT_PIN",
+  "4": "PORT_PIN",
+  "5": "FIGUEROLLES",
+  "6": "LA_CIOTAT",
+  "7": "FIGUEROLLES",
+  "8": "PORT_MIOU",
+  "9": "PORT_MIOU",
+  "10": "FIGUEROLLES",
+  "11": "LA_CIOTAT",
+  "12": "LA_CIOTAT",
+  "13": "PORT_MIOU",
+  "20": "LA_CIOTAT",
+  "21": "LA_CIOTAT",
+  "22": "CASSIS",
+  "23": "LA_CIOTAT",
+  "24": "LA_CIOTAT",
+  "25": "LA_CIOTAT",
+  "26": "CASSIS",
+  "27": "LA_CIOTAT",
+  "28": "LA_CIOTAT",
+  "30": "PORT_MIOU",
+  "31": "LA_CIOTAT",
+  "32": "LA_CIOTAT",
+  "33": "LA_CIOTAT",
+  "34": "LA_CIOTAT",
+  "35": "PORT_MIOU",
+  "36": "PORT_MIOU",
+  "38": "LA_CIOTAT",
+  "40": "FIGUEROLLES",
+  "41": "EMPL",
+  "44": "EMPL",
+  "43": "LA_CIOTAT",
+  "44": "LA_CIOTAT",
+  "45": "LA_CIOTAT",
+  "46": "LA_CIOTAT",
+  "47": "EMPL",
+  "50": "FIGUEROLLES",
+  "51": "EMPL",
+  "52": "CASSIS",
+  "53": "LA_CIOTAT",
+  "54": "LA_CIOTAT",
+  "55": "LA_CIOTAT",
+  "56": "LA_CIOTAT",
+  "60": "FIGUEROLLES",
+  "61": "EMPL",
+  "62": "EMPL",
+  "63": "LA_CIOTAT",
+  "64": "EMPL",
+  "65": "LA_CIOTAT",
+  "66": "EMPL",
+  "67": "LA_CIOTAT",
+  "68": "CASSIS",
+  "69": "PORT_MIOU",
+  "69B": "LA_CIOTAT",
+  "70": "FIGUEROLLES",
+  "71": "FIGUEROLLES",
+  "72": "FIGUEROLLES",
+  "73": "CASSIS",
+  "74": "PORT_MIOU",
+  "75": "LA_CIOTAT",
+  "76": "EMPL",
+  "77": "FIGUEROLLES",
+  "78": "FIGUEROLLES",
+  "79": "EMPL",
+  "80": "LA_CIOTAT",
+  "81": "LA_CIOTAT",
+  "82": "EMPL",
+  "83": "EMPL",
+  "84": "LA_CIOTAT",
+  "85": "FIGUEROLLES",
+  "86": "CASSIS",
+  "90": "LA_CIOTAT",
+  "91": "EMPL",
+  "92": "LA_CIOTAT",
+  "93": "EMPL",
+  "94": "EMPL",
+  "95": "EMPL",
+  "96": "LA_CIOTAT",
+  "97": "EMPL",
+  "98": "EMPL",
+  "101": "EMPL",
+  "102": "EMPL",
+  "103": "EMPL",
+  "104": "EMPL",
+  "104B": "EMPL",
+  "105": "EMPL",
+  "106": "EMPL",
+  "107": "EMPL",
+  "108": "EMPL",
+  "109": "EMPL",
+  "110": "EMPL",
+  "111": "LA_CIOTAT",
+  "112": "LA_CIOTAT",
+  "113": "EMPL",
+  "114": "EMPL",
+  "115": "EMPL",
+  "116": "LA_CIOTAT",
+  "117": "EMPL",
+  "118": "EMPL",
+  "119": "EMPL",
+  "120": "PORT_MIOU",
+  "121": "FIGUEROLLES",
+  "122": "LA_CIOTAT",
+  "123": "FIGUEROLLES",
+  "124": "PORT_MIOU",
+  "125": "PORT_MIOU",
+  "126": "PORT_MIOU",
+  "127": "PORT_MIOU",
+  "128": "PORT_MIOU",
+  "129": "LA_CIOTAT",
+  "130": "EMPL",
+  "133": "PORT_MIOU",
+  "134": "PORT_MIOU",
+  "135": "LA_CIOTAT",
+  "136": "EMPL",
+  "137": "EMPL",
+  "138": "EMPL",
+  "139": "EMPL",
+  "140": "EMPL",
+  "141": "EMPL",
+  "142": "EMPL",
+  "143": "EMPL",
+  "144": "EMPL",
+  "145": "EMPL",
+  "146": "LA_CIOTAT",
+  "147": "PORT_MIOU",
+  "148": "CASSIS",
+  "149": "CASSIS",
+  "150": "FIGUEROLLES",
+  "151": "PORT_MIOU",
+  "152": "TENTE_KENYA",
+  "153": "TENTE_KENYA",
+  "154": "TENTE_KENYA",
+  "155": "TENTE_KENYA",
+  "156": "EMPL",
+  "157": "EMPL",
+  "158": "EMPL",
+  "B1": "LA_CIOTAT",
+  "B2": "LA_CIOTAT",
+  "B3": "CASSIS",
+  "B4": "CASSIS",
+  "B7": "LA_CIOTAT",
+  "T1": "EN_VAU",
+  "T2": "EN_VAU",
+  "T3": "EN_VAU",
+  "T4": "EN_VAU",
+  "T5": "EN_VAU",
+  "T6": "PORT_PIN",
+  "T7": "PORT_PIN",
+  "T8": "EN_VAU",
+  "T9": "PORT_PIN",
+  "T10": "PORT_PIN",
+  "T11": "PORT_PIN",
+  "T12": "PORT_PIN",
+  "T13": "EN_VAU",
+  "T14": "EN_VAU",
+  "T15": "EN_VAU",
+  "T16": "PREMIUM2",
+  "T17": "PREMIUM3",
+  "T18": "PREMIUM2",
+  "T19": "PREMIUM3",
+  "T20": "EN_VAU",
+  
   // NUMÉROS DES LOCATIONS : "NUMERO": "CATEGORIE"
   // Exemple : "90": "CATEGORIE_1",
   // Exemple : "91": "CATEGORIE_1",
@@ -82,114 +247,159 @@ const MOBILE_HOMES = {
 };
 
 const MOBILE_HOME_CATEGORIES = {
-  "CATEGORIE_1": {
-    title: textStyle("Nom catégorie 1", { color: "teal", bold: true }),
-    category: "Nom catégorie 1",
-    capacity: "",
-    bedrooms: "",
+  "LA_CIOTAT": {
+    title: textStyle("Mobilhome LA CIOTAT", { color: "orange", bold: true }),
+    category: "La Ciotat",
+    capacity: "4 personnes",
+    bedrooms: "2 chambres",
     image: "",
-    arrival: "À partir de 16h00",
-    departure: "Avant 10h00",
-    info: []
+    arrival: "À partir de 15h30",
+    departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
+    info: [
+      "1 véhicule autorisé sur l'emplacement",
+      "Calme après 23h s'il vous plait"
+    ]
   },
 
-  "CATEGORIE_2": {
-    title: textStyle("Nom catégorie 2", { color: "blue", bold: true }),
-    category: "Nom catégorie 2",
-    capacity: "",
-    bedrooms: "",
+  "CASSIS": {
+    title: textStyle("Mobilhome CASSIS", { color: "#C84388", bold: true }),
+    category: "Cassis",
+    capacity: "2 personnes",
+    bedrooms: "1 chambre",
     image: "",
-    arrival: "À partir de 16h00",
-    departure: "Avant 10h00",
-    info: []
+    arrival: "À partir de 15h30",
+    departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
+    info: [
+      "1 véhicule autorisé sur l'emplacement",
+      "Calme après 23h s'il vous plait"
+    ]
   },
 
-  "CATEGORIE_3": {
-    title: textStyle("Nom catégorie 3", { color: "green", bold: true }),
-    category: "Nom catégorie 3",
-    capacity: "",
-    bedrooms: "",
+  "FIGUEROLLES": {
+    title: textStyle("Mobilhome FIGUEROLLES", { color: "#048B9A", bold: true }),
+    category: "Figuerolles",
+    capacity: "4 personnes",
+    bedrooms: "2 chambres",
     image: "",
-    arrival: "À partir de 16h00",
-    departure: "Avant 10h00",
-    info: []
+    arrival: "À partir de 15h30",
+    departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
+    info: [
+      "1 véhicule autorisé sur l'emplacement",
+      "Calme après 23h s'il vous plait"
+    ]
   },
 
-  "CATEGORIE_4": {
-    title: textStyle("Nom catégorie 4", { color: "orange", bold: true }),
-    category: "Nom catégorie 4",
-    capacity: "",
-    bedrooms: "",
+  "PORT_MIOU": {
+    title: textStyle("Mobilhome PORT MIOU", { color: "teal", bold: true }),
+    category: "Port Miou",
+    capacity: "6 personnes",
+    bedrooms: "3 chambres",
     image: "",
-    arrival: "À partir de 16h00",
-    departure: "Avant 10h00",
-    info: []
+    arrival: "À partir de 15h30",
+    departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
+    info: [
+      "1 véhicule autorisé sur l'emplacement",
+      "Calme après 23h s'il vous plait"
+    ]
   },
 
-  "CATEGORIE_5": {
-    title: textStyle("Nom catégorie 5", { color: "purple", bold: true }),
-    category: "Nom catégorie 5",
-    capacity: "",
-    bedrooms: "",
+  "PORT_PIN": {
+    title: textStyle("Mobilhome PORT PIN", { color: "pink", bold: true }),
+    category: "Port Pin",
+    capacity: "4 personnes",
+    bedrooms: "2 chambres",
     image: "",
-    arrival: "À partir de 16h00",
-    departure: "Avant 10h00",
-    info: []
+    arrival: "À partir de 15h30",
+    departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
+    info: [
+      "1 véhicule autorisé sur l'emplacement",
+      "Calme après 23h s'il vous plait",
+      "Draps Inclus",
+      "Lave vaisselle intégré"
+    ]
   },
 
-  "CATEGORIE_6": {
-    title: textStyle("Nom catégorie 6", { color: "pink", bold: true }),
-    category: "Nom catégorie 6",
-    capacity: "",
-    bedrooms: "",
+  "EN_VAU": {
+    title: textStyle("Mobilhome EN VAU", { color: "red", bold: true }),
+    category: "En Vau",
+    capacity: "6 personnes",
+    bedrooms: "3 chambres",
     image: "",
-    arrival: "À partir de 16h00",
-    departure: "Avant 10h00",
-    info: []
+    arrival: "À partir de 15h30",
+    departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
+    info: [
+      "1 véhicule autorisé sur l'emplacement",
+      "Calme après 23h s'il vous plait",
+      "Draps Inclus",
+      "Lave vaisselle intégré"
+    ]
   },
 
-  "CATEGORIE_7": {
-    title: textStyle("Nom catégorie 7", { color: "yellow", bold: true }),
-    category: "Nom catégorie 7",
-    capacity: "",
-    bedrooms: "",
+  "PREMIUM2": {
+    title: textStyle("Mobilhome PREMIUM", { color: "yellow", bold: true }),
+    category: "Premium",
+    capacity: "4 personnes",
+    bedrooms: "2 chambres",
     image: "",
-    arrival: "À partir de 16h00",
-    departure: "Avant 10h00",
-    info: []
+    arrival: "À partir de 15h30",
+    departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
+    info: [
+      "1 véhicule autorisé sur l'emplacement",
+      "Calme après 23h s'il vous plait",
+      "Draps et serviettes Inclus",
+      "Lave vaisselle intégré",
+      "Plancha à gaz",
+      "Forfait ménage inclus"
+    ]
   },
 
-  "CATEGORIE_8": {
-    title: textStyle("Nom catégorie 8", { color: "teal", bold: true }),
-    category: "Nom catégorie 8",
-    capacity: "",
-    bedrooms: "",
+  "PREMIUM3": {
+    title: textStyle("Mobilhome PREMIUM", { color: "#b0f2c2", bold: true }),
+    category: "Premium",
+    capacity: "6 personnes",
+    bedrooms: "3 chambres",
     image: "",
-    arrival: "À partir de 16h00",
-    departure: "Avant 10h00",
-    info: []
+    arrival: "À partir de 15h30",
+    departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
+    info: [
+      "1 véhicule autorisé sur l'emplacement",
+      "Calme après 23h s'il vous plait",
+      "Draps et serviettes Inclus",
+      "Lave vaisselle intégré",
+      "2 Salles de bain",
+      "Plancha à gaz",
+      "Forfait ménage inclus"
+    ]
   },
 
-  "CATEGORIE_9": {
-    title: textStyle("Nom catégorie 9", { color: "blue", bold: true }),
-    category: "Nom catégorie 9",
-    capacity: "",
-    bedrooms: "",
+  "TENTE_KENYA": {
+    title: textStyle("Tente Jenya", { color: "#690c07", bold: true }),
+    category: "Tente Kenya",
+    capacity: "5 personnes",
+    bedrooms: "2 chambres",
     image: "",
-    arrival: "À partir de 16h00",
-    departure: "Avant 10h00",
-    info: []
+    arrival: "À partir de 15h30",
+    departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
+    info: [
+      "1 véhicule autorisé sur l'emplacement",
+      "Calme après 23h s'il vous plait",
+      "Accès aux sanitaires"
+    ]
   },
 
-  "CATEGORIE_10": {
-    title: textStyle("Nom catégorie 10", { color: "green-dark", bold: true }),
-    category: "Nom catégorie 10",
-    capacity: "",
+  "EMPL": {
+    title: textStyle("Emplacement", { color: "green", bold: true }),
+    category: "Emplacement nature",
+    capacity: "6 personnes",
     bedrooms: "",
     image: "",
-    arrival: "À partir de 16h00",
-    departure: "Avant 10h00",
-    info: []
+    arrival: "À partir de 14h00",
+    departure: "Avant 12h00",
+    info: [
+      "1 véhicule autorisé sur l'emplacement",
+      "Calme après 23h s'il vous plait",
+      "Electricité et Eau sur chaque emplacement"
+    ]
   }
 };
 
