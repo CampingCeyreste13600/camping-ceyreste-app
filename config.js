@@ -118,7 +118,7 @@ const CAMPING = {
           color: "orange",
           bold: true
         }),
-        time: "8h30-00h",
+        time: "",
         note: textStyle("Ouvert ✔️", {
           color: "green",
           bold: true
@@ -258,14 +258,14 @@ const CAMPING = {
       image: "images/piscine.jpg",
       intro: textStyle("Découvrez nos piscines et nos toboggans, pour le bonheur des petits et des plus grands.", { color: "gray" }),
       blocks: [
-        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("10h-20h Tous les jours ! ", { color: "gray" })],
+        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("À compléter selon la période.", { color: "gray" })],
         [textStyle("Règles essentielles", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "dark" })]
       ]
     },
     restaurant: {
       title: textStyle("🍽️ RESTAURANT", { color: "orange", bold: true, size: "large" }),
       image: "images/resto.jpg",
-      menuPdf: "images/carte.pdf",
+      menuPdf: "",
       intro: textStyle("Nathalie et toute son équipe vous accueillent pendant la saison.", { color: "gray" }),
       blocks: [
         [textStyle("Horaires", { color: "orange", bold: true }), textStyle("Toute la journée en haute saison (juillet-aôut) et à partir de 17h le reste de l'année", { color: "gray" })],
@@ -306,7 +306,6 @@ const CAMPING = {
     },
     region: {
       title: textStyle("📍 A DECOUVRIR", { color: "teal", bold: true, size: "large" }),
-      image: "images/calanques.jpg",
       intro: textStyle("Découvrez les incontournables autour de Ceyreste et de La Ciotat.", { color: "gray" }),
       blocks: [
         [textStyle("🌊 La Ciotat", { color: "blue", bold: true }), textStyle("Vieux-Port, plages, calanques et Parc du Mugel.", { color: "dark" })],
@@ -320,20 +319,9 @@ const CAMPING = {
       image: "",
       intro: textStyle("Retrouvez ici les activités partenaires recommandées par le camping.", { color: "gray" }),
       blocks: [
-        [textStyle("🛵 Scooter", { color: "green", bold: true }), textStyle("TOP LOC SERVICES, Location de scooters 50 et 125m3, 06.24.09.72.25", { color: "dark" })],
-        [textStyle("🚲 Velo", { color: "blue", bold: true }), textStyle("TROLIB, Location de vélo électrique, 06.72.50.47.26", { color: "dark" })],
-        [textStyle("🚗 Voiture", { color: "black", bold: true }), textStyle("OLYMPIC LOCATIONS", { color: "dark" })],
-        [textStyle("🛸 Quad", { color: "grey", bold: true }), textStyle("RENT A QUAD 13, Location de quad au départ de La Ciotat, 07.83.05.99.33", { color: "dark" })],
-        [textStyle("🛶 Kayak", { color: "teal", bold: true }), textStyle("KAYAK AVENTURE, 06.34.69.83.49", { color: "dark" })],
-        [textStyle("🧗‍♂️ Escalade", { color: "teal", bold: true }), textStyle("Salle d'Escalade 06.07.61.60.05", { color: "dark" })],
-        [textStyle("⛵ Catamaran", { color: "orange", bold: true }), textStyle("CAT EXPLORER, Sortie en Catamaran au départ du Brusc, 07.87.23.24.71", { color: "dark" })],
-        [textStyle("🚤 Parapente", { color: "yellow", bold: true }), textStyle("MARSEILLE PARAPENTE, Baptemes et Formations en Parapente, 06.51.84.46.71", { color: "dark" })],
-        [textStyle("🌊 Visite des Calanques", { color: "purple", bold: true }), textStyle("VISITES DES CALANQUES, Randonnée, Escalade et Via Cordata, 06.61.50.38.48", { color: "dark" })],
-        [textStyle("🌅 Plongée", { color: "blue", bold: true }), textStyle("ANAYA PLONGEE, 07.45.12.31.65", { color: "dark" })],
-        [textStyle("⛵ Calanques en Bateau", { color: "teal", bold: true }), textStyle("LES AMIS DES CALANQUES, Visitez les calanques en bateau ! 06.09.35.25.68", { color: "dark" })],
-        [textStyle("🏎️ Karting", { color: "red", bold: true }), textStyle("KARTING INDOOR PROVENCE, Karting Indoor, Karaoké, LaserGame, QuizRoom", { color: "dark" })],
-        [textStyle("💆🏽 Shiatsu", { color: "green", bold: true }), textStyle("SABINE PUGLIESI, Séance de Shiatsu et de Do-in 06.15.75.06.72", { color: "dark" })],
-        [textStyle("🧘‍♀️ Reflexologie", { color: "brown", bold: true }), textStyle("PIERRE GALAND, Reflexologie 06.59.22.84.73", { color: "dark" })]
+        [textStyle("🚲 Location de vélos", { color: "green", bold: true }), textStyle("Ajoutez ici votre partenaire vélo et son lien.", { color: "dark" })],
+        [textStyle("🤿 Plongée", { color: "blue", bold: true }), textStyle("Ajoutez ici votre partenaire plongée et son lien.", { color: "dark" })],
+        [textStyle("⛵ Catamaran", { color: "teal", bold: true }), textStyle("Ajoutez ici votre partenaire nautique et son lien.", { color: "dark" })]
       ]
     },
     emergency: {
@@ -341,7 +329,7 @@ const CAMPING = {
       image: "",
       intro: textStyle("En cas d'urgence, contactez immédiatement le service compétent.", { color: "red", bold: true }),
       blocks: [
-        [textStyle("📞 Camping", { color: "green", bold: true }), textStyle("Réception : +33 4 42 83 07 68", { color: "dark" })],
+        [textStyle("📞 Camping", { color: "green", bold: true }), textStyle("Réception : +33 4 42 01 83 44", { color: "dark" })],
         [textStyle("🚑 112", { color: "red", bold: true }), textStyle("Numéro d'urgence européen.", { color: "dark" })],
         [textStyle("🚑 15", { color: "red", bold: true }), textStyle("SAMU.", { color: "dark" })],
         [textStyle("🚒 18", { color: "red", bold: true }), textStyle("Pompiers.", { color: "dark" })],
@@ -359,11 +347,11 @@ const CAMPING = {
     stay: {
       title: textStyle("🏕️ MON SEJOUR", { color: "green-dark", bold: true, size: "large" }),
       image: "",
-      intro: textStyle("Des problèmes durant votre séjour ?", { color: "gray" }),
+      intro: textStyle("Une future rubrique pour aider chaque vacancier pendant son séjour.", { color: "gray" }),
       blocks: [
-        [textStyle("FORMALITES DE DEPART", { color: "orange", bold: true }), textStyle("Les départs se font entre 8h et 10h chaque jour. Une fois le ménage fait, appelez-nous ! ", { color: "dark" })],
-        [textStyle("SUPPLEMENTS", { color: "blue", bold: true }), textStyle("A la réception, location de Draps, Serviettes, KitBébé, Barbecue, Forfait ménage,...", { color: "dark" })],
-        [textStyle("PROBLEMES", { color: "red", bold: true }), textStyle("En cas d'incident durant votre séjour, n'hesitez pas !! Composez le 04.42.83.07.68, MEME DE NUIT !", { color: "dark" })]
+        [textStyle("Arrivée", { color: "green", bold: true }), textStyle("Ajoutez ici les informations d'arrivée et les horaires de réception.", { color: "dark" })],
+        [textStyle("Départ", { color: "orange", bold: true }), textStyle("Ajoutez ici les informations de départ.", { color: "dark" })],
+        [textStyle("Services", { color: "blue", bold: true }), textStyle("Retrouvez les informations utiles pendant votre séjour.", { color: "dark" })]
       ]
     }
   }
