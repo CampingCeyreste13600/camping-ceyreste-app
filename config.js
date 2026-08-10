@@ -723,7 +723,7 @@ const CAMPING = {
     },
     stay: {
       personalizedMobileHome: true,
-      title: textStyle("🏕️ MON SEJOUR", { color: "green-dark", bold: true, size: "large" }),
+      title: textStyle("🏕️ MA LOCATION", { color: "teal", bold: true, size: "large" }),
       image: "",
       intro: textStyle("Une future rubrique pour aider chaque vacancier pendant son séjour.", { color: "gray" }),
       blocks: [

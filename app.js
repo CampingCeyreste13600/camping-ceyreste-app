@@ -96,7 +96,7 @@ function askMobileHomeNumber(){
 function mobileHomeTodaySummary(){
   const mh=getSelectedMobileHome();
   if(!mh) return {
-    title:textStyle("Ma location",{color:"teal",bold:true}),
+    title:textStyle("MA LOCATION",{color:"teal",bold:true}),
     note:textStyle("Indiquez votre numéro dans MA LOCATION",{color:"gray",bold:true})
   };
   return {
@@ -124,7 +124,7 @@ function renderMobileHomePersonalization(){
         <div class="mh-personal-icon">🏕️</div>
         <div>
           <div class="mh-personal-number">N° ${escapeHtml(mh.number)}</div>
-          <div class="mh-personal-category">${mh.title ? renderText(mh.title) : escapeHtml(mh.category || "Location")}</div>
+          <div class="mh-personal-category">${mh.title ? mh.title : escapeHtml(mh.category || "Location")}</div>
         </div>
       </div>
       <div class="mh-personal-grid">
@@ -153,6 +153,10 @@ if (typeof textStyle !== "function") {
       align: options.align || ""
     };
   };
+}
+
+function renderStyledValue(value){
+  return (typeof value === "string" && value.includes("<span")) ? value : renderText(value);
 }
 
 function renderText(value, fallbackClass=""){
@@ -455,10 +459,10 @@ function renderToday(){
     <div class="today-info-item${item.mobileHomeSummary ? " today-mobile-home" : ""}" data-today-index="${index}"${item.mobileHomeSummary ? ' data-open="stay" role="button" tabindex="0"' : ""}>
       <span class="today-program-icon">${item.icon || "ℹ️"}</span>
       <div class="today-info-content">
-        <div class="today-info-title">${item.mobileHomeSummary ? renderText(mobileHomeTodaySummary().title) : renderText(item.title)}</div>
+        <div class="today-info-title">${item.mobileHomeSummary ? renderStyledValue(mobileHomeTodaySummary().title) : renderText(item.title)}</div>
         <div class="today-info-bottom">
           <span class="today-info-time">${renderText(item.time || "")}</span>
-          <span class="today-info-note">${item.mobileHomeSummary ? renderText(mobileHomeTodaySummary().note) : renderText(dynamicStatus(item))}</span>
+          <span class="today-info-note">${item.mobileHomeSummary ? renderStyledValue(mobileHomeTodaySummary().note) : renderText(dynamicStatus(item))}</span>
         </div>
       </div>
     </div>
@@ -516,8 +520,9 @@ function openSection(id){
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
     ${section.image ? `<img class="section-image" src="${escapeHtml(section.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
     <h2 class="modal-title">${renderText(section.title)}</h2>
+    ${section.personalizedMobileHome ? renderMobileHomePersonalization() : ""}
     <p class="modal-intro">${renderText(section.intro)}</p>
-    ${section.menuPdf ? `<a class="menu-pdf-button" href="${escapeHtml(section.menuPdf)}" target="_blank" rel="noopener">📖 Voir la carte du restaurant</a>` : ""}${section.personalizedMobileHome ? renderMobileHomePersonalization() : ""}
+    ${section.menuPdf ? `<a class="menu-pdf-button" href="${escapeHtml(section.menuPdf)}" target="_blank" rel="noopener">📖 Voir la carte du restaurant</a>` : ""}
     ${section.blocks.map(b=>`<article class="info-block"><h3>${renderText(b[0])}</h3><p>${renderText(b[1])}</p></article>`).join("")}
     ${id==="region"?`<a class="big-link" href="${CAMPING.contact.mapsUrl}" target="_blank" rel="noopener">📍 Ouvrir Google Maps</a>`:""}
   `;
