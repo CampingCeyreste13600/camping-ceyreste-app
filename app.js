@@ -27,13 +27,16 @@ function setSelectedMobileHomeNumber(number){
 function getSelectedMobileHome(){
   const number=getSelectedMobileHomeNumber();
   if(!number || typeof MOBILE_HOMES==="undefined") return null;
+
   const entry=MOBILE_HOMES[number];
   if(!entry) return null;
 
-  if(typeof entry==="string" &&
-     typeof MOBILE_HOME_CATEGORIES!=="undefined" &&
-     MOBILE_HOME_CATEGORIES[entry]){
-    return { number, ...MOBILE_HOME_CATEGORIES[entry], categoryKey: entry };
+  if(typeof entry==="string" && typeof MOBILE_HOME_CATEGORIES!=="undefined"){
+    // Accepte le nom exact de la catégorie, sans dépendre des majuscules/minuscules.
+    const key=Object.keys(MOBILE_HOME_CATEGORIES).find(
+      k => String(k).trim().toUpperCase() === String(entry).trim().toUpperCase()
+    );
+    if(key) return { number, ...MOBILE_HOME_CATEGORIES[key], categoryKey:key };
   }
 
   if(typeof entry==="object") return {number, ...entry};
@@ -51,9 +54,15 @@ function askMobileHomeNumber(){
   if(value===null) return;
   const number=String(value).trim();
   if(!number) return;
+
+  if(typeof MOBILE_HOMES==="undefined" || !MOBILE_HOMES[number]){
+    alert("Ce numéro de location n'est pas encore configuré dans l'application. Vérifiez le numéro ou ajoutez-le dans config.js.");
+    return;
+  }
+
   setSelectedMobileHomeNumber(number);
-  renderTiles();
   renderToday();
+
   const modal=document.querySelector("#modal");
   if(modal && !modal.classList.contains("hidden")) openSection("stay");
 }
@@ -417,7 +426,7 @@ function renderToday(){
   // 1) Infos fixes du camping : piscine, restaurant, épicerie, etc.
   const fixedItems = Array.isArray(CAMPING.today.items) ? CAMPING.today.items : [];
   const fixedHtml = fixedItems.map((item,index) => `
-    <div class="today-info-item" data-today-index="${index}">
+    <div class="today-info-item${item.mobileHomeSummary ? " today-mobile-home" : ""}" data-today-index="${index}"${item.mobileHomeSummary ? ' data-open="stay" role="button" tabindex="0"' : ""}>
       <span class="today-program-icon">${item.icon || "ℹ️"}</span>
       <div class="today-info-content">
         <div class="today-info-title">${item.mobileHomeSummary ? renderText(mobileHomeTodaySummary().title) : renderText(item.title)}</div>
@@ -532,6 +541,11 @@ function openPlanning(){
 }
 
 function open(id){ if(id==="planning")return openPlanning(); openSection(id); }
+
+document.addEventListener("keydown",e=>{
+  const el=e.target.closest(".today-mobile-home");
+  if(el && (e.key==="Enter" || e.key===" ")){ e.preventDefault(); openSection("stay"); }
+});
 
 document.addEventListener("click",e=>{
   const btn=e.target.closest("[data-open]");
