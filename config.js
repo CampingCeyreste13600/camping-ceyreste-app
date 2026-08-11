@@ -472,6 +472,7 @@ const CAMPING = {
           bold: true
         }),
         time: "10H-20H",
+        openingHours: [{ start: "10:00", end: "20:00" }],
         note: textStyle("Ouvert ✔️", {
           color: "green",
           bold: true
@@ -484,7 +485,13 @@ const CAMPING = {
           color: "orange",
           bold: true
         }),
-        time: "",
+        time: "Toute la journée en juillet-août / à partir de 17H le reste de l'année",
+        openingSchedule: {
+          basseSaison: [{ start: "17:00", end: "23:59" }],
+          juilletAout: [{ start: "00:00", end: "23:59" }],
+          octobre: [{ start: "17:00", end: "23:59" }],
+          novJan: [{ start: "17:00", end: "23:59" }]
+        },
         note: textStyle("Ouvert ✔️", {
           color: "green",
           bold: true
@@ -498,6 +505,7 @@ const CAMPING = {
           bold: true
         }),
         time: "08H-20H (dans la réception)",
+        openingHours: [{ start: "08:00", end: "20:00" }],
         note: textStyle("Ouverte ✔️", {
           color: "green",
           bold: true

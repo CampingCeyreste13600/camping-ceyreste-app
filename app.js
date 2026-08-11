@@ -316,82 +316,10 @@ function getTodayPlanning(){
 }
 
 
-function isWithinOpeningHours(openingHours, now = new Date()){
-  if(!Array.isArray(openingHours) || !openingHours.length) return null;
-  const minutes = now.getHours()*60 + now.getMinutes();
-  return openingHours.some(period => {
-    const [sh,sm] = String(period.start).split(":").map(Number);
-    const [eh,em] = String(period.end).split(":").map(Number);
-    if([sh,sm,eh,em].some(Number.isNaN)) return false;
-    const start=sh*60+sm, end=eh*60+em;
-    return start <= end
-      ? minutes >= start && minutes < end
-      : minutes >= start || minutes < end;
-  });
-}
-
-function dynamicStatus(item){
-  const schedule = getReceptionOpeningSchedule(item);
-  const open = isWithinOpeningHours(schedule);
-  if(open === null) return item.note;
-  return textStyle(open ? "Ouvert ✔️" : "Fermé ✖️", {
-    color: open ? "green" : "red",
-    bold: true
-  });
-}
-function dynamicStatus(item){
-  const open = isWithinOpeningHours(item.openingHours);
-  if(open === null) return item.note;
-  return textStyle(open ? "Ouvert ✔️" : "Fermé ✖️", {
-    color: open ? "green" : "red",
-    bold: true
-  });
-}
-
-function refreshTodayStatuses(){
-  document.querySelectorAll("[data-today-index]").forEach(el => {
-    const index = Number(el.dataset.todayIndex);
-    const item = CAMPING.today.items[index];
-    if(item) el.querySelector(".today-info-note").innerHTML = renderText(item.mobileHomeSummary ? mobileHomeTodaySummary().note : dynamicStatus(item));
-  });
-}
-
-
-function isWithinOpeningHours(openingHours, now = new Date()){
-  if(!Array.isArray(openingHours) || openingHours.length === 0) return null;
-
-  const currentMinutes = now.getHours() * 60 + now.getMinutes();
-
-  return openingHours.some(period => {
-    const [sh, sm] = String(period.start).split(":").map(Number);
-    const [eh, em] = String(period.end).split(":").map(Number);
-    if([sh, sm, eh, em].some(Number.isNaN)) return false;
-
-    const start = sh * 60 + sm;
-    const end = eh * 60 + em;
-
-    // Opening interval is [start, end): at exactly 20:00, it is CLOSED.
-    if(start === end) return false;
-    if(start < end) return currentMinutes >= start && currentMinutes < end;
-    return currentMinutes >= start || currentMinutes < end;
-  });
-}
-
-function dynamicStatus(item){
-  const schedule = getReceptionOpeningSchedule(item);
-  const open = isWithinOpeningHours(schedule);
-
-  if(open === null) return item.note;
-
-  return textStyle(open ? "OUVERTE ✔️" : "FERMÉE ✖️", {
-    color: open ? "green" : "red",
-    bold: true
-  });
-}
-
-
 function getOpeningSchedule(item, now = new Date()){
   if(!item) return null;
+
+  if(Array.isArray(item.openingHours)) return item.openingHours;
 
   if(item.openingSchedule){
     const month = now.getMonth() + 1;
@@ -401,27 +329,27 @@ function getOpeningSchedule(item, now = new Date()){
     return item.openingSchedule.basseSaison || [];
   }
 
-  return item.openingHours || null;
+  return null;
 }
 
 function isWithinOpeningHours(openingHours, now = new Date()){
-  if(!Array.isArray(openingHours) || openingHours.length === 0) return null;
+  if(!Array.isArray(openingHours) || !openingHours.length) return null;
 
-  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+  const minutes = now.getHours() * 60 + now.getMinutes();
 
   return openingHours.some(period => {
     const [sh, sm] = String(period.start).split(":").map(Number);
     const [eh, em] = String(period.end).split(":").map(Number);
+
     if([sh, sm, eh, em].some(Number.isNaN)) return false;
 
     const start = sh * 60 + sm;
     const end = eh * 60 + em;
 
-    // L'heure de fermeture est exclusive :
-    // 20:00 => FERMÉE pour un horaire 08:00-20:00.
+    // L'heure de fermeture est exclusive : 20:00 => FERMÉ.
     if(start === end) return false;
-    if(start < end) return currentMinutes >= start && currentMinutes < end;
-    return currentMinutes >= start || currentMinutes < end;
+    if(start < end) return minutes >= start && minutes < end;
+    return minutes >= start || minutes < end;
   });
 }
 
@@ -431,7 +359,7 @@ function dynamicStatus(item){
 
   if(open === null) return item.note;
 
-  return textStyle(open ? "OUVERTE ✔️" : "FERMÉE ✖️", {
+  return textStyle(open ? "OUVERT ✔️" : "FERMÉ ✖️", {
     color: open ? "green" : "red",
     bold: true
   });
@@ -440,9 +368,18 @@ function dynamicStatus(item){
 function refreshTodayStatuses(){
   document.querySelectorAll("[data-today-index]").forEach(el => {
     const index = Number(el.dataset.todayIndex);
-    const items = CAMPING.today && CAMPING.today.items;
-    const item = items && items[index];
-    if(item) el.querySelector(".today-info-note").innerHTML = renderText(item.mobileHomeSummary ? mobileHomeTodaySummary().note : dynamicStatus(item));
+    const item = CAMPING.today && CAMPING.today.items
+      ? CAMPING.today.items[index]
+      : null;
+
+    if(!item) return;
+
+    const note = item.mobileHomeSummary
+      ? mobileHomeTodaySummary().note
+      : dynamicStatus(item);
+
+    const noteEl = el.querySelector(".today-info-note");
+    if(noteEl) noteEl.innerHTML = renderAny(note);
   });
 }
 
