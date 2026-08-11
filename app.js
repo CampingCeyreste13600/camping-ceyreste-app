@@ -383,6 +383,77 @@ function refreshTodayStatuses(){
   });
 }
 
+
+function getTimeGreeting(now=new Date()){
+  const h=now.getHours();
+  if(h>=5 && h<18) return {icon:"☀️",title:"BONJOUR !",subtitle:h<12?"Une belle journée vous attend au Camping de Ceyreste 🌿":"Profitez bien de votre après-midi au camping ☀️"};
+  if(h>=18 && h<23) return {icon:"🌅",title:"BONSOIR !",subtitle:"Une belle soirée vous attend ✨"};
+  return {icon:"🌙",title:"BONSOIR !",subtitle:"La journée touche à sa fin 🌙"};
+}
+function parseAnimationTime(text){
+  const m=String(text||"").match(/(?:^|\D)([01]?\d|2[0-3])h([0-5]\d)?/i);
+  return m ? Number(m[1])*60+Number(m[2]||0) : null;
+}
+function getNextAnimation(now=new Date()){
+  const days=CAMPING?.today?.animation?.days||[];
+  const names=["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
+  const todayName=names[now.getDay()];
+  const today=days.find(d=>String(d.day).toLowerCase()===todayName.toLowerCase());
+  const nowMin=now.getHours()*60+now.getMinutes();
+  const events=(today?.events||[]).map(e=>({...e,_minutes:parseAnimationTime(e.text)})).filter(e=>e._minutes!==null).sort((a,b)=>a._minutes-b._minutes);
+  const next=events.find(e=>e._minutes>=nowMin);
+  if(next) return {event:next,day:todayName,minutesUntil:next._minutes-nowMin};
+  const order=["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+  const idx=order.indexOf(todayName);
+  for(let step=1;step<=7;step++){
+    const day=order[(idx+step)%7];
+    const d=days.find(x=>String(x.day).toLowerCase()===day.toLowerCase());
+    const ev=(d?.events||[]).map(e=>({...e,_minutes:parseAnimationTime(e.text)})).filter(e=>e._minutes!==null).sort((a,b)=>a._minutes-b._minutes)[0];
+    if(ev) return {event:ev,day,minutesUntil:null};
+  }
+  return null;
+}
+function formatAnimationCountdown(min){
+  if(min===null) return "";
+  if(min<=0) return "MAINTENANT";
+  const h=Math.floor(min/60), m=min%60;
+  return h ? `Dans ${h}h${m?String(m).padStart(2,"0"):""}` : `Dans ${m} min`;
+}
+function renderDynamicWelcome(){
+  const g=getTimeGreeting(), state=getNextAnimation();
+  let nextHtml="";
+  if(state){
+    const raw=String(state.event.text||"");
+    const tm=raw.match(/(?:^|\D)([01]?\d|2[0-3])h([0-5]\d)?/i);
+    const time=tm?`${tm[1]}h${tm[2]||"00"}`:"";
+    const label=raw.replace(/(?:^|\D)([01]?\d|2[0-3])h([0-5]\d)?/i,"").replace(/^\s*[•\-]\s*/,"").trim();
+    nextHtml=`<div class="dynamic-next-animation">
+      <div class="dynamic-next-label">🎉 PROCHAINE ANIMATION</div>
+      <div class="dynamic-next-event">${escapeHtml(label)}</div>
+      <div class="dynamic-next-time">${escapeHtml(time)}</div>
+      <div class="dynamic-next-countdown">${state.minutesUntil===null?escapeHtml(state.day):escapeHtml(formatAnimationCountdown(state.minutesUntil))}</div>
+      <button class="dynamic-next-button" onclick="openPage('animation')">VOIR LE PROGRAMME →</button>
+    </div>`;
+  }
+  return `<section class="dynamic-welcome">
+    <div class="dynamic-welcome-icon">${g.icon}</div>
+    <div class="dynamic-welcome-title">${g.title}</div>
+    <div class="dynamic-welcome-subtitle">${g.subtitle}</div>
+    ${nextHtml}
+  </section>`;
+}
+function dynamicWelcomeMount(){
+  const home=document.querySelector("#page-home,.page-home,[data-page='home']");
+  if(!home) return;
+  let mount=home.querySelector(".dynamic-welcome-mount");
+  if(!mount){
+    mount=document.createElement("div");
+    mount.className="dynamic-welcome-mount";
+    home.prepend(mount);
+  }
+  mount.innerHTML=renderDynamicWelcome();
+}
+
 function renderToday(){
   const today = getTodayPlanning();
   const titleEl = document.querySelector("#todayTitle");
@@ -562,3 +633,9 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.ser
 
 setInterval(refreshTodayStatuses, 60000);
 refreshTodayStatuses();
+
+(function initDynamicWelcome(){
+  const start=()=>{ dynamicWelcomeMount(); setInterval(dynamicWelcomeMount,60000); };
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",start);
+  else start();
+})();

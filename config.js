@@ -77,7 +77,7 @@ const MOBILE_HOMES = {
   "38": "LA_CIOTAT",
   "40": "FIGUEROLLES",
   "41": "EMPL",
-  "42": "EMPL",
+  "44": "EMPL",
   "43": "LA_CIOTAT",
   "44": "LA_CIOTAT",
   "45": "LA_CIOTAT",
@@ -344,7 +344,7 @@ const MOBILE_HOME_CATEGORIES = {
     arrival: "À partir de 15h30",
     departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
     info: [
-      "1 véhicule autorisé, sur le parking réservé",
+      "1 véhicule autorisé sur l'emplacement",
       "Calme après 23h s'il vous plait",
       "Draps et serviettes Inclus",
       "Lave vaisselle intégré",
@@ -362,7 +362,7 @@ const MOBILE_HOME_CATEGORIES = {
     arrival: "À partir de 15h30",
     departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
     info: [
-      "1 véhicule autorisé sur le parking réservé",
+      "1 véhicule autorisé sur l'emplacement",
       "Calme après 23h s'il vous plait",
       "Draps et serviettes Inclus",
       "Lave vaisselle intégré",
@@ -488,7 +488,7 @@ const CAMPING = {
         time: "Toute la journée en juillet-août / à partir de 17H le reste de l'année",
         openingSchedule: {
           basseSaison: [{ start: "17:00", end: "23:59" }],
-          juilletAout: [{ start: "08:30", end: "23:59" }],
+          juilletAout: [{ start: "00:00", end: "23:59" }],
           octobre: [{ start: "17:00", end: "23:59" }],
           novJan: [{ start: "17:00", end: "23:59" }]
         },
@@ -505,12 +505,7 @@ const CAMPING = {
           bold: true
         }),
         time: "08H-20H (dans la réception)",
-        openingSchedule: {
-          basseSaison: [{ start: "08:30", end: "12:00" }, { start: "14:00", end: "19:00" }],
-          juilletAout: [{ start: "08:00", end: "20:00" }],
-          octobre: [{ start: "09:00", end: "12:00" }, { start: "14:00", end: "18:00" }],
-          novJan: [{ start: "09:00", end: "12:00" }, { start: "15:00", end: "18:00" }]
-        },
+        openingHours: [{ start: "08:00", end: "20:00" }],
         note: textStyle("Ouverte ✔️", {
           color: "green",
           bold: true
@@ -731,7 +726,7 @@ const CAMPING = {
       image: "",
       intro: textStyle("Cette rubrique pourra servir à afficher les informations importantes du jour.", { color: "gray" }),
       blocks: [
-        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Votre Camping est ouvert jusqu'au 02 Janvier 2027 !!", { color: "dark" })]
+        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Ajoutez ici une annonce importante : fermeture exceptionnelle, changement d'horaire, météo, animation, etc.", { color: "dark" })]
       ]
     },
     stay: {
@@ -740,8 +735,8 @@ const CAMPING = {
       image: "",
       intro: textStyle("Une future rubrique pour aider chaque vacancier pendant son séjour.", { color: "gray" }),
       blocks: [
-        [textStyle("SUPPLEMENTS", { color: "orange", bold: true }), textStyle("Disponibles à la réception: Location de draps, de Serviettes, de KitBébé mais également de Barbecue à gaz ou de frigo", { color: "dark" })],
-        [textStyle("PROCEDURES DE DEPART", { color: "red", bold: true }), textStyle("Ca y est, les vacances touchent à leur fin... On vous demandera de:\n* Jeter vos déchets dans les conteneurs adaptés\n* Si vous avez loué des draps et/ou serviette, les laisser sur la table extérieure\n* Nettoyer le sol\n* Nettoyer et ranger la vaisselle\n* FORFAIT MENAGE (pour 80€) disponible. Cependant le forfait n'empêche pas le respect :) ", { color: "dark" })],
+        [textStyle("Arrivée", { color: "green", bold: true }), textStyle("Ajoutez ici les informations d'arrivée et les horaires de réception.", { color: "dark" })],
+        [textStyle("Départ", { color: "orange", bold: true }), textStyle("Ajoutez ici les informations de départ.", { color: "dark" })],
         [textStyle("Services", { color: "blue", bold: true }), textStyle("Retrouvez les informations utiles pendant votre séjour.", { color: "dark" })]
       ]
     }

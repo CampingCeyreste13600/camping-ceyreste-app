@@ -230,3 +230,9 @@ body{padding-bottom:calc(86px + env(safe-area-inset-bottom));}
   .modal{padding-left:10px;padding-right:10px}
   .modal-panel{border-radius:20px;padding:22px 14px 24px}
 }
+
+.dynamic-welcome{margin:12px 0 18px;padding:20px;border-radius:24px;text-align:center;background:linear-gradient(135deg,rgba(255,255,255,.97),rgba(240,248,255,.97));box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.dynamic-welcome-icon{font-size:34px}.dynamic-welcome-title{font-size:25px;font-weight:800}.dynamic-welcome-subtitle{margin-top:4px;opacity:.78}
+.dynamic-next-animation{margin-top:16px;padding:16px;border-radius:18px;background:rgba(255,255,255,.9)}
+.dynamic-next-label{font-size:12px;font-weight:800;letter-spacing:.08em;opacity:.72}.dynamic-next-event{font-size:19px;font-weight:800;margin-top:7px}.dynamic-next-time{font-size:27px;font-weight:900;margin-top:4px}.dynamic-next-countdown{font-size:13px;font-weight:700;margin-top:3px}.dynamic-next-button{margin-top:12px;border:0;border-radius:999px;padding:10px 16px;font-weight:800;cursor:pointer}
+@media(max-width:600px){.dynamic-welcome{padding:17px;margin:10px 0 15px;border-radius:20px}.dynamic-welcome-title{font-size:22px}.dynamic-next-event{font-size:17px}.dynamic-next-time{font-size:24px}}
