@@ -432,7 +432,7 @@ function renderDynamicWelcome(){
       <div class="dynamic-next-event">${escapeHtml(label)}</div>
       <div class="dynamic-next-time">${escapeHtml(time)}</div>
       <div class="dynamic-next-countdown">${state.minutesUntil===null?escapeHtml(state.day):escapeHtml(formatAnimationCountdown(state.minutesUntil))}</div>
-      <button class="dynamic-next-button" onclick="openPage('animation')">VOIR LE PROGRAMME →</button>
+      <button class="dynamic-next-button" type="button" data-dynamic-planning>VOIR LE PROGRAMME →</button>
     </div>`;
   }
   return `<section class="dynamic-welcome">
@@ -613,6 +613,12 @@ document.addEventListener("keydown",e=>{
 });
 
 document.addEventListener("click",e=>{
+  const dynamicPlanning=e.target.closest("[data-dynamic-planning]");
+  if(dynamicPlanning){
+    e.preventDefault();
+    openPlanning();
+    return;
+  }
   const btn=e.target.closest("[data-open]");
   if(btn)open(btn.dataset.open);
   if(e.target.closest("[data-home]"))document.querySelector("#modal").classList.add("hidden");
