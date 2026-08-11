@@ -443,14 +443,19 @@ function renderDynamicWelcome(){
   </section>`;
 }
 function dynamicWelcomeMount(){
-  const home=document.querySelector("#page-home,.page-home,[data-page='home']");
-  if(!home) return;
-  let mount=home.querySelector(".dynamic-welcome-mount");
+  // L'accueil de cette application est une page statique (#app/main),
+  // il n'existe pas de #page-home. On monte donc la carte dans
+  // la vraie carte "BIENVENUE" existante.
+  const homeCard=document.querySelector(".welcome-card");
+  if(!homeCard) return;
+
+  let mount=homeCard.querySelector(".dynamic-welcome-mount");
   if(!mount){
     mount=document.createElement("div");
     mount.className="dynamic-welcome-mount";
-    home.prepend(mount);
+    homeCard.appendChild(mount);
   }
+
   mount.innerHTML=renderDynamicWelcome();
 }
 
