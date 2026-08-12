@@ -344,7 +344,7 @@ const MOBILE_HOME_CATEGORIES = {
     arrival: "À partir de 15h30",
     departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
     info: [
-      "1 véhicule autorisé sur le parking réservé",
+      "1 véhicule autorisé sur l'emplacement",
       "Calme après 23h s'il vous plait",
       "Draps et serviettes Inclus",
       "Lave vaisselle intégré",
@@ -362,7 +362,7 @@ const MOBILE_HOME_CATEGORIES = {
     arrival: "À partir de 15h30",
     departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
     info: [
-      "1 véhicule autorisé sur le parking réservé",
+      "1 véhicule autorisé sur l'emplacement",
       "Calme après 23h s'il vous plait",
       "Draps et serviettes Inclus",
       "Lave vaisselle intégré",
@@ -487,10 +487,10 @@ const CAMPING = {
         }),
         time: "Toute la journée en juillet-août / à partir de 17H le reste de l'année",
         openingSchedule: {
-          basseSaison: [{ start: "17:00", end: "23:30" }],
-          juilletAout: [{ start: "09:00", end: "23:30" }],
-          octobre: [{ start: "17:00", end: "23:30" }],
-          novJan: [{ start: "17:00", end: "23:30" }]
+          basseSaison: [{ start: "17:00", end: "23:59" }],
+          juilletAout: [{ start: "00:00", end: "23:59" }],
+          octobre: [{ start: "17:00", end: "23:59" }],
+          novJan: [{ start: "17:00", end: "23:59" }]
         },
         note: textStyle("Ouvert ✔️", {
           color: "green",
@@ -632,7 +632,7 @@ const CAMPING = {
       image: "images/piscine.jpg",
       intro: textStyle("Découvrez nos piscines et nos toboggans, pour le bonheur des petits et des plus grands.", { color: "gray" }),
       blocks: [
-        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("Basse Saison: 10h-19h / Juillet-Août: 10h-20h", { color: "gray" })],
+        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("À compléter selon la période.", { color: "gray" })],
         [textStyle("Règles essentielles", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "dark" })]
       ]
     },

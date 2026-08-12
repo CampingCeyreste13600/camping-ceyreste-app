@@ -547,6 +547,35 @@ function renderDrawer(){
 }
 renderDrawer();
 
+
+function openProblemReport(){
+  const modal=document.querySelector("#modal"), content=document.querySelector("#modalContent");
+  const stay=window.CAMPING_STAY||JSON.parse(localStorage.getItem("ceyreste_stay")||"null")||{};
+  const number=stay.number||localStorage.getItem("ceyreste_location_number")||"";
+  const category=stay.category||localStorage.getItem("ceyreste_location_category")||"";
+  const cats=[["water","🚿","Eau / plomberie"],["electric","💡","Électricité"],["ac","❄️","Climatisation"],["tv","📺","TV"],["wifi","📶","Wi-Fi"],["key","🔑","Clé / serrure"],["equipment","🛠️","Équipement"],["pool","🏊","Piscine"],["parking","🚗","Parking"],["lighting","💡","Éclairage"],["waste","🗑️","Déchets"],["noise","🔊","Bruit / voisinage"],["other","❓","Autre"]];
+  content.innerHTML=`<div class="eyebrow dark">ASSISTANCE</div><h2 class="modal-title">🆘 J'ai un problème</h2><p class="modal-intro">Signalez-nous un problème et nous ferons le nécessaire.</p>
+  <div class="problem-location-card"><b>🏡 Votre location</b><span>${escapeHtml(number?"N°"+number:"Numéro non renseigné")}${category?" — "+escapeHtml(category):""}</span></div>
+  <div class="problem-form"><label><b>1. Où se situe le problème ?</b></label>
+  <div class="problem-category-grid">${cats.map(([id,ic,label])=>`<button type="button" class="problem-choice" data-problem-category="${id}" data-label="${escapeHtml(label)}"><span>${ic}</span>${escapeHtml(label)}</button>`).join("")}</div>
+  <label for="problemTitle"><b>2. Quel est le problème ?</b></label><input id="problemTitle" class="problem-input" maxlength="120" placeholder="Ex. Pas d'eau chaude">
+  <label for="problemDescription"><b>3. Précisions</b></label><textarea id="problemDescription" class="problem-input problem-textarea" maxlength="1000" placeholder="Expliquez-nous rapidement ce qui se passe..."></textarea>
+  <label for="problemPhoto"><b>4. Photo (facultatif)</b></label><input id="problemPhoto" class="problem-file" type="file" accept="image/*" capture="environment">
+  <button id="sendProblemBtn" class="problem-submit" type="button">🆘 ENVOYER LE SIGNALEMENT</button><p id="problemFormStatus" class="problem-status" aria-live="polite"></p></div>`;
+  modal.classList.remove("hidden");
+  let selected="", label="";
+  content.querySelectorAll("[data-problem-category]").forEach(b=>b.onclick=()=>{content.querySelectorAll("[data-problem-category]").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");selected=b.dataset.problemCategory;label=b.dataset.label;});
+  content.querySelector("#sendProblemBtn").onclick=async()=>{
+    const title=content.querySelector("#problemTitle").value.trim(), desc=content.querySelector("#problemDescription").value.trim(), file=content.querySelector("#problemPhoto").files[0], st=content.querySelector("#problemFormStatus"), btn=content.querySelector("#sendProblemBtn");
+    if(!selected){st.textContent="Choisissez une catégorie.";st.className="problem-status error";return}
+    if(!title){st.textContent="Indiquez le problème.";st.className="problem-status error";return}
+    btn.disabled=true;btn.textContent="ENVOI EN COURS…";
+    try{await window.CEYRESTE_REPORTS.submit({location_number:number||"Non renseigné",location_category:category||"",category_id:selected,category_label:label,title,description,created_at:new Date().toISOString(),status:"new",priority:"normal"},file);
+      st.textContent="✅ Signalement enregistré. La réception va en prendre connaissance.";st.className="problem-status success";btn.textContent="SIGNALÉ ✓";setTimeout(()=>modal.classList.add("hidden"),1800);
+    }catch(e){console.error(e);st.textContent="Impossible d'envoyer. Contactez la réception.";st.className="problem-status error";btn.disabled=false;btn.textContent="🆘 ENVOYER LE SIGNALEMENT";}
+  };
+}
+
 function openSection(id){
   const section=CAMPING.sections[id];
   if(!section)return;
@@ -605,7 +634,7 @@ function openPlanning(){
   modal.classList.remove("hidden");
 }
 
-function open(id){ if(id==="planning")return openPlanning(); openSection(id); }
+function open(id){ if(id==="planning")return openPlanning(); if(id==="problem")return openProblemReport(); openSection(id); }
 
 document.addEventListener("keydown",e=>{
   const el=e.target.closest(".today-mobile-home");
