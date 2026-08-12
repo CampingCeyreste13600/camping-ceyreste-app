@@ -551,8 +551,11 @@ renderDrawer();
 function openProblemReport(){
   const modal=document.querySelector("#modal"), content=document.querySelector("#modalContent");
   const stay=window.CAMPING_STAY||JSON.parse(localStorage.getItem("ceyreste_stay")||"null")||{};
-  const number=stay.number||localStorage.getItem("ceyreste_location_number")||"";
-  const category=stay.category||localStorage.getItem("ceyreste_location_category")||"";
+  const number=stay.number||localStorage.getItem("ceyreste_mobile_home_number")||localStorage.getItem("ceyreste_location_number")||"";
+  let category=stay.category||localStorage.getItem("ceyreste_location_category")||"";
+  try{
+    if(!category && number && typeof MOBILE_HOMES!=="undefined" && MOBILE_HOMES[number]) category=MOBILE_HOMES[number].category||MOBILE_HOMES[number].title||"";
+  }catch(e){}
   const cats=[["water","🚿","Eau / plomberie"],["electric","💡","Électricité"],["ac","❄️","Climatisation"],["tv","📺","TV"],["wifi","📶","Wi-Fi"],["key","🔑","Clé / serrure"],["equipment","🛠️","Équipement"],["pool","🏊","Piscine"],["parking","🚗","Parking"],["lighting","💡","Éclairage"],["waste","🗑️","Déchets"],["noise","🔊","Bruit / voisinage"],["other","❓","Autre"]];
   content.innerHTML=`<div class="eyebrow dark">ASSISTANCE</div><h2 class="modal-title">🆘 J'ai un problème</h2><p class="modal-intro">Signalez-nous un problème et nous ferons le nécessaire.</p>
   <div class="problem-location-card"><b>🏡 Votre location</b><span>${escapeHtml(number?"N°"+number:"Numéro non renseigné")}${category?" — "+escapeHtml(category):""}</span></div>
