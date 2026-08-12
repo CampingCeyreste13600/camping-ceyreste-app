@@ -573,9 +573,23 @@ function openProblemReport(){
     if(!selected){st.textContent="Choisissez une catégorie.";st.className="problem-status error";return}
     if(!title){st.textContent="Indiquez le problème.";st.className="problem-status error";return}
     btn.disabled=true;btn.textContent="ENVOI EN COURS…";
-    try{await window.CEYRESTE_REPORTS.submit({location_number:number||"Non renseigné",location_category:category||"",category_id:selected,category_label:label,title,description,created_at:new Date().toISOString(),status:"new",priority:"normal"},file);
+    try{
+      const report={location_number:number||"Non renseigné",location_category:category||"",category_id:selected,category_label:label,title,description,created_at:new Date().toISOString(),status:"new",priority:"normal"};
+      if(window.CEYRESTE_REPORTS && typeof window.CEYRESTE_REPORTS.submit==="function"){
+        await window.CEYRESTE_REPORTS.submit(report,file);
+      }else{
+        report.id="LOCAL-"+Date.now();
+        const key="ceyreste_reports";
+        const existing=JSON.parse(window.localStorage.getItem(key)||"[]");
+        if(file) report.photo_name=file.name;
+        existing.unshift(report);
+        window.localStorage.setItem(key,JSON.stringify(existing));
+      }
       st.textContent="✅ Signalement enregistré. La réception va en prendre connaissance.";st.className="problem-status success";btn.textContent="SIGNALÉ ✓";setTimeout(()=>modal.classList.add("hidden"),1800);
-    }catch(e){console.error(e);st.textContent="Impossible d'envoyer. Contactez la réception.";st.className="problem-status error";btn.disabled=false;btn.textContent="🆘 ENVOYER LE SIGNALEMENT";}
+    }catch(e){
+      console.error("Signalement:",e);
+      st.textContent="Erreur de stockage sur cet appareil. Aucun signalement n'a été envoyé.";st.className="problem-status error";btn.disabled=false;btn.textContent="🆘 ENVOYER LE SIGNALEMENT";
+    }
   };
 }
 
