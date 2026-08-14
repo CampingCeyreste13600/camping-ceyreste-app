@@ -1511,13 +1511,13 @@ const CAMPING = {
       intro: textStyle("Les dernières étapes avant de prendre la route 👋", { color: "gray" }),
       accordion: true,
       blocks: [
-        [textStyle("🕐 HEURE DE DÉPART", { color: "orange", bold: true }), textStyle("Votre hébergement doit être libéré avant 10h00.", { color: "dark" })],
-        [textStyle("🧹 HÉBERGEMENT", { color: "green", bold: true }), textStyle("Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.", { color: "dark" })],
-        [textStyle("🗑️ DÉCHETS", { color: "teal", bold: true }), textStyle("Déposez vos déchets dans les espaces prévus à cet effet.", { color: "dark" })],
-        [textStyle("🍽️ CUISINE", { color: "orange", bold: true }), textStyle("Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.", { color: "dark" })],
-        [textStyle("🔑 CLÉS", { color: "blue", bold: true }), textStyle("Restituez les clés selon les modalités indiquées par la réception.", { color: "dark" })],
-        [textStyle("💳 CAUTION", { color: "purple", bold: true }), textStyle("Retrouvez ici les informations concernant la caution et sa restitution.", { color: "dark" })],
-        [textStyle("🚗 DERNIÈRES VÉRIFICATIONS", { color: "teal", bold: true }), textStyle("Pensez à vérifier vos affaires personnelles et les abords de votre emplacement ou hébergement.", { color: "dark" })]
+        [textStyle("🕐 HEURE DE DÉPART", { color: "red", bold: true }), textStyle("Votre hébergement doit être libéré entre 8h00 et 10h00.", { color: "dark" })],
+        [textStyle("🧹 FORMALITE DE DEPART", { color: "orange", bold: true }), textStyle("Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping\n- Le sol nettoyé et serpillère étendue\n- Les Poubelles vidée\n- Les toilettes, le bac à douche ainsi que les éviers nettoyés\n- Les couvertures (et draps si inclus) pliés\n- La vaisselle propre et rangée\n- Les étagères et placards vidés et rangés\n- Le congélateur dégivré, ainsi que le réfrigérateur néttoyé et séché.", { color: "dark" })],
+        [textStyle("🧼 FORFAIT MENAGE", { color: "yellow", bold: true }), textStyle("Le ménage de fin de séjour est à votre charge. Si tel n'était pas le cas, nous serons dans l'obligation de vous facturer le forfait ménage qui est de 80 €.", { color: "dark" })], 
+        [textStyle("🗑️ DÉCHETS", { color: "teal", bold: true }), textStyle("Déposez vos déchets dans les containers situés derrière la laverie. Pour le carton et le verre, les containers sont situés à l'exterieur du camping, en sortant à droite", { color: "dark" })],
+        [textStyle("🔑 CLÉS ET CAUTION", { color: "blue", bold: true }), textStyle("Un état des lieux sera necessaire le jour de votre départ, afin de vous retourner la caution faite le jour de votre arrivée", { color: "dark" })],
+        [textStyle("💳 DEPART TOT", { color: "purple", bold: true }), textStyle("Si vous décidez de partir avant 8h00, veuillez en informer la réception, puis\n- Faire les formalités de départ\n- Laisser les clefs sur la table interieure\n- Fermer les rideaux\n- POSSIBLE UNIQUEMENT SI CAUTION PAR CB OU CHEQUE", { color: "dark" })],
+        [textStyle("⭐ AVIS", { color: "yellow", bold: true }), textStyle("Vous pouvez nous laisser un avis sur trip TripAdvisor, Google, Facebook etc… N'HESITEZ PAS!", { color: "dark" })]
       ],
       conclusion: textStyle("👋 MERCI POUR VOTRE VISITE !\nBonne route et à bientôt au Camping de Ceyreste ❤️", { color: "green-dark", bold: true, align: "center" })
     },
