@@ -514,6 +514,24 @@ const PLAN_INTERACTIF = {
     "x": 23.0,
     "y": 18.0,
     "description": "Accrobranche / Acro Games."
+  },
+ {
+    "id": "sanitary1",
+    "name": "Sanitaires 1",
+    "category": "services",
+    "icon": "🚻",
+    "x": 45.0,
+    "y": 68.2,
+    "description": "Sanitaires composés de WC, douches, lavabos,...."
+  },
+ {
+    "id": "sanitary2",
+    "name": "Sanitaires 2",
+    "category": "services",
+    "icon": "🚻",
+    "x": 24.0,
+    "y": 86.0,
+    "description": "Sanitaires composés de WC, douches, lavabos,...."
   }
 ],
   locations: {
