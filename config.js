@@ -422,7 +422,7 @@ const PLAN_INTERACTIF = {
     "category": "services",
     "icon": "🛎️",
     "x": 52.2,
-    "y": 74.2,
+    "y": 73.4,
     "description": "Accueil, renseignements et services du camping."
   },
   {
@@ -430,8 +430,8 @@ const PLAN_INTERACTIF = {
     "name": "Espace aquatique",
     "category": "loisirs",
     "icon": "🏊",
-    "x": 52.8,
-    "y": 82.0,
+    "x": 50.0,
+    "y": 80.0,
     "description": "Piscines et espace aquatique du camping."
   },
   {
@@ -439,8 +439,8 @@ const PLAN_INTERACTIF = {
     "name": "Snack / Restaurant",
     "category": "services",
     "icon": "🍽️",
-    "x": 47.0,
-    "y": 74.0,
+    "x": 45.0,
+    "y": 72.0,
     "description": "Restaurant et snack du camping."
   },
   {
@@ -448,8 +448,8 @@ const PLAN_INTERACTIF = {
     "name": "Épicerie",
     "category": "services",
     "icon": "🛒",
-    "x": 50.0,
-    "y": 70.0,
+    "x": 58.0,
+    "y": 72.0,
     "description": "Épicerie située au niveau de la réception."
   },
   {
@@ -457,8 +457,8 @@ const PLAN_INTERACTIF = {
     "name": "Parking",
     "category": "services",
     "icon": "🅿️",
-    "x": 61.0,
-    "y": 72.0,
+    "x": 62.0,
+    "y": 78.0,
     "description": "Parking du camping."
   },
   {
@@ -466,7 +466,7 @@ const PLAN_INTERACTIF = {
     "name": "Aire de jeux",
     "category": "loisirs",
     "icon": "🛝",
-    "x": 51.2,
+    "x": 53.2,
     "y": 66.0,
     "description": "Aire de jeux."
   },
@@ -475,26 +475,17 @@ const PLAN_INTERACTIF = {
     "name": "Ping Pong",
     "category": "loisirs",
     "icon": "🏓",
-    "x": 55.0,
-    "y": 69.0,
+    "x": 51.5,
+    "y": 63.0,
     "description": "Tables de ping-pong."
   },
   {
-    "id": "fitness",
-    "name": "Fitness",
-    "category": "loisirs",
-    "icon": "💪",
-    "x": 58.0,
-    "y": 68.5,
-    "description": "Espace fitness extérieur."
-  },
-  {
     "id": "multisports",
-    "name": "Terrain multisports",
+    "name": "CityStade",
     "category": "loisirs",
     "icon": "🏀",
-    "x": 54.5,
-    "y": 70.0,
+    "x": 42.0,
+    "y": 93.0,
     "description": "Terrain multisports."
   },
   {
@@ -502,25 +493,25 @@ const PLAN_INTERACTIF = {
     "name": "Pétanque",
     "category": "loisirs",
     "icon": "🎯",
-    "x": 56.5,
-    "y": 67.5,
+    "x": 48.0,
+    "y": 60.0,
     "description": "Terrain de pétanque."
   },
   {
     "id": "trampoline",
-    "name": "Trampoline",
+    "name": "Trampoline + Accrobranche",
     "category": "loisirs",
     "icon": "🤸",
-    "x": 60.0,
-    "y": 66.0,
+    "x": 41.0,
+    "y": 96.0,
     "description": "Trampoline à élastique."
   },
   {
     "id": "accrobranche",
-    "name": "Accrobranche",
+    "name": "Accrogames",
     "category": "loisirs",
     "icon": "🌲",
-    "x": 30.0,
+    "x": 23.0,
     "y": 18.0,
     "description": "Accrobranche / Acro Games."
   }
