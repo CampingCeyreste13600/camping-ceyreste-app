@@ -277,3 +277,16 @@ body{padding-bottom:calc(86px + env(safe-area-inset-bottom));}
 .camp-map-stage>img{pointer-events:none}
 .camp-map-selected-active{animation:campMapPulse .22s ease-out}
 @keyframes campMapPulse{from{transform:scale(.985)}to{transform:scale(1)}}
+
+/* ===== V4 : souris + tactile ===== */
+.camp-map-marker{
+  cursor:pointer !important;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.camp-map-stage{
+  cursor:grab;
+}
+.camp-map-marker:active{
+  cursor:pointer;
+}

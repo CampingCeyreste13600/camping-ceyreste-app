@@ -677,17 +677,34 @@ function initInteractiveMap(){
     }
   };
 
-  document.querySelectorAll('[data-map-point]').forEach(marker=>{
-    marker.addEventListener('click',e=>handlePointClick(marker,e));
-    marker.addEventListener('pointerup',e=>{
-      if(e.pointerType==="touch") handlePointClick(marker,e);
+  const bindMarker=(marker, handler)=>{
+    let downX=0, downY=0, moved=false;
+    marker.addEventListener('pointerdown',e=>{
+      downX=e.clientX; downY=e.clientY; moved=false;
+      e.stopPropagation();
     });
+    marker.addEventListener('pointermove',e=>{
+      if(Math.hypot(e.clientX-downX,e.clientY-downY)>8) moved=true;
+      e.stopPropagation();
+    });
+    marker.addEventListener('pointerup',e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      if(!moved) handler(marker,e);
+    });
+    marker.addEventListener('click',e=>{
+      // Mouse fallback for browsers where pointerup is not followed by a click.
+      e.preventDefault();
+      e.stopPropagation();
+      if(!moved) handler(marker,e);
+    });
+  };
+
+  document.querySelectorAll('[data-map-point]').forEach(marker=>{
+    bindMarker(marker,handlePointClick);
   });
   document.querySelectorAll('[data-map-location]').forEach(marker=>{
-    marker.addEventListener('click',e=>handleLocationClick(marker,e));
-    marker.addEventListener('pointerup',e=>{
-      if(e.pointerType==="touch") handleLocationClick(marker,e);
-    });
+    bindMarker(marker,handleLocationClick);
   });
   const applyFilter=(filter,query='')=>{
     const q=query.trim().toLowerCase();
