@@ -584,8 +584,8 @@ function renderInteractiveMap(){
   const selected=getSelectedMobileHomeNumber();
   const loc=(PLAN_INTERACTIF.locations||{})[selected];
   const selectedData=getSelectedMobileHome();
-  const locationMarker=loc ? `<button class="camp-map-marker camp-map-location" data-map-location="${escapeHtml(selected)}" style="left:${loc.x}%;top:${loc.y}%" title="Votre location" aria-label="Votre location">🏠</button>` : "";
-  const pointMarkers=points.map(p=>`<button class="camp-map-marker camp-map-point" data-map-point="${escapeHtml(p.id)}" data-category="${escapeHtml(p.category||'services')}" data-name="${escapeHtml(p.name||'')}" style="left:${p.x}%;top:${p.y}%" title="${escapeHtml(p.name||'')}" aria-label="${escapeHtml(p.name||'')}"><span>${p.icon||'📍'}</span></button>`).join("");
+  const locationMarker=loc ? `<button type="button" class="camp-map-marker camp-map-location" data-map-location="${escapeHtml(selected)}" style="left:${loc.x}%;top:${loc.y}%" title="Votre location" aria-label="Votre location">🏠</button>` : "";
+  const pointMarkers=points.map(p=>`<button type="button" class="camp-map-marker camp-map-point" data-map-point="${escapeHtml(p.id)}" data-category="${escapeHtml(p.category||'services')}" data-name="${escapeHtml(p.name||'')}" style="left:${p.x}%;top:${p.y}%" title="${escapeHtml(p.name||'')}" aria-label="${escapeHtml(p.name||'')}"><span>${p.icon||'📍'}</span></button>`).join("");
   document.querySelector("#modalContent").innerHTML=`
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
     <h2 class="modal-title">🗺️ PLAN DU CAMPING</h2>
@@ -593,11 +593,11 @@ function renderInteractiveMap(){
     <div class="camp-map-tools">
       <input id="campMapSearch" type="search" placeholder="🔎 Rechercher un lieu..." autocomplete="off">
       <div class="camp-map-filters" role="tablist">
-        <button class="camp-map-filter active" data-filter="all">Tout</button>
-        <button class="camp-map-filter" data-filter="services">Services</button>
-        <button class="camp-map-filter" data-filter="loisirs">Loisirs</button>
+        <button type="button" class="camp-map-filter active" data-filter="all">Tout</button>
+        <button type="button" class="camp-map-filter" data-filter="services">Services</button>
+        <button type="button" class="camp-map-filter" data-filter="loisirs">Loisirs</button>
       </div>
-      <div class="camp-map-zoom"><button id="campMapMinus">−</button><button id="campMapReset">100%</button><button id="campMapPlus">＋</button></div>
+      <div class="camp-map-zoom"><button type="button" id="campMapMinus">−</button><button type="button" id="campMapReset">100%</button><button type="button" id="campMapPlus">＋</button></div>
     </div>
     <div class="camp-map-viewport" id="campMapViewport">
       <div class="camp-map-stage" id="campMapStage">
@@ -657,20 +657,37 @@ function initInteractiveMap(){
     `;
     el.scrollIntoView({behavior:"smooth",block:"nearest"});
   };
-  viewport.addEventListener('click',e=>{
-    const marker=e.target.closest('[data-map-point]');
-    if(marker){const p=(PLAN_INTERACTIF.points||[]).find(x=>String(x.id)===marker.dataset.mapPoint); if(p)showPoint(p);}
-    const lm=e.target.closest('[data-map-location]');
-    if(lm){
-      const n=lm.dataset.mapLocation;
-      const mh=getSelectedMobileHome();
-      const el=document.querySelector('#campMapSelected');
-      if(el){
-        el.classList.add('camp-map-selected-active');
-        el.innerHTML=`<div class="camp-map-point-title">🏠 <b>VOTRE LOCATION — N° ${escapeHtml(n)}</b></div><div class="camp-map-point-description">${mh?.category?escapeHtml(mh.category):''}</div>`;
-        el.scrollIntoView({behavior:"smooth",block:"nearest"});
-      }
+  // Clics directs sur les marqueurs : plus fiable sur ordinateur ET téléphone.
+  const handlePointClick=(marker,e)=>{
+    e.preventDefault();
+    e.stopPropagation();
+    const p=(PLAN_INTERACTIF.points||[]).find(x=>String(x.id)===String(marker.dataset.mapPoint));
+    if(p) showPoint(p);
+  };
+  const handleLocationClick=(marker,e)=>{
+    e.preventDefault();
+    e.stopPropagation();
+    const n=marker.dataset.mapLocation;
+    const mh=getSelectedMobileHome();
+    const el=document.querySelector('#campMapSelected');
+    if(el){
+      el.classList.add('camp-map-selected-active');
+      el.innerHTML=`<div class="camp-map-point-title">🏠 <b>VOTRE LOCATION — N° ${escapeHtml(n)}</b></div><div class="camp-map-point-description">${mh?.category?renderAny(mh.category):''}</div>`;
+      el.scrollIntoView({behavior:"smooth",block:"nearest"});
     }
+  };
+
+  document.querySelectorAll('[data-map-point]').forEach(marker=>{
+    marker.addEventListener('click',e=>handlePointClick(marker,e));
+    marker.addEventListener('pointerup',e=>{
+      if(e.pointerType==="touch") handlePointClick(marker,e);
+    });
+  });
+  document.querySelectorAll('[data-map-location]').forEach(marker=>{
+    marker.addEventListener('click',e=>handleLocationClick(marker,e));
+    marker.addEventListener('pointerup',e=>{
+      if(e.pointerType==="touch") handleLocationClick(marker,e);
+    });
   });
   const applyFilter=(filter,query='')=>{
     const q=query.trim().toLowerCase();

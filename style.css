@@ -271,3 +271,9 @@ body{padding-bottom:calc(86px + env(safe-area-inset-bottom));}
 .info-accordion-item[open] .accordion-chevron{transform:rotate(45deg)}
 .info-accordion-content{padding:0 15px 16px;color:var(--ink);font-size:13px;line-height:1.6;border-top:1px solid #f0e8dc}
 .info-conclusion{margin-top:16px;padding:16px;border-radius:16px;background:#eef7f4;text-align:center;white-space:normal;line-height:1.5}
+
+/* ===== V3 : clics des marqueurs ===== */
+.camp-map-marker{pointer-events:auto !important;position:absolute;z-index:20 !important;touch-action:manipulation}
+.camp-map-stage>img{pointer-events:none}
+.camp-map-selected-active{animation:campMapPulse .22s ease-out}
+@keyframes campMapPulse{from{transform:scale(.985)}to{transform:scale(1)}}
