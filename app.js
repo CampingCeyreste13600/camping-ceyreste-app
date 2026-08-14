@@ -556,6 +556,16 @@ function openSection(id){
     initInteractiveMap();
     return;
   }
+  const blocksHtml = section.accordion
+    ? `<div class="info-accordion">${(section.blocks || []).map(b=>`
+        <details class="info-accordion-item">
+          <summary><span>${renderText(b[0])}</span><span class="accordion-chevron">＋</span></summary>
+          <div class="info-accordion-content">${renderText(b[1])}</div>
+        </details>
+      `).join("")}</div>
+      ${section.conclusion ? `<div class="info-conclusion">${renderText(section.conclusion).replace(/\\n/g,"<br>")}</div>` : ""}`
+    : (section.blocks || []).map(b=>`<article class="info-block"><h3>${renderText(b[0])}</h3><p>${renderText(b[1])}</p></article>`).join("");
+
   document.querySelector("#modalContent").innerHTML=`
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
     ${section.image ? `<img class="section-image" src="${escapeHtml(section.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
@@ -563,7 +573,7 @@ function openSection(id){
     ${section.personalizedMobileHome ? renderMobileHomePersonalization() : ""}
     <p class="modal-intro">${renderText(section.intro)}</p>
     ${section.menuPdf ? `<a class="menu-pdf-button" href="${escapeHtml(section.menuPdf)}" target="_blank" rel="noopener">📖 Voir la carte du restaurant</a>` : ""}
-    ${section.blocks.map(b=>`<article class="info-block"><h3>${renderText(b[0])}</h3><p>${renderText(b[1])}</p></article>`).join("")}
+    ${blocksHtml}
     ${id==="region"?`<a class="big-link" href="${CAMPING.contact.mapsUrl}" target="_blank" rel="noopener">📍 Ouvrir Google Maps</a>`:""}
   `;
   document.querySelector("#modal").classList.remove("hidden");
@@ -574,8 +584,8 @@ function renderInteractiveMap(){
   const selected=getSelectedMobileHomeNumber();
   const loc=(PLAN_INTERACTIF.locations||{})[selected];
   const selectedData=getSelectedMobileHome();
-  const locationMarker=loc ? `<button class="camp-map-marker camp-map-location" data-map-location="${escapeHtml(selected)}" style="left:${loc.x}%;top:${loc.y}%" title="Votre location">🏠<span>VOTRE LOCATION</span></button>` : "";
-  const pointMarkers=points.map(p=>`<button class="camp-map-marker camp-map-point" data-map-point="${escapeHtml(p.id)}" data-category="${escapeHtml(p.category||'services')}" data-name="${escapeHtml(p.name||'')}" style="left:${p.x}%;top:${p.y}%" title="${escapeHtml(p.name||'')}"><span>${p.icon||'📍'}</span><b>${escapeHtml(p.name||'')}</b></button>`).join("");
+  const locationMarker=loc ? `<button class="camp-map-marker camp-map-location" data-map-location="${escapeHtml(selected)}" style="left:${loc.x}%;top:${loc.y}%" title="Votre location" aria-label="Votre location">🏠</button>` : "";
+  const pointMarkers=points.map(p=>`<button class="camp-map-marker camp-map-point" data-map-point="${escapeHtml(p.id)}" data-category="${escapeHtml(p.category||'services')}" data-name="${escapeHtml(p.name||'')}" style="left:${p.x}%;top:${p.y}%" title="${escapeHtml(p.name||'')}" aria-label="${escapeHtml(p.name||'')}"><span>${p.icon||'📍'}</span></button>`).join("");
   document.querySelector("#modalContent").innerHTML=`
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
     <h2 class="modal-title">🗺️ PLAN DU CAMPING</h2>
@@ -639,13 +649,28 @@ function initInteractiveMap(){
   },{passive:false});
   const showPoint=(p)=>{
     const el=document.querySelector('#campMapSelected');
-    if(!el)return; el.innerHTML=`<b>${p.icon||'📍'} ${escapeHtml(p.name||'')}</b><br><span>${escapeHtml(p.description||'')}</span>`;
+    if(!el)return;
+    el.classList.add('camp-map-selected-active');
+    el.innerHTML=`
+      <div class="camp-map-point-title">${p.icon||'📍'} <b>${escapeHtml(p.name||'')}</b></div>
+      <div class="camp-map-point-description">${escapeHtml(p.description||'')}</div>
+    `;
+    el.scrollIntoView({behavior:"smooth",block:"nearest"});
   };
   viewport.addEventListener('click',e=>{
     const marker=e.target.closest('[data-map-point]');
     if(marker){const p=(PLAN_INTERACTIF.points||[]).find(x=>String(x.id)===marker.dataset.mapPoint); if(p)showPoint(p);}
     const lm=e.target.closest('[data-map-location]');
-    if(lm){const n=lm.dataset.mapLocation; const mh=getSelectedMobileHome(); const el=document.querySelector('#campMapSelected'); if(el)el.innerHTML=`<b>🏠 VOTRE LOCATION — N° ${escapeHtml(n)}</b><br><span>${mh?.category?escapeHtml(mh.category):''}</span>`;}
+    if(lm){
+      const n=lm.dataset.mapLocation;
+      const mh=getSelectedMobileHome();
+      const el=document.querySelector('#campMapSelected');
+      if(el){
+        el.classList.add('camp-map-selected-active');
+        el.innerHTML=`<div class="camp-map-point-title">🏠 <b>VOTRE LOCATION — N° ${escapeHtml(n)}</b></div><div class="camp-map-point-description">${mh?.category?escapeHtml(mh.category):''}</div>`;
+        el.scrollIntoView({behavior:"smooth",block:"nearest"});
+      }
+    }
   });
   const applyFilter=(filter,query='')=>{
     const q=query.trim().toLowerCase();

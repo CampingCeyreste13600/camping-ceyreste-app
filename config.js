@@ -1377,7 +1377,8 @@ const CAMPING = {
     { id: "map", icon: "🗺️", title: textStyle("PLAN DU CAMPING", { color: "teal", bold: true }), desc: textStyle("Découvrir le camping", { color: "gray" }) },
     { id: "region", icon: "📍", title: textStyle("A DECOUVRIR", { color: "teal", bold: true }), desc: textStyle("Activités & lieux incontournables", { color: "gray" }) },
     { id: "partners", icon: "🚲", title: textStyle("NOS PARTENAIRES", { color: "orange", bold: true }), desc: textStyle("Activités locales", { color: "gray" }) },
-    { id: "emergency", icon: "🚨", title: textStyle("URGENCES", { color: "red", bold: true }), desc: textStyle("Numéros importants", { color: "gray" }) }
+    { id: "emergency", icon: "🚨", title: textStyle("URGENCES", { color: "red", bold: true }), desc: textStyle("Numéros importants", { color: "gray" }) },
+    { id: "departure", icon: "🧳", title: textStyle("MON DÉPART", { color: "orange", bold: true }), desc: textStyle("Les dernières étapes avant de partir", { color: "gray" }) }
   ],
 
   // ============================================================
@@ -1496,6 +1497,22 @@ const CAMPING = {
         [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Ajoutez ici une annonce importante : fermeture exceptionnelle, changement d'horaire, météo, animation, etc.", { color: "dark" })]
       ]
     },
+    departure: {
+      title: textStyle("🧳 MON DÉPART", { color: "orange", bold: true, size: "large" }),
+      intro: textStyle("Les dernières étapes avant de prendre la route 👋", { color: "gray" }),
+      accordion: true,
+      blocks: [
+        [textStyle("🕐 HEURE DE DÉPART", { color: "orange", bold: true }), textStyle("Votre hébergement doit être libéré avant 10h00.", { color: "dark" })],
+        [textStyle("🧹 HÉBERGEMENT", { color: "green", bold: true }), textStyle("Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.", { color: "dark" })],
+        [textStyle("🗑️ DÉCHETS", { color: "teal", bold: true }), textStyle("Déposez vos déchets dans les espaces prévus à cet effet.", { color: "dark" })],
+        [textStyle("🍽️ CUISINE", { color: "orange", bold: true }), textStyle("Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.", { color: "dark" })],
+        [textStyle("🔑 CLÉS", { color: "blue", bold: true }), textStyle("Restituez les clés selon les modalités indiquées par la réception.", { color: "dark" })],
+        [textStyle("💳 CAUTION", { color: "purple", bold: true }), textStyle("Retrouvez ici les informations concernant la caution et sa restitution.", { color: "dark" })],
+        [textStyle("🚗 DERNIÈRES VÉRIFICATIONS", { color: "teal", bold: true }), textStyle("Pensez à vérifier vos affaires personnelles et les abords de votre emplacement ou hébergement.", { color: "dark" })]
+      ],
+      conclusion: textStyle("👋 MERCI POUR VOTRE VISITE !\nBonne route et à bientôt au Camping de Ceyreste ❤️", { color: "green-dark", bold: true, align: "center" })
+    },
+
     stay: {
       personalizedMobileHome: true,
       title: textStyle("🏕️ MA LOCATION", { color: "teal", bold: true, size: "large" }),
