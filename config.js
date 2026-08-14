@@ -403,6 +403,772 @@ const MOBILE_HOME_CATEGORIES = {
   }
 };
 
+
+// ============================================================
+// 🗺️ PLAN INTERACTIF DU CAMPING
+// ============================================================
+// X = gauche → droite (0 à 100)
+// Y = haut → bas (0 à 100)
+//
+// Tu peux déplacer un point en modifiant simplement x et y.
+// Les locations ne sont PAS affichées toutes ensemble :
+// seule la location saisie par le client est affichée.
+const PLAN_INTERACTIF = {
+  image: "images/plan-camping-2026.jpg",
+  points: [
+  {
+    "id": "reception",
+    "name": "Réception",
+    "category": "services",
+    "icon": "🛎️",
+    "x": 52.2,
+    "y": 74.2,
+    "description": "Accueil, renseignements et services du camping."
+  },
+  {
+    "id": "pool",
+    "name": "Espace aquatique",
+    "category": "loisirs",
+    "icon": "🏊",
+    "x": 52.8,
+    "y": 82.0,
+    "description": "Piscines et espace aquatique du camping."
+  },
+  {
+    "id": "restaurant",
+    "name": "Snack / Restaurant",
+    "category": "services",
+    "icon": "🍽️",
+    "x": 47.0,
+    "y": 74.0,
+    "description": "Restaurant et snack du camping."
+  },
+  {
+    "id": "shop",
+    "name": "Épicerie",
+    "category": "services",
+    "icon": "🛒",
+    "x": 50.0,
+    "y": 70.0,
+    "description": "Épicerie située au niveau de la réception."
+  },
+  {
+    "id": "parking-main",
+    "name": "Parking",
+    "category": "services",
+    "icon": "🅿️",
+    "x": 61.0,
+    "y": 72.0,
+    "description": "Parking du camping."
+  },
+  {
+    "id": "playground",
+    "name": "Aire de jeux",
+    "category": "loisirs",
+    "icon": "🛝",
+    "x": 51.2,
+    "y": 66.0,
+    "description": "Aire de jeux."
+  },
+  {
+    "id": "pingpong",
+    "name": "Ping Pong",
+    "category": "loisirs",
+    "icon": "🏓",
+    "x": 55.0,
+    "y": 69.0,
+    "description": "Tables de ping-pong."
+  },
+  {
+    "id": "fitness",
+    "name": "Fitness",
+    "category": "loisirs",
+    "icon": "💪",
+    "x": 58.0,
+    "y": 68.5,
+    "description": "Espace fitness extérieur."
+  },
+  {
+    "id": "multisports",
+    "name": "Terrain multisports",
+    "category": "loisirs",
+    "icon": "🏀",
+    "x": 54.5,
+    "y": 70.0,
+    "description": "Terrain multisports."
+  },
+  {
+    "id": "petanque",
+    "name": "Pétanque",
+    "category": "loisirs",
+    "icon": "🎯",
+    "x": 56.5,
+    "y": 67.5,
+    "description": "Terrain de pétanque."
+  },
+  {
+    "id": "trampoline",
+    "name": "Trampoline",
+    "category": "loisirs",
+    "icon": "🤸",
+    "x": 60.0,
+    "y": 66.0,
+    "description": "Trampoline à élastique."
+  },
+  {
+    "id": "accrobranche",
+    "name": "Accrobranche",
+    "category": "loisirs",
+    "icon": "🌲",
+    "x": 30.0,
+    "y": 18.0,
+    "description": "Accrobranche / Acro Games."
+  }
+],
+  locations: {
+  "1": {
+    "x": 41.38,
+    "y": 58.95
+  },
+  "2": {
+    "x": 38.9,
+    "y": 57.23
+  },
+  "3": {
+    "x": 36.49,
+    "y": 55.21
+  },
+  "4": {
+    "x": 41.88,
+    "y": 99.08
+  },
+  "5": {
+    "x": 32.13,
+    "y": 51.37
+  },
+  "6": {
+    "x": 30.18,
+    "y": 49.49
+  },
+  "7": {
+    "x": 28.05,
+    "y": 47.92
+  },
+  "8": {
+    "x": 25.85,
+    "y": 46.27
+  },
+  "9": {
+    "x": 23.99,
+    "y": 44.39
+  },
+  "10": {
+    "x": 21.81,
+    "y": 42.61
+  },
+  "11": {
+    "x": 19.87,
+    "y": 41.16
+  },
+  "12": {
+    "x": 15.76,
+    "y": 38.81
+  },
+  "13": {
+    "x": 11.38,
+    "y": 35.08
+  },
+  "20": {
+    "x": 36.95,
+    "y": 62.58
+  },
+  "21": {
+    "x": 34.46,
+    "y": 60.85
+  },
+  "22": {
+    "x": 31.96,
+    "y": 58.66
+  },
+  "23": {
+    "x": 29.77,
+    "y": 56.79
+  },
+  "24": {
+    "x": 27.29,
+    "y": 54.85
+  },
+  "25": {
+    "x": 24.73,
+    "y": 52.75
+  },
+  "26": {
+    "x": 22.4,
+    "y": 50.76
+  },
+  "27": {
+    "x": 19.86,
+    "y": 48.64
+  },
+  "28": {
+    "x": 17.23,
+    "y": 46.51
+  },
+  "30": {
+    "x": 35.09,
+    "y": 65.11
+  },
+  "31": {
+    "x": 32.81,
+    "y": 63.24
+  },
+  "32": {
+    "x": 30.43,
+    "y": 61.29
+  },
+  "33": {
+    "x": 28.19,
+    "y": 59.36
+  },
+  "34": {
+    "x": 25.86,
+    "y": 57.36
+  },
+  "35": {
+    "x": 23.52,
+    "y": 55.15
+  },
+  "36": {
+    "x": 20.86,
+    "y": 53.4
+  },
+  "38": {
+    "x": 16.04,
+    "y": 49.27
+  },
+  "40": {
+    "x": 31.74,
+    "y": 67.74
+  },
+  "41": {
+    "x": 29.46,
+    "y": 65.93
+  },
+  "44": {
+    "x": 23.2,
+    "y": 60.77
+  },
+  "43": {
+    "x": 25.52,
+    "y": 62.65
+  },
+  "45": {
+    "x": 21.11,
+    "y": 58.88
+  },
+  "46": {
+    "x": 18.84,
+    "y": 56.83
+  },
+  "47": {
+    "x": 16.34,
+    "y": 55.2
+  },
+  "50": {
+    "x": 29.45,
+    "y": 69.6
+  },
+  "51": {
+    "x": 27.39,
+    "y": 67.77
+  },
+  "52": {
+    "x": 25.08,
+    "y": 65.94
+  },
+  "53": {
+    "x": 22.81,
+    "y": 64.17
+  },
+  "54": {
+    "x": 20.7,
+    "y": 62.38
+  },
+  "55": {
+    "x": 18.33,
+    "y": 60.45
+  },
+  "56": {
+    "x": 16.09,
+    "y": 58.4
+  },
+  "60": {
+    "x": 26.16,
+    "y": 74.08
+  },
+  "61": {
+    "x": 24.08,
+    "y": 71.73
+  },
+  "62": {
+    "x": 22.18,
+    "y": 69.91
+  },
+  "63": {
+    "x": 20.18,
+    "y": 68.21
+  },
+  "64": {
+    "x": 17.26,
+    "y": 64.76
+  },
+  "65": {
+    "x": 16.37,
+    "y": 67.98
+  },
+  "66": {
+    "x": 16.08,
+    "y": 71.42
+  },
+  "67": {
+    "x": 16.3,
+    "y": 74.47
+  },
+  "68": {
+    "x": 18.98,
+    "y": 73.65
+  },
+  "69": {
+    "x": 20.78,
+    "y": 75.31
+  },
+  "69B": {
+    "x": 23.73,
+    "y": 76.7
+  },
+  "70": {
+    "x": 11.72,
+    "y": 41.61
+  },
+  "71": {
+    "x": 11.72,
+    "y": 44.54
+  },
+  "72": {
+    "x": 11.72,
+    "y": 47.17
+  },
+  "73": {
+    "x": 11.72,
+    "y": 49.83
+  },
+  "74": {
+    "x": 11.72,
+    "y": 52.51
+  },
+  "75": {
+    "x": 11.72,
+    "y": 54.87
+  },
+  "76": {
+    "x": 11.72,
+    "y": 57.44
+  },
+  "77": {
+    "x": 11.72,
+    "y": 60.07
+  },
+  "78": {
+    "x": 11.72,
+    "y": 62.68
+  },
+  "79": {
+    "x": 11.72,
+    "y": 65.23
+  },
+  "80": {
+    "x": 11.87,
+    "y": 67.96
+  },
+  "81": {
+    "x": 11.85,
+    "y": 70.44
+  },
+  "82": {
+    "x": 11.83,
+    "y": 72.95
+  },
+  "83": {
+    "x": 11.8,
+    "y": 75.52
+  },
+  "84": {
+    "x": 11.8,
+    "y": 78.38
+  },
+  "85": {
+    "x": 11.89,
+    "y": 81.1
+  },
+  "86": {
+    "x": 11.89,
+    "y": 83.39
+  },
+  "90": {
+    "x": 8.17,
+    "y": 83.28
+  },
+  "91": {
+    "x": 8.17,
+    "y": 81.35
+  },
+  "92": {
+    "x": 8.17,
+    "y": 79.29
+  },
+  "93": {
+    "x": 8.17,
+    "y": 77.24
+  },
+  "94": {
+    "x": 8.17,
+    "y": 74.96
+  },
+  "95": {
+    "x": 8.17,
+    "y": 72.71
+  },
+  "96": {
+    "x": 8.17,
+    "y": 70.31
+  },
+  "97": {
+    "x": 8.17,
+    "y": 68.0
+  },
+  "98": {
+    "x": 8.17,
+    "y": 65.72
+  },
+  "101": {
+    "x": 3.18,
+    "y": 68.83
+  },
+  "102": {
+    "x": 3.18,
+    "y": 71.06
+  },
+  "103": {
+    "x": 3.18,
+    "y": 73.46
+  },
+  "104": {
+    "x": 2.95,
+    "y": 78.38
+  },
+  "105": {
+    "x": 3.33,
+    "y": 81.2
+  },
+  "106": {
+    "x": 3.4,
+    "y": 84.03
+  },
+  "107": {
+    "x": 3.4,
+    "y": 86.34
+  },
+  "108": {
+    "x": 3.29,
+    "y": 88.33
+  },
+  "109": {
+    "x": 3.33,
+    "y": 90.87
+  },
+  "110": {
+    "x": 3.2,
+    "y": 93.8
+  },
+  "111": {
+    "x": 2.95,
+    "y": 96.75
+  },
+  "112": {
+    "x": 5.78,
+    "y": 96.75
+  },
+  "113": {
+    "x": 8.37,
+    "y": 93.56
+  },
+  "114": {
+    "x": 7.97,
+    "y": 90.97
+  },
+  "115": {
+    "x": 7.97,
+    "y": 87.79
+  },
+  "116": {
+    "x": 11.49,
+    "y": 87.79
+  },
+  "117": {
+    "x": 13.68,
+    "y": 88.17
+  },
+  "118": {
+    "x": 13.59,
+    "y": 91.57
+  },
+  "119": {
+    "x": 11.38,
+    "y": 92.25
+  },
+  "120": {
+    "x": 11.34,
+    "y": 96.48
+  },
+  "121": {
+    "x": 14.51,
+    "y": 96.48
+  },
+  "122": {
+    "x": 17.56,
+    "y": 95.87
+  },
+  "123": {
+    "x": 20.04,
+    "y": 95.73
+  },
+  "124": {
+    "x": 22.36,
+    "y": 95.73
+  },
+  "127": {
+    "x": 30.0,
+    "y": 95.82
+  },
+  "128": {
+    "x": 32.54,
+    "y": 95.82
+  },
+  "129": {
+    "x": 36.03,
+    "y": 96.02
+  },
+  "130": {
+    "x": 39.42,
+    "y": 95.9
+  },
+  "133": {
+    "x": 40.02,
+    "y": 89.53
+  },
+  "134": {
+    "x": 39.5,
+    "y": 83.82
+  },
+  "135": {
+    "x": 39.5,
+    "y": 81.74
+  },
+  "136": {
+    "x": 39.51,
+    "y": 79.6
+  },
+  "137": {
+    "x": 39.51,
+    "y": 77.47
+  },
+  "138": {
+    "x": 39.51,
+    "y": 75.06
+  },
+  "139": {
+    "x": 39.51,
+    "y": 72.15
+  },
+  "140": {
+    "x": 34.17,
+    "y": 73.17
+  },
+  "141": {
+    "x": 30.94,
+    "y": 77.58
+  },
+  "142": {
+    "x": 34.63,
+    "y": 77.48
+  },
+  "143": {
+    "x": 34.67,
+    "y": 80.63
+  },
+  "144": {
+    "x": 31.83,
+    "y": 80.59
+  },
+  "145": {
+    "x": 29.4,
+    "y": 80.73
+  },
+  "146": {
+    "x": 30.54,
+    "y": 86.34
+  },
+  "147": {
+    "x": 34.78,
+    "y": 86.36
+  },
+  "148": {
+    "x": 34.39,
+    "y": 90.2
+  },
+  "149": {
+    "x": 30.76,
+    "y": 90.3
+  },
+  "150": {
+    "x": 27.13,
+    "y": 89.65
+  },
+  "151": {
+    "x": 23.5,
+    "y": 89.65
+  },
+  "152": {
+    "x": 20.01,
+    "y": 89.65
+  },
+  "153": {
+    "x": 17.03,
+    "y": 89.65
+  },
+  "154": {
+    "x": 16.91,
+    "y": 82.63
+  },
+  "155": {
+    "x": 15.51,
+    "y": 79.44
+  },
+  "156": {
+    "x": 18.4,
+    "y": 80.09
+  },
+  "157": {
+    "x": 25.13,
+    "y": 80.58
+  },
+  "158": {
+    "x": 27.11,
+    "y": 78.8
+  },
+  "B1": {
+    "x": 53.59,
+    "y": 61.85
+  },
+  "B2": {
+    "x": 56.35,
+    "y": 64.06
+  },
+  "B3": {
+    "x": 60.55,
+    "y": 56.69
+  },
+  "B4": {
+    "x": 61.58,
+    "y": 53.98
+  },
+  "B7": {
+    "x": 50.32,
+    "y": 58.12
+  },
+  "T1": {
+    "x": 12.06,
+    "y": 30.78
+  },
+  "T2": {
+    "x": 14.95,
+    "y": 33.24
+  },
+  "T3": {
+    "x": 17.63,
+    "y": 35.5
+  },
+  "T4": {
+    "x": 22.64,
+    "y": 38.23
+  },
+  "T5": {
+    "x": 25.6,
+    "y": 40.51
+  },
+  "T6": {
+    "x": 28.59,
+    "y": 42.83
+  },
+  "T7": {
+    "x": 31.82,
+    "y": 45.36
+  },
+  "T8": {
+    "x": 34.74,
+    "y": 47.9
+  },
+  "T9": {
+    "x": 37.53,
+    "y": 50.04
+  },
+  "T10": {
+    "x": 40.13,
+    "y": 52.2
+  },
+  "T11": {
+    "x": 42.11,
+    "y": 53.75
+  },
+  "T12": {
+    "x": 45.71,
+    "y": 56.3
+  },
+  "T13": {
+    "x": 55.03,
+    "y": 49.81
+  },
+  "T14": {
+    "x": 60.97,
+    "y": 49.96
+  },
+  "T15": {
+    "x": 65.83,
+    "y": 50.64
+  },
+  "T16": {
+    "x": 38.98,
+    "y": 40.42
+  },
+  "T17": {
+    "x": 43.51,
+    "y": 41.76
+  },
+  "T18": {
+    "x": 47.38,
+    "y": 42.26
+  },
+  "T19": {
+    "x": 53.08,
+    "y": 42.19
+  },
+  "T20": {
+    "x": 57.42,
+    "y": 53.01
+  }
+}
+};
+
 const CAMPING = {
   // ==================== PHOTOS ====================
   // Les photos des sections se règlent dans chaque section avec image: "".
@@ -611,8 +1377,7 @@ const CAMPING = {
     { id: "map", icon: "🗺️", title: textStyle("PLAN DU CAMPING", { color: "teal", bold: true }), desc: textStyle("Découvrir le camping", { color: "gray" }) },
     { id: "region", icon: "📍", title: textStyle("A DECOUVRIR", { color: "teal", bold: true }), desc: textStyle("Activités & lieux incontournables", { color: "gray" }) },
     { id: "partners", icon: "🚲", title: textStyle("NOS PARTENAIRES", { color: "orange", bold: true }), desc: textStyle("Activités locales", { color: "gray" }) },
-    { id: "emergency", icon: "🚨", title: textStyle("URGENCES", { color: "red", bold: true }), desc: textStyle("Numéros importants", { color: "gray" }) },
-    { id: "departure", icon: "🧳", title: textStyle("MON DÉPART", { color: "orange", bold: true }), desc: textStyle("Les dernières étapes avant de partir", { color: "gray" }) }
+    { id: "emergency", icon: "🚨", title: textStyle("URGENCES", { color: "red", bold: true }), desc: textStyle("Numéros importants", { color: "gray" }) }
   ],
 
   // ============================================================
@@ -672,6 +1437,7 @@ const CAMPING = {
       ]
     },
     map: {
+      interactive: true,
       title: textStyle("🗺️ PLAN DU CAMPING", { color: "teal", bold: true, size: "large" }),
       image: "images/plan.jpg",
       intro: textStyle("Repérez facilement les principaux services et équipements.", { color: "gray" }),
@@ -740,27 +1506,6 @@ const CAMPING = {
         [textStyle("Départ", { color: "orange", bold: true }), textStyle("Ajoutez ici les informations de départ.", { color: "dark" })],
         [textStyle("Services", { color: "blue", bold: true }), textStyle("Retrouvez les informations utiles pendant votre séjour.", { color: "dark" })]
       ]
-    }
-,
-    // ============================================================
-    // 🧳 MON DÉPART
-    // ============================================================
-    // Les titres et contenus ci-dessous sont modifiables directement
-    // dans config.js. Ne pas modifier app.js pour les textes.
-    departure: {
-      title: textStyle("🧳 MON DÉPART", { color: "orange", bold: true, size: "large" }),
-      intro: textStyle("Les dernières étapes avant de prendre la route 👋", { color: "gray" }),
-      accordion: true,
-      blocks: [
-        [textStyle("🕐 HEURE DE DÉPART", { color: "orange", bold: true }), textStyle("Indiquez ici l'heure à laquelle votre hébergement ou votre emplacement doit être libéré.", { color: "dark" })],
-        [textStyle("🧹 HÉBERGEMENT", { color: "green", bold: true }), textStyle("Indiquez ici les consignes de rangement et de nettoyage à respecter avant votre départ.", { color: "dark" })],
-        [textStyle("🗑️ DÉCHETS", { color: "teal", bold: true }), textStyle("Indiquez ici où déposer les déchets et les consignes à respecter.", { color: "dark" })],
-        [textStyle("🍽️ CUISINE", { color: "orange", bold: true }), textStyle("Indiquez ici les dernières vérifications à effectuer dans la cuisine et le réfrigérateur.", { color: "dark" })],
-        [textStyle("🔑 CLÉS", { color: "blue", bold: true }), textStyle("Indiquez ici les modalités de restitution des clés ou du badge.", { color: "dark" })],
-        [textStyle("💳 CAUTION", { color: "purple", bold: true }), textStyle("Indiquez ici les informations concernant la caution et sa restitution.", { color: "dark" })],
-        [textStyle("🚗 DERNIÈRES VÉRIFICATIONS", { color: "teal", bold: true }), textStyle("Pensez à vérifier vos affaires personnelles, le véhicule et les abords de votre emplacement ou hébergement.", { color: "dark" })]
-      ],
-      conclusion: textStyle("👋 MERCI POUR VOTRE VISITE !\nBonne route et à bientôt au Camping de Ceyreste ❤️", { color: "green-dark", bold: true, align: "center" })
     }
   }
 };

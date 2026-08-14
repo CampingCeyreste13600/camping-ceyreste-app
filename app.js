@@ -550,20 +550,12 @@ renderDrawer();
 function openSection(id){
   const section=CAMPING.sections[id];
   if(!section)return;
-
-  const blocksHtml = section.accordion
-    ? `<div class="info-accordion">${(section.blocks || []).map(b=>`
-        <details class="info-accordion-item">
-          <summary>
-            <span>${renderText(b[0])}</span>
-            <span class="accordion-chevron">＋</span>
-          </summary>
-          <div class="info-accordion-content">${renderText(b[1])}</div>
-        </details>
-      `).join("")}</div>
-      ${section.conclusion ? `<div class="info-conclusion">${renderText(section.conclusion)}`.replace(/\n/g,"<br>") + `</div>` : ""}`
-    : (section.blocks || []).map(b=>`<article class="info-block"><h3>${renderText(b[0])}</h3><p>${renderText(b[1])}</p></article>`).join("");
-
+  if(id === "map" && section.interactive && typeof PLAN_INTERACTIF !== "undefined") {
+    renderInteractiveMap();
+    document.querySelector("#modal").classList.remove("hidden");
+    initInteractiveMap();
+    return;
+  }
   document.querySelector("#modalContent").innerHTML=`
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
     ${section.image ? `<img class="section-image" src="${escapeHtml(section.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
@@ -571,11 +563,100 @@ function openSection(id){
     ${section.personalizedMobileHome ? renderMobileHomePersonalization() : ""}
     <p class="modal-intro">${renderText(section.intro)}</p>
     ${section.menuPdf ? `<a class="menu-pdf-button" href="${escapeHtml(section.menuPdf)}" target="_blank" rel="noopener">📖 Voir la carte du restaurant</a>` : ""}
-    ${blocksHtml}
+    ${section.blocks.map(b=>`<article class="info-block"><h3>${renderText(b[0])}</h3><p>${renderText(b[1])}</p></article>`).join("")}
     ${id==="region"?`<a class="big-link" href="${CAMPING.contact.mapsUrl}" target="_blank" rel="noopener">📍 Ouvrir Google Maps</a>`:""}
   `;
   document.querySelector("#modal").classList.remove("hidden");
 }
+
+function renderInteractiveMap(){
+  const points=Array.isArray(PLAN_INTERACTIF.points)?PLAN_INTERACTIF.points:[];
+  const selected=getSelectedMobileHomeNumber();
+  const loc=(PLAN_INTERACTIF.locations||{})[selected];
+  const selectedData=getSelectedMobileHome();
+  const locationMarker=loc ? `<button class="camp-map-marker camp-map-location" data-map-location="${escapeHtml(selected)}" style="left:${loc.x}%;top:${loc.y}%" title="Votre location">🏠<span>VOTRE LOCATION</span></button>` : "";
+  const pointMarkers=points.map(p=>`<button class="camp-map-marker camp-map-point" data-map-point="${escapeHtml(p.id)}" data-category="${escapeHtml(p.category||'services')}" data-name="${escapeHtml(p.name||'')}" style="left:${p.x}%;top:${p.y}%" title="${escapeHtml(p.name||'')}"><span>${p.icon||'📍'}</span><b>${escapeHtml(p.name||'')}</b></button>`).join("");
+  document.querySelector("#modalContent").innerHTML=`
+    <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
+    <h2 class="modal-title">🗺️ PLAN DU CAMPING</h2>
+    <p class="modal-intro">Explorez les principaux services et équipements. Votre location est visible uniquement pour vous.</p>
+    <div class="camp-map-tools">
+      <input id="campMapSearch" type="search" placeholder="🔎 Rechercher un lieu..." autocomplete="off">
+      <div class="camp-map-filters" role="tablist">
+        <button class="camp-map-filter active" data-filter="all">Tout</button>
+        <button class="camp-map-filter" data-filter="services">Services</button>
+        <button class="camp-map-filter" data-filter="loisirs">Loisirs</button>
+      </div>
+      <div class="camp-map-zoom"><button id="campMapMinus">−</button><button id="campMapReset">100%</button><button id="campMapPlus">＋</button></div>
+    </div>
+    <div class="camp-map-viewport" id="campMapViewport">
+      <div class="camp-map-stage" id="campMapStage">
+        <img src="${escapeHtml(PLAN_INTERACTIF.image)}" alt="Plan du camping" draggable="false">
+        ${pointMarkers}
+        ${locationMarker}
+      </div>
+    </div>
+    <div class="camp-map-selected" id="campMapSelected">${selectedData ? `🏠 <b>Votre location : N° ${escapeHtml(selected)}</b> — ${selectedData.category ? renderAny(selectedData.category) : ""}` : "💡 Renseignez votre numéro dans « MA LOCATION » pour afficher votre propre location sur le plan."}</div>
+    <div class="camp-map-legend"><span>📍 Touchez un point pour voir ses informations</span><span>🤏 Pincez / zoomez pour agrandir</span></div>
+  `;
+}
+
+function initInteractiveMap(){
+  const viewport=document.querySelector('#campMapViewport');
+  const stage=document.querySelector('#campMapStage');
+  if(!viewport || !stage) return;
+  let scale=1, tx=0, ty=0, drag=false, sx=0, sy=0, startX=0, startY=0;
+  let pinchStartDist=0, pinchStartScale=1;
+  const clamp=()=>{
+    const vw=viewport.clientWidth, vh=viewport.clientHeight;
+    const sw=stage.scrollWidth*scale, sh=stage.scrollHeight*scale;
+    const maxX=Math.max(0,(sw-vw)/2+40), maxY=Math.max(0,(sh-vh)/2+40);
+    tx=Math.max(-maxX,Math.min(maxX,tx)); ty=Math.max(-maxY,Math.min(maxY,ty));
+  };
+  const apply=()=>{stage.style.transform=`translate3d(${tx}px,${ty}px,0) scale(${scale})`; document.querySelector('#campMapReset').textContent=Math.round(scale*100)+'%';};
+  const setScale=(s,centerX=viewport.clientWidth/2,centerY=viewport.clientHeight/2)=>{
+    const old=scale; scale=Math.max(1,Math.min(3.5,s));
+    tx=centerX-(centerX-tx)*(scale/old); ty=centerY-(centerY-ty)*(scale/old); clamp(); apply();
+  };
+  document.querySelector('#campMapPlus')?.addEventListener('click',()=>setScale(scale+0.25));
+  document.querySelector('#campMapMinus')?.addEventListener('click',()=>setScale(scale-0.25));
+  document.querySelector('#campMapReset')?.addEventListener('click',()=>{scale=1;tx=0;ty=0;apply();});
+  viewport.addEventListener('wheel',e=>{e.preventDefault();setScale(scale+(e.deltaY<0?.18:-.18),e.offsetX,e.offsetY)},{passive:false});
+  viewport.addEventListener('pointerdown',e=>{
+    if(e.pointerType==='touch') return;
+    drag=true; sx=e.clientX; sy=e.clientY; startX=tx; startY=ty; viewport.setPointerCapture?.(e.pointerId);
+  });
+  viewport.addEventListener('pointermove',e=>{if(!drag)return;tx=startX+(e.clientX-sx);ty=startY+(e.clientY-sy);clamp();apply();});
+  viewport.addEventListener('pointerup',()=>drag=false); viewport.addEventListener('pointercancel',()=>drag=false);
+  viewport.addEventListener('touchstart',e=>{
+    if(e.touches.length===2){pinchStartDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);pinchStartScale=scale;}
+    else if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY;startX=tx;startY=ty;}
+  },{passive:true});
+  viewport.addEventListener('touchmove',e=>{
+    if(e.touches.length===2){
+      e.preventDefault(); const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY); setScale(pinchStartScale*(d/pinchStartDist));
+    } else if(e.touches.length===1){tx=startX+(e.touches[0].clientX-sx);ty=startY+(e.touches[0].clientY-sy);clamp();apply();}
+  },{passive:false});
+  const showPoint=(p)=>{
+    const el=document.querySelector('#campMapSelected');
+    if(!el)return; el.innerHTML=`<b>${p.icon||'📍'} ${escapeHtml(p.name||'')}</b><br><span>${escapeHtml(p.description||'')}</span>`;
+  };
+  viewport.addEventListener('click',e=>{
+    const marker=e.target.closest('[data-map-point]');
+    if(marker){const p=(PLAN_INTERACTIF.points||[]).find(x=>String(x.id)===marker.dataset.mapPoint); if(p)showPoint(p);}
+    const lm=e.target.closest('[data-map-location]');
+    if(lm){const n=lm.dataset.mapLocation; const mh=getSelectedMobileHome(); const el=document.querySelector('#campMapSelected'); if(el)el.innerHTML=`<b>🏠 VOTRE LOCATION — N° ${escapeHtml(n)}</b><br><span>${mh?.category?escapeHtml(mh.category):''}</span>`;}
+  });
+  const applyFilter=(filter,query='')=>{
+    const q=query.trim().toLowerCase();
+    document.querySelectorAll('.camp-map-point').forEach(el=>{const ok=(filter==='all'||el.dataset.category===filter) && (!q||el.dataset.name.toLowerCase().includes(q));el.classList.toggle('map-hidden',!ok);});
+  };
+  let filter='all';
+  document.querySelectorAll('.camp-map-filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.camp-map-filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');filter=btn.dataset.filter;applyFilter(filter,document.querySelector('#campMapSearch').value);}));
+  document.querySelector('#campMapSearch')?.addEventListener('input',e=>applyFilter(filter,e.target.value));
+  apply();
+}
+
 
 function openPlanning(){
   const animation = CAMPING.today?.animation;
