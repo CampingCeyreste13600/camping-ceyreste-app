@@ -541,19 +541,18 @@ const CAMPING = {
     {
       day: "Mardi",
       events: [
-        { text: "10h00 • Jeux Géant en bois", color: "brown", icon: "🍄" },
+        { text: "10h00 • Rallye Photo", color: "brown", icon: "🍄" },
         { text: "12h00 • Aqua-fun", color: "blue", icon: "🏊" },
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "14h00 • Tournoi de Pétanque (inscription)", color: "green", icon: "🏆" },
         { text: "17h00 • Trampoline + Accrobranche", color: "green", icon: "🌲" },
-        { text: "21h00 • Election MISS et MISTER Camping", color: "pink", bold: true, size: "large", icon: "👑" }
+        { text: "21h00 • Soirée Just Dance", color: "pink", bold: true, size: "large", icon: "💃🏼" }
       ]
     },
     {
       day: "Mercredi",
       events: [
-        { text: "10h00 • Bien être", color: "marron", bold: true, icon: "🧘🏻" },
-        { text: "11h00 • Jeux de société", color: "grey", icon: "🎲" },
+        { text: "10h00 • Atelier Coloriage", color: "green", icon: "🎲" },
         { text: "12h00 • Aquabike (sur inscription)", color: "blue", icon: "🏊" },
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "16h00 • Jeux Aquatiques", color: "yellow", icon: "🧒" },
@@ -574,7 +573,7 @@ const CAMPING = {
     {
       day: "Vendredi",
       events: [
-        { text: "10h00 • Atelier créatif", color: "pink", bold: true, icon: "🎨" },
+        { text: "10h00 • Football", color: "pink", bold: true, icon: "⚽" },
         { text: "12h00 • Aquabike (sur inscription)", color: "blue", icon: "🏊" },
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "16h00 • Aqua-Volley", color: "green", icon: "🏐" },
@@ -590,6 +589,7 @@ const CAMPING = {
     {
       day: "Dimanche",
       events: [
+        { text: "10h00 • Football", color: "green", bold: true, icon: "⚽" },
         { text: "20h00 • Pot d'accueil (restaurant)", color: "green", bold: true, icon: "🥂" }
       ]
     }
@@ -632,7 +632,7 @@ const CAMPING = {
       image: "images/piscine.jpg",
       intro: textStyle("Découvrez nos piscines et nos toboggans, pour le bonheur des petits et des plus grands.", { color: "gray" }),
       blocks: [
-        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("À compléter selon la période.", { color: "gray" })],
+        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("Basse saison (Avr/Mai/Juin/Sept/oct) 10h-19h; Juillet-Août 10h-20h", { color: "gray" })],
         [textStyle("Règles essentielles", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "dark" })]
       ]
     },
@@ -653,7 +653,7 @@ const CAMPING = {
       blocks: [
         [textStyle("Horaires", { color: "green", bold: true }), textStyle("Basse Saison (8h30-12h/14h-19h), Juillet-Aôut (8h-20h),Octobre (9-12/14-18), Novembre-Décembre-Janvier (9-12/15-18)", { color: "gray" })],
         [textStyle("🥖 Pain", { color: "orange", bold: true }), textStyle("Dépôt de Pain, TOUS LES JOURS, sur Réservation Obligatoirement à la réception ", { color: "dark" })],
-        [textStyle("Services", { color: "blue", bold: true }), textStyle("Ajoutez les services proposés : laverie, location de draps et KitBébé, barbecue, etc.", { color: "dark" })]
+        [textStyle("Services", { color: "blue", bold: true }), textStyle("Services proposés : laverie, location de draps et KitBébé, barbecue, etc.", { color: "dark" })]
       ]
     },
     rules: {
@@ -686,7 +686,7 @@ const CAMPING = {
         [textStyle("🏞️ Calanques", { color: "teal", bold: true }), textStyle("Figuerolles, Mugel et paysages de la côte méditerranéenne.", { color: "dark" })],
         [textStyle("⛰️ Cassis", { color: "green", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" })],
         [textStyle("☀️ Bandol & Sanary", { color: "orange", bold: true }), textStyle("Ports, marchés, plages et balades en bord de mer.", { color: "dark" })],
-        [textStyle("🛍️ Marchés Locaux", { color: "purple", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" })]
+        [textStyle("🛍️ Marchés Locaux", { color: "purple", bold: true }), textStyle("Marchés Provencaux et Locaux à La Ciotat; Ceyreste; Saint-cyr, Bandol, Sanary sur mer (renseignements à la réception)", { color: "dark" })]
       ]
     },
     partners: {
@@ -726,7 +726,7 @@ const CAMPING = {
       image: "",
       intro: textStyle("Cette rubrique pourra servir à afficher les informations importantes du jour.", { color: "gray" }),
       blocks: [
-        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Ajoutez ici une annonce importante : fermeture exceptionnelle, changement d'horaire, météo, animation, etc.", { color: "dark" })]
+        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Saison 2026 à CEYRESTE: 04 Avril au 02 Janvier 2027", { color: "dark" })]
       ]
     },
     stay: {
