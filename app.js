@@ -159,6 +159,66 @@ function renderStyledValue(value){
   return (typeof value === "string" && value.includes("<span")) ? value : renderText(value);
 }
 
+/* ============================================================
+   🌍 SYSTÈME DE LANGUES
+   ============================================================ */
+const CEYRESTE_LANGUAGE_KEY = "ceyreste_language";
+let currentLanguage = "fr";
+function getBrowserLanguage(){
+  const raw=String(navigator.language||"fr").toLowerCase();
+  if(raw.startsWith("en"))return"en";
+  if(raw.startsWith("de"))return"de";
+  if(raw.startsWith("es"))return"es";
+  if(raw.startsWith("nl"))return"nl";
+  if(raw.startsWith("it"))return"it";
+  return"fr";
+}
+function t(value){
+  const text=String(value??"");
+  if(currentLanguage==="fr")return text;
+  const pack=(typeof TRANSLATIONS!=="undefined"&&TRANSLATIONS[currentLanguage])||{};
+  return Object.prototype.hasOwnProperty.call(pack,text)?pack[text]:text;
+}
+function renderLanguageSelector(){
+  const host=document.querySelector("#languageSelector");
+  if(!host||typeof LANGUAGE_CONFIG==="undefined")return;
+  const cur=LANGUAGE_CONFIG[currentLanguage]||LANGUAGE_CONFIG.fr;
+  host.innerHTML=`<button type="button" class="language-current" id="languageCurrent" aria-label="${escapeHtml(t("Choisir la langue"))}"><span>${cur.flag}</span><b>${currentLanguage.toUpperCase()}</b><span class="language-chevron">▾</span></button><div class="language-menu hidden" id="languageMenu">${Object.entries(LANGUAGE_CONFIG).map(([code,lang])=>`<button type="button" class="language-option ${code===currentLanguage?"active":""}" data-language="${code}"><span class="language-flag">${lang.flag}</span><span class="language-name">${lang.name}</span><span class="language-code">${code.toUpperCase()}</span></button>`).join("")}</div>`;
+  document.querySelector("#languageCurrent")?.addEventListener("click",e=>{e.stopPropagation();document.querySelector("#languageMenu")?.classList.toggle("hidden");});
+  host.querySelectorAll("[data-language]").forEach(btn=>btn.addEventListener("click",e=>{e.stopPropagation();setLanguage(btn.dataset.language);}));
+}
+function translateStaticDom(){
+  document.querySelectorAll("body *:not(#languageSelector):not(#languageSelector *)").forEach(el=>{
+    if(el.children.length===0&&el.childNodes.length===1&&el.firstChild.nodeType===3){
+      if(!el.dataset.i18nOriginal)el.dataset.i18nOriginal=el.textContent;
+      el.textContent=t(el.dataset.i18nOriginal);
+    }
+    if(el.hasAttribute("aria-label")){
+      if(!el.dataset.i18nAria)el.dataset.i18nAria=el.getAttribute("aria-label");
+      el.setAttribute("aria-label",t(el.dataset.i18nAria));
+    }
+  });
+}
+function setLanguage(lang){
+  if(typeof LANGUAGE_CONFIG==="undefined"||!LANGUAGE_CONFIG[lang])lang="fr";
+  currentLanguage=lang;
+  try{localStorage.setItem(CEYRESTE_LANGUAGE_KEY,lang);}catch(e){}
+  document.documentElement.lang=lang;
+  renderLanguageSelector();
+  renderToday();
+  renderDrawer();
+  dynamicWelcomeMount();
+  translateStaticDom();
+}
+function initLanguage(){
+  let saved="";
+  try{saved=localStorage.getItem(CEYRESTE_LANGUAGE_KEY)||"";}catch(e){}
+  currentLanguage=(saved&&LANGUAGE_CONFIG[saved])?saved:getBrowserLanguage();
+  document.documentElement.lang=currentLanguage;
+  renderLanguageSelector();
+}
+document.addEventListener("click",()=>document.querySelector("#languageMenu")?.classList.add("hidden"));
+
 function renderText(value, fallbackClass=""){
   if(value && typeof value === "object" && value.__styledText){
     const colors=["green","green-dark","blue","orange","red","purple","pink","teal","yellow","gray","dark","white"];
@@ -171,9 +231,9 @@ function renderText(value, fallbackClass=""){
     }
     if(value.background && /^#[0-9a-fA-F]{3,8}$/.test(value.background)) custom += `--txt-bg:${value.background};`;
     const cls=`styled-text ${fallbackClass}${colorClass} ${value.bold?"txt-bold":""} ${value.italic?"txt-italic":""} txt-${["small","normal","large","xl"].includes(value.size)?value.size:"normal"} txt-align-${["left","center","right"].includes(value.align)?value.align:"left"}`;
-    return `<span class="${cls}" style="${custom}">${escapeHtml(value.text)}</span>`;
+    return `<span class="${cls}" style="${custom}">${escapeHtml(t(value.text))}</span>`;
   }
-  return escapeHtml(value);
+  return escapeHtml(t(value));
 }
 
 function renderAny(value, fallbackClass=""){
@@ -428,17 +488,17 @@ function renderDynamicWelcome(){
     const time=tm?`${tm[1]}h${tm[2]||"00"}`:"";
     const label=raw.replace(/(?:^|\D)([01]?\d|2[0-3])h([0-5]\d)?/i,"").replace(/^\s*[•\-]\s*/,"").trim();
     nextHtml=`<div class="dynamic-next-animation">
-      <div class="dynamic-next-label">🎉 PROCHAINE ANIMATION</div>
+      <div class="dynamic-next-label">🎉 ${escapeHtml(t("PROCHAINE ANIMATION"))}</div>
       <div class="dynamic-next-event">${escapeHtml(label)}</div>
       <div class="dynamic-next-time">${escapeHtml(time)}</div>
-      <div class="dynamic-next-countdown">${state.minutesUntil===null?escapeHtml(state.day):escapeHtml(formatAnimationCountdown(state.minutesUntil))}</div>
-      <button class="dynamic-next-button" type="button" data-dynamic-planning>VOIR LE PROGRAMME →</button>
+      <div class="dynamic-next-countdown">${state.minutesUntil===null?escapeHtml(t(state.day)):escapeHtml(formatAnimationCountdown(state.minutesUntil))}</div>
+      <button class="dynamic-next-button" type="button" data-dynamic-planning>${escapeHtml(t("VOIR LE PROGRAMME →"))}</button>
     </div>`;
   }
   return `<section class="dynamic-welcome">
     <div class="dynamic-welcome-icon">${g.icon}</div>
-    <div class="dynamic-welcome-title">${g.title}</div>
-    <div class="dynamic-welcome-subtitle">${g.subtitle}</div>
+    <div class="dynamic-welcome-title">${escapeHtml(t(g.title))}</div>
+    <div class="dynamic-welcome-subtitle">${escapeHtml(t(g.subtitle))}</div>
     ${nextHtml}
   </section>`;
 }
@@ -464,7 +524,7 @@ function renderToday(){
   const titleEl = document.querySelector("#todayTitle");
   const itemsEl = document.querySelector("#todayItems");
 
-  const dateText = new Intl.DateTimeFormat("fr-FR", {
+  const dateText = new Intl.DateTimeFormat(currentLanguage==="fr"?"fr-FR":currentLanguage==="de"?"de-DE":currentLanguage==="es"?"es-ES":currentLanguage==="nl"?"nl-NL":currentLanguage==="it"?"it-IT":"en-GB", {
     weekday:"long", day:"numeric", month:"long"
   }).format(new Date());
 
@@ -585,11 +645,11 @@ function renderInteractiveMap(){
   const loc=(PLAN_INTERACTIF.locations||{})[selected];
   const selectedData=getSelectedMobileHome();
   const locationMarker=loc ? `<button type="button" class="camp-map-marker camp-map-location" data-map-location="${escapeHtml(selected)}" style="left:${loc.x}%;top:${loc.y}%" title="Votre location" aria-label="Votre location">🏠</button>` : "";
-  const pointMarkers=points.map(p=>`<button type="button" class="camp-map-marker camp-map-point" data-map-point="${escapeHtml(p.id)}" data-category="${escapeHtml(p.category||'services')}" data-name="${escapeHtml(p.name||'')}" style="left:${p.x}%;top:${p.y}%" title="${escapeHtml(p.name||'')}" aria-label="${escapeHtml(p.name||'')}"><span>${p.icon||'📍'}</span></button>`).join("");
+  const pointMarkers=points.map(p=>`<button type="button" class="camp-map-marker camp-map-point" data-map-point="${escapeHtml(p.id)}" data-category="${escapeHtml(p.category||'services')}" data-name="${escapeHtml(t(p.name||''))}" style="left:${p.x}%;top:${p.y}%" title="${escapeHtml(t(p.name||''))}" aria-label="${escapeHtml(t(p.name||''))}"><span>${p.icon||'📍'}</span></button>`).join("");
   document.querySelector("#modalContent").innerHTML=`
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
-    <h2 class="modal-title">🗺️ PLAN DU CAMPING</h2>
-    <p class="modal-intro">Explorez les principaux services et équipements. Votre location est visible uniquement pour vous.</p>
+    <h2 class="modal-title">${t("🗺️ PLAN DU CAMPING")}</h2>
+    <p class="modal-intro">${t("Explorez les principaux services et équipements. Votre location est visible uniquement pour vous.")}</p>
     <div class="camp-map-tools">
       <input id="campMapSearch" type="search" placeholder="🔎 Rechercher un lieu..." autocomplete="off">
       <div class="camp-map-filters" role="tablist">
@@ -652,8 +712,8 @@ function initInteractiveMap(){
     if(!el)return;
     el.classList.add('camp-map-selected-active');
     el.innerHTML=`
-      <div class="camp-map-point-title">${p.icon||'📍'} <b>${escapeHtml(p.name||'')}</b></div>
-      <div class="camp-map-point-description">${escapeHtml(p.description||'')}</div>
+      <div class="camp-map-point-title">${p.icon||'📍'} <b>${escapeHtml(t(p.name||''))}</b></div>
+      <div class="camp-map-point-description">${escapeHtml(t(p.description||''))}</div>
     `;
     el.scrollIntoView({behavior:"smooth",block:"nearest"});
   };
@@ -672,7 +732,7 @@ function initInteractiveMap(){
     const el=document.querySelector('#campMapSelected');
     if(el){
       el.classList.add('camp-map-selected-active');
-      el.innerHTML=`<div class="camp-map-point-title">🏠 <b>VOTRE LOCATION — N° ${escapeHtml(n)}</b></div><div class="camp-map-point-description">${mh?.category?renderAny(mh.category):''}</div>`;
+      el.innerHTML=`<div class="camp-map-point-title">🏠 <b>${t("VOTRE LOCATION")} — N° ${escapeHtml(n)}</b></div><div class="camp-map-point-description">${mh?.category?renderAny(mh.category):''}</div>`;
       el.scrollIntoView({behavior:"smooth",block:"nearest"});
     }
   };
@@ -752,8 +812,8 @@ function openPlanning(){
 
   content.innerHTML=`
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
-    <h2 class="modal-title">📅 Programme de la semaine</h2>
-    <p class="modal-intro">Retrouvez toutes les animations de la semaine.</p>
+    <h2 class="modal-title">📅 ${t("Programme de la semaine")}</h2>
+    <p class="modal-intro">${escapeHtml(t("Retrouvez toutes les animations de la semaine."))}</p>
     <div class="planning">${weeklyHtml}</div>
   `;
   modal.classList.remove("hidden");
@@ -796,6 +856,35 @@ document.querySelector("#installBtn").onclick=async()=>{
 };
 if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js"));
 
+
+if(typeof TRANSLATIONS!=="undefined"){
+ const EXTRA_TRANSLATIONS={
+  en:{"Aucun programme d'animation n'est renseigné pour le moment.":"No entertainment programme is currently available.","Programme de la semaine":"Weekly schedule","VOIR LE PROGRAMME →":"VIEW THE PROGRAMME →","PROGRAMME D'ANIMATION DU JOUR":"TODAY'S ENTERTAINMENT PROGRAMME","Aucune animation prévue aujourd'hui":"No activities planned today","Profitez pleinement de votre journée au Camping de Ceyreste !":"Enjoy your day at Camping de Ceyreste!"},
+  de:{"Aucun programme d'animation n'est renseigné pour le moment.":"Derzeit ist kein Animationsprogramm eingetragen.","Programme de la semaine":"Wochenprogramm","VOIR LE PROGRAMME →":"PROGRAMM ANSEHEN →","PROGRAMME D'ANIMATION DU JOUR":"HEUTIGES ANIMATIONSPROGRAMM","Aucune animation prévue aujourd'hui":"Heute sind keine Aktivitäten geplant","Profitez pleinement de votre journée au Camping de Ceyreste !":"Genießen Sie Ihren Tag auf dem Campingplatz Ceyreste!"},
+  es:{"Aucun programme d'animation n'est renseigné pour le moment.":"No hay programa de animación disponible.","Programme de la semaine":"Programa semanal","VOIR LE PROGRAMME →":"VER EL PROGRAMA →","PROGRAMME D'ANIMATION DU JOUR":"PROGRAMA DE ANIMACIÓN DE HOY","Aucune animation prévue aujourd'hui":"No hay actividades previstas hoy","Profitez pleinement de votre journée au Camping de Ceyreste !":"¡Disfruta de tu día en el Camping de Ceyreste!"},
+  nl:{"Aucun programme d'animation n'est renseigné pour le moment.":"Er is momenteel geen animatieprogramma beschikbaar.","Programme de la semaine":"Weekprogramma","VOIR LE PROGRAMME →":"BEKIJK HET PROGRAMMA →","PROGRAMME D'ANIMATION DU JOUR":"ANIMATIEPROGRAMMA VAN VANDAAG","Aucune animation prévue aujourd'hui":"Vandaag zijn er geen activiteiten gepland","Profitez pleinement de votre journée au Camping de Ceyreste!":"Geniet van uw dag op Camping de Ceyreste!"},
+  it:{"Aucun programme d'animation n'est renseigné pour le moment.":"Al momento non è disponibile alcun programma di animazione.","Programme de la semaine":"Programma settimanale","VOIR LE PROGRAMME →":"VEDI IL PROGRAMMA →","PROGRAMME D'ANIMATION DU JOUR":"PROGRAMMA DI ANIMAZIONE DI OGGI","Aucune animation prévue aujourd'hui":"Nessuna attività prevista oggi","Profitez pleinement de votre journée au Camping de Ceyreste!":"Goditi la tua giornata al Camping de Ceyreste!"}
+ };
+ Object.entries(EXTRA_TRANSLATIONS).forEach(([l,v])=>Object.assign(TRANSLATIONS[l]||{},v));
+}
+
+
+if(typeof TRANSLATIONS!=="undefined"){
+ const GREETING_TRANSLATIONS={
+  en:{"BONJOUR !":"GOOD MORNING!","BONSOIR !":"GOOD EVENING!","Une belle journée vous attend au Camping de Ceyreste 🌿":"A beautiful day awaits you at Camping de Ceyreste 🌿","Profitez bien de votre après-midi au camping ☀️":"Enjoy your afternoon at the campsite ☀️","Une belle soirée vous attend ✨":"A lovely evening awaits you ✨","La journée touche à sa fin 🌙":"The day is coming to an end 🌙","PROCHAINE ANIMATION":"NEXT ACTIVITY"},
+  de:{"BONJOUR !":"GUTEN MORGEN!","BONSOIR !":"GUTEN ABEND!","Une belle journée vous attend au Camping de Ceyreste 🌿":"Ein schöner Tag erwartet Sie auf dem Campingplatz Ceyreste 🌿","Profitez bien de votre après-midi au camping ☀️":"Genießen Sie Ihren Nachmittag auf dem Campingplatz ☀️","Une belle soirée vous attend ✨":"Ein schöner Abend erwartet Sie ✨","La journée touche à sa fin 🌙":"Der Tag geht zu Ende 🌙","PROCHAINE ANIMATION":"NÄCHSTE AKTIVITÄT"},
+  es:{"BONJOUR !":"¡BUENOS DÍAS!","BONSOIR !":"¡BUENAS TARDES!","Une belle journée vous attend au Camping de Ceyreste 🌿":"Un bonito día te espera en el Camping de Ceyreste 🌿","Profitez bien de votre après-midi au camping ☀️":"Disfruta de tu tarde en el camping ☀️","Une belle soirée vous attend ✨":"Una bonita noche te espera ✨","La journée touche à sa fin 🌙":"El día llega a su fin 🌙","PROCHAINE ANIMATION":"PRÓXIMA ACTIVIDAD"},
+  nl:{"BONJOUR !":"GOEDEMORGEN!","BONSOIR !":"GOEDENAVOND!","Une belle journée vous attend au Camping de Ceyreste 🌿":"Een mooie dag wacht op u op Camping de Ceyreste 🌿","Profitez bien de votre après-midi au camping ☀️":"Geniet van uw middag op de camping ☀️","Une belle soirée vous attend ✨":"Een mooie avond wacht op u ✨","La journée touche à sa fin 🌙":"De dag loopt ten einde 🌙","PROCHAINE ANIMATION":"VOLGENDE ACTIVITEIT"},
+  it:{"BONJOUR !":"BUONGIORNO!","BONSOIR !":"BUONASERA!","Une belle journée vous attend au Camping de Ceyreste 🌿":"Una splendida giornata vi aspetta al Camping de Ceyreste 🌿","Profitez bien de votre après-midi au camping ☀️":"Godetevi il pomeriggio al campeggio ☀️","Une belle soirée vous attend ✨":"Una splendida serata vi aspetta ✨","La journée touche à sa fin 🌙":"La giornata volge al termine 🌙","PROCHAINE ANIMATION":"PROSSIMA ATTIVITÀ"}
+ };
+ Object.entries(GREETING_TRANSLATIONS).forEach(([l,v])=>Object.assign(TRANSLATIONS[l]||{},v));
+}
+
+initLanguage();
+renderToday();
+renderDrawer();
+dynamicWelcomeMount();
+translateStaticDom();
 setInterval(refreshTodayStatuses, 60000);
 refreshTodayStatuses();
 
