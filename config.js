@@ -1316,19 +1316,18 @@ const CAMPING = {
     {
       day: "Mardi",
       events: [
-        { text: "10h00 • Jeux Géant en bois", color: "brown", icon: "🍄" },
+        { text: "10h00 • Rallye Photo", color: "brown", icon: "🍄" },
         { text: "12h00 • Aqua-fun", color: "blue", icon: "🏊" },
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "14h00 • Tournoi de Pétanque (inscription)", color: "green", icon: "🏆" },
         { text: "17h00 • Trampoline + Accrobranche", color: "green", icon: "🌲" },
-        { text: "21h00 • Election MISS et MISTER Camping", color: "pink", bold: true, size: "large", icon: "👑" }
+        { text: "21h00 • JustDance", color: "pink", bold: true, size: "large", icon: "👑" }
       ]
     },
     {
       day: "Mercredi",
       events: [
-        { text: "10h00 • Bien être", color: "marron", bold: true, icon: "🧘🏻" },
-        { text: "11h00 • Jeux de société", color: "grey", icon: "🎲" },
+        { text: "10h00 • Coloriage", color: "grey", icon: "🎨" },
         { text: "12h00 • Aquabike (sur inscription)", color: "blue", icon: "🏊" },
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "16h00 • Jeux Aquatiques", color: "yellow", icon: "🧒" },
@@ -1349,7 +1348,7 @@ const CAMPING = {
     {
       day: "Vendredi",
       events: [
-        { text: "10h00 • Atelier créatif", color: "pink", bold: true, icon: "🎨" },
+        { text: "10h00 • Football", color: "grey", bold: true, icon: "⚽" },
         { text: "12h00 • Aquabike (sur inscription)", color: "blue", icon: "🏊" },
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "16h00 • Aqua-Volley", color: "green", icon: "🏐" },
@@ -1365,6 +1364,8 @@ const CAMPING = {
     {
       day: "Dimanche",
       events: [
+        { text: "10h00 • Football", color: "green", icon: "⚽" },
+        { text: "16h00 • Aqua Handball", color: "green", icon: "🏐" },
         { text: "20h00 • Pot d'accueil (restaurant)", color: "green", bold: true, icon: "🥂" }
       ]
     }
