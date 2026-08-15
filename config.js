@@ -344,7 +344,7 @@ const MOBILE_HOME_CATEGORIES = {
     arrival: "À partir de 15h30",
     departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
     info: [
-      "1 véhicule autorisé sur l'emplacement",
+      "1 véhicule autorisé sur le parking réservé",
       "Calme après 23h s'il vous plait",
       "Draps et serviettes Inclus",
       "Lave vaisselle intégré",
@@ -362,7 +362,7 @@ const MOBILE_HOME_CATEGORIES = {
     arrival: "À partir de 15h30",
     departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
     info: [
-      "1 véhicule autorisé sur l'emplacement",
+      "1 véhicule autorisé sur le parking réservé",
       "Calme après 23h s'il vous plait",
       "Draps et serviettes Inclus",
       "Lave vaisselle intégré",
