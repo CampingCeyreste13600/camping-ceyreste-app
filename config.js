@@ -1430,7 +1430,7 @@ const CAMPING = {
       blocks: [
         [textStyle("Horaires", { color: "green", bold: true }), textStyle("Basse Saison (8h30-12h/14h-19h), Juillet-Aôut (8h-20h),Octobre (9-12/14-18), Novembre-Décembre-Janvier (9-12/15-18)", { color: "gray" })],
         [textStyle("🥖 Pain", { color: "orange", bold: true }), textStyle("Dépôt de Pain, TOUS LES JOURS, sur Réservation Obligatoirement à la réception ", { color: "dark" })],
-        [textStyle("Services", { color: "blue", bold: true }), textStyle("Ajoutez les services proposés : laverie, location de draps et KitBébé, barbecue, etc.", { color: "dark" })]
+        [textStyle("Services", { color: "blue", bold: true }), textStyle("Les services proposés : laverie, location de draps et KitBébé, barbecue, Wifi, etc.", { color: "dark" })]
       ]
     },
     rules: {
@@ -1464,7 +1464,7 @@ const CAMPING = {
         [textStyle("🏞️ Calanques", { color: "teal", bold: true }), textStyle("Figuerolles, Mugel et paysages de la côte méditerranéenne.", { color: "dark" })],
         [textStyle("⛰️ Cassis", { color: "green", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" })],
         [textStyle("☀️ Bandol & Sanary", { color: "orange", bold: true }), textStyle("Ports, marchés, plages et balades en bord de mer.", { color: "dark" })],
-        [textStyle("🛍️ Marchés Locaux", { color: "purple", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" })]
+        [textStyle("🛍️ Marchés Locaux", { color: "purple", bold: true }), textStyle("La Ciotat, Bandol, Sanary, ...", { color: "dark" })]
       ]
     },
     partners: {
@@ -1492,7 +1492,7 @@ const CAMPING = {
       image: "",
       intro: textStyle("En cas d'urgence, contactez immédiatement le service compétent.", { color: "red", bold: true }),
       blocks: [
-        [textStyle("📞 Camping", { color: "green", bold: true }), textStyle("Réception : +33 4 42 01 83 44", { color: "dark" })],
+        [textStyle("📞 Camping", { color: "green", bold: true }), textStyle("Réception : +33 4 42 83 07 68", { color: "dark" })],
         [textStyle("🚑 112", { color: "red", bold: true }), textStyle("Numéro d'urgence européen.", { color: "dark" })],
         [textStyle("🚑 15", { color: "red", bold: true }), textStyle("SAMU.", { color: "dark" })],
         [textStyle("🚒 18", { color: "red", bold: true }), textStyle("Pompiers.", { color: "dark" })],
@@ -1502,9 +1502,9 @@ const CAMPING = {
     notifications: {
       title: textStyle("🔔 Infos du camping", { color: "blue", bold: true, size: "large" }),
       image: "",
-      intro: textStyle("Cette rubrique pourra servir à afficher les informations importantes du jour.", { color: "gray" }),
+      intro: textStyle("Les informations importantes du jour.", { color: "gray" }),
       blocks: [
-        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Ajoutez ici une annonce importante : fermeture exceptionnelle, changement d'horaire, météo, animation, etc.", { color: "dark" })]
+        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Saison 2026 à Ceyreste: 04 Avril au 02 Janvier 2027", { color: "dark" })]
       ]
     },
     departure: {
@@ -1529,9 +1529,6 @@ const CAMPING = {
       image: "",
       intro: textStyle("Une future rubrique pour aider chaque vacancier pendant son séjour.", { color: "gray" }),
       blocks: [
-        [textStyle("Arrivée", { color: "green", bold: true }), textStyle("Ajoutez ici les informations d'arrivée et les horaires de réception.", { color: "dark" })],
-        [textStyle("Départ", { color: "orange", bold: true }), textStyle("Ajoutez ici les informations de départ.", { color: "dark" })],
-        [textStyle("Services", { color: "blue", bold: true }), textStyle("Retrouvez les informations utiles pendant votre séjour.", { color: "dark" })]
       ]
     }
   }
