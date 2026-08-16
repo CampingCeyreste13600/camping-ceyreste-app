@@ -413,9 +413,9 @@ function isWithinOpeningHours(openingHours, now = new Date()){
   });
 }
 
-function dynamicStatus(item){
-  const schedule = getOpeningSchedule(item);
-  const open = isWithinOpeningHours(schedule);
+function dynamicStatus(item, now = new Date()){
+  const schedule = getOpeningSchedule(item, now);
+  const open = isWithinOpeningHours(schedule, now);
 
   if(open === null) return item.note;
 
@@ -423,6 +423,48 @@ function dynamicStatus(item){
     color: open ? "green" : "red",
     bold: true
   });
+}
+
+function getSectionOpeningItem(id){
+  const items = Array.isArray(CAMPING.today?.items) ? CAMPING.today.items : [];
+  const wanted = {
+    pool: "Espace Aquatique",
+    restaurant: "Restaurant",
+    shop: "Réception"
+  }[id];
+  if(!wanted) return null;
+  return items.find(item => plainText(item?.title).trim().toLowerCase() === wanted.toLowerCase()) || null;
+}
+
+function renderOpeningStatusCard(id){
+  const item = getSectionOpeningItem(id);
+  if(!item) return "";
+
+  const now = new Date();
+  const schedule = getOpeningSchedule(item, now);
+  const open = isWithinOpeningHours(schedule, now);
+  if(open === null) return "";
+
+  const periods = Array.isArray(schedule) ? schedule : [];
+  const formatTime = value => String(value || "").replace(/^0/, "");
+  const hours = periods.map(p => `${formatTime(p.start)} – ${formatTime(p.end)}`).join(" / ");
+
+  let nextText = "";
+  if(!open && periods.length){
+    const currentMinutes = now.getHours() * 60 + now.getMinutes();
+    const next = periods.find(p => {
+      const [h,m] = String(p.start).split(":").map(Number);
+      return !Number.isNaN(h) && !Number.isNaN(m) && h*60+m > currentMinutes;
+    });
+    if(next) nextText = `<div class="opening-next">Prochaine ouverture : <strong>${formatTime(next.start)}</strong></div>`;
+  }
+
+  return `<div class="opening-status-card ${open ? "is-open" : "is-closed"}" data-opening-section="${id}">
+    <div class="opening-status-label">Aujourd'hui</div>
+    <div class="opening-status-main">${open ? "OUVERT" : "FERMÉ"} <span>${open ? "✓" : "✕"}</span></div>
+    <div class="opening-status-hours">${escapeHtml(hours)}</div>
+    ${nextText}
+  </div>`;
 }
 
 function refreshTodayStatuses(){
@@ -607,7 +649,72 @@ function renderDrawer(){
 }
 renderDrawer();
 
+
+function getProgrammeDateKey(date){ return date.toISOString().slice(0,10); }
+function getFrenchDayShort(date){ return ["DIM","LUN","MAR","MER","JEU","VEN","SAM"][date.getDay()]; }
+function getFrenchMonth(date){ return ["JAN","FÉV","MAR","AVR","MAI","JUIN","JUIL","AOÛT","SEP","OCT","NOV","DÉC"][date.getMonth()]; }
+function getProgrammeDays(count=7){
+  const days=[], now=new Date(); now.setHours(0,0,0,0);
+  for(let i=0;i<count;i++){ const d=new Date(now); d.setDate(now.getDate()+i); days.push(d); }
+  return days;
+}
+function programmeDayName(date){ return ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"][date.getDay()]; }
+function findProgrammeEvents(date){
+  const entry=((CAMPING.animation&&CAMPING.animation.days)||[]).find(d=>String(d.day).toLowerCase()===programmeDayName(date).toLowerCase());
+  return entry ? (entry.events||[]) : [];
+}
+function renderProgrammeForDate(date){
+  const selectedKey=getProgrammeDateKey(date), todayKey=getProgrammeDateKey(new Date());
+  const tabs=getProgrammeDays(7).map(d=>{
+    const key=getProgrammeDateKey(d), active=key===selectedKey, today=key===todayKey;
+    return `<button type="button" class="programme-day ${active?'active':''}" data-programme-date="${key}">
+      <span class="programme-day-name">${today?'AUJ.':getFrenchDayShort(d)}</span>
+      <strong>${String(d.getDate()).padStart(2,"0")}</strong>
+      <span class="programme-day-month">${getFrenchMonth(d)}</span>
+    </button>`;
+  }).join("");
+  const events=findProgrammeEvents(date);
+  const titleDate=`${programmeDayName(date)} ${date.getDate()} ${getFrenchMonth(date)}`;
+  const eventsHtml=events.length ? events.map(ev=>`
+    <article class="programme-event-card">
+      <div class="programme-event-icon">${ev.icon||"🎉"}</div>
+      <div class="programme-event-body"><div class="programme-event-text">${escapeHtml(ev.text||"")}</div></div>
+    </article>`).join("") : `
+    <div class="programme-empty"><div>😴</div><strong>Aucune animation prévue</strong><span>Profitez pleinement de votre journée au camping !</span></div>`;
+  return `<div class="programme-page">
+    <div class="programme-day-scroller" aria-label="Choisir un jour">${tabs}</div>
+    <div class="programme-selected-heading">
+      <div class="programme-selected-kicker">${selectedKey===todayKey?"AUJOURD'HUI AU CAMPING":"PROGRAMME DU JOUR"}</div>
+      <h3>${titleDate}</h3>
+    </div>
+    <div class="programme-events-list">${eventsHtml}</div>
+  </div>`;
+}
+function bindProgrammeTabs(){
+  document.querySelectorAll("[data-programme-date]").forEach(btn=>btn.addEventListener("click",()=>{
+    const holder=document.querySelector(".programme-page"); if(!holder)return;
+    holder.outerHTML=renderProgrammeForDate(new Date(btn.dataset.programmeDate+"T12:00:00"));
+    bindProgrammeTabs();
+  }));
+}
 function openSection(id){
+  if(id==="planning"){
+    document.querySelector("#modalContent").innerHTML =
+      `<div class="eyebrow dark">CAMPING DE CEYRESTE</div>
+       <h2 class="modal-title">🎉 PROGRAMME D'ANIMATIONS</h2>
+       ${renderProgrammeForDate(new Date())}`;
+    document.querySelector("#modal").classList.remove("hidden");
+    bindProgrammeTabs();
+    if(window.__programmeTimer) clearInterval(window.__programmeTimer);
+    window.__programmeTimer=setInterval(()=>{
+      const active=document.querySelector(".programme-day.active")?.dataset.programmeDate;
+      if(active===getProgrammeDateKey(new Date())){
+        const holder=document.querySelector(".programme-page");
+        if(holder){ holder.outerHTML=renderProgrammeForDate(new Date()); bindProgrammeTabs(); }
+      }
+    },60000);
+    return;
+  }
   const section=CAMPING.sections[id];
   if(!section)return;
   if(id === "map" && section.interactive && typeof PLAN_INTERACTIF !== "undefined") {
@@ -632,11 +739,22 @@ function openSection(id){
     <h2 class="modal-title">${renderText(section.title)}</h2>
     ${section.personalizedMobileHome ? renderMobileHomePersonalization() : ""}
     <p class="modal-intro">${renderText(section.intro)}</p>
+    ${["pool","restaurant","shop"].includes(id) ? renderOpeningStatusCard(id) : ""}
     ${section.menuPdf ? `<a class="menu-pdf-button" href="${escapeHtml(section.menuPdf)}" target="_blank" rel="noopener">📖 Voir la carte du restaurant</a>` : ""}
     ${blocksHtml}
     ${id==="region"?`<a class="big-link" href="${CAMPING.contact.mapsUrl}" target="_blank" rel="noopener">📍 Ouvrir Google Maps</a>`:""}
   `;
   document.querySelector("#modal").classList.remove("hidden");
+  if(window.__openingStatusTimer) clearInterval(window.__openingStatusTimer);
+  if(["pool","restaurant","shop"].includes(id)){
+    window.__openingStatusTimer=setInterval(()=>{
+      if(document.querySelector("#modal")?.classList.contains("hidden")) return;
+      const card=document.querySelector(`[data-opening-section="${id}"]`);
+      if(!card) return;
+      const fresh=renderOpeningStatusCard(id);
+      card.outerHTML=fresh;
+    }, 30000);
+  }
 }
 
 function renderInteractiveMap(){
