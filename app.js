@@ -660,7 +660,7 @@ function getProgrammeDays(count=7){
 }
 function programmeDayName(date){ return ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"][date.getDay()]; }
 function findProgrammeEvents(date){
-  const entry=((CAMPING.animation&&CAMPING.animation.days)||[]).find(d=>String(d.day).toLowerCase()===programmeDayName(date).toLowerCase());
+  const entry=(((CAMPING.today&&CAMPING.today.animation)&&CAMPING.today.animation.days)||[]).find(d=>String(d.day).toLowerCase()===programmeDayName(date).toLowerCase());
   return entry ? (entry.events||[]) : [];
 }
 function renderProgrammeForDate(date){
@@ -691,11 +691,18 @@ function renderProgrammeForDate(date){
   </div>`;
 }
 function bindProgrammeTabs(){
-  document.querySelectorAll("[data-programme-date]").forEach(btn=>btn.addEventListener("click",()=>{
-    const holder=document.querySelector(".programme-page"); if(!holder)return;
-    holder.outerHTML=renderProgrammeForDate(new Date(btn.dataset.programmeDate+"T12:00:00"));
-    bindProgrammeTabs();
-  }));
+  document.querySelectorAll("[data-programme-date]").forEach(btn=>{
+    if(btn.dataset.bound==="1") return;
+    btn.dataset.bound="1";
+    btn.addEventListener("click",e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      const holder=document.querySelector(".programme-page");
+      if(!holder)return;
+      holder.outerHTML=renderProgrammeForDate(new Date(btn.dataset.programmeDate+"T12:00:00"));
+      bindProgrammeTabs();
+    });
+  });
 }
 function openSection(id){
   if(id==="planning"){
@@ -937,7 +944,30 @@ function openPlanning(){
   modal.classList.remove("hidden");
 }
 
-function open(id){ if(id==="planning")return openPlanning(); openSection(id); }
+function open(id){
+  if(id==="planning"){
+    const modal=document.querySelector("#modal");
+    const content=document.querySelector("#modalContent");
+    if(!modal || !content) return;
+    content.innerHTML=`
+      <div class="eyebrow dark">CAMPING DE CEYRESTE</div>
+      <h2 class="modal-title">🎉 PROGRAMME D'ANIMATIONS</h2>
+      ${renderProgrammeForDate(new Date())}
+    `;
+    modal.classList.remove("hidden");
+    bindProgrammeTabs();
+    if(window.__programmeTimer) clearInterval(window.__programmeTimer);
+    window.__programmeTimer=setInterval(()=>{
+      const active=document.querySelector(".programme-day.active")?.dataset.programmeDate;
+      if(active===getProgrammeDateKey(new Date())){
+        const holder=document.querySelector(".programme-page");
+        if(holder){ holder.outerHTML=renderProgrammeForDate(new Date()); bindProgrammeTabs(); }
+      }
+    },60000);
+    return;
+  }
+  openSection(id);
+}
 
 document.addEventListener("keydown",e=>{
   const el=e.target.closest(".today-mobile-home");
