@@ -12,7 +12,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon-192.png">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <link rel="stylesheet" href="style.css?v=20260814-07">
+  <link rel="stylesheet" href="style.css?v=20260816-08">
   <title>Camping de Ceyreste</title>
 </head>
 <body>
@@ -82,11 +82,23 @@
     </section>
   </main>
 
-  <nav class="bottom-nav">
-    <button class="active" data-home><span>⌂</span>Accueil</button>
-    <button data-open="planning"><span>▣</span>Programme</button>
-    <button data-open="notifications"><span>♢</span>Infos</button>
-    <button data-open="stay"><span>♙</span>Mon séjour</button>
+  <nav class="bottom-nav" aria-label="Navigation principale">
+    <button type="button" class="active" data-home aria-label="Accueil">
+      <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 10.5 12 3l8.5 7.5v9a1 1 0 0 1-1 1H4.5a1 1 0 0 1-1-1z"/><path d="M9 20.5v-6h6v6"/></svg></span>
+      <span class="nav-label">Accueil</span>
+    </button>
+    <button type="button" data-open="planning" aria-label="Programme">
+      <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3.5v4M16 3.5v4M4 10h16M8 14h3M13 14h3M8 17.5h3"/></svg></span>
+      <span class="nav-label">Programme</span>
+    </button>
+    <button type="button" data-open="notifications" aria-label="Infos">
+      <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 10.5v5M12 7.5h.01"/></svg></span>
+      <span class="nav-label">Infos</span>
+    </button>
+    <button type="button" data-open="stay" aria-label="Mon séjour">
+      <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20c.6-3.2 3-5 6.5-5s5.9 1.8 6.5 5"/></svg></span>
+      <span class="nav-label">Mon séjour</span>
+    </button>
   </nav>
 </div>
 
@@ -105,7 +117,7 @@
   </div>
 </div>
 
-<script src="config.js?v=20260814-07"></script>
-<script src="app.js?v=20260814-07"></script>
+<script src="config.js?v=20260816-08"></script>
+<script src="app.js?v=20260816-08"></script>
 </body>
 </html>

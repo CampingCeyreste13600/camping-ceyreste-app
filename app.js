@@ -826,16 +826,31 @@ document.addEventListener("keydown",e=>{
   if(el && (e.key==="Enter" || e.key===" ")){ e.preventDefault(); openSection("stay"); }
 });
 
+function setActiveNav(id){
+  document.querySelectorAll('.bottom-nav button').forEach(b=>b.classList.remove('active'));
+  const target = id === 'home' ? document.querySelector('[data-home]') : document.querySelector(`.bottom-nav [data-open="${id}"]`);
+  target?.classList.add('active');
+}
+
 document.addEventListener("click",e=>{
   const dynamicPlanning=e.target.closest("[data-dynamic-planning]");
   if(dynamicPlanning){
     e.preventDefault();
+    setActiveNav('planning');
     openPlanning();
     return;
   }
   const btn=e.target.closest("[data-open]");
-  if(btn)open(btn.dataset.open);
-  if(e.target.closest("[data-home]"))document.querySelector("#modal").classList.add("hidden");
+  if(btn){
+    const id=btn.dataset.open;
+    // La barre reste identique et visible sur tous les écrans.
+    if(btn.closest('.bottom-nav')) setActiveNav(id);
+    open(id);
+  }
+  if(e.target.closest("[data-home]")){
+    setActiveNav('home');
+    document.querySelector("#modal").classList.add("hidden");
+  }
 });
 document.querySelector("#closeModal").onclick=()=>document.querySelector("#modal").classList.add("hidden");
 document.querySelector("#modal").addEventListener("click",e=>{if(e.target===document.querySelector("#modal"))document.querySelector("#modal").classList.add("hidden")});
