@@ -344,7 +344,7 @@ const MOBILE_HOME_CATEGORIES = {
     arrival: "À partir de 15h30",
     departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
     info: [
-      "1 véhicule autorisé sur le parking réservé",
+      "1 véhicule autorisé sur l'emplacement",
       "Calme après 23h s'il vous plait",
       "Draps et serviettes Inclus",
       "Lave vaisselle intégré",
@@ -362,7 +362,7 @@ const MOBILE_HOME_CATEGORIES = {
     arrival: "À partir de 15h30",
     departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
     info: [
-      "1 véhicule autorisé sur le parking réservé",
+      "1 véhicule autorisé sur l'emplacement",
       "Calme après 23h s'il vous plait",
       "Draps et serviettes Inclus",
       "Lave vaisselle intégré",
@@ -1316,18 +1316,19 @@ const CAMPING = {
     {
       day: "Mardi",
       events: [
-        { text: "10h00 • Rallye Photo", color: "brown", icon: "🍄" },
+        { text: "10h00 • Jeux Géant en bois", color: "brown", icon: "🍄" },
         { text: "12h00 • Aqua-fun", color: "blue", icon: "🏊" },
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "14h00 • Tournoi de Pétanque (inscription)", color: "green", icon: "🏆" },
         { text: "17h00 • Trampoline + Accrobranche", color: "green", icon: "🌲" },
-        { text: "21h00 • JustDance", color: "pink", bold: true, size: "large", icon: "👑" }
+        { text: "21h00 • Election MISS et MISTER Camping", color: "pink", bold: true, size: "large", icon: "👑" }
       ]
     },
     {
       day: "Mercredi",
       events: [
-        { text: "10h00 • Coloriage", color: "grey", icon: "🎨" },
+        { text: "10h00 • Bien être", color: "marron", bold: true, icon: "🧘🏻" },
+        { text: "11h00 • Jeux de société", color: "grey", icon: "🎲" },
         { text: "12h00 • Aquabike (sur inscription)", color: "blue", icon: "🏊" },
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "16h00 • Jeux Aquatiques", color: "yellow", icon: "🧒" },
@@ -1348,7 +1349,7 @@ const CAMPING = {
     {
       day: "Vendredi",
       events: [
-        { text: "10h00 • Football", color: "grey", bold: true, icon: "⚽" },
+        { text: "10h00 • Atelier créatif", color: "pink", bold: true, icon: "🎨" },
         { text: "12h00 • Aquabike (sur inscription)", color: "blue", icon: "🏊" },
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "16h00 • Aqua-Volley", color: "green", icon: "🏐" },
@@ -1364,8 +1365,6 @@ const CAMPING = {
     {
       day: "Dimanche",
       events: [
-        { text: "10h00 • Football", color: "green", icon: "⚽" },
-        { text: "16h00 • Aqua Handball", color: "green", icon: "🏐" },
         { text: "20h00 • Pot d'accueil (restaurant)", color: "green", bold: true, icon: "🥂" }
       ]
     }
@@ -1430,7 +1429,7 @@ const CAMPING = {
       blocks: [
         [textStyle("Horaires", { color: "green", bold: true }), textStyle("Basse Saison (8h30-12h/14h-19h), Juillet-Aôut (8h-20h),Octobre (9-12/14-18), Novembre-Décembre-Janvier (9-12/15-18)", { color: "gray" })],
         [textStyle("🥖 Pain", { color: "orange", bold: true }), textStyle("Dépôt de Pain, TOUS LES JOURS, sur Réservation Obligatoirement à la réception ", { color: "dark" })],
-        [textStyle("Services", { color: "blue", bold: true }), textStyle("Les services proposés : laverie, location de draps et KitBébé, barbecue, Wifi, etc.", { color: "dark" })]
+        [textStyle("Services", { color: "blue", bold: true }), textStyle("Ajoutez les services proposés : laverie, location de draps et KitBébé, barbecue, etc.", { color: "dark" })]
       ]
     },
     rules: {
@@ -1464,7 +1463,7 @@ const CAMPING = {
         [textStyle("🏞️ Calanques", { color: "teal", bold: true }), textStyle("Figuerolles, Mugel et paysages de la côte méditerranéenne.", { color: "dark" })],
         [textStyle("⛰️ Cassis", { color: "green", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" })],
         [textStyle("☀️ Bandol & Sanary", { color: "orange", bold: true }), textStyle("Ports, marchés, plages et balades en bord de mer.", { color: "dark" })],
-        [textStyle("🛍️ Marchés Locaux", { color: "purple", bold: true }), textStyle("La Ciotat, Bandol, Sanary, ...", { color: "dark" })]
+        [textStyle("🛍️ Marchés Locaux", { color: "purple", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" })]
       ]
     },
     partners: {
@@ -1492,7 +1491,7 @@ const CAMPING = {
       image: "",
       intro: textStyle("En cas d'urgence, contactez immédiatement le service compétent.", { color: "red", bold: true }),
       blocks: [
-        [textStyle("📞 Camping", { color: "green", bold: true }), textStyle("Réception : +33 4 42 83 07 68", { color: "dark" })],
+        [textStyle("📞 Camping", { color: "green", bold: true }), textStyle("Réception : +33 4 42 01 83 44", { color: "dark" })],
         [textStyle("🚑 112", { color: "red", bold: true }), textStyle("Numéro d'urgence européen.", { color: "dark" })],
         [textStyle("🚑 15", { color: "red", bold: true }), textStyle("SAMU.", { color: "dark" })],
         [textStyle("🚒 18", { color: "red", bold: true }), textStyle("Pompiers.", { color: "dark" })],
@@ -1502,9 +1501,9 @@ const CAMPING = {
     notifications: {
       title: textStyle("🔔 Infos du camping", { color: "blue", bold: true, size: "large" }),
       image: "",
-      intro: textStyle("Les informations importantes du jour.", { color: "gray" }),
+      intro: textStyle("Cette rubrique pourra servir à afficher les informations importantes du jour.", { color: "gray" }),
       blocks: [
-        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Saison 2026 à Ceyreste: 04 Avril au 02 Janvier 2027", { color: "dark" })]
+        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Ajoutez ici une annonce importante : fermeture exceptionnelle, changement d'horaire, météo, animation, etc.", { color: "dark" })]
       ]
     },
     departure: {
@@ -1512,13 +1511,13 @@ const CAMPING = {
       intro: textStyle("Les dernières étapes avant de prendre la route 👋", { color: "gray" }),
       accordion: true,
       blocks: [
-        [textStyle("🕐 HEURE DE DÉPART", { color: "red", bold: true }), textStyle("Votre hébergement doit être libéré entre 8h00 et 10h00.", { color: "dark" })],
-        [textStyle("🧹 FORMALITE DE DEPART", { color: "orange", bold: true }), textStyle("Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping\n- Le sol nettoyé et serpillère étendue\n- Les Poubelles vidée\n- Les toilettes, le bac à douche ainsi que les éviers nettoyés\n- Les couvertures (et draps si inclus) pliés\n- La vaisselle propre et rangée\n- Les étagères et placards vidés et rangés\n- Le congélateur dégivré, ainsi que le réfrigérateur néttoyé et séché.", { color: "dark" })],
-        [textStyle("🧼 FORFAIT MENAGE", { color: "yellow", bold: true }), textStyle("Le ménage de fin de séjour est à votre charge. Si tel n'était pas le cas, nous serons dans l'obligation de vous facturer le forfait ménage qui est de 80 €.", { color: "dark" })], 
-        [textStyle("🗑️ DÉCHETS", { color: "teal", bold: true }), textStyle("Déposez vos déchets dans les containers situés derrière la laverie. Pour le carton et le verre, les containers sont situés à l'exterieur du camping, en sortant à droite", { color: "dark" })],
-        [textStyle("🔑 CLÉS ET CAUTION", { color: "blue", bold: true }), textStyle("Un état des lieux sera necessaire le jour de votre départ, afin de vous retourner la caution faite le jour de votre arrivée", { color: "dark" })],
-        [textStyle("💳 DEPART TOT", { color: "purple", bold: true }), textStyle("Si vous décidez de partir avant 8h00, veuillez en informer la réception, puis\n- Faire les formalités de départ\n- Laisser les clefs sur la table interieure\n- Fermer les rideaux\n- POSSIBLE UNIQUEMENT SI CAUTION PAR CB OU CHEQUE", { color: "dark" })],
-        [textStyle("⭐ AVIS", { color: "yellow", bold: true }), textStyle("Vous pouvez nous laisser un avis sur trip TripAdvisor, Google, Facebook etc… N'HESITEZ PAS!", { color: "dark" })]
+        [textStyle("🕐 HEURE DE DÉPART", { color: "orange", bold: true }), textStyle("Votre hébergement doit être libéré avant 10h00.", { color: "dark" })],
+        [textStyle("🧹 HÉBERGEMENT", { color: "green", bold: true }), textStyle("Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.", { color: "dark" })],
+        [textStyle("🗑️ DÉCHETS", { color: "teal", bold: true }), textStyle("Déposez vos déchets dans les espaces prévus à cet effet.", { color: "dark" })],
+        [textStyle("🍽️ CUISINE", { color: "orange", bold: true }), textStyle("Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.", { color: "dark" })],
+        [textStyle("🔑 CLÉS", { color: "blue", bold: true }), textStyle("Restituez les clés selon les modalités indiquées par la réception.", { color: "dark" })],
+        [textStyle("💳 CAUTION", { color: "purple", bold: true }), textStyle("Retrouvez ici les informations concernant la caution et sa restitution.", { color: "dark" })],
+        [textStyle("🚗 DERNIÈRES VÉRIFICATIONS", { color: "teal", bold: true }), textStyle("Pensez à vérifier vos affaires personnelles et les abords de votre emplacement ou hébergement.", { color: "dark" })]
       ],
       conclusion: textStyle("👋 MERCI POUR VOTRE VISITE !\nBonne route et à bientôt au Camping de Ceyreste ❤️", { color: "green-dark", bold: true, align: "center" })
     },
@@ -1529,6 +1528,9 @@ const CAMPING = {
       image: "",
       intro: textStyle("Une future rubrique pour aider chaque vacancier pendant son séjour.", { color: "gray" }),
       blocks: [
+        [textStyle("Arrivée", { color: "green", bold: true }), textStyle("Ajoutez ici les informations d'arrivée et les horaires de réception.", { color: "dark" })],
+        [textStyle("Départ", { color: "orange", bold: true }), textStyle("Ajoutez ici les informations de départ.", { color: "dark" })],
+        [textStyle("Services", { color: "blue", bold: true }), textStyle("Retrouvez les informations utiles pendant votre séjour.", { color: "dark" })]
       ]
     }
   }
