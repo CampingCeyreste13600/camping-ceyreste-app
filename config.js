@@ -1408,9 +1408,10 @@ const CAMPING = {
       image: "images/piscine.jpg",
       intro: textStyle("Découvrez nos piscines et nos toboggans, pour le bonheur des petits et des plus grands.", { color: "gray" }),
       blocks: [
-        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("Basse Saison: 10h-19h\n Juillet-Août: 10h-20h", { color: "gray" }), "🕐"],
-        [textStyle("Règles essentielles", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "dark" }), "📋"],
-        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("Basse Saison: 10h-19h\n Juillet-Août: 10h-20h", { color: "gray" }), "🕐"],
+        [textStyle("HORAIRES", { color: "blue", bold: true }), textStyle("Basse Saison: 10h-19h\n Juillet-Août: 10h-20h", { color: "gray" }), "🕐"],
+        [textStyle("REGLES ESSENTIELLES", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "dark" }), "📋"],
+        [textStyle("BASSINS AQUATIQUES", { color: "blue", bold: true }), textStyle("Venez découvrir nos 2 bassins, dont 1 équipé d'une patinoire", { color: "gray" }), "🌊"],
+        [textStyle("TOBOGGANS", { color: "green", bold: true }), textStyle("Pour le plaisir des plus jeunes... comme des plus grands. VENEZ VOIR NOTRE NOUVEAUTE 2026", { color: "gray" }), "😉"],
       ]
     },
     restaurant: {
@@ -1428,9 +1429,9 @@ const CAMPING = {
       image: "",
       intro: textStyle("Les services pratiques du camping.", { color: "gray" }),
       blocks: [
-        [textStyle("Horaires", { color: "green", bold: true }), textStyle("Basse Saison (8h30-12h/14h-19h), Juillet-Aôut (8h-20h),Octobre (9-12/14-18), Novembre-Décembre-Janvier (9-12/15-18)", { color: "gray" }), "🕐"],
-        [textStyle("🥖 Pain", { color: "orange", bold: true }), textStyle("Dépôt de Pain, TOUS LES JOURS, sur Réservation Obligatoirement à la réception ", { color: "dark" }), "🥖"],
-        [textStyle("Services", { color: "blue", bold: true }), textStyle("Ajoutez les services proposés : laverie, location de draps et KitBébé, barbecue, etc.", { color: "dark" }), "🛎️"]
+        [textStyle("HORAIRES", { color: "green", bold: true }), textStyle("Basse Saison (8h30-12h/14h-19h)\n Juillet-Aôut (8h-20h)\n,Octobre (9-12/14-18)\n, Novembre-Décembre-Janvier (9-12/15-18)", { color: "gray" }), "🕐"],
+        [textStyle("NOTRE EQUIPE", { color: "orange", bold: true }), textStyle("Emmanuelle, Mathilde, Alexandre, Tess et Caroline sont à votre disposition pour tout renseignement ", { color: "dark" }), "🦸‍♀️"],
+        [textStyle("EPICERIE", { color: "blue", bold: true }), textStyle("Il vous manque quelque chose ? Envie d'une petite gourmandise ? Notre épicerie est la pour vous.", { color: "dark" }), "🛍️"]
       ]
     },
     rules: {
@@ -1460,11 +1461,11 @@ const CAMPING = {
       title: textStyle("📍 A DECOUVRIR", { color: "teal", bold: true, size: "large" }),
       intro: textStyle("Découvrez les incontournables autour de Ceyreste et de La Ciotat.", { color: "gray" }),
       blocks: [
-        [textStyle("🌊 La Ciotat", { color: "blue", bold: true }), textStyle("Vieux-Port, plages, calanques et Parc du Mugel.", { color: "dark" }), "🌊"],
-        [textStyle("🏞️ Calanques", { color: "teal", bold: true }), textStyle("Figuerolles, Mugel et paysages de la côte méditerranéenne.", { color: "dark" }), "🏞️"],
-        [textStyle("⛰️ Cassis", { color: "green", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" }), "⛰️"],
-        [textStyle("☀️ Bandol & Sanary", { color: "orange", bold: true }), textStyle("Ports, marchés, plages et balades en bord de mer.", { color: "dark" }), "☀️"],
-        [textStyle("🛍️ Marchés Locaux", { color: "purple", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" }), "🛍️"]
+        [textStyle("La Ciotat", { color: "blue", bold: true }), textStyle("Vieux-Port, plages, calanques et Parc du Mugel.", { color: "dark" }), "🌊"],
+        [textStyle("Calanques", { color: "teal", bold: true }), textStyle("Figuerolles, Mugel et paysages de la côte méditerranéenne.", { color: "dark" }), "🏞️"],
+        [textStyle("Cassis", { color: "green", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" }), "⛰️"],
+        [textStyle("Bandol & Sanary", { color: "orange", bold: true }), textStyle("Ports, marchés, plages et balades en bord de mer.", { color: "dark" }), "☀️"],
+        [textStyle("Marchés Locaux", { color: "purple", bold: true }), textStyle("La Ciotat, Bandol, Sanary, Le Castellet", { color: "dark" }), "🛍️"]
       ]
     },
     partners: {
@@ -1472,31 +1473,33 @@ const CAMPING = {
       image: "",
       intro: textStyle("Retrouvez ici les activités partenaires recommandées par le camping.", { color: "gray" }),
       blocks: [
-        [textStyle("🚲 Location de vélos", { color: "pink", bold: true }), textStyle("TROLIB CASSIS, Location de vélos électriques et promenade, 06.72.50.47.26 ", { color: "dark" }), "🚲"],
-        [textStyle("🛵 Location de scooters", { color: "orange", bold: true }), textStyle("TOP LOC SERVICES à Roquefort-la-Bédoule, 06.24.09.72.25", { color: "dark" }), "🛵"],
-        [textStyle("🛤️ Location de quad", { color: "grey", bold: true }), textStyle("RENT A QUAD 13, au départ de La Ciotat, 07.83.05.99.33 ", { color: "dark" }), "🛤️"],
-        [textStyle("🛶 Location Kayak", { color: "yellow", bold: true }), textStyle("KAYAK RAIDS à La Ciotat, 06.34.69.83.49", { color: "dark" }), "🛶"],
-        [textStyle("⛵ Catamaran", { color: "blue", bold: true }), textStyle("CAT EXPLORER, Sortie en Catamaran, 07.87.23.24.71", { color: "dark" }), "⛵"],
-        [textStyle("🧗‍♂️ Salles d'escalade", { color: "teal", bold: true }), textStyle("BLOC SESSION à La Ciotat, 04.42.72.05.18", { color: "dark" }), "🧗"],
-        [textStyle("🚗 Location Voiture", { color: "red", bold: true }), textStyle("OLYMPIC LOCATION, voir avec la Réception", { color: "dark" }), "🚗"],
-        [textStyle("🎈 Parapente", { color: "pink", bold: true }), textStyle("MARSEILLE PARAPENTE, Baptemes et Formations, 06.51.84.46.71", { color: "dark" }), "🎈"],
-        [textStyle("🌅 Visites des Calanques", { color: "blue", bold: true }), textStyle("GUIDES CASSIS CALANQUES CANAILLES, Visites en bateau, Randonnée, Escalade, Via Cordata, 06.61.50.38.48", { color: "dark" }), "🏞️"],
-        [textStyle("🥽 Plongée", { color: "green", bold: true }), textStyle("ANAYA PLONGEE, 07.45.12.31.65", { color: "dark" }), "🥽"],
-        [textStyle("⛵ Visites des Calanques en Bateau", { color: "orange", bold: true }), textStyle("LES AMIS DES CALANQUES, 06.09.35.25.68", { color: "dark" }), "🏞️"],
-        [textStyle("💆🏻 Shiatsu e Do In (Bien être)", { color: "brown", bold: true }), textStyle("ENTRE MAINS ET MAUX, Sabine PUGLIESI, 06.15.75.06.72", { color: "dark" }), "💆"],
-        [textStyle("🧘‍♀️ Reflexologie", { color: "grey", bold: true }), textStyle("PIERRE GALAND, 06.59.22.84.73", { color: "dark" }), "🦶"]
+        [textStyle("Location de vélos", { color: "pink", bold: true }), textStyle("TROLIB CASSIS, Location de vélos électriques et promenade, 06.72.50.47.26 ", { color: "dark" }), "🚲"],
+        [textStyle("Location de scooters", { color: "orange", bold: true }), textStyle("TOP LOC SERVICES à Roquefort-la-Bédoule, 06.24.09.72.25", { color: "dark" }), "🛵"],
+        [textStyle("Location de quad", { color: "grey", bold: true }), textStyle("RENT A QUAD 13, au départ de La Ciotat, 07.83.05.99.33 ", { color: "dark" }), "🛤️"],
+        [textStyle("Location Kayak", { color: "yellow", bold: true }), textStyle("KAYAK RAIDS à La Ciotat, 06.34.69.83.49", { color: "dark" }), "🛶"],
+        [textStyle("Catamaran", { color: "blue", bold: true }), textStyle("CAT EXPLORER, Sortie en Catamaran, 07.87.23.24.71", { color: "dark" }), "⛵"],
+        [textStyle("Salles d'escalade", { color: "teal", bold: true }), textStyle("BLOC SESSION à La Ciotat, 04.42.72.05.18", { color: "dark" }), "🧗"],
+        [textStyle("Location Voiture", { color: "red", bold: true }), textStyle("OLYMPIC LOCATION, voir avec la Réception", { color: "dark" }), "🚗"],
+        [textStyle("Parapente", { color: "pink", bold: true }), textStyle("MARSEILLE PARAPENTE, Baptemes et Formations, 06.51.84.46.71", { color: "dark" }), "🎈"],
+        [textStyle("Visites des Calanques", { color: "blue", bold: true }), textStyle("GUIDES CASSIS CALANQUES CANAILLES, Visites en bateau, Randonnée, Escalade, Via Cordata, 06.61.50.38.48", { color: "dark" }), "🏞️"],
+        [textStyle("Plongée", { color: "green", bold: true }), textStyle("ANAYA PLONGEE, 07.45.12.31.65", { color: "dark" }), "🥽"],
+        [textStyle("Visites des Calanques en Bateau", { color: "orange", bold: true }), textStyle("LES AMIS DES CALANQUES, 06.09.35.25.68", { color: "dark" }), "🏞️"],
+        [textStyle("Shiatsu e Do In (Bien être)", { color: "brown", bold: true }), textStyle("ENTRE MAINS ET MAUX, Sabine PUGLIESI, 06.15.75.06.72", { color: "dark" }), "💆"],
+        [textStyle("Reflexologie", { color: "grey", bold: true }), textStyle("PIERRE GALAND, 06.59.22.84.73", { color: "dark" }), "🦶"]
       ]
     },
     emergency: {
-      title: textStyle("🚨 URGENCES", { color: "red", bold: true, size: "large" }),
+      title: textStyle("🚨 NOS SERVICES", { color: "red", bold: true, size: "large" }),
       image: "",
-      intro: textStyle("En cas d'urgence, contactez immédiatement le service compétent.", { color: "red", bold: true }),
+      intro: textStyle("Vous avez oublié quelque chose ? Vous avez besoin de quelque chose ?", { color: "red", bold: true }),
       blocks: [
-        [textStyle("📞 Camping", { color: "green", bold: true }), textStyle("Réception : +33 4 42 01 83 44", { color: "dark" }), "📞"],
-        [textStyle("🚑 112", { color: "red", bold: true }), textStyle("Numéro d'urgence européen.", { color: "dark" }), "🚑"],
-        [textStyle("🚑 15", { color: "red", bold: true }), textStyle("SAMU.", { color: "dark" }), "🚑"],
-        [textStyle("🚒 18", { color: "red", bold: true }), textStyle("Pompiers.", { color: "dark" }), "🚒"],
-        [textStyle("👮 17", { color: "red", bold: true }), textStyle("Police / Gendarmerie.", { color: "dark" }), "👮"]
+        [textStyle("LINGERIE", { color: "green", bold: true }), textStyle("Location de draps: Lit Simple 12€\n Lit Douple: 15€\n Location de Kit Serviette 10€", { color: "dark" }), "🧶"],
+        [textStyle("KIT BEBE", { color: "red", bold: true }), textStyle("Location d'un Kit Bébé (lit parapluie; Chaise haute et d'une baignoire) pour 5€/jour", { color: "dark" }), "🐤"],
+        [textStyle("BARBECUE A GAZ", { color: "red", bold: true }), textStyle("Location d'un barbecue à gaz pour 8€/jour", { color: "dark" }), "♨️"],
+        [textStyle("FRIGO", { color: "blue", bold: true }), textStyle("Location d'un frigo pour 7€/jour, ou d'une box réfrigérée pour 5€/jour", { color: "dark" }), "❄️"],
+        [textStyle("LAVERIE", { color: "grey", bold: true }), textStyle("La laverie focntionne sous forme de jeton: LAVE-LINGE 5€\n SECHE-LINGE 2€\n DOSE DE LESSIVE 1€", { color: "dark" }), "🧼"],
+        [textStyle("WIFI", { color: "yellow", bold: true }), textStyle("Wifi sous forme de tickets: 24h: 5€ et 20€ pour une semaine", { color: "dark" }), "📳"],
+        [textStyle("DEPOT DE PAIN", { color: "orange", bold: true }), textStyle("Depot de pain et Viennoiseries tout les jours. SUR RESERVATION à la reception", { color: "dark" }), "🥖"]
       ]
     },
     notifications: {
@@ -1504,7 +1507,7 @@ const CAMPING = {
       image: "",
       intro: textStyle("Cette rubrique pourra servir à afficher les informations importantes du jour.", { color: "gray" }),
       blocks: [
-        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Ajoutez ici une annonce importante : fermeture exceptionnelle, changement d'horaire, météo, animation, etc.", { color: "dark" }), "📢"]
+        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Saison 2026: 04 Avril au 02 Janvier 2027", { color: "dark" }), "📢"]
       ]
     },
     departure: {
