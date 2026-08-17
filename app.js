@@ -219,6 +219,34 @@ function initLanguage(){
 }
 document.addEventListener("click",()=>document.querySelector("#languageMenu")?.classList.add("hidden"));
 
+
+function miniBlockPlainText(value){
+  if(value && typeof value==="object" && value.__styledText) return String(value.text||"");
+  return String(value??"");
+}
+function miniBlockIcon(title){
+  const t=miniBlockPlainText(title).toLowerCase();
+  if(t.includes("horaire") || t.includes("ouverture")) return "🕐";
+  if(t.includes("réservation") || t.includes("reservation") || t.includes("contact")) return "📞";
+  if(t.includes("règle") || t.includes("reglement") || t.includes("règlement")) return "📋";
+  if(t.includes("formal") || t.includes("départ") || t.includes("depart")) return "🧹";
+  if(t.includes("carte")) return "📖";
+  if(t.includes("information")) return "ℹ️";
+  if(t.includes("installation")) return "🏊";
+  return "ℹ️";
+}
+function renderMiniInfoBlock(block){
+  const title=block?.[0];
+  const content=block?.[1];
+  const icon=(block && block[2]) || miniBlockIcon(title);
+  return `<article class="mini-info-block">
+    <div class="mini-info-icon">${icon}</div>
+    <div class="mini-info-content">
+      <div class="mini-info-title">${renderText(title)}</div>
+      <div class="mini-info-text">${renderText(content)}</div>
+    </div>
+  </article>`;
+}
 function renderText(value, fallbackClass=""){
   if(value && typeof value === "object" && value.__styledText){
     const colors=["green","green-dark","blue","orange","red","purple","pink","teal","yellow","gray","dark","white"];
@@ -736,14 +764,9 @@ function openSection(id){
     return;
   }
   const blocksHtml = section.accordion
-    ? `<div class="info-accordion">${(section.blocks || []).map(b=>`
-        <details class="info-accordion-item">
-          <summary><span>${renderText(b[0])}</span><span class="accordion-chevron">＋</span></summary>
-          <div class="info-accordion-content">${renderText(b[1])}</div>
-        </details>
-      `).join("")}</div>
+    ? `<div class="mini-info-list">${(section.blocks || []).map(b=>renderMiniInfoBlock(b)).join("")}</div>
       ${section.conclusion ? `<div class="info-conclusion">${renderText(section.conclusion).replace(/\\n/g,"<br>")}</div>` : ""}`
-    : (section.blocks || []).map(b=>`<article class="info-block"><h3>${renderText(b[0])}</h3><p>${renderText(b[1])}</p></article>`).join("");
+    : `<div class="mini-info-list">${(section.blocks || []).map(b=>renderMiniInfoBlock(b)).join("")}</div>`;
 
   document.querySelector("#modalContent").innerHTML=`
     <div class="eyebrow dark">CAMPING DE CEYRESTE</div>

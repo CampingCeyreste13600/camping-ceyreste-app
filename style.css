@@ -597,3 +597,32 @@ body{padding-bottom:112px}
 .programme-event-icon{width:46px;height:46px;flex:0 0 46px;border-radius:14px;background:#eef7f5;display:flex;align-items:center;justify-content:center;font-size:24px}.programme-event-body{min-width:0}.programme-event-text{font-size:14px;font-weight:750;line-height:1.35;color:#24443f}
 .programme-empty{padding:24px 16px;border-radius:17px;background:#f5f8f7;border:1px dashed #cbdcd8;display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;color:#55706b}.programme-empty div{font-size:32px}.programme-empty strong{font-size:15px;color:#294a45}.programme-empty span{font-size:12px}
 @media(max-width:520px){.programme-day{flex-basis:68px}.programme-selected-heading h3{font-size:18px}.programme-event-text{font-size:13px}}
+
+/* ===== V14 : mini-blocs homogènes dans les onglets ===== */
+.mini-info-list{display:flex;flex-direction:column;gap:0;margin-top:10px}
+.mini-info-block{
+  display:flex;align-items:center;gap:12px;
+  width:100%;box-sizing:border-box;
+  background:#fff;border:1px solid #e2ecea;border-radius:16px;
+  padding:12px 14px;margin:7px 0;
+  box-shadow:0 3px 10px rgba(0,0,0,.045);
+}
+.mini-info-icon{
+  width:46px;height:46px;min-width:46px;
+  border-radius:14px;background:#eef7f5;
+  display:flex;align-items:center;justify-content:center;
+  font-size:25px;line-height:1;
+}
+.mini-info-content{min-width:0;flex:1}
+.mini-info-title{
+  color:#0b7f8f;font-size:15px;font-weight:800;
+  line-height:1.2;margin-bottom:3px;
+}
+.mini-info-text{color:#5d6d70;font-size:13px;line-height:1.45}
+.mini-info-text .styled-text{display:inline}
+@media(max-width:520px){
+  .mini-info-block{padding:11px 12px;gap:10px;border-radius:15px}
+  .mini-info-icon{width:43px;height:43px;min-width:43px;font-size:23px;border-radius:13px}
+  .mini-info-title{font-size:14px}
+  .mini-info-text{font-size:12.5px}
+}
