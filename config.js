@@ -1408,8 +1408,8 @@ const CAMPING = {
       image: "images/piscine.jpg",
       intro: textStyle("Découvrez nos piscines et nos toboggans, pour le bonheur des petits et des plus grands.", { color: "gray" }),
       blocks: [
-        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("À compléter selon la période.", { color: "gray" })],
-        [textStyle("Règles essentielles", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "dark" })]
+        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("À compléter selon la période.", { color: "gray" }), "🕐"],
+        [textStyle("Règles essentielles", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "dark" }), "📋"]
       ]
     },
     restaurant: {
@@ -1418,8 +1418,8 @@ const CAMPING = {
       menuPdf: "images/carte.pdf",
       intro: textStyle("Nathalie et toute son équipe vous accueillent pendant la saison.", { color: "gray" }),
       blocks: [
-        [textStyle("Horaires", { color: "orange", bold: true }), textStyle("Toute la journée en haute saison (juillet-aôut) et à partir de 17h le reste de l'année", { color: "gray" })],
-        [textStyle("Réservation", { color: "green", bold: true }), textStyle("Il est plus que préférable de réserver. Pensez y et allez voir directement le personnel du restaurant.", { color: "dark" })]
+        [textStyle("Horaires", { color: "orange", bold: true }), textStyle("Toute la journée en haute saison (juillet-aôut) et à partir de 17h le reste de l'année", { color: "gray" }), "🕐"],
+        [textStyle("Réservation", { color: "green", bold: true }), textStyle("Il est plus que préférable de réserver. Pensez y et allez voir directement le personnel du restaurant.", { color: "dark" }), "📞"]
       ]
     },
     shop: {
@@ -1427,9 +1427,9 @@ const CAMPING = {
       image: "",
       intro: textStyle("Les services pratiques du camping.", { color: "gray" }),
       blocks: [
-        [textStyle("Horaires", { color: "green", bold: true }), textStyle("Basse Saison (8h30-12h/14h-19h), Juillet-Aôut (8h-20h),Octobre (9-12/14-18), Novembre-Décembre-Janvier (9-12/15-18)", { color: "gray" })],
-        [textStyle("🥖 Pain", { color: "orange", bold: true }), textStyle("Dépôt de Pain, TOUS LES JOURS, sur Réservation Obligatoirement à la réception ", { color: "dark" })],
-        [textStyle("Services", { color: "blue", bold: true }), textStyle("Ajoutez les services proposés : laverie, location de draps et KitBébé, barbecue, etc.", { color: "dark" })]
+        [textStyle("Horaires", { color: "green", bold: true }), textStyle("Basse Saison (8h30-12h/14h-19h), Juillet-Aôut (8h-20h),Octobre (9-12/14-18), Novembre-Décembre-Janvier (9-12/15-18)", { color: "gray" }), "🕐"],
+        [textStyle("🥖 Pain", { color: "orange", bold: true }), textStyle("Dépôt de Pain, TOUS LES JOURS, sur Réservation Obligatoirement à la réception ", { color: "dark" }), "🥖"],
+        [textStyle("Services", { color: "blue", bold: true }), textStyle("Ajoutez les services proposés : laverie, location de draps et KitBébé, barbecue, etc.", { color: "dark" }), "🛎️"]
       ]
     },
     rules: {
@@ -1437,13 +1437,13 @@ const CAMPING = {
       image: "",
       intro: textStyle("Merci de respecter ces règles afin que chacun profite de vacances agréables.", { color: "gray" }),
       blocks: [
-        [textStyle("🌙 Calme", { color: "purple", bold: true }), textStyle("Camping familial et calme. Merci de respecter le calme APRES 23h.", { color: "dark" })],
-        [textStyle("🚗 Véhicules", { color: "blue", bold: true }), textStyle("1 véhicule par mobil-home. Les véhicules supplémentaires doivent etre stationnés sur le parking situé à l'extérieur.", { color: "dark" })],
-        [textStyle("👨‍👩‍👧‍👦 Capacité", { color: "orange", bold: true }), textStyle("Merci de respecter les capacités maximum de votre location (2, 4 ou 6personnes)", { color: "dark" })],
-        [textStyle("🧒 Mineurs", { color: "red", bold: true }), textStyle("Un adulte est obligatoire dans chaque mobil-home. Les mineurs ne doivent pas être laissés sans surveillance.", { color: "dark" })],
-        [textStyle("🏠 Départ", { color: "green", bold: true }), textStyle("Les mobil-homes doivent être rendus propres avant 10h. Un état des lieux de sortie sera à réaliser. Appelez-nous quand vous êtes prêts !", { color: "dark" })],
-        [textStyle("🐶 Animaux", { color: "teal", bold: true }), textStyle("Les animaux doivent être tenus sous contrôle et respecter les règles du camping.", { color: "dark" })],
-        [textStyle("♻️ Propreté", { color: "green", bold: true }), textStyle("Merci de respecter les espaces communs, sanitaires et zones de tri.", { color: "dark" })]
+        [textStyle("🌙 Calme", { color: "purple", bold: true }), textStyle("Camping familial et calme. Merci de respecter le calme APRES 23h.", { color: "dark" }), "🌙"],
+        [textStyle("🚗 Véhicules", { color: "blue", bold: true }), textStyle("1 véhicule par mobil-home. Les véhicules supplémentaires doivent etre stationnés sur le parking situé à l'extérieur.", { color: "dark" }), "🚗"],
+        [textStyle("👨‍👩‍👧‍👦 Capacité", { color: "orange", bold: true }), textStyle("Merci de respecter les capacités maximum de votre location (2, 4 ou 6personnes)", { color: "dark" }), "👨‍👩‍👧‍👦"],
+        [textStyle("🧒 Mineurs", { color: "red", bold: true }), textStyle("Un adulte est obligatoire dans chaque mobil-home. Les mineurs ne doivent pas être laissés sans surveillance.", { color: "dark" }), "🧒"],
+        [textStyle("🏠 Départ", { color: "green", bold: true }), textStyle("Les mobil-homes doivent être rendus propres avant 10h. Un état des lieux de sortie sera à réaliser. Appelez-nous quand vous êtes prêts !", { color: "dark" }), "🏠"],
+        [textStyle("🐶 Animaux", { color: "teal", bold: true }), textStyle("Les animaux doivent être tenus sous contrôle et respecter les règles du camping.", { color: "dark" }), "🐶"],
+        [textStyle("♻️ Propreté", { color: "green", bold: true }), textStyle("Merci de respecter les espaces communs, sanitaires et zones de tri.", { color: "dark" }), "♻️"]
       ]
     },
     map: {
@@ -1452,18 +1452,18 @@ const CAMPING = {
       image: "images/plan.jpg",
       intro: textStyle("Repérez facilement les principaux services et équipements.", { color: "gray" }),
       blocks: [
-        [textStyle("📍 Points importants", { color: "teal", bold: true }), textStyle("Réception • Piscine • Restaurant • Épicerie • Sanitaires • Aires de jeux • Parking", { color: "dark" })]
+        [textStyle("📍 Points importants", { color: "teal", bold: true }), textStyle("Réception • Piscine • Restaurant • Épicerie • Sanitaires • Aires de jeux • Parking", { color: "dark" }), "📍"]
       ]
     },
     region: {
       title: textStyle("📍 A DECOUVRIR", { color: "teal", bold: true, size: "large" }),
       intro: textStyle("Découvrez les incontournables autour de Ceyreste et de La Ciotat.", { color: "gray" }),
       blocks: [
-        [textStyle("🌊 La Ciotat", { color: "blue", bold: true }), textStyle("Vieux-Port, plages, calanques et Parc du Mugel.", { color: "dark" })],
-        [textStyle("🏞️ Calanques", { color: "teal", bold: true }), textStyle("Figuerolles, Mugel et paysages de la côte méditerranéenne.", { color: "dark" })],
-        [textStyle("⛰️ Cassis", { color: "green", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" })],
-        [textStyle("☀️ Bandol & Sanary", { color: "orange", bold: true }), textStyle("Ports, marchés, plages et balades en bord de mer.", { color: "dark" })],
-        [textStyle("🛍️ Marchés Locaux", { color: "purple", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" })]
+        [textStyle("🌊 La Ciotat", { color: "blue", bold: true }), textStyle("Vieux-Port, plages, calanques et Parc du Mugel.", { color: "dark" }), "🌊"],
+        [textStyle("🏞️ Calanques", { color: "teal", bold: true }), textStyle("Figuerolles, Mugel et paysages de la côte méditerranéenne.", { color: "dark" }), "🏞️"],
+        [textStyle("⛰️ Cassis", { color: "green", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" }), "⛰️"],
+        [textStyle("☀️ Bandol & Sanary", { color: "orange", bold: true }), textStyle("Ports, marchés, plages et balades en bord de mer.", { color: "dark" }), "☀️"],
+        [textStyle("🛍️ Marchés Locaux", { color: "purple", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "dark" }), "🛍️"]
       ]
     },
     partners: {
@@ -1471,19 +1471,19 @@ const CAMPING = {
       image: "",
       intro: textStyle("Retrouvez ici les activités partenaires recommandées par le camping.", { color: "gray" }),
       blocks: [
-        [textStyle("🚲 Location de vélos", { color: "pink", bold: true }), textStyle("TROLIB CASSIS, Location de vélos électriques et promenade, 06.72.50.47.26 ", { color: "dark" })],
-        [textStyle("🛵 Location de scooters", { color: "orange", bold: true }), textStyle("TOP LOC SERVICES à Roquefort-la-Bédoule, 06.24.09.72.25", { color: "dark" })],
-        [textStyle("🛤️ Location de quad", { color: "grey", bold: true }), textStyle("RENT A QUAD 13, au départ de La Ciotat, 07.83.05.99.33 ", { color: "dark" })],
-        [textStyle("🛶 Location Kayak", { color: "yellow", bold: true }), textStyle("KAYAK RAIDS à La Ciotat, 06.34.69.83.49", { color: "dark" })],
-        [textStyle("⛵ Catamaran", { color: "blue", bold: true }), textStyle("CAT EXPLORER, Sortie en Catamaran, 07.87.23.24.71", { color: "dark" })],
-        [textStyle("🧗‍♂️ Salles d'escalade", { color: "teal", bold: true }), textStyle("BLOC SESSION à La Ciotat, 04.42.72.05.18", { color: "dark" })],
-        [textStyle("🚗 Location Voiture", { color: "red", bold: true }), textStyle("OLYMPIC LOCATION, voir avec la Réception", { color: "dark" })],
-        [textStyle("🎈 Parapente", { color: "pink", bold: true }), textStyle("MARSEILLE PARAPENTE, Baptemes et Formations, 06.51.84.46.71", { color: "dark" })],
-        [textStyle("🌅 Visites des Calanques", { color: "blue", bold: true }), textStyle("GUIDES CASSIS CALANQUES CANAILLES, Visites en bateau, Randonnée, Escalade, Via Cordata, 06.61.50.38.48", { color: "dark" })],
-        [textStyle("🥽 Plongée", { color: "green", bold: true }), textStyle("ANAYA PLONGEE, 07.45.12.31.65", { color: "dark" })],
-        [textStyle("⛵ Visites des Calanques en Bateau", { color: "orange", bold: true }), textStyle("LES AMIS DES CALANQUES, 06.09.35.25.68", { color: "dark" })],
-        [textStyle("💆🏻 Shiatsu e Do In (Bien être)", { color: "brown", bold: true }), textStyle("ENTRE MAINS ET MAUX, Sabine PUGLIESI, 06.15.75.06.72", { color: "dark" })],
-        [textStyle("🧘‍♀️ Reflexologie", { color: "grey", bold: true }), textStyle("PIERRE GALAND, 06.59.22.84.73", { color: "dark" })]
+        [textStyle("🚲 Location de vélos", { color: "pink", bold: true }), textStyle("TROLIB CASSIS, Location de vélos électriques et promenade, 06.72.50.47.26 ", { color: "dark" }), "🚲"],
+        [textStyle("🛵 Location de scooters", { color: "orange", bold: true }), textStyle("TOP LOC SERVICES à Roquefort-la-Bédoule, 06.24.09.72.25", { color: "dark" }), "🛵"],
+        [textStyle("🛤️ Location de quad", { color: "grey", bold: true }), textStyle("RENT A QUAD 13, au départ de La Ciotat, 07.83.05.99.33 ", { color: "dark" }), "🛤️"],
+        [textStyle("🛶 Location Kayak", { color: "yellow", bold: true }), textStyle("KAYAK RAIDS à La Ciotat, 06.34.69.83.49", { color: "dark" }), "🛶"],
+        [textStyle("⛵ Catamaran", { color: "blue", bold: true }), textStyle("CAT EXPLORER, Sortie en Catamaran, 07.87.23.24.71", { color: "dark" }), "⛵"],
+        [textStyle("🧗‍♂️ Salles d'escalade", { color: "teal", bold: true }), textStyle("BLOC SESSION à La Ciotat, 04.42.72.05.18", { color: "dark" }), "🧗"],
+        [textStyle("🚗 Location Voiture", { color: "red", bold: true }), textStyle("OLYMPIC LOCATION, voir avec la Réception", { color: "dark" }), "🚗"],
+        [textStyle("🎈 Parapente", { color: "pink", bold: true }), textStyle("MARSEILLE PARAPENTE, Baptemes et Formations, 06.51.84.46.71", { color: "dark" }), "🎈"],
+        [textStyle("🌅 Visites des Calanques", { color: "blue", bold: true }), textStyle("GUIDES CASSIS CALANQUES CANAILLES, Visites en bateau, Randonnée, Escalade, Via Cordata, 06.61.50.38.48", { color: "dark" }), "🏞️"],
+        [textStyle("🥽 Plongée", { color: "green", bold: true }), textStyle("ANAYA PLONGEE, 07.45.12.31.65", { color: "dark" }), "🥽"],
+        [textStyle("⛵ Visites des Calanques en Bateau", { color: "orange", bold: true }), textStyle("LES AMIS DES CALANQUES, 06.09.35.25.68", { color: "dark" }), "🏞️"],
+        [textStyle("💆🏻 Shiatsu e Do In (Bien être)", { color: "brown", bold: true }), textStyle("ENTRE MAINS ET MAUX, Sabine PUGLIESI, 06.15.75.06.72", { color: "dark" }), "💆"],
+        [textStyle("🧘‍♀️ Reflexologie", { color: "grey", bold: true }), textStyle("PIERRE GALAND, 06.59.22.84.73", { color: "dark" }), "🦶"]
       ]
     },
     emergency: {
@@ -1491,11 +1491,11 @@ const CAMPING = {
       image: "",
       intro: textStyle("En cas d'urgence, contactez immédiatement le service compétent.", { color: "red", bold: true }),
       blocks: [
-        [textStyle("📞 Camping", { color: "green", bold: true }), textStyle("Réception : +33 4 42 01 83 44", { color: "dark" })],
-        [textStyle("🚑 112", { color: "red", bold: true }), textStyle("Numéro d'urgence européen.", { color: "dark" })],
-        [textStyle("🚑 15", { color: "red", bold: true }), textStyle("SAMU.", { color: "dark" })],
-        [textStyle("🚒 18", { color: "red", bold: true }), textStyle("Pompiers.", { color: "dark" })],
-        [textStyle("👮 17", { color: "red", bold: true }), textStyle("Police / Gendarmerie.", { color: "dark" })]
+        [textStyle("📞 Camping", { color: "green", bold: true }), textStyle("Réception : +33 4 42 01 83 44", { color: "dark" }), "📞"],
+        [textStyle("🚑 112", { color: "red", bold: true }), textStyle("Numéro d'urgence européen.", { color: "dark" }), "🚑"],
+        [textStyle("🚑 15", { color: "red", bold: true }), textStyle("SAMU.", { color: "dark" }), "🚑"],
+        [textStyle("🚒 18", { color: "red", bold: true }), textStyle("Pompiers.", { color: "dark" }), "🚒"],
+        [textStyle("👮 17", { color: "red", bold: true }), textStyle("Police / Gendarmerie.", { color: "dark" }), "👮"]
       ]
     },
     notifications: {
@@ -1503,7 +1503,7 @@ const CAMPING = {
       image: "",
       intro: textStyle("Cette rubrique pourra servir à afficher les informations importantes du jour.", { color: "gray" }),
       blocks: [
-        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Ajoutez ici une annonce importante : fermeture exceptionnelle, changement d'horaire, météo, animation, etc.", { color: "dark" })]
+        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Ajoutez ici une annonce importante : fermeture exceptionnelle, changement d'horaire, météo, animation, etc.", { color: "dark" }), "📢"]
       ]
     },
     departure: {
@@ -1511,13 +1511,13 @@ const CAMPING = {
       intro: textStyle("Les dernières étapes avant de prendre la route 👋", { color: "gray" }),
       accordion: true,
       blocks: [
-        [textStyle("🕐 HEURE DE DÉPART", { color: "orange", bold: true }), textStyle("Votre hébergement doit être libéré avant 10h00.", { color: "dark" })],
-        [textStyle("🧹 HÉBERGEMENT", { color: "green", bold: true }), textStyle("Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.", { color: "dark" })],
-        [textStyle("🗑️ DÉCHETS", { color: "teal", bold: true }), textStyle("Déposez vos déchets dans les espaces prévus à cet effet.", { color: "dark" })],
-        [textStyle("🍽️ CUISINE", { color: "orange", bold: true }), textStyle("Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.", { color: "dark" })],
-        [textStyle("🔑 CLÉS", { color: "blue", bold: true }), textStyle("Restituez les clés selon les modalités indiquées par la réception.", { color: "dark" })],
-        [textStyle("💳 CAUTION", { color: "purple", bold: true }), textStyle("Retrouvez ici les informations concernant la caution et sa restitution.", { color: "dark" })],
-        [textStyle("🚗 DERNIÈRES VÉRIFICATIONS", { color: "teal", bold: true }), textStyle("Pensez à vérifier vos affaires personnelles et les abords de votre emplacement ou hébergement.", { color: "dark" })]
+        [textStyle("🕐 HEURE DE DÉPART", { color: "orange", bold: true }), textStyle("Votre hébergement doit être libéré avant 10h00.", { color: "dark" }), "🏠"],
+        [textStyle("🧹 HÉBERGEMENT", { color: "green", bold: true }), textStyle("Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.", { color: "dark" }), "🧹"],
+        [textStyle("🗑️ DÉCHETS", { color: "teal", bold: true }), textStyle("Déposez vos déchets dans les espaces prévus à cet effet.", { color: "dark" }), "🗑️"],
+        [textStyle("🍽️ CUISINE", { color: "orange", bold: true }), textStyle("Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.", { color: "dark" }), "🍽️"],
+        [textStyle("🔑 CLÉS", { color: "blue", bold: true }), textStyle("Restituez les clés selon les modalités indiquées par la réception.", { color: "dark" }), "🔑"],
+        [textStyle("💳 CAUTION", { color: "purple", bold: true }), textStyle("Retrouvez ici les informations concernant la caution et sa restitution.", { color: "dark" }), "💳"],
+        [textStyle("🚗 DERNIÈRES VÉRIFICATIONS", { color: "teal", bold: true }), textStyle("Pensez à vérifier vos affaires personnelles et les abords de votre emplacement ou hébergement.", { color: "dark" }), "🔎"],
       ],
       conclusion: textStyle("👋 MERCI POUR VOTRE VISITE !\nBonne route et à bientôt au Camping de Ceyreste ❤️", { color: "green-dark", bold: true, align: "center" })
     },
@@ -1528,166 +1528,10 @@ const CAMPING = {
       image: "",
       intro: textStyle("Une future rubrique pour aider chaque vacancier pendant son séjour.", { color: "gray" }),
       blocks: [
-        [textStyle("Arrivée", { color: "green", bold: true }), textStyle("Ajoutez ici les informations d'arrivée et les horaires de réception.", { color: "dark" })],
-        [textStyle("Départ", { color: "orange", bold: true }), textStyle("Ajoutez ici les informations de départ.", { color: "dark" })],
-        [textStyle("Services", { color: "blue", bold: true }), textStyle("Retrouvez les informations utiles pendant votre séjour.", { color: "dark" })]
+        [textStyle("Arrivée", { color: "green", bold: true }), textStyle("Ajoutez ici les informations d'arrivée et les horaires de réception.", { color: "dark" }), "📅"],
+        [textStyle("Départ", { color: "orange", bold: true }), textStyle("Ajoutez ici les informations de départ.", { color: "dark" }), "🏠"],
+        [textStyle("Services", { color: "blue", bold: true }), textStyle("Retrouvez les informations utiles pendant votre séjour.", { color: "dark" }), "🛎️"]
       ]
     }
-  }
-};
-
-
-/* ============================================================
-   🌍 LANGUES — 6 LANGUES
-   ============================================================ */
-const LANGUAGE_CONFIG = {
-  fr: { flag:"🇫🇷", name:"Français" },
-  en: { flag:"🇬🇧", name:"English" },
-  de: { flag:"🇩🇪", name:"Deutsch" },
-  es: { flag:"🇪🇸", name:"Español" },
-  nl: { flag:"🇳🇱", name:"Nederlands" },
-  it: { flag:"🇮🇹", name:"Italiano" }
-};
-
-const TRANSLATIONS = {
-  en: {
-    "BIENVENUE":"WELCOME","Bienvenue":"Welcome","Profitez pleinement de votre séjour":"Enjoy your stay to the fullest",
-    "Toutes les infos du camping directement à portée de main.":"All the campsite information at your fingertips.",
-    "AUJOURD'HUI AU CAMPING":"TODAY AT THE CAMPSITE","À ne pas manquer":"Don't miss",
-    "À DÉCOUVRIR":"DISCOVER","Explorer →":"Explore →","PHOTOS DU CAMPING":"CAMPSITE PHOTOS",
-    "Découvrez le camping":"Discover the campsite","Besoin d'aide ?":"Need help?","Appeler":"Call","E-mail":"Email",
-    "Accueil":"Home","Programme":"Schedule","Infos":"Info","Mon séjour":"My stay","Menu":"Menu","Installer":"Install",
-    "Choisir la langue":"Choose language","ANIMATIONS":"ENTERTAINMENT","ESPACE AQUATIQUE":"WATER PARK",
-    "RESTAURANT":"RESTAURANT","RECEPTION":"RECEPTION","REGLEMENT":"RULES","PLAN DU CAMPING":"CAMPSITE MAP",
-    "A DECOUVRIR":"DISCOVER","NOS PARTENAIRES":"OUR PARTNERS","URGENCES":"EMERGENCIES","MON DÉPART":"MY DEPARTURE",
-    "Ma location":"My accommodation","MA LOCATION":"MY ACCOMMODATION","Indiquez votre numéro dans MA LOCATION":"Enter your accommodation number in MY ACCOMMODATION",
-    "Réception":"Reception","Espace Aquatique":"Water Park","Restaurant":"Restaurant","Épicerie":"Shop",
-    "🏕️ MA LOCATION":"🏕️ MY ACCOMMODATION","🧳 MON DÉPART":"🧳 MY DEPARTURE",
-    "PLAN DU CAMPING":"CAMPSITE MAP","Programme de la semaine":"Weekly schedule","Retrouvez toutes les animations de la semaine.":"Find all the week's activities.",
-    "Numéro de location":"Accommodation number","Indiquer mon numéro":"Enter my number","Valider ma location":"Confirm my accommodation",
-    "Enregistrer le numéro":"Save number","Ce numéro n'est pas configuré. Vérifiez le numéro indiqué par la réception.":"This number is not configured. Please check the number given by reception.",
-    "VOTRE LOCATION":"YOUR ACCOMMODATION","Points importants":"Important points",
-    "Les dernières étapes avant de prendre la route 👋":"The final steps before hitting the road 👋",
-    "HEURE DE DÉPART":"DEPARTURE TIME","HÉBERGEMENT":"ACCOMMODATION","DÉCHETS":"WASTE","CUISINE":"KITCHEN","CLÉS":"KEYS","CAUTION":"DEPOSIT","DERNIÈRES VÉRIFICATIONS":"FINAL CHECKS",
-    "Votre hébergement doit être libéré avant 10h00.":"Your accommodation must be vacated before 10:00.",
-    "Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.":"Please leave your accommodation clean and tidy according to the campsite instructions.",
-    "Déposez vos déchets dans les espaces prévus à cet effet.":"Please dispose of your waste in the designated areas.",
-    "Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.":"Check the fridge, cupboards and equipment before departure.",
-    "Restituez les clés selon les modalités indiquées par la réception.":"Return the keys according to the instructions given by reception.",
-    "Retrouvez ici les informations concernant la caution et sa restitution.":"Find the information about your deposit and its return here.",
-    "Pensez à vérifier vos affaires personnelles et les abords de votre emplacement ou hébergement.":"Remember to check your belongings and the area around your pitch or accommodation.",
-    "👋 MERCI POUR VOTRE VISITE !":"👋 THANK YOU FOR YOUR VISIT!","Bonne route et à bientôt au Camping de Ceyreste ❤️":"Have a safe journey and see you soon at Camping de Ceyreste ❤️",
-    "Horaires":"Opening hours","Règles essentielles":"Essential rules","Réservation":"Booking","Services":"Services",
-    "Calme":"Quiet hours","Véhicules":"Vehicles","Capacité":"Capacity","Mineurs":"Minors","Départ":"Departure","Animaux":"Pets","Propreté":"Cleanliness",
-    "À compléter selon la période.":"To be completed according to the period.",
-    "Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.":"SWIM SHORTS ARE NOT ALLOWED. Please follow the posted rules and SUPERVISE your children.",
-    "Toute la journée en haute saison (juillet-aôut) et à partir de 17h le reste de l'année":"All day in high season (July-August) and from 5 pm the rest of the year",
-    "Il est plus que préférable de réserver. Pensez y et allez voir directement le personnel du restaurant.":"Booking is strongly recommended. Please contact the restaurant staff directly.",
-    "Camping familial et calme. Merci de respecter le calme APRES 23h.":"Family-friendly, quiet campsite. Please respect quiet hours AFTER 11 pm.",
-    "1 véhicule par mobil-home. Les véhicules supplémentaires doivent etre stationnés sur le parking situé à l'extérieur.":"1 vehicle per mobile home. Additional vehicles must be parked in the outside car park.",
-    "Merci de respecter les capacités maximum de votre location (2, 4 ou 6personnes)":"Please respect the maximum capacity of your accommodation (2, 4 or 6 people).",
-    "Un adulte est obligatoire dans chaque mobil-home. Les mineurs ne doivent pas être laissés sans surveillance.":"An adult is required in every mobile home. Minors must not be left unsupervised.",
-    "Les mobil-homes doivent être rendus propres avant 10h. Un état des lieux de sortie sera à réaliser. Appelez-nous quand vous êtes prêts !":"Mobile homes must be left clean before 10 am. A check-out inspection must be completed. Call us when you are ready!",
-    "Les animaux doivent être tenus sous contrôle et respecter les règles du camping.":"Pets must be kept under control and comply with campsite rules.",
-    "Merci de respecter les espaces communs, sanitaires et zones de tri.":"Please respect the shared areas, sanitary facilities and recycling areas.",
-    "Accueil, renseignements et services du camping.":"Reception, information and campsite services.",
-    "Piscines et espace aquatique du camping.":"Swimming pools and water park.",
-    "Restaurant et snack du camping.":"Campsite restaurant and snack bar.",
-    "Épicerie située au niveau de la réception.":"Shop located next to reception.",
-    "Parking du camping.":"Campsite car park.","Aire de jeux.":"Playground.","Tables de ping-pong.":"Table tennis tables.",
-    "Terrain multisports.":"Multi-sports court.","Terrain de pétanque.":"Petanque court.","Trampoline à élastique.":"Bungee trampoline.",
-    "Accrobranche / Acro Games.":"Tree climbing / Acro Games.","Sanitaires composés de WC, douches, lavabos,....":"Toilets, showers and washbasins.",
-    "CAMPING DE CEYRESTE":"CEYRESTE CAMPSITE","Réception":"Reception","Espace aquatique":"Water park","Snack / Restaurant":"Snack / Restaurant",
-    "Trampoline + Accrobranche":"Trampoline + Tree climbing","Accrogames":"Acro Games","Sanitaires 1":"Sanitary facilities 1","Sanitaires 2":"Sanitary facilities 2",
-    "Parking":"Car park","Aire de jeux":"Playground","Ping Pong":"Table tennis","CityStade":"Multi-sports court","Pétanque":"Petanque"
-  },
-  de: {
-    "BIENVENUE":"WILLKOMMEN","Bienvenue":"Willkommen","Profitez pleinement de votre séjour":"Genießen Sie Ihren Aufenthalt",
-    "Toutes les infos du camping directement à portée de main.":"Alle Informationen über den Campingplatz auf einen Blick.",
-    "AUJOURD'HUI AU CAMPING":"HEUTE AUF DEM CAMPINGPLATZ","À ne pas manquer":"Nicht verpassen",
-    "À DÉCOUVRIR":"ENTDECKEN","Explorer →":"Entdecken →","PHOTOS DU CAMPING":"CAMPINGPLATZ-FOTOS",
-    "Découvrez le camping":"Campingplatz entdecken","Besoin d'aide ?":"Brauchen Sie Hilfe?","Appeler":"Anrufen","E-mail":"E-Mail",
-    "Accueil":"Startseite","Programme":"Programm","Infos":"Infos","Mon séjour":"Mein Aufenthalt","Choisir la langue":"Sprache wählen",
-    "ANIMATIONS":"ANIMATION","ESPACE AQUATIQUE":"WASSERPARK","RESTAURANT":"RESTAURANT","RECEPTION":"REZEPTION","REGLEMENT":"REGELN",
-    "PLAN DU CAMPING":"CAMPINGPLATZPLAN","A DECOUVRIR":"ENTDECKEN","NOS PARTENAIRES":"UNSERE PARTNER","URGENCES":"NOTFÄLLE","MON DÉPART":"MEINE ABREISE",
-    "Ma location":"Meine Unterkunft","MA LOCATION":"MEINE UNTERKUNFT","Réception":"Rezeption","Espace Aquatique":"Wasserpark","Restaurant":"Restaurant","Épicerie":"Shop",
-    "Programme de la semaine":"Wochenprogramm","Retrouvez toutes les animations de la semaine.":"Alle Aktivitäten der Woche.",
-    "Numéro de location":"Unterkunftsnummer","Indiquer mon numéro":"Meine Nummer eingeben","Valider ma location":"Unterkunft bestätigen","Enregistrer le numéro":"Nummer speichern",
-    "VOTRE LOCATION":"IHRE UNTERKUNFT","HEURE DE DÉPART":"ABREISEZEIT","HÉBERGEMENT":"UNTERKUNFT","DÉCHETS":"ABFALL","CUISINE":"KÜCHE","CLÉS":"SCHLÜSSEL","CAUTION":"KAUTION","DERNIÈRES VÉRIFICATIONS":"LETZTE KONTROLLEN",
-    "Votre hébergement doit être libéré avant 10h00.":"Ihre Unterkunft muss vor 10:00 Uhr verlassen werden.",
-    "Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.":"Bitte hinterlassen Sie Ihre Unterkunft sauber und ordentlich.",
-    "Déposez vos déchets dans les espaces prévus à cet effet.":"Bitte entsorgen Sie Ihren Abfall in den vorgesehenen Bereichen.",
-    "Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.":"Prüfen Sie vor der Abreise Kühlschrank, Schränke und Ausstattung.",
-    "Restituez les clés selon les modalités indiquées par la réception.":"Geben Sie die Schlüssel gemäß den Anweisungen der Rezeption zurück.",
-    "Bonne route et à bientôt au Camping de Ceyreste ❤️":"Gute Reise und bis bald auf dem Camping de Ceyreste ❤️",
-    "Horaires":"Öffnungszeiten","Règles essentielles":"Wichtige Regeln","Réservation":"Reservierung","Services":"Service",
-    "Calme":"Ruhe","Véhicules":"Fahrzeuge","Capacité":"Kapazität","Mineurs":"Minderjährige","Départ":"Abreise","Animaux":"Haustiere","Propreté":"Sauberkeit",
-    "CAMPING DE CEYRESTE":"CAMPINGPLATZ CEYRESTE"
-  },
-  es: {
-    "BIENVENUE":"BIENVENIDO","Bienvenue":"Bienvenido","Profitez pleinement de votre séjour":"Disfruta plenamente de tu estancia",
-    "Toutes les infos du camping directement à portée de main.":"Toda la información del camping al alcance de tu mano.",
-    "AUJOURD'HUI AU CAMPING":"HOY EN EL CAMPING","À ne pas manquer":"No te lo pierdas","À DÉCOUVRIR":"DESCUBRIR",
-    "Explorer →":"Explorar →","PHOTOS DU CAMPING":"FOTOS DEL CAMPING","Découvrez le camping":"Descubre el camping",
-    "Besoin d'aide ?":"¿Necesitas ayuda?","Appeler":"Llamar","E-mail":"Correo electrónico","Accueil":"Inicio","Programme":"Programa","Infos":"Información","Mon séjour":"Mi estancia",
-    "Choisir la langue":"Elegir idioma","ANIMATIONS":"ANIMACIÓN","ESPACE AQUATIQUE":"PARQUE ACUÁTICO","RESTAURANT":"RESTAURANTE","RECEPTION":"RECEPCIÓN",
-    "REGLEMENT":"NORMAS","PLAN DU CAMPING":"PLANO DEL CAMPING","A DECOUVRIR":"DESCUBRIR","NOS PARTENAIRES":"NUESTROS SOCIOS","URGENCES":"EMERGENCIAS","MON DÉPART":"MI SALIDA",
-    "Ma location":"Mi alojamiento","MA LOCATION":"MI ALOJAMIENTO","Réception":"Recepción","Espace Aquatique":"Parque acuático","Restaurant":"Restaurante","Épicerie":"Tienda",
-    "Programme de la semaine":"Programa semanal","Retrouvez toutes les animations de la semaine.":"Consulta todas las actividades de la semana.",
-    "Numéro de location":"Número de alojamiento","Indiquer mon numéro":"Indicar mi número","Valider ma location":"Confirmar mi alojamiento","Enregistrer le numéro":"Guardar número",
-    "VOTRE LOCATION":"TU ALOJAMIENTO","HEURE DE DÉPART":"HORA DE SALIDA","HÉBERGEMENT":"ALOJAMIENTO","DÉCHETS":"RESIDUOS","CUISINE":"COCINA","CLÉS":"LLAVES","CAUTION":"DEPÓSITO","DERNIÈRES VÉRIFICATIONS":"ÚLTIMAS COMPROBACIONES",
-    "Votre hébergement doit être libéré avant 10h00.":"Tu alojamiento debe quedar libre antes de las 10:00.",
-    "Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.":"Deja tu alojamiento limpio y ordenado según las indicaciones del camping.",
-    "Déposez vos déchets dans les espaces prévus à cet effet.":"Deposita los residuos en las zonas previstas.",
-    "Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.":"Comprueba el frigorífico, los armarios y el equipamiento antes de salir.",
-    "Restituez les clés selon les modalités indiquées par la réception.":"Devuelve las llaves según las indicaciones de recepción.",
-    "Bonne route et à bientôt au Camping de Ceyreste ❤️":"Buen viaje y hasta pronto en el Camping de Ceyreste ❤️",
-    "Horaires":"Horarios","Règles essentielles":"Normas esenciales","Réservation":"Reserva","Services":"Servicios",
-    "Calme":"Tranquilidad","Véhicules":"Vehículos","Capacité":"Capacidad","Mineurs":"Menores","Départ":"Salida","Animaux":"Mascotas","Propreté":"Limpieza",
-    "CAMPING DE CEYRESTE":"CAMPING DE CEYRESTE"
-  },
-  nl: {
-    "BIENVENUE":"WELKOM","Bienvenue":"Welkom","Profitez pleinement de votre séjour":"Geniet volop van uw verblijf",
-    "Toutes les infos du camping directement à portée de main.":"Alle informatie over de camping binnen handbereik.",
-    "AUJOURD'HUI AU CAMPING":"VANDAAG OP DE CAMPING","À ne pas manquer":"Niet te missen","À DÉCOUVRIR":"ONTDEKKEN",
-    "Explorer →":"Ontdekken →","PHOTOS DU CAMPING":"CAMPINGFOTO'S","Découvrez le camping":"Ontdek de camping",
-    "Besoin d'aide ?":"Hulp nodig?","Appeler":"Bellen","E-mail":"E-mail","Accueil":"Home","Programme":"Programma","Infos":"Info","Mon séjour":"Mijn verblijf",
-    "Choisir la langue":"Kies taal","ANIMATIONS":"ANIMATIE","ESPACE AQUATIQUE":"WATERPARK","RESTAURANT":"RESTAURANT","RECEPTION":"RECEPTIE",
-    "REGLEMENT":"REGELS","PLAN DU CAMPING":"CAMPINGPLATTEGROND","A DECOUVRIR":"ONTDEKKEN","NOS PARTENAIRES":"ONZE PARTNERS","URGENCES":"NOODGEVALLEN","MON DÉPART":"MIJN VERTREK",
-    "Ma location":"Mijn accommodatie","MA LOCATION":"MIJN ACCOMMODATIE","Réception":"Receptie","Espace Aquatique":"Waterpark","Restaurant":"Restaurant","Épicerie":"Winkel",
-    "Programme de la semaine":"Weekprogramma","Retrouvez toutes les animations de la semaine.":"Bekijk alle activiteiten van de week.",
-    "Numéro de location":"Accommodatienummer","Indiquer mon numéro":"Mijn nummer invoeren","Valider ma location":"Accommodatie bevestigen","Enregistrer le numéro":"Nummer opslaan",
-    "VOTRE LOCATION":"UW ACCOMMODATIE","HEURE DE DÉPART":"VERTREKTIJD","HÉBERGEMENT":"ACCOMMODATIE","DÉCHETS":"AFVAL","CUISINE":"KEUKEN","CLÉS":"SLEUTELS","CAUTION":"BORG","DERNIÈRES VÉRIFICATIONS":"LAATSTE CONTROLES",
-    "Votre hébergement doit être libéré avant 10h00.":"Uw accommodatie moet vóór 10:00 uur worden verlaten.",
-    "Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.":"Laat uw accommodatie schoon en netjes achter volgens de campingregels.",
-    "Déposez vos déchets dans les espaces prévus à cet effet.":"Gooi afval weg op de daarvoor bestemde plaatsen.",
-    "Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.":"Controleer koelkast, kasten en uitrusting vóór vertrek.",
-    "Restituez les clés selon les modalités indiquées par la réception.":"Lever de sleutels in volgens de instructies van de receptie.",
-    "Bonne route et à bientôt au Camping de Ceyreste ❤️":"Goede reis en tot ziens op Camping de Ceyreste ❤️",
-    "Horaires":"Openingstijden","Règles essentielles":"Belangrijke regels","Réservation":"Reserveren","Services":"Diensten",
-    "Calme":"Rust","Véhicules":"Voertuigen","Capacité":"Capaciteit","Mineurs":"Minderjarigen","Départ":"Vertrek","Animaux":"Huisdieren","Propreté":"Netheid",
-    "CAMPING DE CEYRESTE":"CAMPING DE CEYRESTE"
-  },
-  it: {
-    "BIENVENUE":"BENVENUTO","Bienvenue":"Benvenuto","Profitez pleinement de votre séjour":"Goditi al massimo il tuo soggiorno",
-    "Toutes les infos du camping directement à portée de main.":"Tutte le informazioni del campeggio a portata di mano.",
-    "AUJOURD'HUI AU CAMPING":"OGGI AL CAMPEGGIO","À ne pas manquer":"Da non perdere","À DÉCOUVRIR":"SCOPRI",
-    "Explorer →":"Esplora →","PHOTOS DU CAMPING":"FOTO DEL CAMPEGGIO","Découvrez le camping":"Scopri il campeggio",
-    "Besoin d'aide ?":"Hai bisogno di aiuto?","Appeler":"Chiama","E-mail":"E-mail","Accueil":"Home","Programme":"Programma","Infos":"Info","Mon séjour":"Il mio soggiorno",
-    "Choisir la langue":"Scegli la lingua","ANIMATIONS":"ANIMAZIONE","ESPACE AQUATIQUE":"PARCO ACQUATICO","RESTAURANT":"RISTORANTE","RECEPTION":"RECEPTION",
-    "REGLEMENT":"REGOLAMENTO","PLAN DU CAMPING":"MAPPA DEL CAMPEGGIO","A DECOUVRIR":"SCOPRI","NOS PARTENAIRES":"I NOSTRI PARTNER","URGENCES":"EMERGENZE","MON DÉPART":"LA MIA PARTENZA",
-    "Ma location":"Il mio alloggio","MA LOCATION":"IL MIO ALLOGGIO","Réception":"Reception","Espace Aquatique":"Parco acquatico","Restaurant":"Ristorante","Épicerie":"Negozio",
-    "Programme de la semaine":"Programma settimanale","Retrouvez toutes les animations de la semaine.":"Scopri tutte le attività della settimana.",
-    "Numéro de location":"Numero dell'alloggio","Indiquer mon numéro":"Inserisci il mio numero","Valider ma location":"Conferma alloggio","Enregistrer le numéro":"Salva numero",
-    "VOTRE LOCATION":"IL TUO ALLOGGIO","HEURE DE DÉPART":"ORA DI PARTENZA","HÉBERGEMENT":"ALLOGGIO","DÉCHETS":"RIFIUTI","CUISINE":"CUCINA","CLÉS":"CHIAVI","CAUTION":"CAUZIONE","DERNIÈRES VÉRIFICATIONS":"ULTIMI CONTROLLI",
-    "Votre hébergement doit être libéré avant 10h00.":"Il tuo alloggio deve essere liberato entro le 10:00.",
-    "Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.":"Lascia il tuo alloggio pulito e in ordine secondo le regole del campeggio.",
-    "Déposez vos déchets dans les espaces prévus à cet effet.":"Deposita i rifiuti negli appositi spazi.",
-    "Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.":"Controlla frigorifero, armadi e attrezzature prima della partenza.",
-    "Restituez les clés selon les modalités indiquées par la réception.":"Restituisci le chiavi secondo le indicazioni della reception.",
-    "Bonne route et à bientôt au Camping de Ceyreste ❤️":"Buon viaggio e a presto al Camping de Ceyreste ❤️",
-    "Horaires":"Orari","Règles essentielles":"Regole essenziali","Réservation":"Prenotazione","Services":"Servizi",
-    "Calme":"Silenzio","Véhicules":"Veicoli","Capacité":"Capacità","Mineurs":"Minori","Départ":"Partenza","Animaux":"Animali","Propreté":"Pulizia",
-    "CAMPING DE CEYRESTE":"CAMPING DE CEYRESTE"
   }
 };
