@@ -344,7 +344,7 @@ const MOBILE_HOME_CATEGORIES = {
     arrival: "À partir de 15h30",
     departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
     info: [
-      "1 véhicule autorisé sur l'emplacement",
+      "1 véhicule autorisé sur le parking réservé",
       "Calme après 23h s'il vous plait",
       "Draps et serviettes Inclus",
       "Lave vaisselle intégré",
@@ -362,7 +362,7 @@ const MOBILE_HOME_CATEGORIES = {
     arrival: "À partir de 15h30",
     departure: "Entre 8h et 10h, après avoir réalisé l'état des lieux de sortie (voir avec la réception)",
     info: [
-      "1 véhicule autorisé sur l'emplacement",
+      "1 véhicule autorisé sur le parking réservé",
       "Calme après 23h s'il vous plait",
       "Draps et serviettes Inclus",
       "Lave vaisselle intégré",
@@ -1386,7 +1386,7 @@ const CAMPING = {
     { id: "map", icon: "🗺️", title: textStyle("PLAN DU CAMPING", { color: "teal", bold: true }), desc: textStyle("Découvrir le camping", { color: "gray" }) },
     { id: "region", icon: "📍", title: textStyle("A DECOUVRIR", { color: "teal", bold: true }), desc: textStyle("Activités & lieux incontournables", { color: "gray" }) },
     { id: "partners", icon: "🚲", title: textStyle("NOS PARTENAIRES", { color: "orange", bold: true }), desc: textStyle("Activités locales", { color: "gray" }) },
-    { id: "emergency", icon: "🚨", title: textStyle("URGENCES", { color: "red", bold: true }), desc: textStyle("Numéros importants", { color: "gray" }) },
+    { id: "emergency", icon: "📦", title: textStyle("NOS SERVICES", { color: "red", bold: true }), desc: textStyle("Toutes nos locations et suppléments à retrouver ici", { color: "gray" }) },
     { id: "departure", icon: "🧳", title: textStyle("MON DÉPART", { color: "orange", bold: true }), desc: textStyle("Les dernières étapes avant de partir", { color: "gray" }) }
   ],
 
@@ -1408,8 +1408,9 @@ const CAMPING = {
       image: "images/piscine.jpg",
       intro: textStyle("Découvrez nos piscines et nos toboggans, pour le bonheur des petits et des plus grands.", { color: "gray" }),
       blocks: [
-        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("À compléter selon la période.", { color: "gray" }), "🕐"],
-        [textStyle("Règles essentielles", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "dark" }), "📋"]
+        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("Basse Saison: 10h-19h\n Juillet-Août: 10h-20h", { color: "gray" }), "🕐"],
+        [textStyle("Règles essentielles", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "dark" }), "📋"],
+        [textStyle("Horaires", { color: "blue", bold: true }), textStyle("Basse Saison: 10h-19h\n Juillet-Août: 10h-20h", { color: "gray" }), "🕐"],
       ]
     },
     restaurant: {
