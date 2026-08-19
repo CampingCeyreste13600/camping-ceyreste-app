@@ -162,158 +162,6 @@ function renderStyledValue(value){
 /* ============================================================
    🌍 SYSTÈME DE LANGUES
    ============================================================ */
-const LANGUAGE_CONFIG = {
-  fr: { flag:"🇫🇷", name:"Français" },
-  en: { flag:"🇬🇧", name:"English" },
-  de: { flag:"🇩🇪", name:"Deutsch" },
-  es: { flag:"🇪🇸", name:"Español" },
-  nl: { flag:"🇳🇱", name:"Nederlands" },
-  it: { flag:"🇮🇹", name:"Italiano" }
-};
-
-const TRANSLATIONS = {
-  en: {
-    "BIENVENUE":"WELCOME","Bienvenue":"Welcome","Profitez pleinement de votre séjour":"Enjoy your stay to the fullest",
-    "Toutes les infos du camping directement à portée de main.":"All the campsite information at your fingertips.",
-    "AUJOURD'HUI AU CAMPING":"TODAY AT THE CAMPSITE","À ne pas manquer":"Don't miss",
-    "À DÉCOUVRIR":"DISCOVER","Explorer →":"Explore →","PHOTOS DU CAMPING":"CAMPSITE PHOTOS",
-    "Découvrez le camping":"Discover the campsite","Besoin d'aide ?":"Need help?","Appeler":"Call","E-mail":"Email",
-    "Accueil":"Home","Programme":"Schedule","Infos":"Info","Mon séjour":"My stay","Menu":"Menu","Installer":"Install",
-    "Choisir la langue":"Choose language","ANIMATIONS":"ENTERTAINMENT","ESPACE AQUATIQUE":"WATER PARK",
-    "RESTAURANT":"RESTAURANT","RECEPTION":"RECEPTION","REGLEMENT":"RULES","PLAN DU CAMPING":"CAMPSITE MAP",
-    "A DECOUVRIR":"DISCOVER","NOS PARTENAIRES":"OUR PARTNERS","URGENCES":"EMERGENCIES","MON DÉPART":"MY DEPARTURE",
-    "Ma location":"My accommodation","MA LOCATION":"MY ACCOMMODATION","Indiquez votre numéro dans MA LOCATION":"Enter your accommodation number in MY ACCOMMODATION",
-    "Réception":"Reception","Espace Aquatique":"Water Park","Restaurant":"Restaurant","Épicerie":"Shop",
-    "🏕️ MA LOCATION":"🏕️ MY ACCOMMODATION","🧳 MON DÉPART":"🧳 MY DEPARTURE",
-    "PLAN DU CAMPING":"CAMPSITE MAP","Programme de la semaine":"Weekly schedule","Retrouvez toutes les animations de la semaine.":"Find all the week's activities.",
-    "Numéro de location":"Accommodation number","Indiquer mon numéro":"Enter my number","Valider ma location":"Confirm my accommodation",
-    "Enregistrer le numéro":"Save number","Ce numéro n'est pas configuré. Vérifiez le numéro indiqué par la réception.":"This number is not configured. Please check the number given by reception.",
-    "VOTRE LOCATION":"YOUR ACCOMMODATION","Points importants":"Important points",
-    "Les dernières étapes avant de prendre la route 👋":"The final steps before hitting the road 👋",
-    "HEURE DE DÉPART":"DEPARTURE TIME","HÉBERGEMENT":"ACCOMMODATION","DÉCHETS":"WASTE","CUISINE":"KITCHEN","CLÉS":"KEYS","CAUTION":"DEPOSIT","DERNIÈRES VÉRIFICATIONS":"FINAL CHECKS",
-    "Votre hébergement doit être libéré avant 10h00.":"Your accommodation must be vacated before 10:00.",
-    "Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.":"Please leave your accommodation clean and tidy according to the campsite instructions.",
-    "Déposez vos déchets dans les espaces prévus à cet effet.":"Please dispose of your waste in the designated areas.",
-    "Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.":"Check the fridge, cupboards and equipment before departure.",
-    "Restituez les clés selon les modalités indiquées par la réception.":"Return the keys according to the instructions given by reception.",
-    "Retrouvez ici les informations concernant la caution et sa restitution.":"Find the information about your deposit and its return here.",
-    "Pensez à vérifier vos affaires personnelles et les abords de votre emplacement ou hébergement.":"Remember to check your belongings and the area around your pitch or accommodation.",
-    "👋 MERCI POUR VOTRE VISITE !":"👋 THANK YOU FOR YOUR VISIT!","Bonne route et à bientôt au Camping de Ceyreste ❤️":"Have a safe journey and see you soon at Camping de Ceyreste ❤️",
-    "Horaires":"Opening hours","Règles essentielles":"Essential rules","Réservation":"Booking","Services":"Services",
-    "Calme":"Quiet hours","Véhicules":"Vehicles","Capacité":"Capacity","Mineurs":"Minors","Départ":"Departure","Animaux":"Pets","Propreté":"Cleanliness",
-    "À compléter selon la période.":"To be completed according to the period.",
-    "Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.":"SWIM SHORTS ARE NOT ALLOWED. Please follow the posted rules and SUPERVISE your children.",
-    "Toute la journée en haute saison (juillet-aôut) et à partir de 17h le reste de l'année":"All day in high season (July-August) and from 5 pm the rest of the year",
-    "Il est plus que préférable de réserver. Pensez y et allez voir directement le personnel du restaurant.":"Booking is strongly recommended. Please contact the restaurant staff directly.",
-    "Camping familial et calme. Merci de respecter le calme APRES 23h.":"Family-friendly, quiet campsite. Please respect quiet hours AFTER 11 pm.",
-    "1 véhicule par mobil-home. Les véhicules supplémentaires doivent etre stationnés sur le parking situé à l'extérieur.":"1 vehicle per mobile home. Additional vehicles must be parked in the outside car park.",
-    "Merci de respecter les capacités maximum de votre location (2, 4 ou 6personnes)":"Please respect the maximum capacity of your accommodation (2, 4 or 6 people).",
-    "Un adulte est obligatoire dans chaque mobil-home. Les mineurs ne doivent pas être laissés sans surveillance.":"An adult is required in every mobile home. Minors must not be left unsupervised.",
-    "Les mobil-homes doivent être rendus propres avant 10h. Un état des lieux de sortie sera à réaliser. Appelez-nous quand vous êtes prêts !":"Mobile homes must be left clean before 10 am. A check-out inspection must be completed. Call us when you are ready!",
-    "Les animaux doivent être tenus sous contrôle et respecter les règles du camping.":"Pets must be kept under control and comply with campsite rules.",
-    "Merci de respecter les espaces communs, sanitaires et zones de tri.":"Please respect the shared areas, sanitary facilities and recycling areas.",
-    "Accueil, renseignements et services du camping.":"Reception, information and campsite services.",
-    "Piscines et espace aquatique du camping.":"Swimming pools and water park.",
-    "Restaurant et snack du camping.":"Campsite restaurant and snack bar.",
-    "Épicerie située au niveau de la réception.":"Shop located next to reception.",
-    "Parking du camping.":"Campsite car park.","Aire de jeux.":"Playground.","Tables de ping-pong.":"Table tennis tables.",
-    "Terrain multisports.":"Multi-sports court.","Terrain de pétanque.":"Petanque court.","Trampoline à élastique.":"Bungee trampoline.",
-    "Accrobranche / Acro Games.":"Tree climbing / Acro Games.","Sanitaires composés de WC, douches, lavabos,....":"Toilets, showers and washbasins.",
-    "CAMPING DE CEYRESTE":"CEYRESTE CAMPSITE","Réception":"Reception","Espace aquatique":"Water park","Snack / Restaurant":"Snack / Restaurant",
-    "Trampoline + Accrobranche":"Trampoline + Tree climbing","Accrogames":"Acro Games","Sanitaires 1":"Sanitary facilities 1","Sanitaires 2":"Sanitary facilities 2",
-    "Parking":"Car park","Aire de jeux":"Playground","Ping Pong":"Table tennis","CityStade":"Multi-sports court","Pétanque":"Petanque"
-  },
-  de: {
-    "BIENVENUE":"WILLKOMMEN","Bienvenue":"Willkommen","Profitez pleinement de votre séjour":"Genießen Sie Ihren Aufenthalt",
-    "Toutes les infos du camping directement à portée de main.":"Alle Informationen über den Campingplatz auf einen Blick.",
-    "AUJOURD'HUI AU CAMPING":"HEUTE AUF DEM CAMPINGPLATZ","À ne pas manquer":"Nicht verpassen",
-    "À DÉCOUVRIR":"ENTDECKEN","Explorer →":"Entdecken →","PHOTOS DU CAMPING":"CAMPINGPLATZ-FOTOS",
-    "Découvrez le camping":"Campingplatz entdecken","Besoin d'aide ?":"Brauchen Sie Hilfe?","Appeler":"Anrufen","E-mail":"E-Mail",
-    "Accueil":"Startseite","Programme":"Programm","Infos":"Infos","Mon séjour":"Mein Aufenthalt","Choisir la langue":"Sprache wählen",
-    "ANIMATIONS":"ANIMATION","ESPACE AQUATIQUE":"WASSERPARK","RESTAURANT":"RESTAURANT","RECEPTION":"REZEPTION","REGLEMENT":"REGELN",
-    "PLAN DU CAMPING":"CAMPINGPLATZPLAN","A DECOUVRIR":"ENTDECKEN","NOS PARTENAIRES":"UNSERE PARTNER","URGENCES":"NOTFÄLLE","MON DÉPART":"MEINE ABREISE",
-    "Ma location":"Meine Unterkunft","MA LOCATION":"MEINE UNTERKUNFT","Réception":"Rezeption","Espace Aquatique":"Wasserpark","Restaurant":"Restaurant","Épicerie":"Shop",
-    "Programme de la semaine":"Wochenprogramm","Retrouvez toutes les animations de la semaine.":"Alle Aktivitäten der Woche.",
-    "Numéro de location":"Unterkunftsnummer","Indiquer mon numéro":"Meine Nummer eingeben","Valider ma location":"Unterkunft bestätigen","Enregistrer le numéro":"Nummer speichern",
-    "VOTRE LOCATION":"IHRE UNTERKUNFT","HEURE DE DÉPART":"ABREISEZEIT","HÉBERGEMENT":"UNTERKUNFT","DÉCHETS":"ABFALL","CUISINE":"KÜCHE","CLÉS":"SCHLÜSSEL","CAUTION":"KAUTION","DERNIÈRES VÉRIFICATIONS":"LETZTE KONTROLLEN",
-    "Votre hébergement doit être libéré avant 10h00.":"Ihre Unterkunft muss vor 10:00 Uhr verlassen werden.",
-    "Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.":"Bitte hinterlassen Sie Ihre Unterkunft sauber und ordentlich.",
-    "Déposez vos déchets dans les espaces prévus à cet effet.":"Bitte entsorgen Sie Ihren Abfall in den vorgesehenen Bereichen.",
-    "Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.":"Prüfen Sie vor der Abreise Kühlschrank, Schränke und Ausstattung.",
-    "Restituez les clés selon les modalités indiquées par la réception.":"Geben Sie die Schlüssel gemäß den Anweisungen der Rezeption zurück.",
-    "Bonne route et à bientôt au Camping de Ceyreste ❤️":"Gute Reise und bis bald auf dem Camping de Ceyreste ❤️",
-    "Horaires":"Öffnungszeiten","Règles essentielles":"Wichtige Regeln","Réservation":"Reservierung","Services":"Service",
-    "Calme":"Ruhe","Véhicules":"Fahrzeuge","Capacité":"Kapazität","Mineurs":"Minderjährige","Départ":"Abreise","Animaux":"Haustiere","Propreté":"Sauberkeit",
-    "CAMPING DE CEYRESTE":"CAMPINGPLATZ CEYRESTE"
-  },
-  es: {
-    "BIENVENUE":"BIENVENIDO","Bienvenue":"Bienvenido","Profitez pleinement de votre séjour":"Disfruta plenamente de tu estancia",
-    "Toutes les infos du camping directement à portée de main.":"Toda la información del camping al alcance de tu mano.",
-    "AUJOURD'HUI AU CAMPING":"HOY EN EL CAMPING","À ne pas manquer":"No te lo pierdas","À DÉCOUVRIR":"DESCUBRIR",
-    "Explorer →":"Explorar →","PHOTOS DU CAMPING":"FOTOS DEL CAMPING","Découvrez le camping":"Descubre el camping",
-    "Besoin d'aide ?":"¿Necesitas ayuda?","Appeler":"Llamar","E-mail":"Correo electrónico","Accueil":"Inicio","Programme":"Programa","Infos":"Información","Mon séjour":"Mi estancia",
-    "Choisir la langue":"Elegir idioma","ANIMATIONS":"ANIMACIÓN","ESPACE AQUATIQUE":"PARQUE ACUÁTICO","RESTAURANT":"RESTAURANTE","RECEPTION":"RECEPCIÓN",
-    "REGLEMENT":"NORMAS","PLAN DU CAMPING":"PLANO DEL CAMPING","A DECOUVRIR":"DESCUBRIR","NOS PARTENAIRES":"NUESTROS SOCIOS","URGENCES":"EMERGENCIAS","MON DÉPART":"MI SALIDA",
-    "Ma location":"Mi alojamiento","MA LOCATION":"MI ALOJAMIENTO","Réception":"Recepción","Espace Aquatique":"Parque acuático","Restaurant":"Restaurante","Épicerie":"Tienda",
-    "Programme de la semaine":"Programa semanal","Retrouvez toutes les animations de la semaine.":"Consulta todas las actividades de la semana.",
-    "Numéro de location":"Número de alojamiento","Indiquer mon numéro":"Indicar mi número","Valider ma location":"Confirmar mi alojamiento","Enregistrer le numéro":"Guardar número",
-    "VOTRE LOCATION":"TU ALOJAMIENTO","HEURE DE DÉPART":"HORA DE SALIDA","HÉBERGEMENT":"ALOJAMIENTO","DÉCHETS":"RESIDUOS","CUISINE":"COCINA","CLÉS":"LLAVES","CAUTION":"DEPÓSITO","DERNIÈRES VÉRIFICATIONS":"ÚLTIMAS COMPROBACIONES",
-    "Votre hébergement doit être libéré avant 10h00.":"Tu alojamiento debe quedar libre antes de las 10:00.",
-    "Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.":"Deja tu alojamiento limpio y ordenado según las indicaciones del camping.",
-    "Déposez vos déchets dans les espaces prévus à cet effet.":"Deposita los residuos en las zonas previstas.",
-    "Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.":"Comprueba el frigorífico, los armarios y el equipamiento antes de salir.",
-    "Restituez les clés selon les modalités indiquées par la réception.":"Devuelve las llaves según las indicaciones de recepción.",
-    "Bonne route et à bientôt au Camping de Ceyreste ❤️":"Buen viaje y hasta pronto en el Camping de Ceyreste ❤️",
-    "Horaires":"Horarios","Règles essentielles":"Normas esenciales","Réservation":"Reserva","Services":"Servicios",
-    "Calme":"Tranquilidad","Véhicules":"Vehículos","Capacité":"Capacidad","Mineurs":"Menores","Départ":"Salida","Animaux":"Mascotas","Propreté":"Limpieza",
-    "CAMPING DE CEYRESTE":"CAMPING DE CEYRESTE"
-  },
-  nl: {
-    "BIENVENUE":"WELKOM","Bienvenue":"Welkom","Profitez pleinement de votre séjour":"Geniet volop van uw verblijf",
-    "Toutes les infos du camping directement à portée de main.":"Alle informatie over de camping binnen handbereik.",
-    "AUJOURD'HUI AU CAMPING":"VANDAAG OP DE CAMPING","À ne pas manquer":"Niet te missen","À DÉCOUVRIR":"ONTDEKKEN",
-    "Explorer →":"Ontdekken →","PHOTOS DU CAMPING":"CAMPINGFOTO'S","Découvrez le camping":"Ontdek de camping",
-    "Besoin d'aide ?":"Hulp nodig?","Appeler":"Bellen","E-mail":"E-mail","Accueil":"Home","Programme":"Programma","Infos":"Info","Mon séjour":"Mijn verblijf",
-    "Choisir la langue":"Kies taal","ANIMATIONS":"ANIMATIE","ESPACE AQUATIQUE":"WATERPARK","RESTAURANT":"RESTAURANT","RECEPTION":"RECEPTIE",
-    "REGLEMENT":"REGELS","PLAN DU CAMPING":"CAMPINGPLATTEGROND","A DECOUVRIR":"ONTDEKKEN","NOS PARTENAIRES":"ONZE PARTNERS","URGENCES":"NOODGEVALLEN","MON DÉPART":"MIJN VERTREK",
-    "Ma location":"Mijn accommodatie","MA LOCATION":"MIJN ACCOMMODATIE","Réception":"Receptie","Espace Aquatique":"Waterpark","Restaurant":"Restaurant","Épicerie":"Winkel",
-    "Programme de la semaine":"Weekprogramma","Retrouvez toutes les animations de la semaine.":"Bekijk alle activiteiten van de week.",
-    "Numéro de location":"Accommodatienummer","Indiquer mon numéro":"Mijn nummer invoeren","Valider ma location":"Accommodatie bevestigen","Enregistrer le numéro":"Nummer opslaan",
-    "VOTRE LOCATION":"UW ACCOMMODATIE","HEURE DE DÉPART":"VERTREKTIJD","HÉBERGEMENT":"ACCOMMODATIE","DÉCHETS":"AFVAL","CUISINE":"KEUKEN","CLÉS":"SLEUTELS","CAUTION":"BORG","DERNIÈRES VÉRIFICATIONS":"LAATSTE CONTROLES",
-    "Votre hébergement doit être libéré avant 10h00.":"Uw accommodatie moet vóór 10:00 uur worden verlaten.",
-    "Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.":"Laat uw accommodatie schoon en netjes achter volgens de campingregels.",
-    "Déposez vos déchets dans les espaces prévus à cet effet.":"Gooi afval weg op de daarvoor bestemde plaatsen.",
-    "Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.":"Controleer koelkast, kasten en uitrusting vóór vertrek.",
-    "Restituez les clés selon les modalités indiquées par la réception.":"Lever de sleutels in volgens de instructies van de receptie.",
-    "Bonne route et à bientôt au Camping de Ceyreste ❤️":"Goede reis en tot ziens op Camping de Ceyreste ❤️",
-    "Horaires":"Openingstijden","Règles essentielles":"Belangrijke regels","Réservation":"Reserveren","Services":"Diensten",
-    "Calme":"Rust","Véhicules":"Voertuigen","Capacité":"Capaciteit","Mineurs":"Minderjarigen","Départ":"Vertrek","Animaux":"Huisdieren","Propreté":"Netheid",
-    "CAMPING DE CEYRESTE":"CAMPING DE CEYRESTE"
-  },
-  it: {
-    "BIENVENUE":"BENVENUTO","Bienvenue":"Benvenuto","Profitez pleinement de votre séjour":"Goditi al massimo il tuo soggiorno",
-    "Toutes les infos du camping directement à portée de main.":"Tutte le informazioni del campeggio a portata di mano.",
-    "AUJOURD'HUI AU CAMPING":"OGGI AL CAMPEGGIO","À ne pas manquer":"Da non perdere","À DÉCOUVRIR":"SCOPRI",
-    "Explorer →":"Esplora →","PHOTOS DU CAMPING":"FOTO DEL CAMPEGGIO","Découvrez le camping":"Scopri il campeggio",
-    "Besoin d'aide ?":"Hai bisogno di aiuto?","Appeler":"Chiama","E-mail":"E-mail","Accueil":"Home","Programme":"Programma","Infos":"Info","Mon séjour":"Il mio soggiorno",
-    "Choisir la langue":"Scegli la lingua","ANIMATIONS":"ANIMAZIONE","ESPACE AQUATIQUE":"PARCO ACQUATICO","RESTAURANT":"RISTORANTE","RECEPTION":"RECEPTION",
-    "REGLEMENT":"REGOLAMENTO","PLAN DU CAMPING":"MAPPA DEL CAMPEGGIO","A DECOUVRIR":"SCOPRI","NOS PARTENAIRES":"I NOSTRI PARTNER","URGENCES":"EMERGENZE","MON DÉPART":"LA MIA PARTENZA",
-    "Ma location":"Il mio alloggio","MA LOCATION":"IL MIO ALLOGGIO","Réception":"Reception","Espace Aquatique":"Parco acquatico","Restaurant":"Ristorante","Épicerie":"Negozio",
-    "Programme de la semaine":"Programma settimanale","Retrouvez toutes les animations de la semaine.":"Scopri tutte le attività della settimana.",
-    "Numéro de location":"Numero dell'alloggio","Indiquer mon numéro":"Inserisci il mio numero","Valider ma location":"Conferma alloggio","Enregistrer le numéro":"Salva numero",
-    "VOTRE LOCATION":"IL TUO ALLOGGIO","HEURE DE DÉPART":"ORA DI PARTENZA","HÉBERGEMENT":"ALLOGGIO","DÉCHETS":"RIFIUTI","CUISINE":"CUCINA","CLÉS":"CHIAVI","CAUTION":"CAUZIONE","DERNIÈRES VÉRIFICATIONS":"ULTIMI CONTROLLI",
-    "Votre hébergement doit être libéré avant 10h00.":"Il tuo alloggio deve essere liberato entro le 10:00.",
-    "Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping.":"Lascia il tuo alloggio pulito e in ordine secondo le regole del campeggio.",
-    "Déposez vos déchets dans les espaces prévus à cet effet.":"Deposita i rifiuti negli appositi spazi.",
-    "Vérifiez le réfrigérateur, les placards et les équipements avant votre départ.":"Controlla frigorifero, armadi e attrezzature prima della partenza.",
-    "Restituez les clés selon les modalités indiquées par la réception.":"Restituisci le chiavi secondo le indicazioni della reception.",
-    "Bonne route et à bientôt au Camping de Ceyreste ❤️":"Buon viaggio e a presto al Camping de Ceyreste ❤️",
-    "Horaires":"Orari","Règles essentielles":"Regole essenziali","Réservation":"Prenotazione","Services":"Servizi",
-    "Calme":"Silenzio","Véhicules":"Veicoli","Capacité":"Capacità","Mineurs":"Minori","Départ":"Partenza","Animaux":"Animali","Propreté":"Pulizia",
-    "CAMPING DE CEYRESTE":"CAMPING DE CEYRESTE"
-  }
-}
-
 const CEYRESTE_LANGUAGE_KEY = "ceyreste_language";
 let currentLanguage = "fr";
 function getBrowserLanguage(){
@@ -359,6 +207,7 @@ function setLanguage(lang){
   renderLanguageSelector();
   renderToday();
   renderDrawer();
+  renderSocials();
   dynamicWelcomeMount();
   translateStaticDom();
 }
@@ -517,6 +366,46 @@ document.querySelector("#helpText").textContent="La réception est à votre disp
 document.querySelector("#callLink").href=`tel:${CAMPING.contact.phone}`;
 document.querySelector("#mailLink").href=`mailto:${CAMPING.contact.email}`;
 
+
+/* ============================================================
+   📲 RÉSEAUX SOCIAUX — Facebook + Instagram
+   ============================================================
+   Les liens sont ici, dans app.js, pour ne pas modifier config.js.
+   Si tu connais les URLs exactes des pages du camping, remplace
+   simplement les deux URLs ci-dessous.
+*/
+const CEYRESTE_SOCIALS = {
+  facebook: "https://www.facebook.com/search/top?q=Camping%20de%20Ceyreste",
+  instagram: "https://www.instagram.com/explore/search/keyword/?q=Camping%20de%20Ceyreste"
+};
+
+function renderSocials(){
+  const host=document.querySelector("#socialsCard");
+  if(!host) return;
+  host.innerHTML=`
+    <div class="socials-head">
+      <div>
+        <div class="eyebrow dark">${escapeHtml(t("NOUS SUIVRE"))}</div>
+        <h2>${escapeHtml(t("Restez connectés"))}</h2>
+        <p>${escapeHtml(t("Retrouvez nos actualités, photos, vidéos et les nouveautés du camping."))}</p>
+      </div>
+      <div class="socials-main-icon">📲</div>
+    </div>
+    <div class="socials-buttons">
+      <a class="social-button facebook" href="${CEYRESTE_SOCIALS.facebook}" target="_blank" rel="noopener noreferrer">
+        <span class="social-icon">f</span>
+        <span><strong>Facebook</strong><small>${escapeHtml(t("Voir notre page"))}</small></span>
+        <span class="social-arrow">↗</span>
+      </a>
+      <a class="social-button instagram" href="${CEYRESTE_SOCIALS.instagram}" target="_blank" rel="noopener noreferrer">
+        <span class="social-icon instagram-glyph">◎</span>
+        <span><strong>Instagram</strong><small>${escapeHtml(t("Voir nos photos et vidéos"))}</small></span>
+        <span class="social-arrow">↗</span>
+      </a>
+    </div>
+    <div class="socials-footer">📸 ${escapeHtml(t("Partagez vos vacances et identifiez-nous !"))}</div>
+  `;
+}
 function resolveImageUrl(src){
   if(!src) return "";
   try { return new URL(String(src).trim(), document.baseURI).href; }
@@ -533,6 +422,7 @@ function renderTiles(){
     </button>`).join("");
 }
 renderTiles();
+renderSocials();
 
 function getTodayPlanning(){
   const dayNames = [
