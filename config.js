@@ -1409,7 +1409,7 @@ const CAMPING = {
       blocks: [
         [textStyle("HORAIRES", { color: "blue", bold: true }), textStyle("Basse Saison: 10h-19h\n Juillet-Août: 10h-20h", { color: "gray" }), "🕐"],
         [textStyle("REGLES ESSENTIELLES", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "dark" }), "📋"],
-        [textStyle("BASSINS AQUATIQUES", { color: "blue", bold: true }), textStyle("Venez découvrir nos 2 bassins, dont 1 équipé d'une patinoire", { color: "gray" }), "🌊"],
+        [textStyle("BASSINS AQUATIQUES", { color: "blue", bold: true }), textStyle("Venez découvrir nos 2 bassins, dont 1 équipé d'une patogeoire", { color: "gray" }), "🌊"],
         [textStyle("TOBOGGANS", { color: "green", bold: true }), textStyle("Pour le plaisir des plus jeunes... comme des plus grands. VENEZ VOIR NOTRE NOUVEAUTE 2026", { color: "gray" }), "😉"],
       ]
     },
@@ -1444,7 +1444,9 @@ const CAMPING = {
         [textStyle("MINEURS", { color: "red", bold: true }), textStyle("Un adulte est obligatoire dans chaque mobil-home. Les mineurs ne doivent pas être laissés sans surveillance.", { color: "dark" }), "🧒"],
         [textStyle("DEPART", { color: "green", bold: true }), textStyle("Les mobil-homes doivent être rendus propres avant 10h. Un état des lieux de sortie sera à réaliser. Appelez-nous quand vous êtes prêts !", { color: "dark" }), "🏠"],
         [textStyle("ANIMAUX", { color: "teal", bold: true }), textStyle("Les animaux doivent être tenus sous contrôle et respecter les règles du camping.", { color: "dark" }), "🐶"],
-        [textStyle("PROPRETE", { color: "green", bold: true }), textStyle("Merci de respecter les espaces communs, sanitaires et zones de tri.", { color: "dark" }), "♻️"]
+        [textStyle("PROPRETE", { color: "green", bold: true }), textStyle("Merci de respecter les espaces communs, sanitaires et zones de tri.", { color: "dark" }), "♻️"],
+        [textStyle("RISQUE INCENDIE", { color: "red", bold: true }), textStyle("Le camping est sous risque incendie important. Pour cela, merci de respecter IMPERATIVEMENT les règles suivantes: Aucune source de flamme n'est autorisée dans l'enceinte du camping; Seul les équipements à gaz sont acceptés; Merci de ne pas fumer dans les allées et lieux publics du camping; ", { color: "dark" }), "🔥"],
+        [textStyle("CONSIGNES D'EVACTUATION", { color: "green", bold: true }), textStyle("En cas d'évacuation, merci de vous rassembler au point de rassemblement (citystade), tout en respectant les règles suivantes: En partant du mobilhome, veuillez couper toute source electrique (lumière, climatisation, etc..), ne pas courrir, NE PAS RETOURNER EN ARRIERE, Suivre uniquement le chemin indiqué par les panneaux de signalisation associés (flèche rouge sur fond blanc). Si vos enfants ou autre ne sont pas avec vous, pas d'inquiétude ! Les animateurs et autres membres du personnel les rappatrieront eux aussi au niveau du point de rassemblement", { color: "dark" }), "♻️"],
       ]
     },
     map: {
