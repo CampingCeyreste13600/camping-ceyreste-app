@@ -1,5 +1,5 @@
 /* Camping de Ceyreste - cache réseau robuste */
-const CACHE_VERSION = "ceyreste-v2026-08-24-14";
+const CACHE_VERSION = "ceyreste-v2026-08-24-15";
 const CORE = [
   "./",
   "./index.html",
