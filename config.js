@@ -1306,21 +1306,21 @@ const CAMPING = {
     {
       day: "Lundi",
       events: [
-        { text: "10h00 • Atelier créatif", color: "pink", bold: true, icon: "🎨" },
+        { text: "10h00 • Atelier créatif bracelet", color: "pink", bold: true, icon: "🎨" },
         { text: "12h00 • Aquabike (sur inscription)", color: "blue", bold: true, icon: "🏊" },
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "16h00 • Aqua-Volley", color: "green", icon: "🏐" },
-        { text: "21h00 • Soirée CABAREVE", color: "red", bold: true, size: "large", icon: "💃" }
+        { text: "21h00 • Soirée Just Dance", color: "red", bold: true, size: "large", icon: "💃" }
       ]
     },
     {
       day: "Mardi",
       events: [
-        { text: "10h00 • Rallye photo", color: "brown", icon: "🍄" },
+        { text: "10h00 • Arelier créatif Eventail", color: "brown", icon: "🍄" },
         { text: "12h00 • Aqua-fun", color: "blue", icon: "🏊" },
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "14h00 • Tournoi de Pétanque (inscription)", color: "green", icon: "🏆" },
-        { text: "17h00 • Trampoline + Accrobranche", color: "green", icon: "🌲" },
+        { text: "17h00 • Trampoline + Jeux de Bois", color: "green", icon: "🌲" },
         { text: "21h00 • Soirée Just Dance", color: "pink", bold: true, size: "large", icon: "🕺" }
       ]
     },
@@ -1341,7 +1341,7 @@ const CAMPING = {
         { text: "12h00 • Aqua-fun", color: "blue", icon: "🏊" },
         { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
         { text: "16h00 • Aqua-Boom", color: "pink", icon: "🧒" },
-        { text: "17h00 • Trampoline + Accrobranche", color: "green", icon: "🌲" },
+        { text: "17h00 • Trampoline + Jeu dx", color: "green", icon: "🌲" },
         { text: "21h00 • Loto", color: "purple", bold: true, size: "large", icon: "🎉" }
       ]
     },
