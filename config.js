@@ -1250,7 +1250,7 @@ const CAMPING = {
         openingSchedule: {
           juilletAout: [{ start: "10:00", end: "20:00" }],
           septembreOctobre: [{ start: "08:00", end: "20:00" }],
-        novJan: [{ start: "00:00", end: "00:00" },
+        novJan: [{ start: "00:00", end: "00:00" },]
         note: textStyle("Ouvert ✔️", {
           color: "green",
           bold: true
@@ -1265,7 +1265,7 @@ const CAMPING = {
         }),
         time: "Toute la journée en juillet-août / à partir de 17H en basse saison",
         openingSchedule: {
-          MarsJuin: [{ start: "17:00", end: "22:00" }]
+          MarsJuin: [{ start: "17:00", end: "22:00" }],
           juilletAout: [{ start: "08:30", end: "23:30" }],
           octobre: [{ start: "17:00", end: "22:00" }],
           novJan: [{ start: "00:00", end: "00:01" }]
