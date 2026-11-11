@@ -815,6 +815,7 @@ const CAMPING = {
     { id: "partners", icon: "🚲", title: textStyle("NOS PARTENAIRES", { color: "orange", bold: true }), desc: textStyle("Activités locales", { color: "gray" }) },
     { id: "emergency", icon: "📦", title: textStyle("NOS SERVICES", { color: "red", bold: true }), desc: textStyle("Toutes nos locations et suppléments à retrouver ici", { color: "gray" }) },
     { id: "departure", icon: "🧳", title: textStyle("MON DÉPART", { color: "orange", bold: true }), desc: textStyle("Les dernières étapes avant de partir", { color: "gray" }) }
+    { id: "market", icon: "🧳", title: textStyle("LES MARCHES", { color: "red", bold: true }), desc: textStyle("Tout les marchés à decouvrir", { color: "gray" }) }
   ],
 
   sections: {
@@ -939,6 +940,77 @@ const CAMPING = {
         [textStyle("CLÉS", { color: "blue", bold: true }), textStyle("Pensez à faire l'état des lieux de sortie, en appelant la réception le jour de votre départ", { color: "gray" }), "🔑"],
         [textStyle("CAUTION", { color: "purple", bold: true }), textStyle("La caution vous sera restituée uniquement après que nos équipes aient vérifié l'état du mobil-home par un état des lieux", { color: "gray" }), "💶"],
         [textStyle("DERNIÈRES VÉRIFICATIONS", { color: "teal", bold: true }), textStyle("Pensez à vérifier vos affaires personnelles et les abords de votre emplacement ou hébergement.", { color: "gray" }), "✅"]
+         ]
+    },
+        market: {
+      title: textStyle("LES MARCHES", { color: "green", bold: true, size: "large" }),
+      intro: textStyle("Les marchés à decouvrir", { color: "gray" }),
+      accordion: true,
+      blocks: [
+       days: [
+        {
+          day: " Lundi",
+          events: [
+            { text: " 8h00 à 12h00•  Sanary ", color: "pink", bold: true, icon: "" },
+            { text: " 9h00 à 13h00• Bandol ", color: "blue", bold: true, icon: "" },
+            { text: " • ", color: "orange", bold: true, icon: "" },
+            { text: " • ", color: "green", icon: "" },
+            { text: " • ", color: "red", bold: true, size: "large", icon: "" }
+          ]
+        },
+        {
+          day: "",
+          events: [
+            { text: " • ", color: "brown", icon: "" },
+            { text: " • ", color: "blue", icon: "" },
+            { text: " •", color: "orange", bold: true, icon: "" },
+            { text: " • ", color: "green", icon: "" },
+            { text: " • ", color: "green", icon: "" },
+            { text: " • ", color: "pink", bold: true, size: "large", icon: "" }
+          ]
+        },
+        {
+          day: "",
+          events: [
+            { text: " • ", color: "purple", bold: true, icon: "" },
+            { text: " • ", color: "blue", icon: "" },
+            { text: " • ", color: "orange", bold: true, icon: "" },
+            { text: " • ", color: "yellow", icon: "" },
+            { text: "• ", color: "purple", bold: true, size: "large", icon: "" }
+          ]
+        },
+        {
+          day: "",
+          events: [
+            { text: " • ", color: "green", icon: "" },
+            { text: "• ", color: "blue", icon: "" },
+            { text: " • ", color: "orange", bold: true, icon: "" },
+            { text: " • ", color: "pink", icon: "" },
+            { text: " • ", color: "green", icon: "" },
+            { text: " • ", color: "purple", bold: true, size: "large", icon: "" }
+          ]
+        },
+        {
+          day: "",
+          events: [
+            { text: " • ", color: "pink", bold: true, icon: "" },
+            { text: " •  ", color: "blue", icon: "" },
+            { text: " • ", color: "orange", bold: true, icon: "" },
+            { text: " • ", color: "green", icon: "" },
+            { text: " • ", color: "red", bold: true, size: "large", icon: "" }
+          ]
+        },
+        {
+          day: "Samedi",
+          events: [{ text: "Aucune animation prévue aujourd'hui", color: "black", icon: "😴" }]
+        },
+        {
+          day: "Dimanche",
+          events: [{ text: "20h00 • Pot d'accueil (restaurant)", color: "green", bold: true, icon: "🥂" }]
+        }
+      ]
+    }
+  },
       ],
       conclusion: textStyle("👋 MERCI POUR VOTRE VISITE !\nBonne route et à bientôt au Camping de Ceyreste ❤️", { color: "green-dark", bold: true, align: "center" })
     },
