@@ -1234,8 +1234,8 @@ const CAMPING = {
         openingSchedule: {
           basseSaison: [{ start: "08:30", end: "12:00" }, { start: "14:00", end: "19:00" }],
           juilletAout: [{ start: "08:00", end: "20:00" }],
-          octobre: [{ start: "09:00", end: "12:00" }, { start: "14:00", end: "18:00" }],
-          novJan: [{ start: "09:00", end: "12:00" }, { start: "15:00", end: "18:00" }]
+          octobre: [{ start: "09:00", end: "12:00" }, { start: "14:00", end: "19:00" }],
+          novJan: [{ start: "09:00", end: "12:00" }, { start: "14:00", end: "18:00" }]
         },
         note: textStyle("Ouverte ✔️", { color: "green", bold: true })
       },
@@ -1246,8 +1246,11 @@ const CAMPING = {
           color: "blue",
           bold: true
         }),
-        time: "10H-20H",
-        openingHours: [{ start: "10:00", end: "20:00" }],
+        time: "Horaires selon la période",
+        openingSchedule: {
+          juilletAout: [{ start: "10:00", end: "20:00" }],
+          septembreOctobre: [{ start: "08:00", end: "20:00" }],
+        novJan: [{ start: "00:00", end: "00:00" },
         note: textStyle("Ouvert ✔️", {
           color: "green",
           bold: true
@@ -1260,14 +1263,14 @@ const CAMPING = {
           color: "orange",
           bold: true
         }),
-        time: "Toute la journée en juillet-août / à partir de 17H le reste de l'année",
+        time: "Toute la journée en juillet-août / à partir de 17H en basse saison",
         openingSchedule: {
-          basseSaison: [{ start: "17:00", end: "23:00" }],
+          MarsJuin: [{ start: "17:00", end: "22:00" }]
           juilletAout: [{ start: "08:30", end: "23:30" }],
-          octobre: [{ start: "17:00", end: "23:59" }],
-          novJan: [{ start: "17:00", end: "23:59" }]
+          octobre: [{ start: "17:00", end: "22:00" }],
+          novJan: [{ start: "00:00", end: "00:01" }]
         },
-        note: textStyle("Ouvert ✔️", {
+        note: textStyle("Ouvert ✔️",   { 
           color: "green",
           bold: true
         })
@@ -1283,8 +1286,8 @@ const CAMPING = {
         openingSchedule: {
           basseSaison: [{ start: "08:30", end: "12:00" }, { start: "14:00", end: "19:00" }],
           juilletAout: [{ start: "08:00", end: "20:00" }],
-          octobre: [{ start: "09:00", end: "12:00" }, { start: "14:00", end: "18:00" }],
-          novJan: [{ start: "09:00", end: "12:00" }, { start: "15:00", end: "18:00" }]
+          octobre: [{ start: "09:00", end: "12:00" }, { start: "14:00", end: "19:00" }],
+          novJan: [{ start: "09:00", end: "12:00" }, { start: "14:00", end: "18:00" }]
         },
         note: textStyle("Ouverte ✔️", {
           color: "green",
@@ -1309,55 +1312,55 @@ const CAMPING = {
 
       days: [
     {
-      day: "Lundi",
+      day: "",
       events: [
-        { text: "10h00 • Atelier créatif bracelet", color: "pink", bold: true, icon: "🎨" },
-        { text: "12h00 • Aquabike (sur inscription)", color: "blue", bold: true, icon: "🏊" },
-        { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
-        { text: "16h00 • Aqua-Volley", color: "green", icon: "🏐" },
-        { text: "21h00 • Soirée Just Dance", color: "red", bold: true, size: "large", icon: "💃" }
+        { text: " • ", color: "pink", bold: true, icon: "" },
+        { text: " • ", color: "blue", bold: true, icon: "" },
+        { text: " • ", color: "orange", bold: true, icon: "" },
+        { text: " • ", color: "green", icon: "" },
+        { text: " • ", color: "red", bold: true, size: "large", icon: "" }
       ]
     },
     {
-      day: "Mardi",
+      day: "",
       events: [
-        { text: "10h00 • Arelier créatif Eventail", color: "brown", icon: "🍄" },
-        { text: "12h00 • Aqua-fun", color: "blue", icon: "🏊" },
-        { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
-        { text: "14h00 • Tournoi de Pétanque (inscription)", color: "green", icon: "🏆" },
-        { text: "17h00 • Trampoline + Jeux de Bois", color: "green", icon: "🌲" },
-        { text: "21h00 • Soirée Just Dance", color: "pink", bold: true, size: "large", icon: "🕺" }
+        { text: " • ", color: "brown", icon: "" },
+        { text: " • ", color: "blue", icon: "" },
+        { text: " •", color: "orange", bold: true, icon: "" },
+        { text: " • ", color: "green", icon: "" },
+        { text: " • ", color: "green", icon: "" },
+        { text: " • ", color: "pink", bold: true, size: "large", icon: "" }
       ]
     },
     {
-      day: "Mercredi",
+      day: "",
       events: [
-        { text: "10h00 • Coloriage", color: "purple", bold: true, icon: "🎨" },
-        { text: "12h00 • Aquabike (sur inscription)", color: "blue", icon: "🏊" },
-        { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
-        { text: "16h00 • Jeux Aquatiques", color: "yellow", icon: "🧒" },
-        { text: "21h30 • POOL PARTY", color: "purple", bold: true, size: "large", icon: "🎉" }
+        { text: " • ", color: "purple", bold: true, icon: "" },
+        { text: " • ", color: "blue", icon: "" },
+        { text: " • ", color: "orange", bold: true, icon: "" },
+        { text: " • ", color: "yellow", icon: "" },
+        { text: "• ", color: "purple", bold: true, size: "large", icon: "" }
       ]
     },
     {
-      day: "Jeudi",
+      day: "",
       events: [
-        { text: "10h00 • Tournoi PingPong", color: "green", icon: "🏓" },
-        { text: "12h00 • Aqua-fun", color: "blue", icon: "🏊" },
-        { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
-        { text: "16h00 • Aqua-Boom", color: "pink", icon: "🧒" },
-        { text: "17h00 • Trampoline + Jeu dx", color: "green", icon: "🌲" },
-        { text: "21h00 • Loto", color: "purple", bold: true, size: "large", icon: "🎉" }
+        { text: " • ", color: "green", icon: "" },
+        { text: "• ", color: "blue", icon: "" },
+        { text: " • ", color: "orange", bold: true, icon: "" },
+        { text: " • ", color: "pink", icon: "" },
+        { text: " • ", color: "green", icon: "" },
+        { text: " • ", color: "purple", bold: true, size: "large", icon: "" }
       ]
     },
     {
-      day: "Vendredi",
+      day: "",
       events: [
-        { text: "10h00 • Football", color: "pink", bold: true, icon: "⚽" },
-        { text: "12h00 • Aquabike (sur inscription)", color: "blue", icon: "🏊" },
-        { text: "12h30 • Summer Dance (à la piscine)", color: "orange", bold: true, icon: "👯" },
-        { text: "16h00 • Aqua-Volley", color: "green", icon: "🏐" },
-        { text: "21h00 • Karaoké", color: "red", bold: true, size: "large", icon: "🎶" }
+        { text: " • ", color: "pink", bold: true, icon: "" },
+        { text: " •  ", color: "blue", icon: "" },
+        { text: " • ", color: "orange", bold: true, icon: "" },
+        { text: " • ", color: "green", icon: "" },
+        { text: " • ", color: "red", bold: true, size: "large", icon: "" }
       ]
     },
     {
@@ -1422,7 +1425,7 @@ const CAMPING = {
       title: textStyle("🍽️ RESTAURANT", { color: "orange", bold: true, size: "large" }),
       image: "images/resto.jpg",
       menuPdf: "images/carte.pdf",
-      intro: textStyle("Nathalie et toute son équipe vous accueillent pendant la saison.", { color: "gray" }),
+      intro: textStyle("Toute l'équipe vous accueillent pendant la saison.", { color: "gray" }),
       blocks: [
         [textStyle("HORAIRES", { color: "orange", bold: true }), textStyle("Toute la journée en haute saison (juillet-aôut) et à partir de 17h le reste de l'année", { color: "gray" }), "🕐"],
         [textStyle("RESERVATION", { color: "green", bold: true }), textStyle("Il est plus que préférable de réserver. Pensez y et allez voir directement le personnel du restaurant.", { color: "dark" }), "📞"]
@@ -1433,8 +1436,8 @@ const CAMPING = {
       image: "",
       intro: textStyle("Les services pratiques du camping.", { color: "gray" }),
       blocks: [
-        [textStyle("HORAIRES", { color: "green", bold: true }), textStyle("Basse Saison (8h30-12h/14h-19h)\n Juillet-Aôut (8h-20h)\n,Octobre (9-12/14-18)\n, Novembre-Décembre-Janvier (9-12/15-18)", { color: "gray" }), "🕐"],
-        [textStyle("NOTRE EQUIPE", { color: "orange", bold: true }), textStyle("Emmanuelle, Mathilde, Alexandre, Tess et Caroline sont à votre disposition pour tout renseignement ", { color: "dark" }), "🦸‍♀️"],
+        [textStyle("HORAIRES", { color: "green", bold: true }), textStyle("Basse Saison (8h30-12h/14h-19h)\n Juillet-Aôut (8h-20h)\n,Octobre (9-12/14-19)\n, Novembre-Décembre-Janvier (9-12/14-18)", { color: "gray" }), "🕐"],
+        [textStyle("NOTRE EQUIPE", { color: "orange", bold: true }), textStyle("Emmanuelle et Tess sont à votre disposition pour tout renseignement ", { color: "dark" }), "🦸‍♀️"],
         [textStyle("EPICERIE", { color: "blue", bold: true }), textStyle("Il vous manque quelque chose ? Envie d'une petite gourmandise ? Notre épicerie est la pour vous.", { color: "dark" }), "🛍️"]
       ]
     },
@@ -1504,7 +1507,7 @@ const CAMPING = {
         [textStyle("BARBECUE A GAZ", { color: "red", bold: true }), textStyle("Location d'un barbecue à gaz pour 8€/jour", { color: "dark" }), "♨️"],
         [textStyle("FRIGO", { color: "blue", bold: true }), textStyle("Location d'un frigo pour 7€/jour, ou d'une box réfrigérée pour 5€/jour", { color: "dark" }), "❄️"],
         [textStyle("LAVERIE", { color: "grey", bold: true }), textStyle("La laverie focntionne sous forme de jeton: LAVE-LINGE 5€\n SECHE-LINGE 2€\n DOSE DE LESSIVE 1€", { color: "dark" }), "🧼"],
-        [textStyle("WIFI", { color: "yellow", bold: true }), textStyle("Wifi sous forme de tickets: 24h: 5€ et 20€ pour une semaine", { color: "dark" }), "📳"],
+        [textStyle("WIFI", { color: "yellow", bold: true }), textStyle("Wifi sous forme de tickets: 24h: 4€ et 20€ pour une semaine", { color: "dark" }), "📳"],
         [textStyle("DEPOT DE PAIN", { color: "orange", bold: true }), textStyle("Depot de pain et Viennoiseries tout les jours. SUR RESERVATION à la reception", { color: "dark" }), "🥖"]
       ]
     },
