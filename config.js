@@ -772,7 +772,7 @@ const CAMPING = {
       accordion: true,
       blocks: [
         {
-          day: "Lundi",
+        day: "Lundi",
           events: [
             { text: "8:00 à 12:00 • Sanary", color: "pink", bold: true, icon: "" },
             { text: "9:00 à 13:00 • Bandol", color: "blue", bold: true, icon: "" },
@@ -782,14 +782,15 @@ const CAMPING = {
           ]
         },
         {
-          day: "Mardi",
+         day: "Mardi",
           events: [
             { text: "9:00 à 13:00• Bandol", color: "orange", bold: true, icon: "" },
-            { text: "8:00•", color: "green", icon: "" }
+            { text: "8:00 à 12:00• Sanary", color: "green", bold: true, icon: "" },
+            { text: "8:00 à 12:00• Saint-Cyr-sur-Mer", color: "orange", bold: true, icon: "" },
           ]
         },
         {
-          day: "Mercredi",
+         day: "Mercredi",
           events: [
             { text: "•", color: "purple", bold: true, icon: "" },
             { text: "•", color: "yellow", icon: "" }
@@ -803,18 +804,18 @@ const CAMPING = {
           ]
         },
         {
-          day: "Vendredi",
+         day: "Vendredi",
           events: [
             { text: "•", color: "pink", bold: true, icon: "" },
             { text: "•", color: "orange", bold: true, icon: "" }
           ]
         },
         {
-          day: "Samedi",
+         day: "Samedi",
           events: [{ text: "Aucune animation prévue aujourd'hui", color: "black", icon: "😴" }]
         },
         {
-          day: "Dimanche",
+        day: "Dimanche",
           events: [{ text: "20h00 • Pot d'accueil (restaurant)", color: "green", bold: true, icon: "🥂" }]
         }
       ]
