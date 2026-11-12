@@ -863,12 +863,12 @@ const CAMPING = {
             "8h00 à 13h00 • Marseille – Belle de Mai\n" +
             "8h00 à 13h00 • Marseille – Marché aux fleurs Chave\n" +
             "8h00 à 13h00 • Marseille – Marché aux fleurs Estrangin\n" +
-            "8h00 à 13h00 • Fontvieille\n" +
-            "8h30 à 13h00 • Les Milles\n" +
+            "9h00 à 13h00 • Bandol\n" +
+            "7h30 à 13h00 • Sanary\n" +
             "8h00 à 13h00 • Saintes-Maries-de-la-Mer\n" +
             "9h00 à 12h00 • La Ciotat – Marché des pêcheurs\n" +
             "16h00 à 19h00 • Marseille – Friche Belle de Mai\n" +
-            "16h00 à 19h00 • Saint-Martin-de-Crau",
+            "16h00 à 19h00 • Six-Four-les-Plages",
             { color: "gray" }
           ),
           "📅"
