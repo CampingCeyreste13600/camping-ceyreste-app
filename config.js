@@ -860,15 +860,15 @@ const CAMPING = {
         [
           textStyle("Lundi", { color: "orange", bold: true }),
           textStyle(
-            " de 8h00 à 13h00 • Marseille – Belle de Mai -- \n" +
-            " de 8h00 à 13h00 • Marseille – Marché aux fleurs Chave -- \n" +
-            " de 8h00 à 13h00 • Marseille – Marché aux fleurs Estrangin --\n" +
-            " de 9h00 à 13h00 • Bandol -- \n" +
-            " de 7h30 à 13h00 • Sanary -- \n" +
-            " de 8h00 à 13h00 • Saintes-Maries-de-la-Mer -- \n" +
-            " de 9h00 à 12h00 • La Ciotat – Marché des pêcheurs -- \n" +
-            " de 16h00 à 19h00 • Marseille – Friche Belle de Mai -- \n" +
-            " de 16h00 à 19h00 • Six-Four-les-Plages",
+            " Marseille – Belle de Mai • de 8h00 à 13h00  --  \n" +
+            " Marseille – Marché aux fleurs Chave • de 8h00 à 13h00  -- \n" +
+            " Marseille – Marché aux fleurs Estrangin • de 8h00 à 13h00  --\n" +
+            " Bandol • de 9h00 à 13h00  -- \n" +
+            " Sanary • de 7h30 à 13h00  -- \n" +
+            " Saintes-Maries-de-la-Mer • 8h00 à 13h00  -- \n" +
+            " La Ciotat – Marché des pêcheurs • de 9h00 à 12h00 -- \n" +
+            " La Ciotat – Marché des pêcheurs • de 9h00 à 12h00 -- \n" +
+            " Six-Four-les-Plages • de 16h00 à 19h00 ",
             { color: "gray" }
           ),
           "📅"
