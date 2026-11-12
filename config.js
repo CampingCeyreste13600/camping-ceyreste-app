@@ -876,7 +876,7 @@ const CAMPING = {
         [
           textStyle("Mardi", { color: "orange", bold: true }),
           textStyle(
-            "8h00 à 13h00 • Aix-en-Provence\n" +
+            "Aix-en-Provence • de 8h00 à 13h00 \n" +
             "8h00 à 13h00 • Arles – Raphèle-lès-Arles\n" +
             "8h00 à 13h00 • Istres\n" +
             "8h00 à 13h00 • Eyguières\n" +
