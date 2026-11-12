@@ -18,32 +18,6 @@ function textStyle(text, options = {}) {
   };
 }
 
-/*
-  ============================================================
-  CONFIGURATION — CAMPING DE CEYRESTE
-  ============================================================
-  Ici tu peux modifier les textes de l'application.
-
-  NOUVEAU : presque tous les textes peuvent être personnalisés
-  avec la fonction textStyle().
-
-  Exemple simple :
-  textStyle("Bienvenue au camping", { color: "green", bold: true })
-
-  Options :
-  color: "green" / "blue" / "orange" / "red" / "purple" / "pink" / "teal" / "yellow"
-  ou une couleur HTML : "#ff69b4"
-
-  bold: true
-  italic: true
-  size: "small" / "normal" / "large" / "xl"
-  background: "#..."
-  align: "left" / "center" / "right"
-
-  Pour les textes déjà affichés comme des champs simples,
-  tu peux simplement utiliser textStyle() à la place du texte.
-*/
-
 const MOBILE_HOMES = {
   "1": "PORT_PIN",
   "2": "PORT_PIN",
@@ -211,7 +185,7 @@ const MOBILE_HOMES = {
 };
 
 const MOBILE_HOME_CATEGORIES = {
-  "LA_CIOTAT": {
+  LA_CIOTAT: {
     title: textStyle("Mobilhome LA CIOTAT", { color: "orange", bold: true }),
     category: "La Ciotat",
     capacity: "4 personnes",
@@ -224,8 +198,7 @@ const MOBILE_HOME_CATEGORIES = {
       "Calme après 23h s'il vous plait"
     ]
   },
-
-  "CASSIS": {
+  CASSIS: {
     title: textStyle("Mobilhome CASSIS", { color: "#C84388", bold: true }),
     category: "Cassis",
     capacity: "2 personnes",
@@ -238,8 +211,7 @@ const MOBILE_HOME_CATEGORIES = {
       "Calme après 23h s'il vous plait"
     ]
   },
-
-  "FIGUEROLLES": {
+  FIGUEROLLES: {
     title: textStyle("Mobilhome FIGUEROLLES", { color: "#048B9A", bold: true }),
     category: "Figuerolles",
     capacity: "4 personnes",
@@ -252,8 +224,7 @@ const MOBILE_HOME_CATEGORIES = {
       "Calme après 23h s'il vous plait"
     ]
   },
-
-  "PORT_MIOU": {
+  PORT_MIOU: {
     title: textStyle("Mobilhome PORT MIOU", { color: "teal", bold: true }),
     category: "Port Miou",
     capacity: "6 personnes",
@@ -266,8 +237,7 @@ const MOBILE_HOME_CATEGORIES = {
       "Calme après 23h s'il vous plait"
     ]
   },
-
-  "PORT_PIN": {
+  PORT_PIN: {
     title: textStyle("Mobilhome PORT PIN", { color: "pink", bold: true }),
     category: "Port Pin",
     capacity: "4 personnes",
@@ -282,8 +252,7 @@ const MOBILE_HOME_CATEGORIES = {
       "Lave vaisselle intégré"
     ]
   },
-
-  "EN_VAU": {
+  EN_VAU: {
     title: textStyle("Mobilhome EN VAU", { color: "red", bold: true }),
     category: "En Vau",
     capacity: "6 personnes",
@@ -298,8 +267,7 @@ const MOBILE_HOME_CATEGORIES = {
       "Lave vaisselle intégré"
     ]
   },
-
-  "PREMIUM2": {
+  PREMIUM2: {
     title: textStyle("Mobilhome PREMIUM", { color: "yellow", bold: true }),
     category: "Premium",
     capacity: "4 personnes",
@@ -316,8 +284,7 @@ const MOBILE_HOME_CATEGORIES = {
       "Forfait ménage inclus"
     ]
   },
-
-  "PREMIUM3": {
+  PREMIUM3: {
     title: textStyle("Mobilhome PREMIUM", { color: "#b0f2c2", bold: true }),
     category: "Premium",
     capacity: "6 personnes",
@@ -335,8 +302,7 @@ const MOBILE_HOME_CATEGORIES = {
       "Forfait ménage inclus"
     ]
   },
-
-  "TENTE_KENYA": {
+  TENTE_KENYA: {
     title: textStyle("Tente Jenya", { color: "#690c07", bold: true }),
     category: "Tente Kenya",
     capacity: "5 personnes",
@@ -350,8 +316,7 @@ const MOBILE_HOME_CATEGORIES = {
       "Accès aux sanitaires"
     ]
   },
-
-  "EMPL": {
+  EMPL: {
     title: textStyle("Emplacement", { color: "green", bold: true }),
     category: "Emplacement nature",
     capacity: "6 personnes",
@@ -370,285 +335,181 @@ const MOBILE_HOME_CATEGORIES = {
 const PLAN_INTERACTIF = {
   image: "images/plan-camping-2026.jpg",
   points: [
-    {
-      "id": "reception",
-      "name": "Réception",
-      "category": "services",
-      "icon": "🛎️",
-      "x": 52.2,
-      "y": 73.4,
-      "description": "Accueil, renseignements et services du camping."
-    },
-    {
-      "id": "pool",
-      "name": "Espace aquatique",
-      "category": "loisirs",
-      "icon": "🏊",
-      "x": 50.0,
-      "y": 80.0,
-      "description": "Piscines et espace aquatique du camping."
-    },
-    {
-      "id": "restaurant",
-      "name": "Snack / Restaurant",
-      "category": "services",
-      "icon": "🍽️",
-      "x": 45.0,
-      "y": 72.0,
-      "description": "Restaurant et snack du camping."
-    },
-    {
-      "id": "shop",
-      "name": "Épicerie",
-      "category": "services",
-      "icon": "🛒",
-      "x": 58.0,
-      "y": 72.0,
-      "description": "Épicerie située au niveau de la réception."
-    },
-    {
-      "id": "parking-main",
-      "name": "Parking",
-      "category": "services",
-      "icon": "🅿️",
-      "x": 62.0,
-      "y": 78.0,
-      "description": "Parking du camping."
-    },
-    {
-      "id": "playground",
-      "name": "Aire de jeux",
-      "category": "loisirs",
-      "icon": "🛝",
-      "x": 53.2,
-      "y": 66.0,
-      "description": "Aire de jeux."
-    },
-    {
-      "id": "pingpong",
-      "name": "Ping Pong",
-      "category": "loisirs",
-      "icon": "🏓",
-      "x": 51.5,
-      "y": 63.0,
-      "description": "Tables de ping-pong."
-    },
-    {
-      "id": "multisports",
-      "name": "CityStade",
-      "category": "loisirs",
-      "icon": "🏀",
-      "x": 42.0,
-      "y": 93.0,
-      "description": "Terrain multisports."
-    },
-    {
-      "id": "petanque",
-      "name": "Pétanque",
-      "category": "loisirs",
-      "icon": "🎯",
-      "x": 48.0,
-      "y": 60.0,
-      "description": "Terrain de pétanque."
-    },
-    {
-      "id": "trampoline",
-      "name": "Trampoline + Accrobranche",
-      "category": "loisirs",
-      "icon": "🤸",
-      "x": 41.0,
-      "y": 96.0,
-      "description": "Trampoline à élastique."
-    },
-    {
-      "id": "accrobranche",
-      "name": "Accrogames",
-      "category": "loisirs",
-      "icon": "🌲",
-      "x": 23.0,
-      "y": 18.0,
-      "description": "Accrobranche / Acro Games."
-    },
-    {
-      "id": "sanitary1",
-      "name": "Sanitaires 1",
-      "category": "services",
-      "icon": "🚻",
-      "x": 45.0,
-      "y": 68.2,
-      "description": "Sanitaires composés de WC, douches, lavabos,...."
-    },
-    {
-      "id": "sanitary2",
-      "name": "Sanitaires 2",
-      "category": "services",
-      "icon": "🚻",
-      "x": 24.0,
-      "y": 86.0,
-      "description": "Sanitaires composés de WC, douches, lavabos,...."
-    }
+    { id: "reception", name: "Réception", category: "services", icon: "🛎️", x: 52.2, y: 73.4, description: "Accueil, renseignements et services du camping." },
+    { id: "pool", name: "Espace aquatique", category: "loisirs", icon: "🏊", x: 50.0, y: 80.0, description: "Piscines et espace aquatique du camping." },
+    { id: "restaurant", name: "Snack / Restaurant", category: "services", icon: "🍽️", x: 45.0, y: 72.0, description: "Restaurant et snack du camping." },
+    { id: "shop", name: "Épicerie", category: "services", icon: "🛒", x: 58.0, y: 72.0, description: "Épicerie située au niveau de la réception." },
+    { id: "parking-main", name: "Parking", category: "services", icon: "🅿️", x: 62.0, y: 78.0, description: "Parking du camping." },
+    { id: "playground", name: "Aire de jeux", category: "loisirs", icon: "🛝", x: 53.2, y: 66.0, description: "Aire de jeux." },
+    { id: "pingpong", name: "Ping Pong", category: "loisirs", icon: "🏓", x: 51.5, y: 63.0, description: "Tables de ping-pong." },
+    { id: "multisports", name: "CityStade", category: "loisirs", icon: "🏀", x: 42.0, y: 93.0, description: "Terrain multisports." },
+    { id: "petanque", name: "Pétanque", category: "loisirs", icon: "🎯", x: 48.0, y: 60.0, description: "Terrain de pétanque." },
+    { id: "trampoline", name: "Trampoline + Accrobranche", category: "loisirs", icon: "🤸", x: 41.0, y: 96.0, description: "Trampoline à élastique." },
+    { id: "accrobranche", name: "Accrogames", category: "loisirs", icon: "🌲", x: 23.0, y: 18.0, description: "Accrobranche / Acro Games." },
+    { id: "sanitary1", name: "Sanitaires 1", category: "services", icon: "🚻", x: 45.0, y: 68.2, description: "Sanitaires composés de WC, douches, lavabos,...." },
+    { id: "sanitary2", name: "Sanitaires 2", category: "services", icon: "🚻", x: 24.0, y: 86.0, description: "Sanitaires composés de WC, douches, lavabos,...." }
   ],
   locations: {
-    "1": { "x": 41.38, "y": 58.95 },
-    "2": { "x": 38.9, "y": 57.23 },
-    "3": { "x": 36.49, "y": 55.21 },
-    "4": { "x": 41.88, "y": 99.08 },
-    "5": { "x": 32.13, "y": 51.37 },
-    "6": { "x": 30.18, "y": 49.49 },
-    "7": { "x": 28.05, "y": 47.92 },
-    "8": { "x": 25.85, "y": 46.27 },
-    "9": { "x": 23.99, "y": 44.39 },
-    "10": { "x": 21.81, "y": 42.61 },
-    "11": { "x": 19.87, "y": 41.16 },
-    "12": { "x": 15.76, "y": 38.81 },
-    "13": { "x": 11.38, "y": 35.08 },
-    "20": { "x": 36.95, "y": 62.58 },
-    "21": { "x": 34.46, "y": 60.85 },
-    "22": { "x": 31.96, "y": 58.66 },
-    "23": { "x": 29.77, "y": 56.79 },
-    "24": { "x": 27.29, "y": 54.85 },
-    "25": { "x": 24.73, "y": 52.75 },
-    "26": { "x": 22.4, "y": 50.76 },
-    "27": { "x": 19.86, "y": 48.64 },
-    "28": { "x": 17.23, "y": 46.51 },
-    "30": { "x": 35.09, "y": 65.11 },
-    "31": { "x": 32.81, "y": 63.24 },
-    "32": { "x": 30.43, "y": 61.29 },
-    "33": { "x": 28.19, "y": 59.36 },
-    "34": { "x": 25.86, "y": 57.36 },
-    "35": { "x": 23.52, "y": 55.15 },
-    "36": { "x": 20.86, "y": 53.4 },
-    "38": { "x": 16.04, "y": 49.27 },
-    "40": { "x": 31.74, "y": 67.74 },
-    "41": { "x": 29.46, "y": 65.93 },
-    "43": { "x": 25.52, "y": 62.65 },
-    "44": { "x": 23.2, "y": 60.77 },
-    "45": { "x": 21.11, "y": 58.88 },
-    "46": { "x": 18.84, "y": 56.83 },
-    "47": { "x": 16.34, "y": 55.2 },
-    "50": { "x": 29.45, "y": 69.6 },
-    "51": { "x": 27.39, "y": 67.77 },
-    "52": { "x": 25.08, "y": 65.94 },
-    "53": { "x": 22.81, "y": 64.17 },
-    "54": { "x": 20.7, "y": 62.38 },
-    "55": { "x": 18.33, "y": 60.45 },
-    "56": { "x": 16.09, "y": 58.4 },
-    "60": { "x": 26.16, "y": 74.08 },
-    "61": { "x": 24.08, "y": 71.73 },
-    "62": { "x": 22.18, "y": 69.91 },
-    "63": { "x": 20.18, "y": 68.21 },
-    "64": { "x": 17.26, "y": 64.76 },
-    "65": { "x": 16.37, "y": 67.98 },
-    "66": { "x": 16.08, "y": 71.42 },
-    "67": { "x": 16.3, "y": 74.47 },
-    "68": { "x": 18.98, "y": 73.65 },
-    "69": { "x": 20.78, "y": 75.31 },
-    "69B": { "x": 23.73, "y": 76.7 },
-    "70": { "x": 11.72, "y": 41.61 },
-    "71": { "x": 11.72, "y": 44.54 },
-    "72": { "x": 11.72, "y": 47.17 },
-    "73": { "x": 11.72, "y": 49.83 },
-    "74": { "x": 11.72, "y": 52.51 },
-    "75": { "x": 11.72, "y": 54.87 },
-    "76": { "x": 11.72, "y": 57.44 },
-    "77": { "x": 11.72, "y": 60.07 },
-    "78": { "x": 11.72, "y": 62.68 },
-    "79": { "x": 11.72, "y": 65.23 },
-    "80": { "x": 11.87, "y": 67.96 },
-    "81": { "x": 11.85, "y": 70.44 },
-    "82": { "x": 11.83, "y": 72.95 },
-    "83": { "x": 11.8, "y": 75.52 },
-    "84": { "x": 11.8, "y": 78.38 },
-    "85": { "x": 11.89, "y": 81.1 },
-    "86": { "x": 11.89, "y": 83.39 },
-    "90": { "x": 8.17, "y": 83.28 },
-    "91": { "x": 8.17, "y": 81.35 },
-    "92": { "x": 8.17, "y": 79.29 },
-    "93": { "x": 8.17, "y": 77.24 },
-    "94": { "x": 8.17, "y": 74.96 },
-    "95": { "x": 8.17, "y": 72.71 },
-    "96": { "x": 8.17, "y": 70.31 },
-    "97": { "x": 8.17, "y": 68.0 },
-    "98": { "x": 8.17, "y": 65.72 },
-    "101": { "x": 3.18, "y": 68.83 },
-    "102": { "x": 3.18, "y": 71.06 },
-    "103": { "x": 3.18, "y": 73.46 },
-    "104": { "x": 2.95, "y": 78.38 },
-    "105": { "x": 3.33, "y": 81.2 },
-    "106": { "x": 3.4, "y": 84.03 },
-    "107": { "x": 3.4, "y": 86.34 },
-    "108": { "x": 3.29, "y": 88.33 },
-    "109": { "x": 3.33, "y": 90.87 },
-    "110": { "x": 3.2, "y": 93.8 },
-    "111": { "x": 2.95, "y": 96.75 },
-    "112": { "x": 5.78, "y": 96.75 },
-    "113": { "x": 8.37, "y": 93.56 },
-    "114": { "x": 7.97, "y": 90.97 },
-    "115": { "x": 7.97, "y": 87.79 },
-    "116": { "x": 11.49, "y": 87.79 },
-    "117": { "x": 13.68, "y": 88.17 },
-    "118": { "x": 13.59, "y": 91.57 },
-    "119": { "x": 11.38, "y": 92.25 },
-    "120": { "x": 11.34, "y": 96.48 },
-    "121": { "x": 14.51, "y": 96.48 },
-    "122": { "x": 17.56, "y": 95.87 },
-    "123": { "x": 20.04, "y": 95.73 },
-    "124": { "x": 22.36, "y": 95.73 },
-    "127": { "x": 30.0, "y": 95.82 },
-    "128": { "x": 32.54, "y": 95.82 },
-    "129": { "x": 36.03, "y": 96.02 },
-    "130": { "x": 39.42, "y": 95.9 },
-    "133": { "x": 40.02, "y": 89.53 },
-    "134": { "x": 39.5, "y": 83.82 },
-    "135": { "x": 39.5, "y": 81.74 },
-    "136": { "x": 39.51, "y": 79.6 },
-    "137": { "x": 39.51, "y": 77.47 },
-    "138": { "x": 39.51, "y": 75.06 },
-    "139": { "x": 39.51, "y": 72.15 },
-    "140": { "x": 34.17, "y": 73.17 },
-    "141": { "x": 30.94, "y": 77.58 },
-    "142": { "x": 34.63, "y": 77.48 },
-    "143": { "x": 34.67, "y": 80.63 },
-    "144": { "x": 31.83, "y": 80.59 },
-    "145": { "x": 29.4, "y": 80.73 },
-    "146": { "x": 30.54, "y": 86.34 },
-    "147": { "x": 34.78, "y": 86.36 },
-    "148": { "x": 34.39, "y": 90.2 },
-    "149": { "x": 30.76, "y": 90.3 },
-    "150": { "x": 27.13, "y": 89.65 },
-    "151": { "x": 23.5, "y": 89.65 },
-    "152": { "x": 20.01, "y": 89.65 },
-    "153": { "x": 17.03, "y": 89.65 },
-    "154": { "x": 16.91, "y": 82.63 },
-    "155": { "x": 15.51, "y": 79.44 },
-    "156": { "x": 18.4, "y": 80.09 },
-    "157": { "x": 25.13, "y": 80.58 },
-    "158": { "x": 27.11, "y": 78.8 },
-    "B1": { "x": 53.59, "y": 61.85 },
-    "B2": { "x": 56.35, "y": 64.06 },
-    "B3": { "x": 60.55, "y": 56.69 },
-    "B4": { "x": 61.58, "y": 53.98 },
-    "B7": { "x": 50.32, "y": 58.12 },
-    "T1": { "x": 12.06, "y": 30.78 },
-    "T2": { "x": 14.95, "y": 33.24 },
-    "T3": { "x": 17.63, "y": 35.5 },
-    "T4": { "x": 22.64, "y": 38.23 },
-    "T5": { "x": 25.6, "y": 40.51 },
-    "T6": { "x": 28.59, "y": 42.83 },
-    "T7": { "x": 31.82, "y": 45.36 },
-    "T8": { "x": 34.74, "y": 47.9 },
-    "T9": { "x": 37.53, "y": 50.04 },
-    "T10": { "x": 40.13, "y": 52.2 },
-    "T11": { "x": 42.11, "y": 53.75 },
-    "T12": { "x": 45.71, "y": 56.3 },
-    "T13": { "x": 55.03, "y": 49.81 },
-    "T14": { "x": 60.97, "y": 49.96 },
-    "T15": { "x": 65.83, "y": 50.64 },
-    "T16": { "x": 38.98, "y": 40.42 },
-    "T17": { "x": 43.51, "y": 41.76 },
-    "T18": { "x": 47.38, "y": 42.26 },
-    "T19": { "x": 53.08, "y": 42.19 },
-    "T20": { "x": 57.42, "y": 53.01 }
+    "1": { x: 41.38, y: 58.95 },
+    "2": { x: 38.9, y: 57.23 },
+    "3": { x: 36.49, y: 55.21 },
+    "4": { x: 41.88, y: 99.08 },
+    "5": { x: 32.13, y: 51.37 },
+    "6": { x: 30.18, y: 49.49 },
+    "7": { x: 28.05, y: 47.92 },
+    "8": { x: 25.85, y: 46.27 },
+    "9": { x: 23.99, y: 44.39 },
+    "10": { x: 21.81, y: 42.61 },
+    "11": { x: 19.87, y: 41.16 },
+    "12": { x: 15.76, y: 38.81 },
+    "13": { x: 11.38, y: 35.08 },
+    "20": { x: 36.95, y: 62.58 },
+    "21": { x: 34.46, y: 60.85 },
+    "22": { x: 31.96, y: 58.66 },
+    "23": { x: 29.77, y: 56.79 },
+    "24": { x: 27.29, y: 54.85 },
+    "25": { x: 24.73, y: 52.75 },
+    "26": { x: 22.4, y: 50.76 },
+    "27": { x: 19.86, y: 48.64 },
+    "28": { x: 17.23, y: 46.51 },
+    "30": { x: 35.09, y: 65.11 },
+    "31": { x: 32.81, y: 63.24 },
+    "32": { x: 30.43, y: 61.29 },
+    "33": { x: 28.19, y: 59.36 },
+    "34": { x: 25.86, y: 57.36 },
+    "35": { x: 23.52, y: 55.15 },
+    "36": { x: 20.86, y: 53.4 },
+    "38": { x: 16.04, y: 49.27 },
+    "40": { x: 31.74, y: 67.74 },
+    "41": { x: 29.46, y: 65.93 },
+    "43": { x: 25.52, y: 62.65 },
+    "44": { x: 23.2, y: 60.77 },
+    "45": { x: 21.11, y: 58.88 },
+    "46": { x: 18.84, y: 56.83 },
+    "47": { x: 16.34, y: 55.2 },
+    "50": { x: 29.45, y: 69.6 },
+    "51": { x: 27.39, y: 67.77 },
+    "52": { x: 25.08, y: 65.94 },
+    "53": { x: 22.81, y: 64.17 },
+    "54": { x: 20.7, y: 62.38 },
+    "55": { x: 18.33, y: 60.45 },
+    "56": { x: 16.09, y: 58.4 },
+    "60": { x: 26.16, y: 74.08 },
+    "61": { x: 24.08, y: 71.73 },
+    "62": { x: 22.18, y: 69.91 },
+    "63": { x: 20.18, y: 68.21 },
+    "64": { x: 17.26, y: 64.76 },
+    "65": { x: 16.37, y: 67.98 },
+    "66": { x: 16.08, y: 71.42 },
+    "67": { x: 16.3, y: 74.47 },
+    "68": { x: 18.98, y: 73.65 },
+    "69": { x: 20.78, y: 75.31 },
+    "69B": { x: 23.73, y: 76.7 },
+    "70": { x: 11.72, y: 41.61 },
+    "71": { x: 11.72, y: 44.54 },
+    "72": { x: 11.72, y: 47.17 },
+    "73": { x: 11.72, y: 49.83 },
+    "74": { x: 11.72, y: 52.51 },
+    "75": { x: 11.72, y: 54.87 },
+    "76": { x: 11.72, y: 57.44 },
+    "77": { x: 11.72, y: 60.07 },
+    "78": { x: 11.72, y: 62.68 },
+    "79": { x: 11.72, y: 65.23 },
+    "80": { x: 11.87, y: 67.96 },
+    "81": { x: 11.85, y: 70.44 },
+    "82": { x: 11.83, y: 72.95 },
+    "83": { x: 11.8, y: 75.52 },
+    "84": { x: 11.8, y: 78.38 },
+    "85": { x: 11.89, y: 81.1 },
+    "86": { x: 11.89, y: 83.39 },
+    "90": { x: 8.17, y: 83.28 },
+    "91": { x: 8.17, y: 81.35 },
+    "92": { x: 8.17, y: 79.29 },
+    "93": { x: 8.17, y: 77.24 },
+    "94": { x: 8.17, y: 74.96 },
+    "95": { x: 8.17, y: 72.71 },
+    "96": { x: 8.17, y: 70.31 },
+    "97": { x: 8.17, y: 68.0 },
+    "98": { x: 8.17, y: 65.72 },
+    "101": { x: 3.18, y: 68.83 },
+    "102": { x: 3.18, y: 71.06 },
+    "103": { x: 3.18, y: 73.46 },
+    "104": { x: 2.95, y: 78.38 },
+    "105": { x: 3.33, y: 81.2 },
+    "106": { x: 3.4, y: 84.03 },
+    "107": { x: 3.4, y: 86.34 },
+    "108": { x: 3.29, y: 88.33 },
+    "109": { x: 3.33, y: 90.87 },
+    "110": { x: 3.2, y: 93.8 },
+    "111": { x: 2.95, y: 96.75 },
+    "112": { x: 5.78, y: 96.75 },
+    "113": { x: 8.37, y: 93.56 },
+    "114": { x: 7.97, y: 90.97 },
+    "115": { x: 7.97, y: 87.79 },
+    "116": { x: 11.49, y: 87.79 },
+    "117": { x: 13.68, y: 88.17 },
+    "118": { x: 13.59, y: 91.57 },
+    "119": { x: 11.38, y: 92.25 },
+    "120": { x: 11.34, y: 96.48 },
+    "121": { x: 14.51, y: 96.48 },
+    "122": { x: 17.56, y: 95.87 },
+    "123": { x: 20.04, y: 95.73 },
+    "124": { x: 22.36, y: 95.73 },
+    "127": { x: 30.0, y: 95.82 },
+    "128": { x: 32.54, y: 95.82 },
+    "129": { x: 36.03, y: 96.02 },
+    "130": { x: 39.42, y: 95.9 },
+    "133": { x: 40.02, y: 89.53 },
+    "134": { x: 39.5, y: 83.82 },
+    "135": { x: 39.5, y: 81.74 },
+    "136": { x: 39.51, y: 79.6 },
+    "137": { x: 39.51, y: 77.47 },
+    "138": { x: 39.51, y: 75.06 },
+    "139": { x: 39.51, y: 72.15 },
+    "140": { x: 34.17, y: 73.17 },
+    "141": { x: 30.94, y: 77.58 },
+    "142": { x: 34.63, y: 77.48 },
+    "143": { x: 34.67, y: 80.63 },
+    "144": { x: 31.83, y: 80.59 },
+    "145": { x: 29.4, y: 80.73 },
+    "146": { x: 30.54, y: 86.34 },
+    "147": { x: 34.78, y: 86.36 },
+    "148": { x: 34.39, y: 90.2 },
+    "149": { x: 30.76, y: 90.3 },
+    "150": { x: 27.13, y: 89.65 },
+    "151": { x: 23.5, y: 89.65 },
+    "152": { x: 20.01, y: 89.65 },
+    "153": { x: 17.03, y: 89.65 },
+    "154": { x: 16.91, y: 82.63 },
+    "155": { x: 15.51, y: 79.44 },
+    "156": { x: 18.4, y: 80.09 },
+    "157": { x: 25.13, y: 80.58 },
+    "158": { x: 27.11, y: 78.8 },
+    "B1": { x: 53.59, y: 61.85 },
+    "B2": { x: 56.35, y: 64.06 },
+    "B3": { x: 60.55, y: 56.69 },
+    "B4": { x: 61.58, y: 53.98 },
+    "B7": { x: 50.32, y: 58.12 },
+    "T1": { x: 12.06, y: 30.78 },
+    "T2": { x: 14.95, y: 33.24 },
+    "T3": { x: 17.63, y: 35.5 },
+    "T4": { x: 22.64, y: 38.23 },
+    "T5": { x: 25.6, y: 40.51 },
+    "T6": { x: 28.59, y: 42.83 },
+    "T7": { x: 31.82, y: 45.36 },
+    "T8": { x: 34.74, y: 47.9 },
+    "T9": { x: 37.53, y: 50.04 },
+    "T10": { x: 40.13, y: 52.2 },
+    "T11": { x: 42.11, y: 53.75 },
+    "T12": { x: 45.71, y: 56.3 },
+    "T13": { x: 55.03, y: 49.81 },
+    "T14": { x: 60.97, y: 49.96 },
+    "T15": { x: 65.83, y: 50.64 },
+    "T16": { x: 38.98, y: 40.42 },
+    "T17": { x: 43.51, y: 41.76 },
+    "T18": { x: 47.38, y: 42.26 },
+    "T19": { x: 53.08, y: 42.19 },
+    "T20": { x: 57.42, y: 53.01 }
   }
 };
 
@@ -730,7 +591,6 @@ const CAMPING = {
         note: textStyle("Ouverte ✔️", { color: "green", bold: true })
       }
     ],
-
     animation: {
       title: textStyle("PROGRAMME D'ANIMATION DU JOUR", { color: "green-dark", bold: true }),
       days: [
@@ -753,37 +613,6 @@ const CAMPING = {
             { text: " • ", color: "green", icon: "" },
             { text: " • ", color: "green", icon: "" },
             { text: " • ", color: "pink", bold: true, size: "large", icon: "" }
-          ]
-        },
-        {
-          day: "",
-          events: [
-            { text: " • ", color: "purple", bold: true, icon: "" },
-            { text: " • ", color: "blue", icon: "" },
-            { text: " • ", color: "orange", bold: true, icon: "" },
-            { text: " • ", color: "yellow", icon: "" },
-            { text: "• ", color: "purple", bold: true, size: "large", icon: "" }
-          ]
-        },
-        {
-          day: "",
-          events: [
-            { text: " • ", color: "green", icon: "" },
-            { text: "• ", color: "blue", icon: "" },
-            { text: " • ", color: "orange", bold: true, icon: "" },
-            { text: " • ", color: "pink", icon: "" },
-            { text: " • ", color: "green", icon: "" },
-            { text: " • ", color: "purple", bold: true, size: "large", icon: "" }
-          ]
-        },
-        {
-          day: "",
-          events: [
-            { text: " • ", color: "pink", bold: true, icon: "" },
-            { text: " •  ", color: "blue", icon: "" },
-            { text: " • ", color: "orange", bold: true, icon: "" },
-            { text: " • ", color: "green", icon: "" },
-            { text: " • ", color: "red", bold: true, size: "large", icon: "" }
           ]
         },
         {
@@ -814,8 +643,8 @@ const CAMPING = {
     { id: "region", icon: "📍", title: textStyle("A DECOUVRIR", { color: "teal", bold: true }), desc: textStyle("Activités & lieux incontournables", { color: "gray" }) },
     { id: "partners", icon: "🚲", title: textStyle("NOS PARTENAIRES", { color: "orange", bold: true }), desc: textStyle("Activités locales", { color: "gray" }) },
     { id: "emergency", icon: "📦", title: textStyle("NOS SERVICES", { color: "red", bold: true }), desc: textStyle("Toutes nos locations et suppléments à retrouver ici", { color: "gray" }) },
-    { id: "departure", icon: "🧳", title: textStyle("MON DÉPART", { color: "orange", bold: true }), desc: textStyle("Les dernières étapes avant de partir", { color: "gray" }) }
-    { id: "market", icon: "🧳", title: textStyle("LES MARCHES", { color: "red", bold: true }), desc: textStyle("Tout les marchés à decouvrir", { color: "gray" }) }
+    { id: "departure", icon: "🧳", title: textStyle("MON DÉPART", { color: "orange", bold: true }), desc: textStyle("Les dernières étapes avant de partir", { color: "gray" }) },
+    { id: "market", icon: "🧳", title: textStyle("LES MARCHES", { color: "red", bold: true }), desc: textStyle("Tous les marchés à découvrir", { color: "gray" }) }
   ],
 
   sections: {
@@ -825,45 +654,45 @@ const CAMPING = {
       intro: textStyle("Découvrez nos piscines et nos toboggans, pour le bonheur des petits et des plus grands.", { color: "gray" }),
       blocks: [
         [textStyle("HORAIRES", { color: "blue", bold: true }), textStyle("Basse Saison: 10h-19h\nJuillet-Août: 10h-20h", { color: "gray" }), "🕐"],
-        [textStyle("REGLES ESSENTIELLES", { color: "red", bold: true }), textStyle("Les shorts de bain NE SONT PAS AUTORISES. Respectez les consignes affichées et SURVEILLEZ vos enfants.", { color: "gray" }), "⚠️"],
-        [textStyle("BASSINS AQUATIQUES", { color: "blue", bold: true }), textStyle("Venez découvrir nos 2 bassins, dont 1 équipé d'une patogeoire", { color: "gray" }), "🌊"],
-        [textStyle("TOBOGGANS", { color: "green", bold: true }), textStyle("Pour le plaisir des plus jeunes... comme des plus grands. VENEZ VOIR NOTRE NOUVEAUTE 2026", { color: "gray" }), "😉"]
+        [textStyle("RÈGLES ESSENTIELLES", { color: "red", bold: true }), textStyle("Les shorts de bain ne sont pas autorisés. Respectez les consignes affichées et surveillez vos enfants.", { color: "gray" }), "⚠️"],
+        [textStyle("BASSINS AQUATIQUES", { color: "blue", bold: true }), textStyle("Venez découvrir nos 2 bassins, dont 1 équipé d'une pataugeoire.", { color: "gray" }), "🌊"],
+        [textStyle("TOBOGGANS", { color: "green", bold: true }), textStyle("Pour le plaisir des plus jeunes... comme des plus grands. Venez voir notre nouveauté 2026.", { color: "gray" }), "😉"]
       ]
     },
     restaurant: {
       title: textStyle("🍽️ RESTAURANT", { color: "orange", bold: true, size: "large" }),
       image: "images/resto.jpg",
       menuPdf: "images/carte.pdf",
-      intro: textStyle("Toute l'équipe vous accueillent pendant la saison.", { color: "gray" }),
+      intro: textStyle("Toute l'équipe vous accueille pendant la saison.", { color: "gray" }),
       blocks: [
-        [textStyle("HORAIRES", { color: "orange", bold: true }), textStyle("Toute la journée en haute saison (juillet-aôut) et à partir de 17h le reste de l'année", { color: "gray" }), "🕐"],
-        [textStyle("RESERVATION", { color: "green", bold: true }), textStyle("Il est plus que préférable de réserver. Pensez y et allez voir directement le personnel du restaurant.", { color: "gray" }), "📞"]
+        [textStyle("HORAIRES", { color: "orange", bold: true }), textStyle("Toute la journée en haute saison (juillet-août) et à partir de 17h le reste de l'année.", { color: "gray" }), "🕐"],
+        [textStyle("RÉSERVATION", { color: "green", bold: true }), textStyle("Il est plus que préférable de réserver. Pensez-y et allez voir directement le personnel du restaurant.", { color: "gray" }), "📞"]
       ]
     },
     shop: {
-      title: textStyle("📝 RECEPTION", { color: "green", bold: true, size: "large" }),
+      title: textStyle("📝 RÉCEPTION", { color: "green", bold: true, size: "large" }),
       image: "",
       intro: textStyle("Les services pratiques du camping.", { color: "gray" }),
       blocks: [
-        [textStyle("HORAIRES", { color: "green", bold: true }), textStyle("Basse Saison (8h30-12h/14h-19h)\nJuillet-Aôut (8h-20h)\nOctobre (9-12/14-19)\nNovembre-Décembre-Janvier (9-12/14-18)", { color: "gray" }), "🕐"],
-        [textStyle("NOTRE EQUIPE", { color: "orange", bold: true }), textStyle("Emmanuelle et Tess sont à votre disposition pour tout renseignement ", { color: "gray" }), "🦸‍♀️"],
-        [textStyle("EPICERIE", { color: "blue", bold: true }), textStyle("Il vous manque quelque chose ? Envie d'une petite gourmandise ? Notre épicerie est là pour vous.", { color: "gray" }), "🛍️"]
+        [textStyle("HORAIRES", { color: "green", bold: true }), textStyle("Basse saison (8h30-12h / 14h-19h)\nJuillet-Août (8h-20h)\nOctobre (9h-12h / 14h-19h)\nNovembre-Décembre-Janvier (9h-12h / 14h-18h)", { color: "gray" }), "🕐"],
+        [textStyle("NOTRE ÉQUIPE", { color: "orange", bold: true }), textStyle("Emmanuelle et Tess sont à votre disposition pour tout renseignement.", { color: "gray" }), "🦸‍♀️"],
+        [textStyle("ÉPICERIE", { color: "blue", bold: true }), textStyle("Il vous manque quelque chose ? Envie d'une petite gourmandise ? Notre épicerie est là pour vous.", { color: "gray" }), "🛍️"]
       ]
     },
     rules: {
-      title: textStyle("📖 REGLEMENT DU CAMPING", { color: "purple", bold: true, size: "large" }),
+      title: textStyle("📖 RÈGLEMENT DU CAMPING", { color: "purple", bold: true, size: "large" }),
       image: "",
       intro: textStyle("Merci de respecter ces règles afin que chacun profite de vacances agréables.", { color: "gray" }),
       blocks: [
-        [textStyle("CALME", { color: "purple", bold: true }), textStyle("Camping familial et calme. Merci de respecter le calme APRES 23h.", { color: "gray" }), "🌙"],
-        [textStyle("VEHICULES", { color: "blue", bold: true }), textStyle("1 véhicule par mobil-home. Les véhicules supplémentaires doivent être stationnés sur le parking situé à l'extérieur.", { color: "gray" }), "🚗"],
-        [textStyle("CAPACITE", { color: "orange", bold: true }), textStyle("Merci de respecter les capacités maximum de votre location (2, 4 ou 6 personnes)", { color: "gray" }), "👨‍👩‍👧‍👦"],
-        [textStyle("MINEURS", { color: "red", bold: true }), textStyle("Un adulte est obligatoire dans chaque mobil-home. Les mineurs ne doivent pas être laissés sans surveillance.", { color: "gray" }), "🛡️"],
-        [textStyle("DEPART", { color: "green", bold: true }), textStyle("Les mobil-homes doivent être rendus propres avant 10h. Un état des lieux de sortie sera à réaliser. Appelez-nous quand vous quittez votre emplacement.", { color: "gray" }), "🏠"],
+        [textStyle("CALME", { color: "purple", bold: true }), textStyle("Camping familial et calme. Merci de respecter le calme après 23h.", { color: "gray" }), "🌙"],
+        [textStyle("VÉHICULES", { color: "blue", bold: true }), textStyle("1 véhicule par mobil-home. Les véhicules supplémentaires doivent être stationnés sur le parking situé à l'extérieur.", { color: "gray" }), "🚗"],
+        [textStyle("CAPACITÉ", { color: "orange", bold: true }), textStyle("Merci de respecter les capacités maximum de votre location (2, 4 ou 6 personnes).", { color: "gray" }), "👨‍👩‍👧‍👦"],
+        [textStyle("MINEURS", { color: "red", bold: true }), textStyle("Un adulte est obligatoire dans chaque mobil-home. Les mineurs ne doivent pas être laissés sans surveillance.", { color: "gray" }), "🧒"],
+        [textStyle("DÉPART", { color: "green", bold: true }), textStyle("Les mobil-homes doivent être rendus propres avant 10h. Un état des lieux de sortie sera à réaliser.", { color: "gray" }), "🏠"],
         [textStyle("ANIMAUX", { color: "teal", bold: true }), textStyle("Les animaux doivent être tenus sous contrôle et respecter les règles du camping.", { color: "gray" }), "🐶"],
-        [textStyle("PROPRETE", { color: "green", bold: true }), textStyle("Merci de respecter les espaces communs, sanitaires et zones de tri.", { color: "gray" }), "♻️"],
-        [textStyle("RISQUE INCENDIE", { color: "red", bold: true }), textStyle("Le camping est sous risque incendie important. Pour cela, merci de respecter IMPERATIVEMENT les règles suivantes:\n- Aucun barbecue extérieur\n- Pas de feu ouvert\n- Respect des consignes de sécurité", { color: "gray" }), "🔥"],
-        [textStyle("CONSIGNES D'EVACUATION", { color: "green", bold: true }), textStyle("En cas d'évacuation, merci de vous rassembler au point de rassemblement (citystade), tout en respectant les consignes affichées.", { color: "gray" }), "🚨"]
+        [textStyle("PROPRETÉ", { color: "green", bold: true }), textStyle("Merci de respecter les espaces communs, sanitaires et zones de tri.", { color: "gray" }), "♻️"],
+        [textStyle("RISQUE INCENDIE", { color: "red", bold: true }), textStyle("Le camping est sous risque incendie important. Merci de respecter impérativement les règles de sécurité et de ne pas utiliser de barbecue non conforme.", { color: "gray" }), "🔥"],
+        [textStyle("CONSIGNES D'ÉVACUATION", { color: "green", bold: true }), textStyle("En cas d'évacuation, merci de vous rendre au point de rassemblement (CityStade) et de respecter les consignes de sécurité.", { color: "gray" }), "🚨"]
       ]
     },
     map: {
@@ -876,14 +705,14 @@ const CAMPING = {
       ]
     },
     region: {
-      title: textStyle("📍 A DECOUVRIR", { color: "teal", bold: true, size: "large" }),
+      title: textStyle("📍 À DÉCOUVRIR", { color: "teal", bold: true, size: "large" }),
       intro: textStyle("Découvrez les incontournables autour de Ceyreste et de La Ciotat.", { color: "gray" }),
       blocks: [
         [textStyle("LA CIOTAT", { color: "blue", bold: true }), textStyle("Vieux-Port, plages, calanques et Parc du Mugel.", { color: "gray" }), "🌊"],
         [textStyle("CALANQUES", { color: "teal", bold: true }), textStyle("Figuerolles, Mugel et paysages de la côte méditerranéenne.", { color: "gray" }), "🏞️"],
         [textStyle("CASSIS", { color: "green", bold: true }), textStyle("Port, calanques et Route des Crêtes.", { color: "gray" }), "⛰️"],
         [textStyle("BANDOL & SANARY", { color: "orange", bold: true }), textStyle("Ports, marchés, plages et balades en bord de mer.", { color: "gray" }), "☀️"],
-        [textStyle("MARCHES LOCAUX", { color: "purple", bold: true }), textStyle("La Ciotat, Bandol, Sanary, Le Castellet", { color: "gray" }), "🛍️"]
+        [textStyle("MARCHÉS LOCAUX", { color: "purple", bold: true }), textStyle("La Ciotat, Bandol, Sanary, Le Castellet.", { color: "gray" }), "🛍️"]
       ]
     },
     partners: {
@@ -891,19 +720,14 @@ const CAMPING = {
       image: "",
       intro: textStyle("Retrouvez ici les activités partenaires recommandées par le camping.", { color: "gray" }),
       blocks: [
-        [textStyle("Location de vélos", { color: "pink", bold: true }), textStyle("TROLIB CASSIS, Location de vélos électriques et promenade, 06.72.50.47.26 ", { color: "gray" }), "🚲"],
-        [textStyle("Location de scooters", { color: "orange", bold: true }), textStyle("TOP LOC SERVICES à Roquefort-la-Bédoule, 06.24.09.72.25", { color: "gray" }), "🛵"],
-        [textStyle("Location de quad", { color: "grey", bold: true }), textStyle("RENT A QUAD 13, au départ de La Ciotat, 07.83.05.99.33 ", { color: "gray" }), "🛤️"],
-        [textStyle("Location Kayak", { color: "yellow", bold: true }), textStyle("KAYAK RAIDS à La Ciotat, 06.34.69.83.49", { color: "gray" }), "🛶"],
-        [textStyle("Catamaran", { color: "blue", bold: true }), textStyle("CAT EXPLORER, Sortie en Catamaran, 07.87.23.24.71", { color: "gray" }), "⛵"],
-        [textStyle("Salles d'escalade", { color: "teal", bold: true }), textStyle("BLOC SESSION à La Ciotat, 04.42.72.05.18", { color: "gray" }), "🧗"],
-        [textStyle("Location Voiture", { color: "red", bold: true }), textStyle("OLYMPIC LOCATION, voir avec la Réception", { color: "gray" }), "🚗"],
-        [textStyle("Parapente", { color: "pink", bold: true }), textStyle("MARSEILLE PARAPENTE, Baptemes et Formations, 06.51.84.46.71", { color: "gray" }), "🎈"],
-        [textStyle("Visites des Calanques", { color: "blue", bold: true }), textStyle("GUIDES CASSIS CALANQUES CANAILLES, Visites en bateau, Randonnée, Escalade, Via Cordata, 06.61.50.38.48", { color: "gray" }), "🏞️"],
-        [textStyle("Plongée", { color: "green", bold: true }), textStyle("ANAYA PLONGEE, 07.45.12.31.65", { color: "gray" }), "🥽"],
-        [textStyle("Visites des Calanques en Bateau", { color: "orange", bold: true }), textStyle("LES AMIS DES CALANQUES, 06.09.35.25.68", { color: "gray" }), "🏞️"],
-        [textStyle("Shiatsu e Do In (Bien être)", { color: "brown", bold: true }), textStyle("ENTRE MAINS ET MAUX, Sabine PUGLIESI, 06.15.75.06.72", { color: "gray" }), "💆"],
-        [textStyle("Reflexologie", { color: "grey", bold: true }), textStyle("PIERRE GALAND, 06.59.22.84.73", { color: "gray" }), "🦶"]
+        [textStyle("Location de vélos", { color: "pink", bold: true }), textStyle("TROLIB CASSIS, location de vélos électriques et promenade, 06.72.50.47.26.", { color: "gray" }), "🚲"],
+        [textStyle("Location de scooters", { color: "orange", bold: true }), textStyle("TOP LOC SERVICES à Roquefort-la-Bédoule, 06.24.09.72.25.", { color: "gray" }), "🛵"],
+        [textStyle("Location de quad", { color: "grey", bold: true }), textStyle("RENT A QUAD 13, au départ de La Ciotat, 07.83.05.99.33.", { color: "gray" }), "🛤️"],
+        [textStyle("Location Kayak", { color: "yellow", bold: true }), textStyle("KAYAK RAIDS à La Ciotat, 06.34.69.83.49.", { color: "gray" }), "🛶"],
+        [textStyle("Catamaran", { color: "blue", bold: true }), textStyle("CAT EXPLORER, sortie en catamaran, 07.87.23.24.71.", { color: "gray" }), "⛵"],
+        [textStyle("Salles d'escalade", { color: "teal", bold: true }), textStyle("BLOC SESSION à La Ciotat, 04.42.72.05.18.", { color: "gray" }), "🧗"],
+        [textStyle("Location voiture", { color: "red", bold: true }), textStyle("OLYMPIC LOCATION, voir avec la réception.", { color: "gray" }), "🚗"],
+        [textStyle("Parapente", { color: "pink", bold: true }), textStyle("MARSEILLE PARAPENTE, baptêmes et formations, 06.51.84.46.71.", { color: "gray" }), "🎈"]
       ]
     },
     emergency: {
@@ -911,13 +735,13 @@ const CAMPING = {
       image: "",
       intro: textStyle("Vous avez oublié quelque chose ? Vous avez besoin de quelque chose ?", { color: "red", bold: true }),
       blocks: [
-        [textStyle("LINGERIE", { color: "green", bold: true }), textStyle("Location de draps: Lit Simple 12€\nLit Douple: 15€\nLocation de Kit Serviette 10€", { color: "gray" }), "🧶"],
-        [textStyle("KIT BEBE", { color: "pink", bold: true }), textStyle("Location d'un Kit Bébé (lit parapluie; chaise haute et baignoire) pour 5€/jour", { color: "gray" }), "🐤"],
-        [textStyle("BARBECUE A GAZ", { color: "red", bold: true }), textStyle("Location d'un barbecue à gaz pour 8€/jour", { color: "gray" }), "♨️"],
-        [textStyle("FRIGO", { color: "blue", bold: true }), textStyle("Location d'un frigo pour 7€/jour, ou d'une box réfrigérée pour 5€/jour", { color: "gray" }), "❄️"],
-        [textStyle("LAVERIE", { color: "grey", bold: true }), textStyle("La laverie fonctionne sous forme de jeton: LAVE-LINGE 5€\nSECHE-LINGE 2€\nDOSE DE LESSIVE 1€", { color: "gray" }), "🧺"],
-        [textStyle("WIFI", { color: "yellow", bold: true }), textStyle("Wifi sous forme de tickets: 24h: 4€ et 20€ pour une semaine", { color: "gray" }), "📳"],
-        [textStyle("DEPOT DE PAIN", { color: "orange", bold: true }), textStyle("Dépôt de pain et viennoiseries tous les jours. Sur réservation à la réception", { color: "gray" }), "🥖"]
+        [textStyle("LINGERIE", { color: "green", bold: true }), textStyle("Location de draps: lit simple 12€\nLit double: 15€\nLocation de kit serviette 10€", { color: "gray" }), "🧶"],
+        [textStyle("KIT BÉBÉ", { color: "pink", bold: true }), textStyle("Location d'un kit bébé (lit parapluie, chaise haute et baignoire) pour 5€/jour.", { color: "gray" }), "🐤"],
+        [textStyle("BARBECUE À GAZ", { color: "red", bold: true }), textStyle("Location d'un barbecue à gaz pour 8€/jour.", { color: "gray" }), "♨️"],
+        [textStyle("FRIGO", { color: "blue", bold: true }), textStyle("Location d'un frigo pour 7€/jour, ou d'une box réfrigérée pour 5€/jour.", { color: "gray" }), "❄️"],
+        [textStyle("LAVERIE", { color: "grey", bold: true }), textStyle("La laverie fonctionne sous forme de jeton: lave-linge 5€\nSèche-linge 2€\nDose de lessive 1€.", { color: "gray" }), "🧺"],
+        [textStyle("WIFI", { color: "yellow", bold: true }), textStyle("Wifi sous forme de tickets: 24h: 4€ et 20€ pour une semaine.", { color: "gray" }), "📳"],
+        [textStyle("DÉPÔT DE PAIN", { color: "orange", bold: true }), textStyle("Dépôt de pain et viennoiseries tous les jours, sur réservation à la réception.", { color: "gray" }), "🥖"]
       ]
     },
     notifications: {
@@ -925,7 +749,7 @@ const CAMPING = {
       image: "",
       intro: textStyle("Cette rubrique pourra servir à afficher les informations importantes du jour.", { color: "gray" }),
       blocks: [
-        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Saison 2026: 04 Avril au 02 Janvier 2027", { color: "gray" }), "📢"]
+        [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Saison 2026: 04 avril au 02 janvier 2027", { color: "gray" }), "📢"]
       ]
     },
     departure: {
@@ -934,70 +758,52 @@ const CAMPING = {
       accordion: true,
       blocks: [
         [textStyle("HEURE DE DÉPART", { color: "orange", bold: true }), textStyle("Votre hébergement doit être libéré avant 10h00.", { color: "gray" }), "🏠"],
-        [textStyle("HÉBERGEMENT", { color: "green", bold: true }), textStyle("Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping: Poubelles vidées / Réfrigérateur vidé / Vaisselle rangée", { color: "gray" }), "🏡"],
-        [textStyle("DÉCHETS", { color: "teal", bold: true }), textStyle("Déposez vos déchets dans les espaces prévus à cet effet, situé derrière la laverie", { color: "gray" }), "🗑️"],
-        [textStyle("FORFAIT MENAGE", { color: "orange", bold: true }), textStyle("Le ménage de fin de séjour est à votre charge. Si tel n'était pas le cas, nous serons dans l'obligation de vous facturer", { color: "gray" }), "🧽"],
-        [textStyle("CLÉS", { color: "blue", bold: true }), textStyle("Pensez à faire l'état des lieux de sortie, en appelant la réception le jour de votre départ", { color: "gray" }), "🔑"],
-        [textStyle("CAUTION", { color: "purple", bold: true }), textStyle("La caution vous sera restituée uniquement après que nos équipes aient vérifié l'état du mobil-home par un état des lieux", { color: "gray" }), "💶"],
+        [textStyle("HÉBERGEMENT", { color: "green", bold: true }), textStyle("Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping: poubelles vidées, réfrigérateur vidé et rangement effectué.", { color: "gray" }), "🏡"],
+        [textStyle("DÉCHETS", { color: "teal", bold: true }), textStyle("Déposez vos déchets dans les espaces prévus à cet effet, derrière la laverie.", { color: "gray" }), "🗑️"],
+        [textStyle("FORFAIT MÉNAGE", { color: "orange", bold: true }), textStyle("Le ménage de fin de séjour est à votre charge. Si tel n'était pas le cas, des frais supplémentaires peuvent être appliqués.", { color: "gray" }), "🧼"],
+        [textStyle("CLÉS", { color: "blue", bold: true }), textStyle("Pensez à faire l'état des lieux de sortie en appelant la réception le jour de votre départ.", { color: "gray" }), "🔑"],
+        [textStyle("CAUTION", { color: "purple", bold: true }), textStyle("La caution vous sera restituée uniquement après vérification par nos équipes.", { color: "gray" }), "💶"],
         [textStyle("DERNIÈRES VÉRIFICATIONS", { color: "teal", bold: true }), textStyle("Pensez à vérifier vos affaires personnelles et les abords de votre emplacement ou hébergement.", { color: "gray" }), "✅"]
-         ]
+      ]
     },
-        market: {
-      title: textStyle("LES MARCHES", { color: "green", bold: true, size: "large" }),
-      intro: textStyle("Les marchés à decouvrir", { color: "gray" }),
+    market: {
+      title: textStyle("LES MARCHÉS", { color: "green", bold: true, size: "large" }),
+      intro: textStyle("Les marchés à découvrir", { color: "gray" }),
       accordion: true,
       blocks: [
-       days: [
         {
-          day: " Lundi",
+          day: "Lundi",
           events: [
-            { text: " 8h00 à 12h00•  Sanary ", color: "pink", bold: true, icon: "" },
-            { text: " 9h00 à 13h00• Bandol ", color: "blue", bold: true, icon: "" },
-            { text: " • ", color: "orange", bold: true, icon: "" },
-            { text: " • ", color: "green", icon: "" },
-            { text: " • ", color: "red", bold: true, size: "large", icon: "" }
+            { text: "8h00 à 12h00 • Sanary", color: "pink", bold: true, icon: "" },
+            { text: "9h00 à 13h00 • Bandol", color: "blue", bold: true, icon: "" }
           ]
         },
         {
-          day: "",
+          day: "Mardi",
           events: [
-            { text: " • ", color: "brown", icon: "" },
-            { text: " • ", color: "blue", icon: "" },
-            { text: " •", color: "orange", bold: true, icon: "" },
-            { text: " • ", color: "green", icon: "" },
-            { text: " • ", color: "green", icon: "" },
-            { text: " • ", color: "pink", bold: true, size: "large", icon: "" }
+            { text: "•", color: "orange", bold: true, icon: "" },
+            { text: "•", color: "green", icon: "" }
           ]
         },
         {
-          day: "",
+          day: "Mercredi",
           events: [
-            { text: " • ", color: "purple", bold: true, icon: "" },
-            { text: " • ", color: "blue", icon: "" },
-            { text: " • ", color: "orange", bold: true, icon: "" },
-            { text: " • ", color: "yellow", icon: "" },
-            { text: "• ", color: "purple", bold: true, size: "large", icon: "" }
+            { text: "•", color: "purple", bold: true, icon: "" },
+            { text: "•", color: "yellow", icon: "" }
           ]
         },
         {
-          day: "",
+          day: "Jeudi",
           events: [
-            { text: " • ", color: "green", icon: "" },
-            { text: "• ", color: "blue", icon: "" },
-            { text: " • ", color: "orange", bold: true, icon: "" },
-            { text: " • ", color: "pink", icon: "" },
-            { text: " • ", color: "green", icon: "" },
-            { text: " • ", color: "purple", bold: true, size: "large", icon: "" }
+            { text: "•", color: "green", icon: "" },
+            { text: "•", color: "blue", icon: "" }
           ]
         },
         {
-          day: "",
+          day: "Vendredi",
           events: [
-            { text: " • ", color: "pink", bold: true, icon: "" },
-            { text: " •  ", color: "blue", icon: "" },
-            { text: " • ", color: "orange", bold: true, icon: "" },
-            { text: " • ", color: "green", icon: "" },
-            { text: " • ", color: "red", bold: true, size: "large", icon: "" }
+            { text: "•", color: "pink", bold: true, icon: "" },
+            { text: "•", color: "orange", bold: true, icon: "" }
           ]
         },
         {
@@ -1009,12 +815,7 @@ const CAMPING = {
           events: [{ text: "20h00 • Pot d'accueil (restaurant)", color: "green", bold: true, icon: "🥂" }]
         }
       ]
-    }
-  },
-      ],
-      conclusion: textStyle("👋 MERCI POUR VOTRE VISITE !\nBonne route et à bientôt au Camping de Ceyreste ❤️", { color: "green-dark", bold: true, align: "center" })
     },
-
     stay: {
       personalizedMobileHome: true,
       title: textStyle("🏕️ MA LOCATION", { color: "teal", bold: true, size: "large" }),
