@@ -771,29 +771,151 @@ const CAMPING = {
       intro: textStyle("Les marchés à découvrir", { color: "gray" }),
       accordion: true,
       blocks: [
-        [
-          textStyle("Lundi", { color: "orange", bold: true }),
-          textStyle(
-            "8h00 à 12h00 • Sanary\n" +
-            "9h00 à 13h00 • Bandol\n" +
-            "8h00 à 13h00 • Six-Fours-les-Plages\n" +
-            "17h00 à 19h00 • Ollioules\n" +
-            "8h30 à 12h30 • La Seyne-sur-Mer",
-            { color: "gray" }
-          ),
-          "📅"
-        ],
-        [
-          textStyle("Mardi", { color: "blue", bold: true }),
-          textStyle(
-            "9h00 à 13h00 • Bandol\n" +
-            "8h00 à 12h00 • Sanary\n" +
-            "8h00 à 12h00 • Saint-Cyr-sur-Mer",
-            { color: "gray" }
-          ),
-          "📅"
-        ]
-      ]
+       
+[
+  [
+    textStyle("Lundi", { color: "orange", bold: true }),
+    textStyle(
+      "8h00 à 13h00 • Marseille – Belle de Mai\n" +
+      "8h00 à 13h00 • Marseille – Marché aux fleurs Chave\n" +
+      "8h00 à 13h00 • Marseille – Marché aux fleurs Estrangin\n" +
+      "8h00 à 13h00 • Fontvieille\n" +
+      "8h30 à 13h00 • Les Milles\n" +
+      "8h00 à 13h00 • Saintes-Maries-de-la-Mer\n" +
+      "9h00 à 12h00 • La Ciotat – Marché des pêcheurs\n" +
+      "16h00 à 19h00 • Marseille – Friche Belle de Mai\n" +
+      "16h00 à 19h00 • Saint-Martin-de-Crau",
+      { color: "gray" }
+    ),
+    "📅"
+  ],
+  [
+    textStyle("Mardi", { color: "orange", bold: true }),
+    textStyle(
+      "8h00 à 13h00 • Aix-en-Provence\n" +
+      "8h00 à 13h00 • Arles – Raphèle-lès-Arles\n" +
+      "8h00 à 13h00 • Istres\n" +
+      "8h00 à 13h00 • Eyguières\n" +
+      "8h00 à 13h00 • Marseille – Saint-Antoine\n" +
+      "8h00 à 13h00 • Marseille – Marché de la Canebière\n" +
+      "7h30 à 13h30 • Marseille – Saint-Just\n" +
+      "8h00 à 13h00 • Cassis – Marché des pêcheurs\n" +
+      "8h00 à 13h00 • La Mède\n" +
+      "8h00 à 13h00 • Tarascon\n" +
+      "8h00 à 13h00 • Rognonas\n" +
+      "14h00 à 19h00 • Lambesc – Marché des producteurs\n" +
+      "15h00 à 19h00 • Marseille – Producteurs de la Joliette\n" 
+      { color: "gray" }
+    ),
+    "📅"
+  ],
+  [
+    textStyle("Mercredi", { color: "orange", bold: true }),
+    textStyle(
+      "7h00 à 13h00 • Allauch\n" +
+      "7h30 à 12h30 • Gémenos\n" +
+      "8h00 à 13h00 • Aix-en-Provence – Val Saint-André\n" +
+      "8h00 à 13h00 • Arles – Marché provençal\n" +
+      "8h00 à 13h00 • Marseille – Cours Julien\n" +
+      "8h00 à 13h00 • Marseille – Marché de la Rose\n" +
+      "8h00 à 13h00 • Marseille – Saint-Henri\n" +
+      "7h30 à 13h00 • Martigues – Carro\n" +
+      "7h30 à 13h00 • Martigues – La Couronne\n" +
+     { color: "gray" }
+    ),
+    "📅"
+  ],
+  [
+    textStyle("Jeudi", { color: "orange", bold: true }),
+    textStyle(
+      "8h00 à 13h00 • Aix-en-Provence – Centre\n" +
+      "8h00 à 13h00 • Marseille – Marché des Chartreux\n" +
+      "8h00 à 13h00 • Marseille – Marché Pol Lapeyre\n" +
+      "8h00 à 13h00 • Marseille – Saint-Barnabé\n" +
+      "9h00 à 13h00 • Marseille – Petit marché de Lulli\n" +
+      "8h00 à 13h00 • Martigues – Jonquières\n" +
+      "8h00 à 13h00 • Martigues – Ferrières\n" +
+      "8h00 à 13h00 • Cassis – Marché du centre\n" +
+      "8h00 à 13h00 • Auriol\n" +
+      "8h30 à 12h30 • Carnoux-en-Provence\n" +
+      "8h00 à 13h00 • Maussane-les-Alpilles\n" +
+      "8h00 à 13h00 • Fuveau\n" +
+      "8h00 à 13h00 • Sausset-les-Pins – Marché du port\n" +
+      "15h30 à 19h00 • La Ciotat – Marché bio\n" +
+      "17h00 à 19h00 • Marseille – Halles Terres de Provence\n" +
+      "17h00 à 20h00 • Orgon",
+      { color: "gray" }
+    ),
+    "📅"
+  ],
+  [
+    textStyle("Vendredi", { color: "orange", bold: true }),
+    textStyle(
+      "7h00 à 13h00 • Marseille – Marché aux fleurs du Prado\n" +
+      "8h00 à 13h00 • Aix-en-Provence – Puyricard\n" +
+      "8h00 à 13h00 • Istres – Entressen\n" +
+      "8h00 à 13h00 • Istres – Rassuen\n" +
+      "8h00 à 13h00 • Salon-de-Provence – Canourgues\n" +
+      "8h00 à 13h30 • Cassis – Marché du centre\n" +
+      "8h00 à 13h00 • Saintes-Maries-de-la-Mer\n" +
+      "8h00 à 13h00 • Lambesc\n" +
+      "8h00 à 13h00 • Saint-Martin-de-Crau\n" +
+      "8h00 à 13h00 • Eygalières\n" +
+      "8h00 à 13h00 • Châteauneuf-les-Martigues\n" +
+      "8h00 à 12h30 • Mallemort\n" +
+      "14h00 à 19h00 • Aubagne – Marché du Charrel\n" +
+      "15h00 à 20h00 • Eyguières – Marché des producteurs\n" +
+      "16h30 à 18h30 • Berre-l'Étang – Marché des producteurs",
+      { color: "gray" }
+    ),
+    "📅"
+  ],
+  [
+    textStyle("Samedi", { color: "orange", bold: true }),
+    textStyle(
+      "7h00 à 13h00 • Aix-en-Provence – Grand marché\n" +
+      "7h30 à 13h00 • Martigues – Carro\n" +
+      "8h00 à 13h00 • Arles – Marché provençal\n" +
+      "8h00 à 13h00 • Cassis – Marché paysan\n" +
+      "8h00 à 13h00 • La Ciotat – Marché des producteurs\n" +
+      "8h00 à 13h00 • La Ciotat – Marché du centre\n" +
+      "8h00 à 13h00 • Marseille – Marché de l'Estaque\n" +
+      "8h00 à 13h00 • Marseille – Marché de la Plaine\n" +
+      "8h00 à 13h00 • Salon-de-Provence – Marché bio\n" +
+      "8h00 à 13h00 • Saint-Rémy-de-Provence\n" +
+      "8h00 à 13h00 • Aubagne – Marché du centre\n" +
+      "8h00 à 13h00 • Cuges-les-Pins\n" +
+      "8h00 à 13h00 • Saint-Chamas\n" +
+      "8h00 à 12h30 • Gréasque\n" +
+      "8h00 à 13h00 • Venelles\n" +
+      "8h00 à 12h30 • Calas",
+      { color: "gray" }
+    ),
+    "📅"
+  ],
+  [
+    textStyle("Dimanche", { color: "orange", bold: true }),
+    textStyle(
+      "6h30 à 15h30 • Gardanne\n" +
+      "8h00 à 13h00 • Aix-en-Provence – Luynes\n" +
+      "8h00 à 13h00 • Salon-de-Provence – Centre\n" +
+      "8h00 à 13h00 • Marseille – Producteurs du Vieux-Port\n" +
+      "8h00 à 13h00 • La Ciotat – Marché du centre\n" +
+      "8h00 à 13h00 • Martigues – Jonquières\n" +
+      "8h00 à 13h00 • Martigues – Ferrières\n" +
+      "8h00 à 13h00 • Carry-le-Rouet – Marché des pêcheurs\n" +
+      "8h00 à 13h00 • Vitrolles\n" +
+      "8h00 à 13h00 • Bouc-Bel-Air\n" +
+      "8h00 à 13h00 • Gignac-la-Nerthe\n" +
+      "8h00 à 13h00 • Pélissanne\n" +
+      "8h00 à 13h00 • Jouques\n" +
+      "8h00 à 13h00 • Sausset-les-Pins",
+      { color: "gray" }
+    ),
+    "📅"
+  ]
+]
+
     },
     stay: {
       personalizedMobileHome: true,
