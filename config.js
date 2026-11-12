@@ -767,57 +767,32 @@ const CAMPING = {
       ]
     },
     market: {
-      title: textStyle("🌾LES MARCHÉS", { color: "green", bold: true, size: "large" }),
+      title: textStyle("🌾 LES MARCHÉS", { color: "green", bold: true, size: "large" }),
       intro: textStyle("Les marchés à découvrir", { color: "gray" }),
       accordion: true,
       blocks: [
-        {
-        day: "Lundi",
-          events: [
-            { text: "8:00 à 12:00 • Sanary", color: "pink", bold: true, icon: "" },
-            { text: "9:00 à 13:00 • Bandol", color: "blue", bold: true, icon: "" },
-            { text: "8:00 à 13:00 • Six-four les plages", color: "blue", bold: true, icon: "" },
-            { text: "17:00 à 19:00 • Ollioul", color: "blue", bold: true, icon: "" },
-            { text: "8:30 à 12:30 • La Seyne sur Mer", color: "blue", bold: true, icon: "" }
-          ]
-        },
-        {
-         day: "Mardi",
-          events: [
-            { text: "9:00 à 13:00• Bandol", color: "orange", bold: true, icon: "" },
-            { text: "8:00 à 12:00• Sanary", color: "green", bold: true, icon: "" },
-            { text: "8:00 à 12:00• Saint-Cyr-sur-Mer", color: "orange", bold: true, icon: "" },
-          ]
-        },
-        {
-         day: "Mercredi",
-          events: [
-            { text: "•", color: "purple", bold: true, icon: "" },
-            { text: "•", color: "yellow", icon: "" }
-          ]
-        },
-        {
-          day: "Jeudi",
-          events: [
-            { text: "•", color: "green", icon: "" },
-            { text: "•", color: "blue", icon: "" }
-          ]
-        },
-        {
-         day: "Vendredi",
-          events: [
-            { text: "•", color: "pink", bold: true, icon: "" },
-            { text: "•", color: "orange", bold: true, icon: "" }
-          ]
-        },
-        {
-         day: "Samedi",
-          events: [{ text: "Aucune animation prévue aujourd'hui", color: "black", icon: "😴" }]
-        },
-        {
-        day: "Dimanche",
-          events: [{ text: "20h00 • Pot d'accueil (restaurant)", color: "green", bold: true, icon: "🥂" }]
-        }
+        [
+          textStyle("Lundi", { color: "orange", bold: true }),
+          textStyle(
+            "8h00 à 12h00 • Sanary\n" +
+            "9h00 à 13h00 • Bandol\n" +
+            "8h00 à 13h00 • Six-Fours-les-Plages\n" +
+            "17h00 à 19h00 • Ollioules\n" +
+            "8h30 à 12h30 • La Seyne-sur-Mer",
+            { color: "gray" }
+          ),
+          "📅"
+        ],
+        [
+          textStyle("Mardi", { color: "blue", bold: true }),
+          textStyle(
+            "9h00 à 13h00 • Bandol\n" +
+            "8h00 à 12h00 • Sanary\n" +
+            "8h00 à 12h00 • Saint-Cyr-sur-Mer",
+            { color: "gray" }
+          ),
+          "📅"
+        ]
       ]
     },
     stay: {
