@@ -562,7 +562,7 @@ const CAMPING = {
         openingSchedule: {
           juilletAout: [{ start: "10:00", end: "20:00" }],
           septembreOctobre: [{ start: "08:00", end: "20:00" }],
-          novJan: [{ start: "00:00", end: "00:00" }]
+          novJan: [{ start: "", end: "" }]
         },
         note: textStyle("Ouvert ✔️", { color: "green", bold: true })
       },
@@ -574,7 +574,7 @@ const CAMPING = {
           MarsJuin: [{ start: "17:00", end: "22:00" }],
           juilletAout: [{ start: "08:30", end: "23:30" }],
           octobre: [{ start: "17:00", end: "22:00" }],
-          novJan: [{ start: "00:00", end: "00:01" }]
+          novJan: [{ start: "", end: "" }]
         },
         note: textStyle("Ouvert ✔️", { color: "green", bold: true })
       },
@@ -621,7 +621,7 @@ const CAMPING = {
         },
         {
           day: "Dimanche",
-          events: [{ text: "20h00 • Pot d'accueil (restaurant)", color: "green", bold: true, icon: "🥂" }]
+          events: [{ text: "•", color: "green", bold: true, icon: "" }]
         }
       ]
     }
