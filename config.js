@@ -653,57 +653,138 @@ const CAMPING = {
       image: "images/piscine.jpg",
       intro: textStyle("Découvrez nos piscines et nos toboggans, pour le bonheur des petits et des plus grands.", { color: "gray" }),
       blocks: [
-        [textStyle("HORAIRES", { color: "blue", bold: true }), textStyle("Basse Saison: 10h-19h\nJuillet-Août: 10h-20h", { color: "gray" }), "🕐"],
-        [textStyle("RÈGLES ESSENTIELLES", { color: "red", bold: true }), textStyle("Les shorts de bain ne sont pas autorisés. Respectez les consignes affichées et surveillez vos enfants.", { color: "gray" }), "⚠️"],
-        [textStyle("BASSINS AQUATIQUES", { color: "blue", bold: true }), textStyle("Venez découvrir nos 2 bassins, dont 1 équipé d'une pataugeoire.", { color: "gray" }), "🌊"],
-        [textStyle("TOBOGGANS", { color: "green", bold: true }), textStyle("Pour le plaisir des plus jeunes... comme des plus grands. Venez voir notre nouveauté 2026.", { color: "gray" }), "😉"]
+        [
+          textStyle("HORAIRES", { color: "blue", bold: true }),
+          textStyle("Basse Saison: 10h-19h\nJuillet-Août: 10h-20h", { color: "gray" }),
+          "🕐"
+        ],
+        [
+          textStyle("RÈGLES ESSENTIELLES", { color: "red", bold: true }),
+          textStyle("Les shorts de bain ne sont pas autorisés. Respectez les consignes affichées et surveillez vos enfants.", { color: "gray" }),
+          "📌"
+        ],
+        [
+          textStyle("BASSINS AQUATIQUES", { color: "blue", bold: true }),
+          textStyle("Venez découvrir nos 2 bassins, dont 1 équipé d'une pataugeoire.", { color: "gray" }),
+          "🌊"
+        ],
+        [
+          textStyle("TOBOGGANS", { color: "green", bold: true }),
+          textStyle("Pour le plaisir des plus jeunes... comme des plus grands. Venez voir notre nouveauté 2026.", { color: "gray" }),
+          "😉"
+        ]
       ]
     },
+
     restaurant: {
       title: textStyle("🍽️ RESTAURANT", { color: "orange", bold: true, size: "large" }),
       image: "images/resto.jpg",
       menuPdf: "images/carte.pdf",
       intro: textStyle("Toute l'équipe vous accueille pendant la saison.", { color: "gray" }),
       blocks: [
-        [textStyle("HORAIRES", { color: "orange", bold: true }), textStyle("Toute la journée en haute saison (juillet-août) et à partir de 17h le reste de l'année.", { color: "gray" }), "🕐"],
-        [textStyle("RÉSERVATION", { color: "green", bold: true }), textStyle("Il est plus que préférable de réserver. Pensez-y et allez voir directement le personnel du restaurant.", { color: "gray" }), "📞"]
+        [
+          textStyle("HORAIRES", { color: "orange", bold: true }),
+          textStyle("Toute la journée en haute saison (juillet-août) et à partir de 17h le reste de l'année.", { color: "gray" }),
+          "🕐"
+        ],
+        [
+          textStyle("RÉSERVATION", { color: "green", bold: true }),
+          textStyle("Il est plus que préférable de réserver. Pensez-y et allez voir directement le personnel du restaurant.", { color: "gray" }),
+          "📆"
+        ]
       ]
     },
+
     shop: {
       title: textStyle("📝 RÉCEPTION", { color: "green", bold: true, size: "large" }),
       image: "",
       intro: textStyle("Les services pratiques du camping.", { color: "gray" }),
       blocks: [
-        [textStyle("HORAIRES", { color: "green", bold: true }), textStyle("Basse saison (8h30-12h / 14h-19h)\nJuillet-Août (8h-20h)\nOctobre (9h-12h / 14h-19h)\nNovembre-Décembre-Janvier (9h-12h / 14h-18h)", { color: "gray" }), "🕐"],
-        [textStyle("NOTRE ÉQUIPE", { color: "orange", bold: true }), textStyle("Emmanuelle et Tess sont à votre disposition pour tout renseignement.", { color: "gray" }), "🦸‍♀️"],
-        [textStyle("ÉPICERIE", { color: "blue", bold: true }), textStyle("Il vous manque quelque chose ? Envie d'une petite gourmandise ? Notre épicerie est là pour vous.", { color: "gray" }), "🛍️"]
+        [
+          textStyle("HORAIRES", { color: "green", bold: true }),
+          textStyle("Basse saison (8h30-12h / 14h-19h)\nJuillet-Août (8h-20h)\nOctobre (9h-12h / 14h-19h)\nNovembre-Décembre-Janvier (9h-12h / 14h-18h)", { color: "gray" }),
+          "🕐"
+        ],
+        [
+          textStyle("NOTRE ÉQUIPE", { color: "orange", bold: true }),
+          textStyle("Emmanuelle et Tess sont à votre disposition pour tout renseignement.", { color: "gray" }),
+          "🦸‍♀️"
+        ],
+        [
+          textStyle("ÉPICERIE", { color: "blue", bold: true }),
+          textStyle("Il vous manque quelque chose ? Envie d'une petite gourmandise ? Notre épicerie est là pour vous.", { color: "gray" }),
+          "🛒"
+        ]
       ]
     },
+
     rules: {
       title: textStyle("📖 RÈGLEMENT DU CAMPING", { color: "purple", bold: true, size: "large" }),
       image: "",
       intro: textStyle("Merci de respecter ces règles afin que chacun profite de vacances agréables.", { color: "gray" }),
       blocks: [
-        [textStyle("CALME", { color: "purple", bold: true }), textStyle("Camping familial et calme. Merci de respecter le calme après 23h.", { color: "gray" }), "🌙"],
-        [textStyle("VÉHICULES", { color: "blue", bold: true }), textStyle("1 véhicule par mobil-home. Les véhicules supplémentaires doivent être stationnés sur le parking situé à l'extérieur.", { color: "gray" }), "🚗"],
-        [textStyle("CAPACITÉ", { color: "orange", bold: true }), textStyle("Merci de respecter les capacités maximum de votre location (2, 4 ou 6 personnes).", { color: "gray" }), "👨‍👩‍👧‍👦"],
-        [textStyle("MINEURS", { color: "red", bold: true }), textStyle("Un adulte est obligatoire dans chaque mobil-home. Les mineurs ne doivent pas être laissés sans surveillance.", { color: "gray" }), "🧒"],
-        [textStyle("DÉPART", { color: "green", bold: true }), textStyle("Les mobil-homes doivent être rendus propres avant 10h. Un état des lieux de sortie sera à réaliser.", { color: "gray" }), "🏠"],
-        [textStyle("ANIMAUX", { color: "teal", bold: true }), textStyle("Les animaux doivent être tenus sous contrôle et respecter les règles du camping.", { color: "gray" }), "🐶"],
-        [textStyle("PROPRETÉ", { color: "green", bold: true }), textStyle("Merci de respecter les espaces communs, sanitaires et zones de tri.", { color: "gray" }), "♻️"],
-        [textStyle("RISQUE INCENDIE", { color: "red", bold: true }), textStyle("Le camping est sous risque incendie important. Merci de respecter impérativement les règles de sécurité et de ne pas utiliser de barbecue non conforme.", { color: "gray" }), "🔥"],
-        [textStyle("CONSIGNES D'ÉVACUATION", { color: "green", bold: true }), textStyle("En cas d'évacuation, merci de vous rendre au point de rassemblement (CityStade) et de respecter les consignes de sécurité.", { color: "gray" }), "🚨"]
+        [
+          textStyle("CALME", { color: "purple", bold: true }),
+          textStyle("Camping familial et calme. Merci de respecter le calme après 23h.", { color: "gray" }),
+          "🌙"
+        ],
+        [
+          textStyle("VÉHICULES", { color: "blue", bold: true }),
+          textStyle("1 véhicule par mobil-home. Les véhicules supplémentaires doivent être stationnés sur le parking situé à l'extérieur.", { color: "gray" }),
+          "🚗"
+        ],
+        [
+          textStyle("CAPACITÉ", { color: "orange", bold: true }),
+          textStyle("Merci de respecter les capacités maximum de votre location (2, 4 ou 6 personnes).", { color: "gray" }),
+          "👨‍👩‍👧‍👦"
+        ],
+        [
+          textStyle("MINEURS", { color: "red", bold: true }),
+          textStyle("Un adulte est obligatoire dans chaque mobil-home. Les mineurs ne doivent pas être laissés sans surveillance.", { color: "gray" }),
+          "⚠️"
+        ],
+        [
+          textStyle("DÉPART", { color: "green", bold: true }),
+          textStyle("Les mobil-homes doivent être rendus propres avant 10h. Un état des lieux de sortie sera à réaliser.", { color: "gray" }),
+          "🏡"
+        ],
+        [
+          textStyle("ANIMAUX", { color: "teal", bold: true }),
+          textStyle("Les animaux doivent être tenus sous contrôle et respecter les règles du camping.", { color: "gray" }),
+          "🐶"
+        ],
+        [
+          textStyle("PROPRETÉ", { color: "green", bold: true }),
+          textStyle("Merci de respecter les espaces communs, sanitaires et zones de tri.", { color: "gray" }),
+          "♻️"
+        ],
+        [
+          textStyle("RISQUE INCENDIE", { color: "red", bold: true }),
+          textStyle("Le camping est sous risque incendie important. Merci de respecter impérativement les règles de sécurité et de ne pas utiliser les barbecues hors règles.", { color: "gray" }),
+          "🔥"
+        ],
+        [
+          textStyle("CONSIGNES D'ÉVACUATION", { color: "green", bold: true }),
+          textStyle("En cas d'évacuation, merci de vous rendre au point de rassemblement (CityStade) et de respecter les consignes des équipes.", { color: "gray" }),
+          "🚨"
+        ]
       ]
     },
+
     map: {
       interactive: true,
       title: textStyle("🗺️ PLAN DU CAMPING", { color: "teal", bold: true, size: "large" }),
       image: "images/plan.jpg",
       intro: textStyle("Repérez facilement les principaux services et équipements.", { color: "gray" }),
       blocks: [
-        [textStyle("📍 Points importants", { color: "teal", bold: true }), textStyle("Réception • Piscine • Restaurant • Épicerie • Sanitaires • Aires de jeux • Parking", { color: "gray" }), "📍"]
+        [
+          textStyle("📍 Points importants", { color: "teal", bold: true }),
+          textStyle("Réception • Piscine • Restaurant • Épicerie • Sanitaires • Aires de jeux • Parking", { color: "gray" }),
+          "🗺️"
+        ]
       ]
     },
+
     region: {
       title: textStyle("📍 À DÉCOUVRIR", { color: "teal", bold: true, size: "large" }),
       intro: textStyle("Découvrez les incontournables autour de Ceyreste et de La Ciotat.", { color: "gray" }),
@@ -715,6 +796,7 @@ const CAMPING = {
         [textStyle("MARCHÉS LOCAUX", { color: "purple", bold: true }), textStyle("La Ciotat, Bandol, Sanary, Le Castellet.", { color: "gray" }), "🛍️"]
       ]
     },
+
     partners: {
       title: textStyle("🚲 NOS PARTENAIRES", { color: "orange", bold: true, size: "large" }),
       image: "",
@@ -730,6 +812,7 @@ const CAMPING = {
         [textStyle("Parapente", { color: "pink", bold: true }), textStyle("MARSEILLE PARAPENTE, baptêmes et formations, 06.51.84.46.71.", { color: "gray" }), "🎈"]
       ]
     },
+
     emergency: {
       title: textStyle("NOS SERVICES", { color: "red", bold: true, size: "large" }),
       image: "",
@@ -744,6 +827,7 @@ const CAMPING = {
         [textStyle("DÉPÔT DE PAIN", { color: "orange", bold: true }), textStyle("Dépôt de pain et viennoiseries tous les jours, sur réservation à la réception.", { color: "gray" }), "🥖"]
       ]
     },
+
     notifications: {
       title: textStyle("🔔 Infos du camping", { color: "blue", bold: true, size: "large" }),
       image: "",
@@ -752,171 +836,171 @@ const CAMPING = {
         [textStyle("📢 Information", { color: "orange", bold: true }), textStyle("Saison 2026: 04 avril au 02 janvier 2027", { color: "gray" }), "📢"]
       ]
     },
+
     departure: {
       title: textStyle("🧳 MON DÉPART", { color: "orange", bold: true, size: "large" }),
       intro: textStyle("Les dernières étapes avant de prendre la route 👋", { color: "gray" }),
       accordion: true,
       blocks: [
         [textStyle("HEURE DE DÉPART", { color: "orange", bold: true }), textStyle("Votre hébergement doit être libéré avant 10h00.", { color: "gray" }), "🏠"],
-        [textStyle("HÉBERGEMENT", { color: "green", bold: true }), textStyle("Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping: poubelles vidées, réfrigérateur vidé et rangement effectué.", { color: "gray" }), "🏡"],
+        [textStyle("HÉBERGEMENT", { color: "green", bold: true }), textStyle("Merci de laisser votre hébergement propre et rangé conformément aux consignes du camping: poubelles vidées, réfrigérateur vide, vaisselle lavée, etc.", { color: "gray" }), "🧼"],
         [textStyle("DÉCHETS", { color: "teal", bold: true }), textStyle("Déposez vos déchets dans les espaces prévus à cet effet, derrière la laverie.", { color: "gray" }), "🗑️"],
-        [textStyle("FORFAIT MÉNAGE", { color: "orange", bold: true }), textStyle("Le ménage de fin de séjour est à votre charge. Si tel n'était pas le cas, des frais supplémentaires peuvent être appliqués.", { color: "gray" }), "🧼"],
+        [textStyle("FORFAIT MÉNAGE", { color: "orange", bold: true }), textStyle("Le ménage de fin de séjour est à votre charge. Si tel n'était pas le cas, des frais supplémentaires peuvent être appliqués.", { color: "gray" }), "🧹"],
         [textStyle("CLÉS", { color: "blue", bold: true }), textStyle("Pensez à faire l'état des lieux de sortie en appelant la réception le jour de votre départ.", { color: "gray" }), "🔑"],
         [textStyle("CAUTION", { color: "purple", bold: true }), textStyle("La caution vous sera restituée uniquement après vérification par nos équipes.", { color: "gray" }), "💶"],
         [textStyle("DERNIÈRES VÉRIFICATIONS", { color: "teal", bold: true }), textStyle("Pensez à vérifier vos affaires personnelles et les abords de votre emplacement ou hébergement.", { color: "gray" }), "✅"]
       ]
     },
+
     market: {
       title: textStyle("🌾 LES MARCHÉS", { color: "green", bold: true, size: "large" }),
       intro: textStyle("Les marchés à découvrir", { color: "gray" }),
       accordion: true,
       blocks: [
-       
-[
-  [
-    textStyle("Lundi", { color: "orange", bold: true }),
-    textStyle(
-      "8h00 à 13h00 • Marseille – Belle de Mai\n" +
-      "8h00 à 13h00 • Marseille – Marché aux fleurs Chave\n" +
-      "8h00 à 13h00 • Marseille – Marché aux fleurs Estrangin\n" +
-      "8h00 à 13h00 • Fontvieille\n" +
-      "8h30 à 13h00 • Les Milles\n" +
-      "8h00 à 13h00 • Saintes-Maries-de-la-Mer\n" +
-      "9h00 à 12h00 • La Ciotat – Marché des pêcheurs\n" +
-      "16h00 à 19h00 • Marseille – Friche Belle de Mai\n" +
-      "16h00 à 19h00 • Saint-Martin-de-Crau",
-      { color: "gray" }
-    ),
-    "📅"
-  ],
-  [
-    textStyle("Mardi", { color: "orange", bold: true }),
-    textStyle(
-      "8h00 à 13h00 • Aix-en-Provence\n" +
-      "8h00 à 13h00 • Arles – Raphèle-lès-Arles\n" +
-      "8h00 à 13h00 • Istres\n" +
-      "8h00 à 13h00 • Eyguières\n" +
-      "8h00 à 13h00 • Marseille – Saint-Antoine\n" +
-      "8h00 à 13h00 • Marseille – Marché de la Canebière\n" +
-      "7h30 à 13h30 • Marseille – Saint-Just\n" +
-      "8h00 à 13h00 • Cassis – Marché des pêcheurs\n" +
-      "8h00 à 13h00 • La Mède\n" +
-      "8h00 à 13h00 • Tarascon\n" +
-      "8h00 à 13h00 • Rognonas\n" +
-      "14h00 à 19h00 • Lambesc – Marché des producteurs\n" +
-      "15h00 à 19h00 • Marseille – Producteurs de la Joliette\n" 
-      { color: "gray" }
-    ),
-    "📅"
-  ],
-  [
-    textStyle("Mercredi", { color: "orange", bold: true }),
-    textStyle(
-      "7h00 à 13h00 • Allauch\n" +
-      "7h30 à 12h30 • Gémenos\n" +
-      "8h00 à 13h00 • Aix-en-Provence – Val Saint-André\n" +
-      "8h00 à 13h00 • Arles – Marché provençal\n" +
-      "8h00 à 13h00 • Marseille – Cours Julien\n" +
-      "8h00 à 13h00 • Marseille – Marché de la Rose\n" +
-      "8h00 à 13h00 • Marseille – Saint-Henri\n" +
-      "7h30 à 13h00 • Martigues – Carro\n" +
-      "7h30 à 13h00 • Martigues – La Couronne\n" +
-     { color: "gray" }
-    ),
-    "📅"
-  ],
-  [
-    textStyle("Jeudi", { color: "orange", bold: true }),
-    textStyle(
-      "8h00 à 13h00 • Aix-en-Provence – Centre\n" +
-      "8h00 à 13h00 • Marseille – Marché des Chartreux\n" +
-      "8h00 à 13h00 • Marseille – Marché Pol Lapeyre\n" +
-      "8h00 à 13h00 • Marseille – Saint-Barnabé\n" +
-      "9h00 à 13h00 • Marseille – Petit marché de Lulli\n" +
-      "8h00 à 13h00 • Martigues – Jonquières\n" +
-      "8h00 à 13h00 • Martigues – Ferrières\n" +
-      "8h00 à 13h00 • Cassis – Marché du centre\n" +
-      "8h00 à 13h00 • Auriol\n" +
-      "8h30 à 12h30 • Carnoux-en-Provence\n" +
-      "8h00 à 13h00 • Maussane-les-Alpilles\n" +
-      "8h00 à 13h00 • Fuveau\n" +
-      "8h00 à 13h00 • Sausset-les-Pins – Marché du port\n" +
-      "15h30 à 19h00 • La Ciotat – Marché bio\n" +
-      "17h00 à 19h00 • Marseille – Halles Terres de Provence\n" +
-      "17h00 à 20h00 • Orgon",
-      { color: "gray" }
-    ),
-    "📅"
-  ],
-  [
-    textStyle("Vendredi", { color: "orange", bold: true }),
-    textStyle(
-      "7h00 à 13h00 • Marseille – Marché aux fleurs du Prado\n" +
-      "8h00 à 13h00 • Aix-en-Provence – Puyricard\n" +
-      "8h00 à 13h00 • Istres – Entressen\n" +
-      "8h00 à 13h00 • Istres – Rassuen\n" +
-      "8h00 à 13h00 • Salon-de-Provence – Canourgues\n" +
-      "8h00 à 13h30 • Cassis – Marché du centre\n" +
-      "8h00 à 13h00 • Saintes-Maries-de-la-Mer\n" +
-      "8h00 à 13h00 • Lambesc\n" +
-      "8h00 à 13h00 • Saint-Martin-de-Crau\n" +
-      "8h00 à 13h00 • Eygalières\n" +
-      "8h00 à 13h00 • Châteauneuf-les-Martigues\n" +
-      "8h00 à 12h30 • Mallemort\n" +
-      "14h00 à 19h00 • Aubagne – Marché du Charrel\n" +
-      "15h00 à 20h00 • Eyguières – Marché des producteurs\n" +
-      "16h30 à 18h30 • Berre-l'Étang – Marché des producteurs",
-      { color: "gray" }
-    ),
-    "📅"
-  ],
-  [
-    textStyle("Samedi", { color: "orange", bold: true }),
-    textStyle(
-      "7h00 à 13h00 • Aix-en-Provence – Grand marché\n" +
-      "7h30 à 13h00 • Martigues – Carro\n" +
-      "8h00 à 13h00 • Arles – Marché provençal\n" +
-      "8h00 à 13h00 • Cassis – Marché paysan\n" +
-      "8h00 à 13h00 • La Ciotat – Marché des producteurs\n" +
-      "8h00 à 13h00 • La Ciotat – Marché du centre\n" +
-      "8h00 à 13h00 • Marseille – Marché de l'Estaque\n" +
-      "8h00 à 13h00 • Marseille – Marché de la Plaine\n" +
-      "8h00 à 13h00 • Salon-de-Provence – Marché bio\n" +
-      "8h00 à 13h00 • Saint-Rémy-de-Provence\n" +
-      "8h00 à 13h00 • Aubagne – Marché du centre\n" +
-      "8h00 à 13h00 • Cuges-les-Pins\n" +
-      "8h00 à 13h00 • Saint-Chamas\n" +
-      "8h00 à 12h30 • Gréasque\n" +
-      "8h00 à 13h00 • Venelles\n" +
-      "8h00 à 12h30 • Calas",
-      { color: "gray" }
-    ),
-    "📅"
-  ],
-  [
-    textStyle("Dimanche", { color: "orange", bold: true }),
-    textStyle(
-      "6h30 à 15h30 • Gardanne\n" +
-      "8h00 à 13h00 • Aix-en-Provence – Luynes\n" +
-      "8h00 à 13h00 • Salon-de-Provence – Centre\n" +
-      "8h00 à 13h00 • Marseille – Producteurs du Vieux-Port\n" +
-      "8h00 à 13h00 • La Ciotat – Marché du centre\n" +
-      "8h00 à 13h00 • Martigues – Jonquières\n" +
-      "8h00 à 13h00 • Martigues – Ferrières\n" +
-      "8h00 à 13h00 • Carry-le-Rouet – Marché des pêcheurs\n" +
-      "8h00 à 13h00 • Vitrolles\n" +
-      "8h00 à 13h00 • Bouc-Bel-Air\n" +
-      "8h00 à 13h00 • Gignac-la-Nerthe\n" +
-      "8h00 à 13h00 • Pélissanne\n" +
-      "8h00 à 13h00 • Jouques\n" +
-      "8h00 à 13h00 • Sausset-les-Pins",
-      { color: "gray" }
-    ),
-    "📅"
-  ]
-]
-
+        [
+          textStyle("Lundi", { color: "orange", bold: true }),
+          textStyle(
+            "8h00 à 13h00 • Marseille – Belle de Mai\n" +
+            "8h00 à 13h00 • Marseille – Marché aux fleurs Chave\n" +
+            "8h00 à 13h00 • Marseille – Marché aux fleurs Estrangin\n" +
+            "8h00 à 13h00 • Fontvieille\n" +
+            "8h30 à 13h00 • Les Milles\n" +
+            "8h00 à 13h00 • Saintes-Maries-de-la-Mer\n" +
+            "9h00 à 12h00 • La Ciotat – Marché des pêcheurs\n" +
+            "16h00 à 19h00 • Marseille – Friche Belle de Mai\n" +
+            "16h00 à 19h00 • Saint-Martin-de-Crau",
+            { color: "gray" }
+          ),
+          "📅"
+        ],
+        [
+          textStyle("Mardi", { color: "orange", bold: true }),
+          textStyle(
+            "8h00 à 13h00 • Aix-en-Provence\n" +
+            "8h00 à 13h00 • Arles – Raphèle-lès-Arles\n" +
+            "8h00 à 13h00 • Istres\n" +
+            "8h00 à 13h00 • Eyguières\n" +
+            "8h00 à 13h00 • Marseille – Saint-Antoine\n" +
+            "8h00 à 13h00 • Marseille – Marché de la Canebière\n" +
+            "7h30 à 13h30 • Marseille – Saint-Just\n" +
+            "8h00 à 13h00 • Cassis – Marché des pêcheurs\n" +
+            "8h00 à 13h00 • La Mède\n" +
+            "8h00 à 13h00 • Tarascon\n" +
+            "8h00 à 13h00 • Rognonas\n" +
+            "14h00 à 19h00 • Lambesc – Marché des producteurs\n" +
+            "15h00 à 19h00 • Marseille – Producteurs de la Joliette",
+            { color: "gray" }
+          ),
+          "📅"
+        ],
+        [
+          textStyle("Mercredi", { color: "orange", bold: true }),
+          textStyle(
+            "7h00 à 13h00 • Allauch\n" +
+            "7h30 à 12h30 • Gémenos\n" +
+            "8h00 à 13h00 • Aix-en-Provence – Val Saint-André\n" +
+            "8h00 à 13h00 • Arles – Marché provençal\n" +
+            "8h00 à 13h00 • Marseille – Cours Julien\n" +
+            "8h00 à 13h00 • Marseille – Marché de la Rose\n" +
+            "8h00 à 13h00 • Marseille – Saint-Henri\n" +
+            "7h30 à 13h00 • Martigues – Carro\n" +
+            "7h30 à 13h00 • Martigues – La Couronne",
+            { color: "gray" }
+          ),
+          "📅"
+        ],
+        [
+          textStyle("Jeudi", { color: "orange", bold: true }),
+          textStyle(
+            "8h00 à 13h00 • Aix-en-Provence – Centre\n" +
+            "8h00 à 13h00 • Marseille – Marché des Chartreux\n" +
+            "8h00 à 13h00 • Marseille – Marché Pol Lapeyre\n" +
+            "8h00 à 13h00 • Marseille – Saint-Barnabé\n" +
+            "9h00 à 13h00 • Marseille – Petit marché de Lulli\n" +
+            "8h00 à 13h00 • Martigues – Jonquières\n" +
+            "8h00 à 13h00 • Martigues – Ferrières\n" +
+            "8h00 à 13h00 • Cassis – Marché du centre\n" +
+            "8h00 à 13h00 • Auriol\n" +
+            "8h30 à 12h30 • Carnoux-en-Provence\n" +
+            "8h00 à 13h00 • Maussane-les-Alpilles\n" +
+            "8h00 à 13h00 • Fuveau\n" +
+            "8h00 à 13h00 • Sausset-les-Pins – Marché du port\n" +
+            "15h30 à 19h00 • La Ciotat – Marché bio\n" +
+            "17h00 à 19h00 • Marseille – Halles Terres de Provence\n" +
+            "17h00 à 20h00 • Orgon",
+            { color: "gray" }
+          ),
+          "📅"
+        ],
+        [
+          textStyle("Vendredi", { color: "orange", bold: true }),
+          textStyle(
+            "7h00 à 13h00 • Marseille – Marché aux fleurs du Prado\n" +
+            "8h00 à 13h00 • Aix-en-Provence – Puyricard\n" +
+            "8h00 à 13h00 • Istres – Entressen\n" +
+            "8h00 à 13h00 • Istres – Rassuen\n" +
+            "8h00 à 13h00 • Salon-de-Provence – Canourgues\n" +
+            "8h00 à 13h30 • Cassis – Marché du centre\n" +
+            "8h00 à 13h00 • Saintes-Maries-de-la-Mer\n" +
+            "8h00 à 13h00 • Lambesc\n" +
+            "8h00 à 13h00 • Saint-Martin-de-Crau\n" +
+            "8h00 à 13h00 • Eygalières\n" +
+            "8h00 à 13h00 • Châteauneuf-les-Martigues\n" +
+            "8h00 à 12h30 • Mallemort\n" +
+            "14h00 à 19h00 • Aubagne – Marché du Charrel\n" +
+            "15h00 à 20h00 • Eyguières – Marché des producteurs\n" +
+            "16h30 à 18h30 • Berre-l'Étang – Marché des producteurs",
+            { color: "gray" }
+          ),
+          "📅"
+        ],
+        [
+          textStyle("Samedi", { color: "orange", bold: true }),
+          textStyle(
+            "7h00 à 13h00 • Aix-en-Provence – Grand marché\n" +
+            "7h30 à 13h00 • Martigues – Carro\n" +
+            "8h00 à 13h00 • Arles – Marché provençal\n" +
+            "8h00 à 13h00 • Cassis – Marché paysan\n" +
+            "8h00 à 13h00 • La Ciotat – Marché des producteurs\n" +
+            "8h00 à 13h00 • La Ciotat – Marché du centre\n" +
+            "8h00 à 13h00 • Marseille – Marché de l'Estaque\n" +
+            "8h00 à 13h00 • Marseille – Marché de la Plaine\n" +
+            "8h00 à 13h00 • Salon-de-Provence – Marché bio\n" +
+            "8h00 à 13h00 • Saint-Rémy-de-Provence\n" +
+            "8h00 à 13h00 • Aubagne – Marché du centre\n" +
+            "8h00 à 13h00 • Cuges-les-Pins\n" +
+            "8h00 à 13h00 • Saint-Chamas\n" +
+            "8h00 à 12h30 • Gréasque\n" +
+            "8h00 à 13h00 • Venelles\n" +
+            "8h00 à 12h30 • Calas",
+            { color: "gray" }
+          ),
+          "📅"
+        ],
+        [
+          textStyle("Dimanche", { color: "orange", bold: true }),
+          textStyle(
+            "6h30 à 15h30 • Gardanne\n" +
+            "8h00 à 13h00 • Aix-en-Provence – Luynes\n" +
+            "8h00 à 13h00 • Salon-de-Provence – Centre\n" +
+            "8h00 à 13h00 • Marseille – Producteurs du Vieux-Port\n" +
+            "8h00 à 13h00 • La Ciotat – Marché du centre\n" +
+            "8h00 à 13h00 • Martigues – Jonquières\n" +
+            "8h00 à 13h00 • Martigues – Ferrières\n" +
+            "8h00 à 13h00 • Carry-le-Rouet – Marché des pêcheurs\n" +
+            "8h00 à 13h00 • Vitrolles\n" +
+            "8h00 à 13h00 • Bouc-Bel-Air\n" +
+            "8h00 à 13h00 • Gignac-la-Nerthe\n" +
+            "8h00 à 13h00 • Pélissanne\n" +
+            "8h00 à 13h00 • Jouques\n" +
+            "8h00 à 13h00 • Sausset-les-Pins",
+            { color: "gray" }
+          ),
+          "📅"
+        ]
+      ]
     },
+
     stay: {
       personalizedMobileHome: true,
       title: textStyle("🏕️ MA LOCATION", { color: "teal", bold: true, size: "large" }),
