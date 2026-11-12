@@ -644,7 +644,7 @@ const CAMPING = {
     { id: "partners", icon: "🚲", title: textStyle("NOS PARTENAIRES", { color: "orange", bold: true }), desc: textStyle("Activités locales", { color: "gray" }) },
     { id: "emergency", icon: "📦", title: textStyle("NOS SERVICES", { color: "red", bold: true }), desc: textStyle("Toutes nos locations et suppléments à retrouver ici", { color: "gray" }) },
     { id: "departure", icon: "🧳", title: textStyle("MON DÉPART", { color: "orange", bold: true }), desc: textStyle("Les dernières étapes avant de partir", { color: "gray" }) },
-    { id: "market", icon: "🧳", title: textStyle("LES MARCHES", { color: "red", bold: true }), desc: textStyle("Tous les marchés à découvrir", { color: "gray" }) }
+    { id: "market", icon: "🌾", title: textStyle("LES MARCHES", { color: "red", bold: true }), desc: textStyle("Tous les marchés à découvrir", { color: "gray" }) }
   ],
 
   sections: {
@@ -767,22 +767,25 @@ const CAMPING = {
       ]
     },
     market: {
-      title: textStyle("LES MARCHÉS", { color: "green", bold: true, size: "large" }),
+      title: textStyle("🌾LES MARCHÉS", { color: "green", bold: true, size: "large" }),
       intro: textStyle("Les marchés à découvrir", { color: "gray" }),
       accordion: true,
       blocks: [
         {
           day: "Lundi",
           events: [
-            { text: "8h00 à 12h00 • Sanary", color: "pink", bold: true, icon: "" },
-            { text: "9h00 à 13h00 • Bandol", color: "blue", bold: true, icon: "" }
+            { text: "8:00 à 12:00 • Sanary", color: "pink", bold: true, icon: "" },
+            { text: "9:00 à 13:00 • Bandol", color: "blue", bold: true, icon: "" },
+            { text: "8:00 à 13:00 • Six-four les plages", color: "blue", bold: true, icon: "" },
+            { text: "17:00 à 19:00 • Ollioul", color: "blue", bold: true, icon: "" },
+            { text: "8:30 à 12:30 • La Seyne sur Mer", color: "blue", bold: true, icon: "" }
           ]
         },
         {
           day: "Mardi",
           events: [
-            { text: "•", color: "orange", bold: true, icon: "" },
-            { text: "•", color: "green", icon: "" }
+            { text: "9:00 à 13:00• Bandol", color: "orange", bold: true, icon: "" },
+            { text: "8:00•", color: "green", icon: "" }
           ]
         },
         {
